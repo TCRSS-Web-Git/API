@@ -3,13 +3,22 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Traits\EloquentDecodeHash;
+use App\Traits\EloquentFindByHash;
+use App\Traits\Hashidable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use EloquentDecodeHash;
+    use EloquentFindByHash;
+    use HasFactory;
+    use Hashidable;
+    use Notifiable;
+
+    public const HASHID_PREFIX = 'user_';
 
     /**
      * The attributes that are mass assignable.
