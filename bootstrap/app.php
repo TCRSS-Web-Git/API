@@ -6,7 +6,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Support\Facades\Route;
 
 // BugSnag can increase the PHP memory limit when app runs out of memory to ensure events can be delivered.
-(new \Bugsnag\BugsnagLaravel\OomBootstrapper())->bootstrap();
+(new \Bugsnag\BugsnagLaravel\OomBootstrapper)->bootstrap();
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -30,6 +30,9 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->api(prepend: [
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+        ]);
+        $middleware->api([
+            \App\Http\Middleware\LocalizationHeader::class,
         ]);
 
         $middleware->alias([

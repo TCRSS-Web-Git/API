@@ -26,7 +26,6 @@ class AppServiceProvider extends ServiceProvider
             return config('app.frontend_url')."/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
         });
 
-
         Route::bind('user', function ($value) {
             return User::findByHashOrFail($value);
         });

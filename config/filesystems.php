@@ -115,7 +115,6 @@ return [
             'throw' => true,
         ],
 
-
         // for storing backup files (e.g. database backup)
         's3_backup' => [
             'driver' => 's3',
