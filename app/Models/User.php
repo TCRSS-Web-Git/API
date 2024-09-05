@@ -9,6 +9,7 @@ use App\Traits\Hashidable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -16,6 +17,7 @@ class User extends Authenticatable
     use EloquentFindByHash;
     use HasFactory;
     use Hashidable;
+    use HasRoles;
     use Notifiable;
 
     public const HASHID_PREFIX = 'user_';
