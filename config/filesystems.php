@@ -15,6 +15,10 @@ return [
 
     'default' => env('FILESYSTEM_DISK', 'local'),
 
+    'storage_disk' => env('FILESYSTEM_PRIVATE_DISK', 'private'), // 'private' for local, 's3_private' for prod
+
+    'temporary_disk' => env('FILESYSTEM_TEMPORARY_DISK', 'temporary'), // 'temporary' for local, 's3_temporary' for prod
+
     /*
     |--------------------------------------------------------------------------
     | Filesystem Disks
@@ -29,33 +33,87 @@ return [
     */
 
     'disks' => [
-
+        // default from Laravel
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
-            'throw' => false,
+            'throw' => true,
         ],
 
+        // default from Laravel
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
-            'throw' => false,
+            'throw' => true,
         ],
 
+        // for public files (e.g. product images, profile pictures, videos, blog content)
+        'media' => [
+            'driver' => 'local',
+            'root' => public_path('media'),
+            'url' => env('APP_URL').'/media',
+            'visibility' => 'public',
+            'throw' => true,
+        ],
+
+        // private bucket for storing private files (e.g. receipts, invoices, ID cards)
+        'private' => [
+            'driver' => 'local',
+            'root' => public_path('private'),
+            'url' => env('APP_URL').'/private',
+            'throw' => true,
+        ],
+
+        // for storing temporary files, files will be deleted after a certain period
+        // use when storing file before model is created, and move to real bucket after model is created
+        'temporary' => [
+            'driver' => 'local',
+            'root' => public_path('temporary'),
+            'url' => env('APP_URL').'/temporary',
+            'throw' => true,
+        ],
+
+        // for public files (e.g. product images, profile pictures, videos, blog content)
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'bucket' => env('AWS_BUCKET'),
+            'region' => env('AWS_DEFAULT_REGION', 'ap-southeast-1'),
+            'bucket' => env('AWS_BUCKET_PUBLIC'),
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
-            'throw' => false,
+            'throw' => true,
         ],
 
+        // private bucket for storing private files (e.g. receipts, invoices, ID cards)
+        's3_private' => [
+            'driver' => 's3',
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION', 'ap-southeast-1'),
+            'bucket' => env('AWS_BUCKET_PRIVATE'),
+            'url' => env('AWS_URL_PRIVATE'),
+            'endpoint' => env('AWS_ENDPOINT'),
+            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+            'throw' => true,
+        ],
+
+        // for storing temporary files, files will be deleted after a certain period
+        // use when storing file before model is created, and move to real bucket after model is created
+        's3_temporary' => [
+            'driver' => 's3',
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION', 'ap-southeast-1'),
+            'bucket' => env('AWS_BUCKET_TEMPORARY'),
+            'url' => env('AWS_URL_TEMPORARY'),
+            'endpoint' => env('AWS_ENDPOINT'),
+            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+            'throw' => true,
+        ],
     ],
 
     /*
