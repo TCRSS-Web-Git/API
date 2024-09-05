@@ -1,0 +1,28 @@
+meta {
+  name: CSRF-cookie
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{backend-url}}/sanctum/csrf-cookie
+  body: none
+  auth: none
+}
+
+script:post-response {
+  const cookies = res.getHeader('set-cookie');
+  for (let index in cookies) {
+    if (cookies[index].includes('XSRF-TOKEN')){
+      let cookie = cookies[index].split(";");
+      cookie.map(item => {
+        if (item.includes('XSRF-TOKEN')) {
+          let xsrfToken = item.replace("XSRF-TOKEN=", "");
+          let token = bru.setEnvVar("xsrf_token", unescape(xsrfToken));
+        }
+      });
+      return;
+    }
+  }
+  
+}
