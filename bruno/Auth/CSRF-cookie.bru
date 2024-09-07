@@ -5,24 +5,28 @@ meta {
 }
 
 get {
-  url: {{backend-url}}/sanctum/csrf-cookie
+  url: {{backend_url}}/sanctum/csrf-cookie
   body: none
   auth: none
 }
 
 script:post-response {
-  const cookies = res.getHeader('set-cookie');
-  for (let index in cookies) {
-    if (cookies[index].includes('XSRF-TOKEN')){
-      let cookie = cookies[index].split(";");
-      cookie.map(item => {
-        if (item.includes('XSRF-TOKEN')) {
-          let xsrfToken = item.replace("XSRF-TOKEN=", "");
-          let token = bru.setEnvVar("xsrf_token", unescape(xsrfToken));
-        }
-      });
-      return;
-    }
-  }
+  // const cookies = res.getHeader('set-cookie');
+  // for (let index in cookies) {
+  //   if (cookies[index].includes('XSRF-TOKEN')){
+  //     let cookie = cookies[index].split(";");
+  //     cookie.map(item => {
+  //       if (item.includes('XSRF-TOKEN')) {
+  //         let xsrfToken = item.replace("XSRF-TOKEN=", "");
+  //         let token = bru.setEnvVar("xsrf_token", unescape(xsrfToken));
+  //       }
+  //     });
+  //     return;
+  //   }
+  // }
   
+  const setCookieHeader = res.getHeader('set-cookie')[0];
+  const xsrfTokenMatch  = setCookieHeader.match(/XSRF-TOKEN=([^;]+)/);
+  const xsrfToken = decodeURIComponent(xsrfTokenMatch[1]);
+  bru.setEnvVar('xsrf_token',xsrfToken);
 }
