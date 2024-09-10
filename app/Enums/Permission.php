@@ -7,7 +7,7 @@ enum Permission: string
     case USERS_VIEW = 'USERS:VIEW';
 //    case USERS_VIEW_DELETED = 'USERS:VIEW_DELETED';
     case USERS_CREATE = 'USERS:CREATE';
-    case USERS_EDIT = 'USERS:EDIT';
+    case USERS_UPDATE = 'USERS:UPDATE';
     case USERS_DELETE = 'USERS:DELETE';
 
     public static function defaultSuperAdminPermissions(): array
