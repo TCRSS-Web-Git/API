@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Permission;
+use App\Models\Role;
 use App\Models\User;
 
 return [
@@ -42,6 +44,18 @@ return [
         ],
 
         // Please keep it in alphabetical order.
+
+        Permission::class => [
+            'salt' => env('HASHIDS_PERMISSION', 'hQvnpYx9FRgXQJqjb7Vd'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
+
+        Role::class => [
+            'salt' => env('HASHIDS_ROLE', 'MEb4EWRN6KAL7QfAQMJw'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
 
         User::class => [
             'salt' => env('HASHIDS_USER', 'fdMpJD8QbuAUx9HvJzse'),
