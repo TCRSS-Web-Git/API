@@ -16,9 +16,17 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('phone')->nullable();
+            $table->string('password')->nullable();
             $table->rememberToken();
+            if (config('database.default') === 'mysql') {
+                // add unique index for email to prevent multiple users with the same email
+                $table->string('email_unique')->storedAs("CONCAT(email, '#', IF(deleted_at IS NULL, '-', deleted_at))")->unique();
+            } else {
+                $table->string('email_unique')->nullable();
+            }
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

@@ -5,9 +5,7 @@ namespace Database\Seeders;
 use App\Enums\Permission as PermissionEnum;
 use App\Models\Permission;
 use App\Models\Role;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
 
 class RolePermissionSeeder extends Seeder
 {

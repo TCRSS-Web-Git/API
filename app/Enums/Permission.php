@@ -5,7 +5,7 @@ namespace App\Enums;
 enum Permission: string
 {
     case USERS_VIEW = 'USERS:VIEW';
-//    case USERS_VIEW_DELETED = 'USERS:VIEW_DELETED';
+    //    case USERS_VIEW_DELETED = 'USERS:VIEW_DELETED';
     case USERS_CREATE = 'USERS:CREATE';
     case USERS_UPDATE = 'USERS:UPDATE';
     case USERS_DELETE = 'USERS:DELETE';
