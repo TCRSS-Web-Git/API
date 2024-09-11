@@ -1,66 +1,43 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+## About WaWa X Starter API
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+API สำหรับ website และ admin
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Framework & Tools used
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Laravel 11
 
-## Learning Laravel
+# Development
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### API Documents
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Please visit /docs for API documents.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Requirement
 
-## Laravel Sponsors
+- PHP 8.3
+- MySQL 8
+- Redis
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Installation
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. Clone project (and initialize git flow if using SourceTree [main, develop])
+2. Create .env file by copy content from .env.example `cp .env.example .env`
+3. Config custom DNS for your machine ([api.starter.test](https://api.starter.test)), Make sure url
+   match `APP_URL` in .env, also
+   config `FRONTEND_URL` and `SESSION_DOMAIN` if you're using custom domain for frontend
+4. Run `composer install` (for Windows user,
+   use `composer install --ignore-platform-req ext-pcntl --ignore-platform-req ext-posix`)
+5. Run `php artisan key:generate`
+6. Run `php artisan storage:link`
+7. Create Database named **_api.starter_** (MySQL 8), update `DB_USERNAME`, `DB_PASSWORD` in .env
+8. Config MySQL to support timezone [Detail](development_docs/config_mysql.md)
+9. Make sure your .env QUEUE_CONNECTION is set to `redis`. Start queue work, run `php artisan queue:work --queue=default,low` (For local dev only, We use Laravel Horizon in
+   test and production server). <a href="config_dev_queue_automatically.md" target="_blank">How to automatically run Laravel queue worker using PhpStorm</a>
+10. Run `php artisan migrate --seed` to migrate and seed database
+11. (_optional_) Config local email testing such as <a href="https://mailtrap.io/" target="_blank">Mailtrap</a>
+    , <a href="https://github.com/mailhog/MailHog" target="_blank">Mailhog</a>,
+    or <a href="https://usehelo.com" target="_blank">HELO</a>
+12. Create new feature branch to start working.

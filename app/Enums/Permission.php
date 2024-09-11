@@ -23,7 +23,7 @@ enum Permission: string
         $allPermissions = collect(Permission::cases())->pluck('value')->toArray();
         $except = [
             Permission::USERS_CREATE->value,
-            Permission::USERS_EDIT->value,
+            Permission::USERS_UPDATE->value,
             Permission::USERS_DELETE->value,
         ];
 

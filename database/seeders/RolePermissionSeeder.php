@@ -28,7 +28,7 @@ class RolePermissionSeeder extends Seeder
         //Users Management
         Permission::firstOrCreate(['name' => PermissionEnum::USERS_VIEW, 'guard_name' => 'web']);
         Permission::firstOrCreate(['name' => PermissionEnum::USERS_CREATE, 'guard_name' => 'web']);
-        Permission::firstOrCreate(['name' => PermissionEnum::USERS_EDIT, 'guard_name' => 'web']);
+        Permission::firstOrCreate(['name' => PermissionEnum::USERS_UPDATE, 'guard_name' => 'web']);
         Permission::firstOrCreate(['name' => PermissionEnum::USERS_DELETE, 'guard_name' => 'web']);
 
         $superAdminRole->syncPermissions(PermissionEnum::defaultSuperAdminPermissions());
