@@ -39,7 +39,7 @@ return [
     'distinct' => 'ข้อมูล :attribute มีค่าที่ซ้ำกัน',
     'doesnt_end_with' => 'ข้อมูล :attribute ไม่ควรลงท้ายด้วยค่าดังต่อไปนี้: :values',
     'doesnt_start_with' => 'ข้อมูล :attribute ไม่ควรเริ่มต้นด้วยค่าดังต่อไปนี้: :values',
-    'email' => 'ข้อมูล :attribute ต้องเป็นอีเมล์',
+    'email' => 'ข้อมูล :attribute ต้องเป็นอีเมล',
     'ends_with' => 'ข้อมูล :attribute ต้องจบด้วยค่าดังต่อไปนี้: :values',
     'enum' => 'ข้อมูล :attribute ที่เลือกไม่ถูกต้อง',
     'exists' => 'ข้อมูล :attribute ที่เลือกไม่ถูกต้อง',
