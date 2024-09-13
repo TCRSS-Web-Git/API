@@ -1,0 +1,403 @@
+openapi: 3.0.3
+info:
+  title: 'Starter API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1/login:
+    post:
+      summary: 'Login (session)'
+      operationId: loginsession
+      description: 'Authenticates the user'
+      parameters: []
+      responses: {  }
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: nola64@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: '/BIueC0,+.r'
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/logout:
+    post:
+      summary: 'Logout (session)'
+      operationId: logoutsession
+      description: 'Log the user out of the application'
+      parameters: []
+      responses: {  }
+      tags:
+        - Authentication
+      security: []
+  /api/v1/register:
+    post:
+      summary: 'Handle an incoming registration request.'
+      operationId: handleAnIncomingRegistrationRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: pdytiweuspgxyigmmunwqdxam
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: tess03@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: iste
+              required:
+                - name
+                - email
+                - password
+  /api/v1/forgot-password:
+    post:
+      summary: 'Handle an incoming password reset link request.'
+      operationId: handleAnIncomingPasswordResetLinkRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: dibbert.rosalee@example.com
+              required:
+                - email
+  /api/v1/reset-password:
+    post:
+      summary: 'Handle an incoming new password request.'
+      operationId: handleAnIncomingNewPasswordRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: ''
+                  example: nostrum
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: hkirlin@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: eum
+              required:
+                - token
+                - email
+                - password
+  '/api/v1/verify-email/{id}/{hash}':
+    get:
+      summary: "Mark the authenticated user's email address as verified."
+      operationId: markTheAuthenticatedUsersEmailAddressAsVerified
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the verify email.'
+        example: dolor
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: hash
+        description: ''
+        example: totam
+        required: true
+        schema:
+          type: string
+  /api/v1/email/verification-notification:
+    post:
+      summary: 'Send a new email verification notification.'
+      operationId: sendANewEmailVerificationNotification
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+  /api/v1/csrf-cookie:
+    get:
+      summary: 'Return an empty response simply to trigger the storage of the CSRF cookie in the browser.'
+      operationId: returnAnEmptyResponseSimplyToTriggerTheStorageOfTheCSRFCookieInTheBrowser
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - Endpoints
+  /api/v1/dev-api:
+    get:
+      summary: ''
+      operationId: getApiV1DevApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'this is dev environtment'
+                properties:
+                  message:
+                    type: string
+                    example: 'this is dev environtment'
+      tags:
+        - Endpoints
+  /api/v1/user:
+    get:
+      summary: 'Get authenticated user profile'
+      operationId: getAuthenticatedUserProfile
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Users
+  /api/v1/users:
+    get:
+      summary: 'Get All Users'
+      operationId: getAllUsers
+      description: ''
+      parameters:
+        -
+          in: query
+          name: sort
+          description: 'Data field(s) to sort by. Separate multiple fields with commas. Denote descending sort with a minus sign.'
+          example: 'title,-createdAt'
+          required: false
+          schema:
+            type: string
+            description: 'Data field(s) to sort by. Separate multiple fields with commas. Denote descending sort with a minus sign.'
+            example: 'title,-createdAt'
+        -
+          in: query
+          name: 'filter[search]'
+          description: 'Search user by name, email.'
+          example: et
+          required: false
+          schema:
+            type: string
+            description: 'Search user by name, email.'
+            example: et
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Users
+    post:
+      summary: 'Create User'
+      operationId: createUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: ncicuyoctlake
+                email:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: jenkins.celestino@example.com
+                role_id:
+                  type: string
+                  description: ''
+                  example: et
+                password:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวอย่างน้อย 8 ตัวอักษร.'
+                  example: 'de;:P!4'
+              required:
+                - name
+                - email
+                - role_id
+                - password
+  '/api/v1/users/{id}':
+    get:
+      summary: 'Get User by ID'
+      operationId: getUserByID
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Users
+    put:
+      summary: 'Update User'
+      operationId: updateUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: xxcvrwarae
+                email:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: ykuvalis@example.org
+                role_id:
+                  type: string
+                  description: ''
+                  example: quis
+                password:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวอย่างน้อย 8 ตัวอักษร.'
+                  example: '!#0^(gJ5IL+5j6Iy'
+              required:
+                - name
+                - email
+                - role_id
+                - password
+    delete:
+      summary: 'Delete User'
+      operationId: deleteUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Users
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Authentication
+    description: ''
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: Users
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []

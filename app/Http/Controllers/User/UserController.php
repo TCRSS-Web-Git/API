@@ -11,7 +11,11 @@ use Illuminate\Support\Facades\Gate;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get All Users
+     *
+     * @group Users
+     * @queryParam sort string Data field(s) to sort by. Separate multiple fields with commas. Denote descending sort with a minus sign. Example: title,-createdAt
+     * @queryParam filter[search] string Search user by name, email.
      */
     public function index()
     {
@@ -19,7 +23,9 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create User
+     *
+     * @group Users
      */
     public function store(CreateOrUpdateUserRequest $request)
     {
@@ -35,13 +41,20 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Get User by ID
+     *
+     * @group Users
      */
     public function show(User $user)
     {
         return new UserResource($user);
     }
 
+    /**
+     * Get authenticated user profile
+     *
+     * @group Users
+     */
     public function me()
     {
         $user = auth()->user();
@@ -50,7 +63,9 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update User
+     *
+     * @group Users
      */
     public function update(CreateOrUpdateUserRequest $request, User $user)
     {
@@ -66,7 +81,9 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete User
+     *
+     * @group Users
      */
     public function destroy(User $user)
     {
