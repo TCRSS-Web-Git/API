@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         using: function () {
-            Route::middleware('api')
+            Route::middleware('web')
                 ->prefix('api/v1')
                 ->group(base_path('routes/auth.php'));
 

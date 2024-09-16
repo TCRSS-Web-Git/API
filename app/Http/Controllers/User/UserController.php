@@ -51,18 +51,6 @@ class UserController extends Controller
     }
 
     /**
-     * Get authenticated user profile
-     *
-     * @group Users
-     */
-    public function me()
-    {
-        $user = auth()->user();
-
-        return new UserResource($user);
-    }
-
-    /**
      * Update User
      *
      * @group Users

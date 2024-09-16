@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateOrUpdateUserRequest;
+use App\Http\Requests\UserProfile\UpdateUserProfileRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
@@ -28,13 +29,13 @@ class UserProfileController extends Controller
      *
      * @group Users
      */
-    public function updateProfile(CreateOrUpdateUserRequest $request)
+    public function updateProfile(UpdateUserProfileRequest $request)
     {
         $data = $request->validated();
 
         $user = auth()->user();
 
-        $user->prefix = $data['prefix'];
+        $user->title = $data['title'];
         $user->first_name = $data['first_name'];
         $user->last_name = $data['last_name'];
         $user->save();
