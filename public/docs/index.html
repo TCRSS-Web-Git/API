@@ -141,7 +141,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 13, 2024</li>
+        <li>Last updated: September 16, 2024</li>
     </ul>
 </div>
 
@@ -182,8 +182,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"nola64@example.net\",
-    \"password\": \"\\/BIueC0,+.r\"
+    \"email\": \"west.vinnie@example.net\",
+    \"password\": \"MgukS&gt;M\"
 }"
 </code></pre></div>
 
@@ -199,8 +199,8 @@ const headers = {
 };
 
 let body = {
-    "email": "nola64@example.net",
-    "password": "\/BIueC0,+.r"
+    "email": "west.vinnie@example.net",
+    "password": "MgukS&gt;M"
 };
 
 fetch(url, {
@@ -289,10 +289,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-login"
-               value="nola64@example.net"
+               value="west.vinnie@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>nola64@example.net</code></p>
+<p>Must be a valid email address. Example: <code>west.vinnie@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -300,10 +300,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-login"
-               value="/BIueC0,+.r"
+               value="MgukS>M"
                data-component="body">
     <br>
-<p>Example: <code>/BIueC0,+.r</code></p>
+<p>Example: <code>MgukS&gt;M</code></p>
         </div>
         </form>
 
@@ -438,9 +438,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"pdytiweuspgxyigmmunwqdxam\",
-    \"email\": \"tess03@example.com\",
-    \"password\": \"iste\"
+    \"first_name\": \"ghzieiacbutrr\",
+    \"last_name\": \"jcqmkjwuffmsavijohwfru\",
+    \"email\": \"kylie.becker@example.org\",
+    \"password\": \"enim\"
 }"
 </code></pre></div>
 
@@ -457,9 +458,10 @@ const headers = {
 };
 
 let body = {
-    "name": "pdytiweuspgxyigmmunwqdxam",
-    "email": "tess03@example.com",
-    "password": "iste"
+    "first_name": "ghzieiacbutrr",
+    "last_name": "jcqmkjwuffmsavijohwfru",
+    "email": "kylie.becker@example.org",
+    "password": "enim"
 };
 
 fetch(url, {
@@ -554,15 +556,26 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="name"                data-endpoint="POSTapi-v1-register"
-               value="pdytiweuspgxyigmmunwqdxam"
+                              name="first_name"                data-endpoint="POSTapi-v1-register"
+               value="ghzieiacbutrr"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>pdytiweuspgxyigmmunwqdxam</code></p>
+<p>Must not be greater than 255 characters. Example: <code>ghzieiacbutrr</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="last_name"                data-endpoint="POSTapi-v1-register"
+               value="jcqmkjwuffmsavijohwfru"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>jcqmkjwuffmsavijohwfru</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -570,10 +583,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-register"
-               value="tess03@example.com"
+               value="kylie.becker@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>tess03@example.com</code></p>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>kylie.becker@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -581,10 +594,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-register"
-               value="iste"
+               value="enim"
                data-component="body">
     <br>
-<p>Example: <code>iste</code></p>
+<p>Example: <code>enim</code></p>
         </div>
         </form>
 
@@ -607,7 +620,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"dibbert.rosalee@example.com\"
+    \"email\": \"mgutkowski@example.com\"
 }"
 </code></pre></div>
 
@@ -624,7 +637,7 @@ const headers = {
 };
 
 let body = {
-    "email": "dibbert.rosalee@example.com"
+    "email": "mgutkowski@example.com"
 };
 
 fetch(url, {
@@ -724,10 +737,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-forgot-password"
-               value="dibbert.rosalee@example.com"
+               value="mgutkowski@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>dibbert.rosalee@example.com</code></p>
+<p>Must be a valid email address. Example: <code>mgutkowski@example.com</code></p>
         </div>
         </form>
 
@@ -750,9 +763,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"token\": \"nostrum\",
-    \"email\": \"hkirlin@example.com\",
-    \"password\": \"eum\"
+    \"token\": \"in\",
+    \"email\": \"prudence77@example.net\",
+    \"password\": \"laudantium\"
 }"
 </code></pre></div>
 
@@ -769,9 +782,9 @@ const headers = {
 };
 
 let body = {
-    "token": "nostrum",
-    "email": "hkirlin@example.com",
-    "password": "eum"
+    "token": "in",
+    "email": "prudence77@example.net",
+    "password": "laudantium"
 };
 
 fetch(url, {
@@ -871,10 +884,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="token"                data-endpoint="POSTapi-v1-reset-password"
-               value="nostrum"
+               value="in"
                data-component="body">
     <br>
-<p>Example: <code>nostrum</code></p>
+<p>Example: <code>in</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -882,10 +895,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-reset-password"
-               value="hkirlin@example.com"
+               value="prudence77@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>hkirlin@example.com</code></p>
+<p>Must be a valid email address. Example: <code>prudence77@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -893,10 +906,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-reset-password"
-               value="eum"
+               value="laudantium"
                data-component="body">
     <br>
-<p>Example: <code>eum</code></p>
+<p>Example: <code>laudantium</code></p>
         </div>
         </form>
 
@@ -914,7 +927,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/verify-email/dolor/totam" \
+    --get "http://localhost/api/v1/verify-email/illo/officiis" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -922,7 +935,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/verify-email/dolor/totam"
+    "http://localhost/api/v1/verify-email/illo/officiis"
 );
 
 const headers = {
@@ -1043,10 +1056,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-verify-email--id---hash-"
-               value="dolor"
+               value="illo"
                data-component="url">
     <br>
-<p>The ID of the verify email. Example: <code>dolor</code></p>
+<p>The ID of the verify email. Example: <code>illo</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>hash</code></b>&nbsp;&nbsp;
@@ -1054,10 +1067,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="hash"                data-endpoint="GETapi-v1-verify-email--id---hash-"
-               value="totam"
+               value="officiis"
                data-component="url">
     <br>
-<p>Example: <code>totam</code></p>
+<p>Example: <code>officiis</code></p>
             </div>
                     </form>
 
@@ -1611,7 +1624,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/users?sort=title%2C-createdAt&amp;filter%5Bsearch%5D=et" \
+    --get "http://localhost/api/v1/users?sort=title%2C-createdAt&amp;filter%5Bsearch%5D=perferendis" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1624,7 +1637,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 const params = {
     "sort": "title,-createdAt",
-    "filter[search]": "et",
+    "filter[search]": "perferendis",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1758,10 +1771,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="filter[search]"                data-endpoint="GETapi-v1-users"
-               value="et"
+               value="perferendis"
                data-component="query">
     <br>
-<p>Search user by name, email. Example: <code>et</code></p>
+<p>Search user by name, email. Example: <code>perferendis</code></p>
             </div>
                 </form>
 
@@ -1784,10 +1797,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"ncicuyoctlake\",
-    \"email\": \"jenkins.celestino@example.com\",
-    \"role_id\": \"et\",
-    \"password\": \"de;:P!4\"
+    \"name\": \"midblojdznewezlsvylwy\",
+    \"email\": \"melisa.hoeger@example.net\",
+    \"role_id\": \"quis\",
+    \"password\": \"\\/JQJ:P\\\"fJ2n*3X\"
 }"
 </code></pre></div>
 
@@ -1804,10 +1817,10 @@ const headers = {
 };
 
 let body = {
-    "name": "ncicuyoctlake",
-    "email": "jenkins.celestino@example.com",
-    "role_id": "et",
-    "password": "de;:P!4"
+    "name": "midblojdznewezlsvylwy",
+    "email": "melisa.hoeger@example.net",
+    "role_id": "quis",
+    "password": "\/JQJ:P\"fJ2n*3X"
 };
 
 fetch(url, {
@@ -1907,10 +1920,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v1-users"
-               value="ncicuyoctlake"
+               value="midblojdznewezlsvylwy"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>ncicuyoctlake</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>midblojdznewezlsvylwy</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -1918,10 +1931,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-users"
-               value="jenkins.celestino@example.com"
+               value="melisa.hoeger@example.net"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>jenkins.celestino@example.com</code></p>
+<p>ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>melisa.hoeger@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>role_id</code></b>&nbsp;&nbsp;
@@ -1929,10 +1942,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="role_id"                data-endpoint="POSTapi-v1-users"
-               value="et"
+               value="quis"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>quis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1940,10 +1953,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-users"
-               value="de;:P!4"
+               value="/JQJ:P"fJ2n*3X"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวอย่างน้อย 8 ตัวอักษร. Example: <code>de;:P!4</code></p>
+<p>ข้อมูล value ต้องยาวอย่างน้อย 8 ตัวอักษร. Example: <code>/JQJ:P"fJ2n*3X</code></p>
         </div>
         </form>
 
@@ -2116,10 +2129,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"xxcvrwarae\",
-    \"email\": \"ykuvalis@example.org\",
-    \"role_id\": \"quis\",
-    \"password\": \"!#0^(gJ5IL+5j6Iy\"
+    \"name\": \"klspuoycelcjbjxl\",
+    \"email\": \"bridgette.batz@example.org\",
+    \"role_id\": \"quasi\",
+    \"password\": \"MVNU3qe\"
 }"
 </code></pre></div>
 
@@ -2136,10 +2149,10 @@ const headers = {
 };
 
 let body = {
-    "name": "xxcvrwarae",
-    "email": "ykuvalis@example.org",
-    "role_id": "quis",
-    "password": "!#0^(gJ5IL+5j6Iy"
+    "name": "klspuoycelcjbjxl",
+    "email": "bridgette.batz@example.org",
+    "role_id": "quasi",
+    "password": "MVNU3qe"
 };
 
 fetch(url, {
@@ -2255,10 +2268,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-v1-users--id-"
-               value="xxcvrwarae"
+               value="klspuoycelcjbjxl"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>xxcvrwarae</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>klspuoycelcjbjxl</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -2266,10 +2279,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="PUTapi-v1-users--id-"
-               value="ykuvalis@example.org"
+               value="bridgette.batz@example.org"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>ykuvalis@example.org</code></p>
+<p>ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>bridgette.batz@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>role_id</code></b>&nbsp;&nbsp;
@@ -2277,10 +2290,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="role_id"                data-endpoint="PUTapi-v1-users--id-"
-               value="quis"
+               value="quasi"
                data-component="body">
     <br>
-<p>Example: <code>quis</code></p>
+<p>Example: <code>quasi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -2288,10 +2301,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="PUTapi-v1-users--id-"
-               value="!#0^(gJ5IL+5j6Iy"
+               value="MVNU3qe"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวอย่างน้อย 8 ตัวอักษร. Example: <code>!#0^(gJ5IL+5j6Iy</code></p>
+<p>ข้อมูล value ต้องยาวอย่างน้อย 8 ตัวอักษร. Example: <code>MVNU3qe</code></p>
         </div>
         </form>
 

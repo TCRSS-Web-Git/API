@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Starter API Documentation",
-        "_postman_id": "73274f65-53f1-4dee-a33b-1de77152dda9",
+        "_postman_id": "48f080a6-048f-4d0b-ba81-1b874bfbbc26",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"nola64@example.net\",\"password\":\"\\\/BIueC0,+.r\"}"
+                            "raw": "{\"email\":\"west.vinnie@example.net\",\"password\":\"MgukS>M\"}"
                         },
                         "description": "Authenticates the user",
                         "auth": {
@@ -106,7 +106,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"pdytiweuspgxyigmmunwqdxam\",\"email\":\"tess03@example.com\",\"password\":\"iste\"}"
+                            "raw": "{\"first_name\":\"ghzieiacbutrr\",\"last_name\":\"jcqmkjwuffmsavijohwfru\",\"email\":\"kylie.becker@example.org\",\"password\":\"enim\"}"
                         },
                         "description": ""
                     },
@@ -134,7 +134,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"dibbert.rosalee@example.com\"}"
+                            "raw": "{\"email\":\"mgutkowski@example.com\"}"
                         },
                         "description": ""
                     },
@@ -162,7 +162,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"token\":\"nostrum\",\"email\":\"hkirlin@example.com\",\"password\":\"eum\"}"
+                            "raw": "{\"token\":\"in\",\"email\":\"prudence77@example.net\",\"password\":\"laudantium\"}"
                         },
                         "description": ""
                     },
@@ -180,13 +180,13 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "dolor",
+                                    "value": "illo",
                                     "description": "The ID of the verify email."
                                 },
                                 {
                                     "id": "hash",
                                     "key": "hash",
-                                    "value": "totam",
+                                    "value": "officiis",
                                     "description": ""
                                 }
                             ]
@@ -404,12 +404,12 @@
                                 },
                                 {
                                     "key": "filter%5Bsearch%5D",
-                                    "value": "et",
+                                    "value": "perferendis",
                                     "description": "Search user by name, email.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/users?sort=title%2C-createdAt&filter%5Bsearch%5D=et"
+                            "raw": "{{baseUrl}}\/api\/v1\/users?sort=title%2C-createdAt&filter%5Bsearch%5D=perferendis"
                         },
                         "method": "GET",
                         "header": [
@@ -469,7 +469,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"ncicuyoctlake\",\"email\":\"jenkins.celestino@example.com\",\"role_id\":\"et\",\"password\":\"de;:P!4\"}"
+                            "raw": "{\"name\":\"midblojdznewezlsvylwy\",\"email\":\"melisa.hoeger@example.net\",\"role_id\":\"quis\",\"password\":\"\\\/JQJ:P\\\"fJ2n*3X\"}"
                         },
                         "description": ""
                     },
@@ -558,7 +558,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"xxcvrwarae\",\"email\":\"ykuvalis@example.org\",\"role_id\":\"quis\",\"password\":\"!#0^(gJ5IL+5j6Iy\"}"
+                            "raw": "{\"name\":\"klspuoycelcjbjxl\",\"email\":\"bridgette.batz@example.org\",\"role_id\":\"quasi\",\"password\":\"MVNU3qe\"}"
                         },
                         "description": ""
                     },

@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         $user = User::factory()->create([
-            'name' => 'Super Admin',
+            'first_name' => 'Super',
+            'last_name' => 'Admin',
             'email' => 'superadmin@wawa-x.com',
         ]);
         $user->assignRole(Role::where('name', 'Super Admin')->first());
