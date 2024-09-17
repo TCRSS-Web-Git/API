@@ -3,18 +3,15 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateOrUpdateUserRequest;
 use App\Http\Requests\UserProfile\UpdateUserPasswordRequest;
 use App\Http\Requests\UserProfile\UpdateUserProfileRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 class UserProfileController extends Controller
 {
-
     /**
      * Get authenticated user profile
      *
@@ -41,6 +38,7 @@ class UserProfileController extends Controller
         $user->title = $data['title'] ?? null;
         $user->first_name = $data['first_name'];
         $user->last_name = $data['last_name'];
+        $user->phone = $data['phone'] ?? null;
         $user->save();
 
         return new UserResource($user);

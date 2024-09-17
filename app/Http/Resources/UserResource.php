@@ -29,6 +29,7 @@ class UserResource extends JsonResource
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'email' => $this->email,
+            'phone' => $this->phone,
             'permissions' => $this->when($request->routeIs('users.me'), $this->getAllPermissions()->pluck('name')),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

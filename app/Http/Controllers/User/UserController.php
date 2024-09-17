@@ -15,6 +15,7 @@ class UserController extends Controller
      * Get All Users
      *
      * @group Users
+     *
      * @queryParam sort string Data field(s) to sort by. Separate multiple fields with commas. Denote descending sort with a minus sign. Example: title,-createdAt
      * @queryParam filter[search] string Search user by name, email.
      */

@@ -29,9 +29,21 @@ class UserFactory extends Factory
             'last_name' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'phone' => $this->generatePhone(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];
+    }
+
+    public function generatePhone()
+    {
+        $number = fake()->numberBetween(0, 100);
+
+        if ($number > 40) {
+            return $number > 90 ? fake()->e164PhoneNumber() : fake()->numerify('+668########');
+        }
+
+        return null;
     }
 
     /**
