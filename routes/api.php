@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserProfileController;
+use App\Http\Controllers\User\UserTitleController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 
@@ -13,3 +14,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('user/password', [UserProfileController::class, 'updatePassword'])->name('user.password');
     Route::apiResource('users', UserController::class);
 });
+
+Route::get('titles', [UserTitleController::class, 'index'])->name('users.titles.index');
