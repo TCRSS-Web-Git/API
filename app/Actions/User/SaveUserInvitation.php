@@ -17,18 +17,19 @@ class SaveUserInvitation
     /**
      * @throws Exception
      */
-    public function execute(array $data): Invite
+    public function execute(array $data): User
     {
         $token = Str::random(40);
 
         DB::beginTransaction();
 
         try {
-            $data['password'] = Hash::make($data['password']);
+            //            $data['password'] = Hash::make($data['password']);
 
             $user = User::create($data);
 
-            $user->assignRole(Role::find($data['role_id']));
+            // TODO assign role
+            //            $user->assignRole(Role::find($data['role_id']));
 
             $invite = Invite::create([
                 'email' => $data['email'],
@@ -47,6 +48,6 @@ class SaveUserInvitation
             throw $exception;
         }
 
-        return $invite;
+        return $user;
     }
 }

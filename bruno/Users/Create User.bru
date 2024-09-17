@@ -1,0 +1,19 @@
+meta {
+  name: Create User
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{backend_url}}/api/v1/users
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  title: Mr.
+  first_name: John
+  last_name: Doe
+  email: john@example.com
+  phone: +66812345678
+}

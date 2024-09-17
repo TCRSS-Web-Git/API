@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Actions\User\SaveUserInvitation;
 use App\Filters\UserFilter;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateOrUpdateUserRequest;
+use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
-use App\Traits\PaginateTrait;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    use PaginateTrait;
-
     /**
      * Get All Users
      *
@@ -33,15 +32,15 @@ class UserController extends Controller
      *
      * @group Users
      */
-    public function store(CreateOrUpdateUserRequest $request)
+    public function store(CreateUserRequest $request, SaveUserInvitation $saveUserInvitation)
     {
         Gate::authorize('create', User::class);
 
         $data = $request->validated();
 
-        $data['password'] = Hash::make($data['password']);
+        //        $data['password'] = Hash::make($data['password']);
 
-        $user = User::create($data);
+        $user = $saveUserInvitation->execute($data);
 
         return new UserResource($user);
     }
@@ -61,13 +60,13 @@ class UserController extends Controller
      *
      * @group Users
      */
-    public function update(CreateOrUpdateUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         Gate::authorize('update', $user);
 
         $data = $request->validated();
 
-        $data['password'] = Hash::make($data['password']);
+        //        $data['password'] = Hash::make($data['password']);
 
         $user->update($data);
 

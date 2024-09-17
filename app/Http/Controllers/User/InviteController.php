@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Actions\User\SaveUserInvitation;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\InviteUserRequest;
+use App\Http\Requests\CreateUserRequest;
 use App\Models\User;
 use App\Traits\ResponseTrait;
 use Illuminate\Support\Facades\Gate;
@@ -14,7 +14,7 @@ class InviteController extends Controller
 {
     use ResponseTrait;
 
-    public function invite(InviteUserRequest $request, SaveUserInvitation $saveUserInvitation)
+    public function invite(CreateUserRequest $request, SaveUserInvitation $saveUserInvitation)
     {
         Gate::authorize('create', User::class);
 

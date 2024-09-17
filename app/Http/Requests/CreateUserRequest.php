@@ -4,11 +4,15 @@ namespace App\Http\Requests;
 
 use App\Enums\UserTitle;
 use App\Models\Role;
+use App\Traits\ValidatePhone;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
+use Propaganistas\LaravelPhone\Rules\Phone;
 
-class CreateOrUpdateUserRequest extends FormRequest
+class CreateUserRequest extends FormRequest
 {
+    use ValidatePhone;
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -25,21 +29,25 @@ class CreateOrUpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
+            //            'role_id' => ['required', 'exists:roles,id'],
             'title' => ['nullable', new Enum(UserTitle::class)],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'role_id' => ['required', 'exists:roles,id'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['nullable', (new Phone)->international()->country('TH'), 'max:20'],
         ];
     }
 
     protected function prepareForValidation(): void
     {
-        if ($this->filled('role_id')) {
-            $this->merge([
-                'role_id' => Role::decodeHash($this->role_id),
-            ]);
-        }
+        $data = $this->validateAndTransformPhone($this->all(), 'phone');
+        $this->merge($data);
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'title' => __('validation.attributes.user_title'),
+        ];
     }
 }

@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Requests\UserProfile;
+namespace App\Http\Requests;
 
 use App\Enums\UserTitle;
-use App\Models\Role;
 use App\Traits\ValidatePhone;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
 use Propaganistas\LaravelPhone\Rules\Phone;
 
-class UpdateUserProfileRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     use ValidatePhone;
 
@@ -33,6 +32,8 @@ class UpdateUserProfileRequest extends FormRequest
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'phone' => ['nullable', (new Phone)->international()->country('TH'), 'max:20'],
+            //            'role_id' => ['required', 'exists:roles,id'],
+            //            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }
 
@@ -40,15 +41,8 @@ class UpdateUserProfileRequest extends FormRequest
     {
         $data = $this->validateAndTransformPhone($this->all(), 'phone');
         $this->merge($data);
-
-        //        if ($this->filled('role_id')) {
-        //            $this->merge([
-        //                'role_id' => Role::decodeHash($this->role_id),
-        //            ]);
-        //        }
     }
 
-    // change attribute title localization
     public function attributes(): array
     {
         return [
