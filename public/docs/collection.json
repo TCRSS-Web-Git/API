@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost"
+            "value": "https:\/\/api.starter.test"
         }
     ],
     "info": {
         "name": "Starter API Documentation",
-        "_postman_id": "48f080a6-048f-4d0b-ba81-1b874bfbbc26",
+        "_postman_id": "4808687f-0b3c-4054-9b21-80e8f478d1e2",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"west.vinnie@example.net\",\"password\":\"MgukS>M\"}"
+                            "raw": "{\"email\":\"sabrina.bayer@example.com\",\"password\":\"HUw5Q*\"}"
                         },
                         "description": "Authenticates the user",
                         "auth": {
@@ -106,7 +106,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"ghzieiacbutrr\",\"last_name\":\"jcqmkjwuffmsavijohwfru\",\"email\":\"kylie.becker@example.org\",\"password\":\"enim\"}"
+                            "raw": "{\"first_name\":\"q\",\"last_name\":\"itzqgxsckrkjtwatzqfcnqapn\",\"email\":\"batz.nigel@example.org\",\"password\":\"rerum\"}"
                         },
                         "description": ""
                     },
@@ -134,7 +134,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"mgutkowski@example.com\"}"
+                            "raw": "{\"email\":\"jailyn56@example.com\"}"
                         },
                         "description": ""
                     },
@@ -162,7 +162,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"token\":\"in\",\"email\":\"prudence77@example.net\",\"password\":\"laudantium\"}"
+                            "raw": "{\"token\":\"eaque\",\"email\":\"clifford.considine@example.net\",\"password\":\"quod\"}"
                         },
                         "description": ""
                     },
@@ -180,13 +180,13 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "illo",
+                                    "value": "nam",
                                     "description": "The ID of the verify email."
                                 },
                                 {
                                     "id": "hash",
                                     "key": "hash",
-                                    "value": "officiis",
+                                    "value": "quo",
                                     "description": ""
                                 }
                             ]
@@ -219,6 +219,10 @@
                                 {
                                     "key": "vary",
                                     "value": "Origin"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IlJBd2FyRUZucFdJWnlNWjhuMkVRcGc9PSIsInZhbHVlIjoiZW1UbnI5ejZBQ3psR3FwMjFIZEttR2lKaVlUY3FIMkV3TElTd3kzSkxjRmFueTJHb0x3U3lwSE43bitlMHEvRGpNRkFsNnA3am0yNGRWbE5UZ0lGYlF0UnRiT25laXM2eXNKOFV4Ty93bDlSVENTOFRlZ01CSmdNWHdrcjRmbkoiLCJtYWMiOiJmM2ZkMTFkYjU1YTlhNDY3MTcxYjkwM2YwODRjNDAyN2IwNWI2NzQ3NzRhZWVhNGM4NDMxODc2YWM4YThiMTMxIiwidGFnIjoiIn0%3D; expires=Tue, 17 Sep 2024 04:02:05 GMT; Max-Age=7200; path=\/; domain=.starter.test; secure; samesite=lax; starter_session=eyJpdiI6InczSkdQM0hDNE5aanNYQ1BSK0kxWGc9PSIsInZhbHVlIjoiWXVGaEwzU1R2djdSOEVQb2Y2SFJ2d2Z0YW9FTWJWZXlZWG1uaTRpVWEydVkvTkhpR01TL3A0Mm1waHh1NXJZeXFlTUs1b2htSVp2K1NiTVJpQ3FiVC85RUdFVDd6V1FnQ3BPaW9peGp6Vjk4ZmxjaWJ2VnVGUHR4TEM5b0FxeUYiLCJtYWMiOiI3MGJjY2U0MjdkODRkZDEyZmIzMWQ3M2Q4YTZiNDZjNDA0ZTU0ODkzNDYwMjU2N2Q2OTExMTQ0MWM5YjE4ZTYzIiwidGFnIjoiIn0%3D; expires=Tue, 17 Sep 2024 04:02:05 GMT; Max-Age=7200; path=\/; domain=.starter.test; secure; httponly; samesite=lax"
                                 }
                             ],
                             "code": 401,
@@ -390,6 +394,62 @@
                     ]
                 },
                 {
+                    "name": "Update User Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"Ms.\",\"first_name\":\"hfutnouy\",\"last_name\":\"rpcjkp\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Password",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/password"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"current_password\":\"inventore\",\"password\":\"doloremque\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
                     "name": "Get All Users",
                     "request": {
                         "url": {
@@ -404,12 +464,12 @@
                                 },
                                 {
                                     "key": "filter%5Bsearch%5D",
-                                    "value": "perferendis",
+                                    "value": "eum",
                                     "description": "Search user by name, email.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/users?sort=title%2C-createdAt&filter%5Bsearch%5D=perferendis"
+                            "raw": "{{baseUrl}}\/api\/v1\/users?sort=title%2C-createdAt&filter%5Bsearch%5D=eum"
                         },
                         "method": "GET",
                         "header": [
@@ -469,7 +529,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"midblojdznewezlsvylwy\",\"email\":\"melisa.hoeger@example.net\",\"role_id\":\"quis\",\"password\":\"\\\/JQJ:P\\\"fJ2n*3X\"}"
+                            "raw": "{\"title\":\"Mrs.\",\"first_name\":\"o\",\"last_name\":\"xegfjotuvj\",\"email\":\"nikko00@example.com\",\"role_id\":\"eius\",\"password\":\"\\\\\\\"!*`MagHU4&5\\\/~g=H\"}"
                         },
                         "description": ""
                     },
@@ -558,7 +618,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"klspuoycelcjbjxl\",\"email\":\"bridgette.batz@example.org\",\"role_id\":\"quasi\",\"password\":\"MVNU3qe\"}"
+                            "raw": "{\"title\":\"Mr.\",\"first_name\":\"pscugewcycpblgjyrkppnzdf\",\"last_name\":\"jfvlkwahgagxdrgve\",\"email\":\"amely60@example.com\",\"role_id\":\"quibusdam\",\"password\":\"wal,!ckd\\\"!W\"}"
                         },
                         "description": ""
                     },

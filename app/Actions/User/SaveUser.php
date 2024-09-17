@@ -5,6 +5,7 @@ namespace App\Actions\User;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class SaveUser
 {
@@ -13,7 +14,7 @@ class SaveUser
      */
     public function execute(array $data): User
     {
-        $data['password'] = bcrypt($data['password']);
+        $data['password'] = Hash::make($data['password']);
 
         DB::beginTransaction();
         try {

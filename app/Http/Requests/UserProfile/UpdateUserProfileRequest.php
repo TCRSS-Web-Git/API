@@ -28,9 +28,6 @@ class UpdateUserProfileRequest extends FormRequest
             'title' => ['nullable', new Enum(UserTitle::class)],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'role_id' => ['required', 'exists:roles,id'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }
 
@@ -41,5 +38,13 @@ class UpdateUserProfileRequest extends FormRequest
                 'role_id' => Role::decodeHash($this->role_id),
             ]);
         }
+    }
+
+    // change attribute title localization
+    public function attributes(): array
+    {
+        return [
+            'title' => __('validation.attributes.user_title'),
+        ];
     }
 }

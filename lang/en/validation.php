@@ -150,6 +150,7 @@ return [
     'uppercase' => 'The :attribute field must be uppercase.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
+    'custom' => [],
     'attributes' => [
         'address' => 'address',
         'affiliate_url' => 'affiliate URL',
@@ -265,6 +266,7 @@ return [
         'text' => 'text',
         'time' => 'time',
         'title' => 'title',
+        'user_title' => 'title',
         'type' => 'type',
         'updated_at' => 'updated at',
         'user' => 'user',

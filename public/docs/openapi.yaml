@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'http://localhost'
+    url: 'https://api.starter.test'
 paths:
   /api/v1/login:
     post:
@@ -26,11 +26,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: west.vinnie@example.net
+                  example: sabrina.bayer@example.com
                 password:
                   type: string
                   description: ''
-                  example: MgukS>M
+                  example: 'HUw5Q*'
               required:
                 - email
                 - password
@@ -61,22 +61,26 @@ paths:
             schema:
               type: object
               properties:
+                title:
+                  type: string
+                  description: ''
+                  example: null
                 first_name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: ghzieiacbutrr
+                  example: q
                 last_name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: jcqmkjwuffmsavijohwfru
+                  example: itzqgxsckrkjtwatzqfcnqapn
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: kylie.becker@example.org
+                  example: batz.nigel@example.org
                 password:
                   type: string
                   description: ''
-                  example: enim
+                  example: rerum
               required:
                 - first_name
                 - last_name
@@ -101,7 +105,7 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: mgutkowski@example.com
+                  example: jailyn56@example.com
               required:
                 - email
   /api/v1/reset-password:
@@ -123,15 +127,15 @@ paths:
                 token:
                   type: string
                   description: ''
-                  example: in
+                  example: eaque
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: prudence77@example.net
+                  example: clifford.considine@example.net
                 password:
                   type: string
                   description: ''
-                  example: laudantium
+                  example: quod
               required:
                 - token
                 - email
@@ -162,7 +166,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the verify email.'
-        example: illo
+        example: nam
         required: true
         schema:
           type: string
@@ -170,7 +174,7 @@ paths:
         in: path
         name: hash
         description: ''
-        example: officiis
+        example: quo
         required: true
         schema:
           type: string
@@ -236,6 +240,67 @@ paths:
                     example: Unauthenticated.
       tags:
         - Users
+    put:
+      summary: 'Update User Profile'
+      operationId: updateUserProfile
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: Ms.
+                  enum:
+                    - Mr.
+                    - Mrs.
+                    - Ms.
+                first_name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: hfutnouy
+                last_name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: rpcjkp
+              required:
+                - first_name
+                - last_name
+  /api/v1/user/password:
+    put:
+      summary: 'Update Password'
+      operationId: updatePassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  description: ''
+                  example: inventore
+                password:
+                  type: string
+                  description: ''
+                  example: doloremque
+              required:
+                - current_password
+                - password
   /api/v1/users:
     get:
       summary: 'Get All Users'
@@ -256,12 +321,12 @@ paths:
           in: query
           name: 'filter[search]'
           description: 'Search user by name, email.'
-          example: perferendis
+          example: eum
           required: false
           schema:
             type: string
             description: 'Search user by name, email.'
-            example: perferendis
+            example: eum
       responses:
         401:
           description: ''
@@ -292,24 +357,37 @@ paths:
             schema:
               type: object
               properties:
-                name:
+                title:
+                  type: string
+                  description: ''
+                  example: Mrs.
+                  enum:
+                    - Mr.
+                    - Mrs.
+                    - Ms.
+                first_name:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: midblojdznewezlsvylwy
+                  example: o
+                last_name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: xegfjotuvj
                 email:
                   type: string
                   description: 'ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: melisa.hoeger@example.net
+                  example: nikko00@example.com
                 role_id:
                   type: string
                   description: ''
-                  example: quis
+                  example: eius
                 password:
                   type: string
                   description: 'ข้อมูล value ต้องยาวอย่างน้อย 8 ตัวอักษร.'
-                  example: '/JQJ:P"fJ2n*3X'
+                  example: '\"!*`MagHU4&5/~g=H'
               required:
-                - name
+                - first_name
+                - last_name
                 - email
                 - role_id
                 - password
@@ -349,24 +427,37 @@ paths:
             schema:
               type: object
               properties:
-                name:
+                title:
+                  type: string
+                  description: ''
+                  example: Mr.
+                  enum:
+                    - Mr.
+                    - Mrs.
+                    - Ms.
+                first_name:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: klspuoycelcjbjxl
+                  example: pscugewcycpblgjyrkppnzdf
+                last_name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: jfvlkwahgagxdrgve
                 email:
                   type: string
                   description: 'ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: bridgette.batz@example.org
+                  example: amely60@example.com
                 role_id:
                   type: string
                   description: ''
-                  example: quasi
+                  example: quibusdam
                 password:
                   type: string
                   description: 'ข้อมูล value ต้องยาวอย่างน้อย 8 ตัวอักษร.'
-                  example: MVNU3qe
+                  example: 'wal,!ckd"!W'
               required:
-                - name
+                - first_name
+                - last_name
                 - email
                 - role_id
                 - password

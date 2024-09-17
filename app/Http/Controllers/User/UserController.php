@@ -7,6 +7,7 @@ use App\Http\Requests\CreateOrUpdateUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -33,7 +34,7 @@ class UserController extends Controller
 
         $data = $request->validated();
 
-        $data['password'] = bcrypt($data['password']);
+        $data['password'] = Hash::make($data['password']);
 
         $user = User::create($data);
 
@@ -61,7 +62,7 @@ class UserController extends Controller
 
         $data = $request->validated();
 
-        $data['password'] = bcrypt($data['password']);
+        $data['password'] = Hash::make($data['password']);
 
         $user->update($data);
 

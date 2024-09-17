@@ -1,0 +1,25 @@
+meta {
+  name: Update Profile
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{backend_url}}/api/v1/user
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": null,
+    "first_name": "John",
+    "last_name": "Doe"
+  }
+}
+
+body:multipart-form {
+  title: Mr.
+  first_name: John
+  last_name: Doe
+}
