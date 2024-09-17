@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\UserTitle;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -24,7 +25,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->title(), // Mr, Mrs, Ms, etc
+            'title' => fake()->numberBetween(0, 100) > 50 ? fake()->randomElement(UserTitle::cases()) : null, // Mr, Mrs, Ms, etc
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
