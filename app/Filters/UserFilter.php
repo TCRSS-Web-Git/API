@@ -41,9 +41,9 @@ class UserFilter extends QueryFilter
 
     public function phone($value)
     {
-        $searchPhone = $value;
-        if (substr($value, 0, 1) === '0') {
-            $searchPhone = '+66'.substr($value, 1);
+        $searchPhone = str_replace('-', '', $value);
+        if ($searchPhone[0] === '0') {
+            $searchPhone = '+66'.substr($searchPhone, 1);
         }
 
         return $this->builder->where('phone', 'LIKE', '%'.$searchPhone.'%');
@@ -51,9 +51,9 @@ class UserFilter extends QueryFilter
 
     public function search($value)
     {
-        $searchPhone = $value;
-        if (substr($value, 0, 1) === '0') {
-            $searchPhone = '+66'.substr($value, 1);
+        $searchPhone = str_replace('-', '', $value);
+        if ($searchPhone[0] === '0') {
+            $searchPhone = '+66'.substr($searchPhone, 1);
         }
 
         return $this->builder->where(function ($query) use ($value, $searchPhone) {
