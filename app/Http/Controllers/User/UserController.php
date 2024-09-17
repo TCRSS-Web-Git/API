@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Filters\UserFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateOrUpdateUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Traits\PaginateTrait;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    use PaginateTrait;
+
     /**
      * Get All Users
      *
@@ -19,9 +23,9 @@ class UserController extends Controller
      * @queryParam sort string Data field(s) to sort by. Separate multiple fields with commas. Denote descending sort with a minus sign. Example: title,-createdAt
      * @queryParam filter[search] string Search user by name, email.
      */
-    public function index()
+    public function index(UserFilter $filter)
     {
-        return UserResource::collection(User::paginate());
+        return UserResource::collection(User::filter($filter)->paginate($this->getPerPage()));
     }
 
     /**
