@@ -71,7 +71,7 @@ abstract class QueryFilter
         }
     }
 
-    public function createdAt($value)
+    public function created_at($value)
     {
         $dates = explode(',', $value);
 
@@ -82,7 +82,7 @@ abstract class QueryFilter
         return $this->builder->whereDate('created_at', $value);
     }
 
-    public function updatedAt($value)
+    public function updated_at($value)
     {
         $dates = explode(',', $value);
 
