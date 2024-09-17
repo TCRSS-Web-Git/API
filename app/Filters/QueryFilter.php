@@ -2,6 +2,7 @@
 
 namespace App\Filters;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -74,12 +75,17 @@ abstract class QueryFilter
     public function created_at($value)
     {
         $dates = explode(',', $value);
+        // convert from Asia/Bangkok to UTC
+        $dates = array_map(function ($date) {
+            return Carbon::parse($date, 'Asia/Bangkok')->tz('UTC');
+        }, $dates);
 
-        if (count($dates) > 1) {
+        if (count($dates) == 2) {
             return $this->builder->whereBetween('created_at', $dates);
         }
 
-        return $this->builder->whereDate('created_at', $value);
+        // TODO change to manual where between
+        return $this->builder->whereDate('created_at', $dates[0]);
     }
 
     public function updated_at($value)

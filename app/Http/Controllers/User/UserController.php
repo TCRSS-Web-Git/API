@@ -19,8 +19,10 @@ class UserController extends Controller
      *
      * @group Users
      *
-     * @queryParam sort string Data field(s) to sort by. Separate multiple fields with commas. Denote descending sort with a minus sign. Example: title,-createdAt
-     * @queryParam filter[search] string Search user by name, email.
+     * @queryParam sort string Data field(s) to sort by. Separate multiple fields with commas. Denote descending sort with a minus sign. Example: first_name,-createdAt
+     * @queryParam filter[id] string Filter user by id.
+     * @queryParam filter[email] string Filter user by email.
+     * @queryParam search string Search user by name, email, phone.
      */
     public function index(UserFilter $filter)
     {

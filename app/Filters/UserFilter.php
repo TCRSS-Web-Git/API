@@ -2,6 +2,8 @@
 
 namespace App\Filters;
 
+use App\Models\User;
+
 class UserFilter extends QueryFilter
 {
     protected $sortable = [
@@ -18,6 +20,16 @@ class UserFilter extends QueryFilter
     //    {
     //        return $this->builder->with($value);
     //    }
+
+    public function id($value)
+    {
+        $ids = explode(',', $value);
+        $ids = array_map(function ($id) {
+            return User::decodeHash($id);
+        }, $ids);
+
+        return $this->builder->whereIn('id', $ids);
+    }
 
     public function email($value)
     {
@@ -41,9 +53,13 @@ class UserFilter extends QueryFilter
 
     public function phone($value)
     {
+        if ($value === 'null') {
+            return $this->builder->whereNull('phone');
+        }
+
         $searchPhone = str_replace('-', '', $value);
         if ($searchPhone[0] === '0') {
-            $searchPhone = '+66'.substr($searchPhone, 1);
+            $searchPhone = substr($searchPhone, 1);
         }
 
         return $this->builder->where('phone', 'LIKE', '%'.$searchPhone.'%');
@@ -53,7 +69,7 @@ class UserFilter extends QueryFilter
     {
         $searchPhone = str_replace('-', '', $value);
         if ($searchPhone[0] === '0') {
-            $searchPhone = '+66'.substr($searchPhone, 1);
+            $searchPhone = substr($searchPhone, 1);
         }
 
         return $this->builder->where(function ($query) use ($value, $searchPhone) {
