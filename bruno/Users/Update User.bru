@@ -1,18 +1,20 @@
 meta {
   name: Update User
   type: http
-  seq: 4
+  seq: 3
 }
 
 put {
   url: {{backend_url}}/api/v1/users/user_ZMBQEKPDK3X079
-  body: multipartForm
+  body: json
   auth: none
 }
 
-body:multipart-form {
-  name: John Doe
-  email: john@wawa-x.com
-  password: password
-  : 
+body:json {
+  {
+    "title": null,
+    "first_name": "John",
+    "last_name": "Doe",
+    "phone": "+66812345678"
+  }
 }
