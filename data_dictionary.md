@@ -168,19 +168,17 @@ Password reset tokens
 
 บัญชีผู้ใช้งาน
 
-| Column            | Description                                            | Type                 | Attributes       |
-|-------------------|--------------------------------------------------------|----------------------|------------------|
-| id                |                                                        | unsigned big integer | primary key      |
-| title             | คำนำหน้าชื่อ เช่น Mr., Ms.                             | varchar              | nullable         |
-| first_name        | ชื่อผู้ใช้                                             | varchar              |                  |
-| last_name         | นามสกุลผู้ใช้                                          | varchar              | nullable         |
-| email             | ที่อยู่                                                | varchar              |                  |
-| email_verified_at | วันเวลาที่ยืนยัน email, ยังไม่ยืนยัน email ถ้า null    | timestamp            | nullable         |
-| phone             | เบอร์โทรศัพท์                                          | varchar              | nullable         |
-| password          | รหัสผ่าน (Hashed)                                      | varchar              | nullable         |
-| remember_token    | Token remember me session                              | varchar              | nullable         |
-| email_unique      | computed column สำหรับ check unique email + deleted_at | varchar              | nullable, unique |
-| country_id        | foreign key to [countries](#countries) table           | unsigned big integer | foreign key      |
-| setting_theme     | theme settings                                         | json                 |                  |
-| deleted_at        | Soft deleted if not null                               | timestamp            | nullable         |
+| Column            | Description                                                         | Type                 | Attributes       |
+|-------------------|---------------------------------------------------------------------|----------------------|------------------|
+| id                |                                                                     | unsigned big integer | primary key      |
+| title             | คำนำหน้าชื่อ เช่น Mr., Ms.                                          | varchar              | nullable         |
+| first_name        | ชื่อผู้ใช้                                                          | varchar              |                  |
+| last_name         | นามสกุลผู้ใช้                                                       | varchar              | nullable         |
+| email             | ที่อยู่                                                             | varchar              |                  |
+| email_verified_at | วันเวลาที่ยืนยัน email, ยังไม่ยืนยัน email ถ้า null                 | timestamp            | nullable         |
+| phone             | เบอร์โทรศัพท์ ใน format E.164 (ตัวอย่าง +66812345678)               | varchar              | nullable         |
+| password          | รหัสผ่าน (Hashed) ถ้าเป็น null = invite ไป แต่ยังไม่ได้ตั้งรหัสผ่าน | varchar              | nullable         |
+| remember_token    | Token remember me session                                           | varchar              | nullable         |
+| email_unique      | computed column สำหรับ check unique email + deleted_at              | varchar              | nullable, unique |
+| deleted_at        | Soft deleted if not null                                            | timestamp            | nullable         |
 
