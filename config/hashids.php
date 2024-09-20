@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Blog;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
@@ -44,6 +45,12 @@ return [
         ],
 
         // Please keep it in alphabetical order.
+
+        Blog::class => [
+            'salt' => env('HASHIDS_BLOG', 'FR4PmB7XHx4VXBrC8hHh'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
 
         Permission::class => [
             'salt' => env('HASHIDS_PERMISSION', 'hQvnpYx9FRgXQJqjb7Vd'),

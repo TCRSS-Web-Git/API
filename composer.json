@@ -10,6 +10,7 @@
         "bugsnag/bugsnag-laravel": "^2.0",
         "giggsey/libphonenumber-for-php": "^8.13",
         "laravel-lang/common": "^6.4",
+        "laravel-lang/models": "^1.1",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",

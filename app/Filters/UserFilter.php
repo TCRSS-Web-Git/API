@@ -24,9 +24,12 @@ class UserFilter extends QueryFilter
     public function id($value)
     {
         $ids = explode(',', $value);
-        $ids = array_map(function ($id) {
-            return User::decodeHash($id);
+        $ids = array_map(static function ($id) {
+            return User::decodeHash(trim($id));
         }, $ids);
+        $ids = array_filter($ids, static function ($id) {
+            return $id > 0;
+        });
 
         return $this->builder->whereIn('id', $ids);
     }
@@ -67,15 +70,20 @@ class UserFilter extends QueryFilter
 
     public function search($value)
     {
+        // Search phone number
         $searchPhone = str_replace('-', '', $value);
         if ($searchPhone[0] === '0') {
             $searchPhone = substr($searchPhone, 1);
         }
 
-        return $this->builder->where(function ($query) use ($value, $searchPhone) {
+        // Search by hashID (support multiple hashID, comma separated)
+        $ids = User::decodeMultipleHashString($value);
+
+        return $this->builder->where(function ($query) use ($value, $searchPhone, $ids) {
             $query->whereRaw("LOWER(CONCAT(first_name, ' ', last_name)) LIKE ?", ['%'.strtolower($value).'%'])
                 ->orWhereRaw('LOWER(email) LIKE ?', ['%'.strtolower($value).'%'])
-                ->orWhere('phone', 'LIKE', '%'.$searchPhone.'%');
+                ->orWhere('phone', 'LIKE', '%'.$searchPhone.'%')
+                ->orWhereIn('id', $ids);
         });
     }
 
