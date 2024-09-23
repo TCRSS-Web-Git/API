@@ -12,10 +12,11 @@ abstract class QueryFilter
 
     protected $request;
 
-    protected $sortable = [];
+    protected $sortable = []; // Add sortable fields here
 
-    protected $defaultSort = ['column' => 'id', 'direction' => 'desc'];
-
+    protected $defaultSort = ['column' => 'id', 'direction' => 'desc']; // Edit default sorting here
+    protected $translatedFields = []; // Add translated fields here
+    protected $joinedTables = []; // Internal DO NOT EDIT, Keep track of joined tables
     public function __construct(Request $request)
     {
         $this->request = $request;
@@ -53,6 +54,7 @@ abstract class QueryFilter
     protected function sort($value)
     {
         $sortAttributes = explode(',', $value);
+        $currentLocale = app()->getLocale(); // Get the current locale
 
         foreach ($sortAttributes as $sortAttribute) {
             $sortDirection = 'asc';
@@ -66,9 +68,21 @@ abstract class QueryFilter
                 continue;
             }
 
-            $columnName = $this->sortable[$sortAttribute] ?? $sortAttribute;
-
-            $this->builder->orderBy($columnName, $sortDirection);
+            if (in_array($sortAttribute, $this->translatedFields)) {
+                $translationTable = $this->builder->getModel()->getTranslationTable();
+                if (!in_array($translationTable, $this->joinedTables)) {
+                    $this->builder->select($this->builder->getModel()->getTable() . '.*')
+                        ->leftJoin($translationTable, function ($join) use ($translationTable, $currentLocale) {
+                            $join->on($this->builder->getModel()->getTable() . '.id', '=', $translationTable . '.item_id')
+                                ->where($translationTable . '.locale', '=', $currentLocale);
+                        });
+                    $this->joinedTables[] = $translationTable; // Mark the table as joined
+                }
+                $this->builder->orderBy($translationTable . '.' . $sortAttribute, $sortDirection);
+            } else {
+                $columnName = $this->sortable[$sortAttribute] ?? $sortAttribute;
+                $this->builder->orderBy($columnName, $sortDirection);
+            }
         }
     }
 

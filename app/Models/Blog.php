@@ -25,6 +25,10 @@ class Blog extends Model
         'slug',
     ];
 
+    public function getTranslationTable()
+    {
+        return 'blog_translations';
+    }
     public function scopeFilter(Builder $builder, QueryFilter $filters)
     {
         return $filters->apply($builder);

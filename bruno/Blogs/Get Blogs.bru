@@ -5,7 +5,11 @@ meta {
 }
 
 get {
-  url: {{backend_url}}/api/v1/blogs
+  url: {{backend_url}}/api/v1/blogs?sort=title
   body: none
   auth: none
+}
+
+params:query {
+  sort: title
 }
