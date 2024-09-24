@@ -25,6 +25,7 @@ class BlogResource extends JsonResource
     {
         return [
             'id' => $this->hashid,
+            'category' => new CategoryResource($this->category),
             'slug' => $this->slug,
             'title' => $this->getTranslation('title'),
             'body' => $this->when(! $request->routeIs(['blogs.index']), $this->getTranslation('body')),

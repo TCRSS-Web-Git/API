@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Enums\CategoryType;
+use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CategoryController extends Controller
 {
@@ -15,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index(CategoryType $type)
     {
-        return Category::where('type', $type)->get();
+        return CategoryResource::collection(Category::where('type', $type)->paginate());
     }
 
     /**
@@ -23,9 +25,11 @@ class CategoryController extends Controller
      *
      * @group Categories
      */
-    public function store(Request $request)
+    public function store(Request $request, CategoryType $type)
     {
-        //
+        Gate::authorize('create', Category::class);
+
+        // TODO create category
     }
 
     /**
@@ -33,9 +37,13 @@ class CategoryController extends Controller
      *
      * @group Categories
      */
-    public function show(Category $category)
+    public function show(CategoryType $type, Category $category)
     {
-        //
+        if ($category->type !== $type) {
+            abort(404);
+        }
+
+        return new CategoryResource($category);
     }
 
     /**
@@ -43,9 +51,16 @@ class CategoryController extends Controller
      *
      * @group Categories
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, CategoryType $type, Category $category)
     {
-        //
+        if ($category->type !== $type) {
+            abort(404);
+        }
+        Gate::authorize('update', $category);
+
+        // TODO update category
+
+        return new CategoryResource($category);
     }
 
     /**
@@ -53,8 +68,15 @@ class CategoryController extends Controller
      *
      * @group Categories
      */
-    public function destroy(Category $category)
+    public function destroy(CategoryType $type, Category $category)
     {
-        //
+        if ($category->type !== $type) {
+            abort(404);
+        }
+        Gate::authorize('delete', $category);
+
+        $category->delete();
+
+        return response()->noContent();
     }
 }

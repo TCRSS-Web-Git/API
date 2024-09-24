@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use LaravelLang\Models\HasTranslations;
 use App\Enums\CategoryType;
 use App\Traits\EloquentDecodeHash;
 use App\Traits\EloquentFindByHash;
@@ -10,14 +9,15 @@ use App\Traits\Hashidable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use LaravelLang\Models\HasTranslations;
 
 class Category extends Model
 {
-    use HasTranslations;
     use EloquentDecodeHash;
     use EloquentFindByHash;
     use HasFactory;
     use Hashidable;
+    use HasTranslations;
 
     public const HASHID_PREFIX = 'category_';
 
