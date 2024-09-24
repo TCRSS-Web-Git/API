@@ -15,8 +15,11 @@ abstract class QueryFilter
     protected $sortable = []; // Add sortable fields here
 
     protected $defaultSort = ['column' => 'id', 'direction' => 'desc']; // Edit default sorting here
+
     protected $translatedFields = []; // Add translated fields here
+
     protected $joinedTables = []; // Internal DO NOT EDIT, Keep track of joined tables
+
     public function __construct(Request $request)
     {
         $this->request = $request;
@@ -55,6 +58,7 @@ abstract class QueryFilter
     {
         $sortAttributes = explode(',', $value);
         $currentLocale = app()->getLocale(); // Get the current locale
+        $fallbackLocale = $currentLocale === 'th' ? 'en' : 'th'; // Set the fallback locale
 
         foreach ($sortAttributes as $sortAttribute) {
             $sortDirection = 'asc';
@@ -70,15 +74,19 @@ abstract class QueryFilter
 
             if (in_array($sortAttribute, $this->translatedFields)) {
                 $translationTable = $this->builder->getModel()->getTranslationTable();
-                if (!in_array($translationTable, $this->joinedTables)) {
-                    $this->builder->select($this->builder->getModel()->getTable() . '.*')
-                        ->leftJoin($translationTable, function ($join) use ($translationTable, $currentLocale) {
-                            $join->on($this->builder->getModel()->getTable() . '.id', '=', $translationTable . '.item_id')
-                                ->where($translationTable . '.locale', '=', $currentLocale);
+                if (! in_array($translationTable, $this->joinedTables)) {
+                    $this->builder->select($this->builder->getModel()->getTable().'.*')
+                        ->leftJoin($translationTable.' as current_locale', function ($join) use ($currentLocale) {
+                            $join->on($this->builder->getModel()->getTable().'.id', '=', 'current_locale.item_id')
+                                ->where('current_locale.locale', '=', $currentLocale);
+                        })
+                        ->leftJoin($translationTable.' as fallback_locale', function ($join) use ($fallbackLocale) {
+                            $join->on($this->builder->getModel()->getTable().'.id', '=', 'fallback_locale.item_id')
+                                ->where('fallback_locale.locale', '=', $fallbackLocale);
                         });
                     $this->joinedTables[] = $translationTable; // Mark the table as joined
                 }
-                $this->builder->orderBy($translationTable . '.' . $sortAttribute, $sortDirection);
+                $this->builder->orderByRaw("COALESCE(current_locale.$sortAttribute, fallback_locale.$sortAttribute) $sortDirection");
             } else {
                 $columnName = $this->sortable[$sortAttribute] ?? $sortAttribute;
                 $this->builder->orderBy($columnName, $sortDirection);

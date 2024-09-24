@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Starter API Documentation",
-        "_postman_id": "4808687f-0b3c-4054-9b21-80e8f478d1e2",
+        "_postman_id": "ab0cc05a-1c74-439a-893e-a90d406946c5",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"sabrina.bayer@example.com\",\"password\":\"HUw5Q*\"}"
+                            "raw": "{\"email\":\"gherzog@example.com\",\"password\":\",uy$~~*MAsC7424\"}"
                         },
                         "description": "Authenticates the user",
                         "auth": {
@@ -81,6 +81,201 @@
             ]
         },
         {
+            "name": "Blogs",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get all blogs",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/blogs",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/blogs"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":\"blog_Z4DX835P3VNLBK\",\"slug\":\"neque-illo-ut-minima-animi-dolore-deserunt\",\"title\":\"(th) Architecto deserunt est quo quo dolores asperiores saepe.\",\"meta_title\":\"(th) Architecto deserunt est quo quo dolores asperiores saepe.\",\"meta_description\":\"(th) Velit aspernatur minus culpa quidem tempore aut. Reiciendis quis est enim ipsa. Perspiciatis aspernatur optio et et nostrum.\\n\\nQuis expedita nihil ut. Unde quo sint libero magnam quia id.\\n\\nAt consequatur non ea. Dolore voluptatem vitae repellat voluptas. Sed explicabo natus dolor mollitia. Eos sed quae est temporibus.\",\"status\":\"draft\",\"published_at\":null,\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_K6JYM3BW3XBQZ8\",\"slug\":\"voluptas-possimus-omnis-aut-molestiae-est-ea-voluptatem\",\"title\":\"(th) Dolorem deserunt quisquam blanditiis molestiae in.\",\"meta_title\":\"(th) Dolorem deserunt quisquam blanditiis molestiae in.\",\"meta_description\":\"(th) Voluptatem laboriosam consequatur minus similique iste perspiciatis. Rerum quo rerum est. Labore explicabo porro corrupti reiciendis nihil inventore quae numquam.\\n\\nIusto quia eveniet voluptatibus inventore. Pariatur sapiente accusantium corporis illo aut. Voluptatem error inventore libero excepturi voluptas. Occaecati nobis necessitatibus qui libero ullam.\\n\\nCorrupti qui perferendis ut distinctio. Alias et voluptatem quia ipsam laboriosam odit corporis. Dolores id non culpa sunt voluptas sunt. Iste amet omnis eos doloremque similique ut rem.\",\"status\":\"draft\",\"published_at\":null,\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_BW8JN7KB7Z94KQ\",\"slug\":\"est-sit-modi-perferendis-sed-ullam-ipsum\",\"title\":\"(th) Magni possimus nostrum molestias in aliquam et cum.\",\"meta_title\":\"(th) Magni possimus nostrum molestias in aliquam et cum.\",\"meta_description\":\"(th) Commodi fugiat animi in dignissimos. Porro sapiente earum placeat temporibus qui sed sunt. Velit eum reprehenderit possimus voluptatem. Velit excepturi reiciendis consequatur voluptatem.\\n\\nQuia molestias qui omnis dolor. Ut rem est ullam eos et voluptate sed iusto. Magnam aut voluptate odit odit modi inventore est.\\n\\nDolores voluptatem assumenda aut aut explicabo. Accusamus soluta ea omnis asperiores aspernatur et aut. Eveniet ea accusantium delectus qui totam cumque.\",\"status\":\"draft\",\"published_at\":null,\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_JVK923Y53YM1P6\",\"slug\":\"soluta-voluptas-officiis-molestiae-odit-neque-doloribus-occaecati-blanditiis\",\"title\":\"(th) Et pariatur deserunt veritatis vitae facilis cupiditate dignissimos.\",\"meta_title\":\"(th) Et pariatur deserunt veritatis vitae facilis cupiditate dignissimos.\",\"meta_description\":\"(th) Earum velit voluptatum mollitia. Eum repudiandae qui nihil labore explicabo adipisci officia. Odit officiis itaque repellendus ut asperiores ullam voluptas. Aliquid omnis vitae natus quo consequatur soluta quod.\\n\\nAut consectetur odio debitis enim soluta. Vitae quam in sunt praesentium rerum sunt aut.\\n\\nCorrupti nisi non est fugit voluptas maxime consectetur. Autem optio debitis ipsum perferendis optio eligendi molestiae. Libero repellat omnis cum quaerat ut nam vero. Recusandae necessitatibus accusamus dolorem reprehenderit nam tenetur.\",\"status\":\"published\",\"published_at\":\"2023-11-15T17:36:22.000000Z\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_XWPLZ3W03652D8\",\"slug\":\"ab-veritatis-distinctio-omnis-fugiat-eos-optio-totam\",\"title\":\"(th) Recusandae illum nemo officia aperiam accusantium ipsam.\",\"meta_title\":\"(th) Recusandae illum nemo officia aperiam accusantium ipsam.\",\"meta_description\":\"(th) Officia vel quae et deserunt et. Itaque molestiae rerum ut ut aut. Pariatur ullam quia id similique et quia atque. Ut voluptas laborum ut pariatur.\\n\\nNesciunt rerum quam numquam autem praesentium sequi cupiditate in. Dolore cupiditate vel voluptates est. Doloremque amet quia voluptatem ut aliquam eum sunt.\\n\\nVoluptatem cum et velit voluptatem. Id eum qui rem in corporis eos repellendus harum. Non autem cumque aut vitae.\",\"status\":\"draft\",\"published_at\":null,\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_1D0VE7ZMRNLBYG\",\"slug\":\"et-occaecati-aspernatur-aperiam-aut-laboriosam\",\"title\":\"(th) Labore repudiandae nobis sint veniam ea quia.\",\"meta_title\":\"(th) Labore repudiandae nobis sint veniam ea quia.\",\"meta_description\":\"(th) Sint voluptatem necessitatibus placeat sit aliquid. In voluptas aut voluptatem. Et aliquid qui dolores sed.\\n\\nArchitecto doloremque esse ducimus ab. Consequatur veniam tenetur excepturi laborum. Deserunt eveniet velit non. Ratione similique sunt doloribus et qui iusto quis. Alias velit ut ut est possimus.\\n\\nDucimus rerum amet laudantium et quibusdam. Quia praesentium blanditiis sed consequatur temporibus est enim. Ex recusandae est adipisci laboriosam blanditiis repellat et id.\",\"status\":\"published\",\"published_at\":\"2024-06-06T19:05:41.000000Z\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_V1Q9J7423K8XBG\",\"slug\":\"quidem-eaque-magnam-a-iusto-mollitia\",\"title\":\"(th) Totam cum ratione nisi expedita deserunt odit.\",\"meta_title\":\"(th) Totam cum ratione nisi expedita deserunt odit.\",\"meta_description\":\"(th) Et recusandae nihil temporibus recusandae. Sit ipsam sed fugit veritatis qui quia. Sit asperiores quis molestiae. Neque quaerat voluptates est.\\n\\nNon possimus nesciunt molestiae amet libero. Id in quo quisquam voluptatem itaque. Aut esse ipsum ab expedita temporibus. Porro dolores ad consectetur autem aliquam et.\\n\\nArchitecto sequi ratione nam. Ratione perspiciatis vel pariatur.\",\"status\":\"draft\",\"published_at\":null,\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_M9D6P7V27BZEX5\",\"slug\":\"debitis-expedita-quibusdam-hic-atque\",\"title\":\"(th) Rerum et consequatur qui et enim enim eum.\",\"meta_title\":\"(th) Rerum et consequatur qui et enim enim eum.\",\"meta_description\":\"(th) Vitae esse officia excepturi quia autem. Accusamus sunt quis quasi omnis. Et maxime eveniet sunt quo molestiae ipsa accusamus. Soluta non id excepturi ut iste.\\n\\nVoluptatem quos tempora quis perferendis suscipit perferendis perferendis enim. Iure eos perspiciatis natus et. Ab dolore odit fugiat dolore eum. Rerum non voluptates harum at odit.\\n\\nMolestias aliquam debitis quam eos aut. A asperiores iusto sed sunt nesciunt aut voluptatem. Vero eius illum qui. Nesciunt expedita animi quo aperiam impedit culpa.\",\"status\":\"published\",\"published_at\":\"2024-03-31T05:16:37.000000Z\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_WV8J6RP8RXE2BM\",\"slug\":\"voluptas-est-rerum-ea\",\"title\":\"(th) Et minima adipisci dolor ea libero ducimus magni.\",\"meta_title\":\"(th) Et minima adipisci dolor ea libero ducimus magni.\",\"meta_description\":\"(th) Dolorem rerum est est. Aperiam et voluptas ut deleniti qui et itaque. Illo eveniet quia vel.\\n\\nIusto temporibus fuga non alias aperiam ex. Voluptates at doloribus nihil similique aut iste voluptas. Sed et deleniti sunt accusantium et blanditiis ut. Eaque magni necessitatibus rem recusandae ipsum aliquam. Qui praesentium et nemo officiis optio hic aliquid.\\n\\nDignissimos dolore et architecto ducimus qui eum. Delectus ipsam aut et dolores. Repellat doloribus sapiente nostrum.\",\"status\":\"published\",\"published_at\":\"2023-11-02T07:58:21.000000Z\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_ZK6LYR6QR9MP48\",\"slug\":\"ipsam-laudantium-libero-similique-dolores-sed-nobis\",\"title\":\"(th) Labore mollitia tempora eveniet aut.\",\"meta_title\":\"(th) Labore mollitia tempora eveniet aut.\",\"meta_description\":\"(th) Officia aut veniam ipsum corrupti illo. Ullam autem illo consequatur odio incidunt eum omnis. Est eos officia facere ab unde voluptatem molestias non. Facilis omnis aliquam assumenda quas explicabo enim saepe.\\n\\nUt repudiandae dicta illo optio incidunt. Placeat commodi perspiciatis ex et consequatur ab accusamus. Commodi impedit voluptatem aut ab temporibus non. Ducimus quibusdam eos odio nam aperiam ut laboriosam.\\n\\nSint et iste facilis. Voluptatem atque soluta et occaecati quas ipsa eum. Commodi rerum quo accusantium placeat et quia ut.\",\"status\":\"published\",\"published_at\":\"2024-04-21T21:18:27.000000Z\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"}],\"links\":{\"first\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=1\",\"last\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=2\",\"prev\":null,\"next\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=2\"},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":2,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=2\",\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs\",\"per_page\":10,\"to\":10,\"total\":20}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create blog",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/blogs",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/blogs"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get blog by ID",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/blogs\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/blogs\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the blog."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Blog] -1\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update blog",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/blogs\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/blogs\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the blog."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete blog",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/blogs\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/blogs\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the blog."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
             "name": "Endpoints",
             "description": "",
             "item": [
@@ -106,7 +301,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"q\",\"last_name\":\"itzqgxsckrkjtwatzqfcnqapn\",\"email\":\"batz.nigel@example.org\",\"password\":\"rerum\"}"
+                            "raw": "{\"first_name\":\"uoiw\",\"last_name\":\"kf\",\"email\":\"reynold.wehner@example.net\",\"password\":\"harum\"}"
                         },
                         "description": ""
                     },
@@ -134,7 +329,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"jailyn56@example.com\"}"
+                            "raw": "{\"email\":\"violette86@example.net\"}"
                         },
                         "description": ""
                     },
@@ -162,7 +357,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"token\":\"eaque\",\"email\":\"clifford.considine@example.net\",\"password\":\"quod\"}"
+                            "raw": "{\"token\":\"porro\",\"email\":\"kevin15@example.net\",\"password\":\"id\"}"
                         },
                         "description": ""
                     },
@@ -180,7 +375,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "nam",
+                                    "value": "occaecati",
                                     "description": "The ID of the verify email."
                                 },
                                 {
@@ -217,16 +412,24 @@
                                     "value": "application\/json"
                                 },
                                 {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "6"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "5"
+                                },
+                                {
                                     "key": "vary",
                                     "value": "Origin"
                                 },
                                 {
                                     "key": "set-cookie",
-                                    "value": "XSRF-TOKEN=eyJpdiI6IlJBd2FyRUZucFdJWnlNWjhuMkVRcGc9PSIsInZhbHVlIjoiZW1UbnI5ejZBQ3psR3FwMjFIZEttR2lKaVlUY3FIMkV3TElTd3kzSkxjRmFueTJHb0x3U3lwSE43bitlMHEvRGpNRkFsNnA3am0yNGRWbE5UZ0lGYlF0UnRiT25laXM2eXNKOFV4Ty93bDlSVENTOFRlZ01CSmdNWHdrcjRmbkoiLCJtYWMiOiJmM2ZkMTFkYjU1YTlhNDY3MTcxYjkwM2YwODRjNDAyN2IwNWI2NzQ3NzRhZWVhNGM4NDMxODc2YWM4YThiMTMxIiwidGFnIjoiIn0%3D; expires=Tue, 17 Sep 2024 04:02:05 GMT; Max-Age=7200; path=\/; domain=.starter.test; secure; samesite=lax; starter_session=eyJpdiI6InczSkdQM0hDNE5aanNYQ1BSK0kxWGc9PSIsInZhbHVlIjoiWXVGaEwzU1R2djdSOEVQb2Y2SFJ2d2Z0YW9FTWJWZXlZWG1uaTRpVWEydVkvTkhpR01TL3A0Mm1waHh1NXJZeXFlTUs1b2htSVp2K1NiTVJpQ3FiVC85RUdFVDd6V1FnQ3BPaW9peGp6Vjk4ZmxjaWJ2VnVGUHR4TEM5b0FxeUYiLCJtYWMiOiI3MGJjY2U0MjdkODRkZDEyZmIzMWQ3M2Q4YTZiNDZjNDA0ZTU0ODkzNDYwMjU2N2Q2OTExMTQ0MWM5YjE4ZTYzIiwidGFnIjoiIn0%3D; expires=Tue, 17 Sep 2024 04:02:05 GMT; Max-Age=7200; path=\/; domain=.starter.test; secure; httponly; samesite=lax"
+                                    "value": "XSRF-TOKEN=eyJpdiI6IklGZ2NvMDZybWFjZHpMY04xbGMwTmc9PSIsInZhbHVlIjoiTWtsWHM2amRNbUhlQjF5Z0FDdDFlQXFlWHNlSWpqS091TDBNMiszOGh3bmpkOUsrNHFUd3c3enB0aUlkeG1HaVpZRWtiQldTYUYxSFk5ZmE3bTZWN2FrUG02aTYzOVpib2dwR1ZKMWppWVR6eDhqRmxsNnE3am04SlJHbExWY0siLCJtYWMiOiI1ZjVkMDM5YTc0MzkxZWY4NzdkYzQ2ZDA2YWYzNmUzMGEwNjUyNmJlZTJiMmQyM2I0ZTA0MDNjMjQ0NTg0YjU5IiwidGFnIjoiIn0%3D; expires=Tue, 24 Sep 2024 06:39:49 GMT; Max-Age=7200; path=\/; domain=.starter.test; secure; samesite=lax; starter_session=eyJpdiI6Im9xcFk0YkFKNlBqK0dBTDE0M1hxanc9PSIsInZhbHVlIjoiUXZkZkt3OUVZN3pNV01Sd2NHcllKbVlZSEZEYkhSSm9oSklDMS83ZlJXMTdEWWZkUmhzTDNiQ0kyTWRWN3I0dGZZU0RXWFBBYkNHeHhIdnVWaGJNcUhEOGZaNFNUNUZKempnUTk4bDlrbTBlejJpOGU1Qmlad2NIMGJIc2ZndWkiLCJtYWMiOiIxYjlhZWFlOWM5NzM0NGE5YTZlNTA0MjkyMzc4ZmFlNGRiM2FlZTYyZDk2ZTI0NDkwMDY0M2RlM2Q3MTEyNDVkIiwidGFnIjoiIn0%3D; expires=Tue, 24 Sep 2024 06:39:49 GMT; Max-Age=7200; path=\/; domain=.starter.test; secure; httponly; samesite=lax"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 403,
+                            "body": "{\n    \"message\": \"Invalid signature.\"\n}",
                             "name": ""
                         }
                     ]
@@ -296,6 +499,195 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":\"role_2VDBZXRV4W8PGL\",\"name\":\"Super Admin\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"role_E8PLJ15WXK9M2Z\",\"name\":\"Admin\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"}],\"links\":{\"first\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/roles?page=1\",\"last\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/roles?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/roles?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/roles\",\"per_page\":10,\"to\":2,\"total\":2}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the role."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Role] -1\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the role."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the role."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
                 },
                 {
                     "name": "GET api\/v1\/dev-api",
@@ -387,8 +779,8 @@
                                     "value": "Origin"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"user_ZMBQEKPDK3X079\",\"title\":\"Ms.\",\"first_name\":\"Super\",\"last_name\":\"Admin\",\"email\":\"superadmin@wawa-x.com\",\"phone\":\"+16512475880\",\"permissions\":[\"USERS:VIEW\",\"USERS:CREATE\",\"USERS:UPDATE\",\"USERS:DELETE\",\"BLOGS:VIEW\",\"BLOGS:CREATE\",\"BLOGS:UPDATE\",\"BLOGS:DELETE\"],\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"}}",
                             "name": ""
                         }
                     ]
@@ -415,7 +807,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Ms.\",\"first_name\":\"hfutnouy\",\"last_name\":\"rpcjkp\"}"
+                            "raw": "{\"title\":\"Mr.\",\"first_name\":\"frqwmocdpvarikchhvxdy\",\"last_name\":\"ucoablpn\",\"phone\":\"tnrtcsgtd\"}"
                         },
                         "description": ""
                     },
@@ -443,7 +835,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"current_password\":\"inventore\",\"password\":\"doloremque\"}"
+                            "raw": "{\"current_password\":\"ut\",\"password\":\"ipsa\"}"
                         },
                         "description": ""
                     },
@@ -458,18 +850,30 @@
                             "query": [
                                 {
                                     "key": "sort",
-                                    "value": "title%2C-createdAt",
+                                    "value": "first_name%2C-createdAt",
                                     "description": "Data field(s) to sort by. Separate multiple fields with commas. Denote descending sort with a minus sign.",
                                     "disabled": false
                                 },
                                 {
-                                    "key": "filter%5Bsearch%5D",
-                                    "value": "eum",
-                                    "description": "Search user by name, email.",
+                                    "key": "filter%5Bid%5D",
+                                    "value": "ducimus",
+                                    "description": "Filter user by id.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bemail%5D",
+                                    "value": "temporibus",
+                                    "description": "Filter user by email.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "distinctio",
+                                    "description": "Search user by name, email, phone.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/users?sort=title%2C-createdAt&filter%5Bsearch%5D=eum"
+                            "raw": "{{baseUrl}}\/api\/v1\/users?sort=first_name%2C-createdAt&filter%5Bid%5D=ducimus&filter%5Bemail%5D=temporibus&search=distinctio"
                         },
                         "method": "GET",
                         "header": [
@@ -501,8 +905,8 @@
                                     "value": "Origin"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 200,
+                            "body": "{\"data\":[],\"links\":{\"first\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/users?page=1\",\"last\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/users?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/users?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/users\",\"per_page\":10,\"to\":null,\"total\":0}}",
                             "name": ""
                         }
                     ]
@@ -529,7 +933,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Mrs.\",\"first_name\":\"o\",\"last_name\":\"xegfjotuvj\",\"email\":\"nikko00@example.com\",\"role_id\":\"eius\",\"password\":\"\\\\\\\"!*`MagHU4&5\\\/~g=H\"}"
+                            "raw": "{\"title\":\"Mr.\",\"first_name\":\"vohsvfuqhpvj\",\"last_name\":\"p\",\"email\":\"telly07@example.org\",\"phone\":\"yzjachulcfqrt\"}"
                         },
                         "description": ""
                     },
@@ -582,8 +986,8 @@
                                     "value": "Origin"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\User] -1\"\n}",
                             "name": ""
                         }
                     ]
@@ -618,7 +1022,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Mr.\",\"first_name\":\"pscugewcycpblgjyrkppnzdf\",\"last_name\":\"jfvlkwahgagxdrgve\",\"email\":\"amely60@example.com\",\"role_id\":\"quibusdam\",\"password\":\"wal,!ckd\\\"!W\"}"
+                            "raw": "{\"title\":\"Mrs.\",\"first_name\":\"tqdyhzjvlezcdb\",\"last_name\":\"rzebcfht\",\"phone\":\"llpsgdirem\"}"
                         },
                         "description": ""
                     },
@@ -656,6 +1060,54 @@
                         "description": ""
                     },
                     "response": []
+                },
+                {
+                    "name": "Get user title options",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/titles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/titles"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"value\":\"Mr.\",\"label\":\"\\u0e19\\u0e32\\u0e22\"},{\"value\":\"Mrs.\",\"label\":\"\\u0e19\\u0e32\\u0e07\"},{\"value\":\"Ms.\",\"label\":\"\\u0e19\\u0e32\\u0e07\\u0e2a\\u0e32\\u0e27\"}]}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         }

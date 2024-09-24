@@ -18,6 +18,7 @@ class BlogFactory extends Factory
     {
         return [
             'slug' => $this->faker->slug(),
+            'published_at' => $this->faker->randomElement([null, $this->faker->dateTimeBetween('-1 year', 'now')]),
         ];
     }
 

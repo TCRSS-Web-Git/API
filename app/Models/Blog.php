@@ -23,12 +23,18 @@ class Blog extends Model
 
     protected $fillable = [
         'slug',
+        'published_at',
+    ];
+
+    protected $casts = [
+        'published_at' => 'datetime',
     ];
 
     public function getTranslationTable()
     {
         return 'blog_translations';
     }
+
     public function scopeFilter(Builder $builder, QueryFilter $filters)
     {
         return $filters->apply($builder);

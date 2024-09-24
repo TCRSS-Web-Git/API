@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Gate;
 class BlogController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get all blogs
+     *
+     * @group Blogs
      */
     public function index(BlogFilter $filter)
     {
@@ -19,15 +21,16 @@ class BlogController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create blog
+     *
+     * @group Blogs
      */
-    public function store(Request $request)
-    {
-
-    }
+    public function store(Request $request) {}
 
     /**
-     * Display the specified resource.
+     * Get blog by ID
+     *
+     * @group Blogs
      */
     public function show(Blog $blog)
     {
@@ -35,15 +38,16 @@ class BlogController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update blog
+     *
+     * @group Blogs
      */
-    public function update(Request $request, Blog $blog)
-    {
-
-    }
+    public function update(Request $request, Blog $blog) {}
 
     /**
-     * Remove the specified resource from storage.
+     * Delete blog
+     *
+     * @group Blogs
      */
     public function destroy(Blog $blog)
     {

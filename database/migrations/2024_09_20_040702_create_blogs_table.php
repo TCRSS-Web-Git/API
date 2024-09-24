@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->nullable()->index();
+            $table->dateTime('published_at')->nullable();
             $table->timestamps();
         });
     }

@@ -15,8 +15,8 @@ class BlogFilter extends QueryFilter
         'created_at',
         'updated_at',
     ];
-    protected $translatedFields = ['title', 'body', 'meta_title', 'meta_description']; // Add translated fields here
 
+    protected $translatedFields = ['title', 'body', 'meta_title', 'meta_description']; // Add translated fields here
 
     public function id($value)
     {

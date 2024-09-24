@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Blog;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
@@ -9,6 +10,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
+use Knuckles\Camel\Extraction\ExtractedEndpointData;
+use Knuckles\Scribe\Scribe;
+use Laravel\Sanctum\Sanctum;
+use Symfony\Component\HttpFoundation\Request;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -39,6 +44,19 @@ class AppServiceProvider extends ServiceProvider
             }
 
             return config('app.frontend_url')."/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
+        });
+
+        // Allow Scribe to generate docs with authenticated user
+        if (class_exists(\Knuckles\Scribe\Scribe::class)) {
+            Scribe::beforeResponseCall(function (Request $request, ExtractedEndpointData $endpointData) {
+                $user = User::first();
+                Sanctum::actingAs($user, ['*']);
+            });
+        }
+
+        // Please keep it in alphabetical order.
+        Route::bind('blog', function ($value) {
+            return Blog::findByHashOrFail($value);
         });
 
         Route::bind('user', function ($value) {

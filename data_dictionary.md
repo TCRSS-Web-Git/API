@@ -2,6 +2,32 @@
 
 ทุก table มี timestamp: created_at, updated_at ละไว้
 
+## blogs
+
+บทความ
+
+| Column       | Description                                            | Type                 | Attributes  |
+|--------------|--------------------------------------------------------|----------------------|-------------|
+| id           |                                                        | unsigned big integer | primary key |
+| slug         | URL slug                                               | varchar              | nullable    |
+| published_at | วันเวลาที่ publish (null หรือ published < now = draft) | datetime             | nullable    |
+
+
+## blog_translations
+
+เก็บ Localized content สำหรับบทความ
+
+| Column           | Description                                            | Type                 | Attributes  |
+|------------------|--------------------------------------------------------|----------------------|-------------|
+| id               |                                                        | unsigned big integer | primary key |
+| item_id          | foreign key to [blogs](#blogs) table                   | unsigned big integer | foreign key |
+| locale           | ภาษา                                                   | varchar              |             |
+| title            | URL slug                                               | varchar              | nullable    |
+| body             | วันเวลาที่ publish (null หรือ published < now = draft) | medium text          | nullable    |
+| meta_title       | Meta title สำหรับ SEO                                  | varchar              | nullable    |
+| meta_description | Meta description สำหรับ SEO                            | varchar              | nullable    |
+
+
 ## countries
 
 ประเทศ
@@ -17,6 +43,7 @@
 | continent_code | รหัสทวีป                    | varchar              |             |                                                                       | big integer           | nullable    |
 | alpha_3        | รหัสประเทศ 3 หลัก (Alpha-3) | varchar              |             |                                                                       | big integer           | nullable    |
 
+
 ## districts
 
 อำเภอ/ตำบลในประเทศไทย
@@ -28,6 +55,7 @@
 | name_th     | ชื่ออำเภอภาษาไทย                                                   | varchar              |             |
 | name_en     | ชื่ออำเภอภาษาอังกฤษ                                                | varchar              |             |
 | sid         | sid จาก json seed ช่วยในการ map ระหว่าง seed ข้อมูล ไม่ได้เอามาใช้ | varchar              | nullable    |                                                                        | big integer           | nullable    |
+
 
 ## invites
 
