@@ -3,6 +3,7 @@
 namespace App\Filters;
 
 use App\Models\Blog;
+use App\Models\Category;
 
 class BlogFilter extends QueryFilter
 {
@@ -62,6 +63,35 @@ class BlogFilter extends QueryFilter
         return $this->builder->whereHas('translations', function ($query) use ($value) {
             $query->whereRaw('LOWER(meta_title) LIKE ?', ['%'.strtolower($value).'%']);
         });
+    }
+
+    public function status($value)
+    {
+        if (strtolower($value) === 'published') {
+            return $this->builder->where('published_at', '<=', now());
+        }
+
+        if (strtolower($value) === 'draft') {
+            return $this->builder->where(function () {
+                $this->builder->where('published_at', '>', now())
+                    ->orWhere('published_at', null);
+            });
+        }
+
+        return $this->builder;
+    }
+
+    public function category_id($value)
+    {
+        $categoryIds = explode(',', $value);
+        $categoryIds = array_map(static function ($id) {
+            return Category::decodeHash(trim($id));
+        }, $categoryIds);
+        $categoryIds = array_filter($categoryIds, static function ($id) {
+            return $id > 0;
+        });
+
+        return $this->builder->whereIn('category_id', $categoryIds);
     }
 
     public function search($value)

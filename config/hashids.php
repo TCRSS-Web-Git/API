@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
@@ -48,6 +49,12 @@ return [
 
         Blog::class => [
             'salt' => env('HASHIDS_BLOG', 'FR4PmB7XHx4VXBrC8hHh'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
+
+        Category::class => [
+            'salt' => env('HASHIDS_CATEGORY', '7eDm9NeRRUAruPmEFnPd'),
             'length' => 14,
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
         ],

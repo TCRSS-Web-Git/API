@@ -2,7 +2,9 @@
 
 namespace Database\Seeders\Dev;
 
+use App\Enums\CategoryType;
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class TestBlogSeeder extends Seeder
@@ -12,6 +14,13 @@ class TestBlogSeeder extends Seeder
      */
     public function run(): void
     {
-        Blog::factory(20)->create();
+        $category1 = Category::create(['type' => CategoryType::BLOG, 'name' => 'บทความ', 'slug' => 'articles']);
+        $category1->setTranslation('name', 'Articles', 'en');
+        $category1->save();
+        $category2 = Category::create(['type' => CategoryType::BLOG, 'name' => 'โปรโมชั่น', 'slug' => 'promotions']);
+        $category2->setTranslation('name', 'Promotions', 'en');
+        $category2->save();
+
+        Blog::factory(20)->recycle(Category::blog()->get())->create();
     }
 }

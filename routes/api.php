@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserProfileController;
@@ -18,6 +19,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('users', UserController::class);
     Route::apiResource('roles', RoleController::class);
 
+    Route::get('categories/{type}', [CategoryController::class, 'index'])->name('categories.index');
+    Route::post('categories/{type}', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('categories/{type}/{category}', [CategoryController::class, 'show'])->name('categories.show');
+    Route::put('categories/{type}/{category}', [CategoryController::class, 'update'])->name('categories.show');
+    Route::patch('categories/{type}/{category}', [CategoryController::class, 'update']);
+    Route::delete('categories/{type}/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
     Route::apiResource('blogs', BlogController::class);
 });
 

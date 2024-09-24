@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,6 +18,7 @@ class BlogFactory extends Factory
     public function definition(): array
     {
         return [
+            'category_id' => Category::factory()->blog(),
             'slug' => $this->faker->slug(),
             'published_at' => $this->faker->randomElement([null, $this->faker->dateTimeBetween('-1 year', 'now')]),
         ];
