@@ -29,6 +29,10 @@ class BlogFilter extends QueryFilter
             return $id > 0;
         });
 
+        if (empty($ids)) {
+            return $this->builder;
+        }
+
         return $this->builder->whereIn('id', $ids);
     }
 
@@ -91,6 +95,10 @@ class BlogFilter extends QueryFilter
             return $id > 0;
         });
 
+        if (empty($categoryIds)) {
+            return $this->builder;
+        }
+
         return $this->builder->whereIn('category_id', $categoryIds);
     }
 
@@ -108,6 +116,11 @@ class BlogFilter extends QueryFilter
         //        });
 
         // Search by hashID (support multiple hashID, comma separated)
+        $value = trim($value);
+        if (empty($value)) {
+            return $this->builder;
+        }
+
         $ids = Blog::decodeMultipleHashString($value);
 
         return $this->builder->where(function ($query) use ($value, $ids) {

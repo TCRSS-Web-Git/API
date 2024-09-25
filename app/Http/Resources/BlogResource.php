@@ -31,7 +31,7 @@ class BlogResource extends JsonResource
             'body' => $this->when(! $request->routeIs(['blogs.index']), $this->getTranslation('body')),
             'meta_title' => $this->getTranslation('meta_title'),
             'meta_description' => $this->getTranslation('meta_description'),
-            'status' => $this->published_at && $this->published_at < now() ? 'published' : 'draft',
+            'status' => $this->published_at && $this->published_at <= now() ? 'published' : 'draft',
             'published_at' => $this->published_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
