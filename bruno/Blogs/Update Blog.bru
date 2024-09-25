@@ -1,0 +1,31 @@
+meta {
+  name: Update Blog
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{backend_url}}/api/v1/blogs/blog_N5Q29R2N7MP4VZ
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "slug": "new-articles",
+    "category_id": "category_V2Y3EMY0P815R9",
+    "published_at": null,
+    "th": {
+      "title": "บทความทดสอบ",
+      "body": "แพนด้าธุรกรรมไง ออร์แกนกฤษณ์",
+      "meta_title": "บทความทดสอบ",
+      "meta_description": "แพนด้าธุรกรรมไง ออร์แกนกฤษณ์"
+    },
+    "en": {
+      "title": "Test edit blog",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "meta_title": "Test edit blog",
+      "meta_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    }
+  }
+}

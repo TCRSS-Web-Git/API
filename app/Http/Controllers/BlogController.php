@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\SaveBlog;
 use App\Filters\BlogFilter;
+use App\Http\Requests\CreateOrUpdateBlogRequest;
 use App\Http\Resources\BlogResource;
 use App\Models\Blog;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class BlogController extends Controller
@@ -25,7 +26,14 @@ class BlogController extends Controller
      *
      * @group Blogs
      */
-    public function store(Request $request) {}
+    public function store(CreateOrUpdateBlogRequest $request, SaveBlog $saveBlog)
+    {
+        Gate::authorize('create', Blog::class);
+
+        $blog = $saveBlog->execute(new Blog, $request->validated());
+
+        return new BlogResource($blog);
+    }
 
     /**
      * Get blog by ID
@@ -42,7 +50,14 @@ class BlogController extends Controller
      *
      * @group Blogs
      */
-    public function update(Request $request, Blog $blog) {}
+    public function update(CreateOrUpdateBlogRequest $request, Blog $blog, SaveBlog $saveBlog)
+    {
+        Gate::authorize('update', $blog);
+
+        $blog = $saveBlog->execute($blog, $request->validated());
+
+        return new BlogResource($blog);
+    }
 
     /**
      * Delete blog
