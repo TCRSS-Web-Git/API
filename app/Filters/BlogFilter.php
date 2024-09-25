@@ -116,11 +116,6 @@ class BlogFilter extends QueryFilter
         //        });
 
         // Search by hashID (support multiple hashID, comma separated)
-        $value = trim($value);
-        if (empty($value)) {
-            return $this->builder;
-        }
-
         $ids = Blog::decodeMultipleHashString($value);
 
         return $this->builder->where(function ($query) use ($value, $ids) {

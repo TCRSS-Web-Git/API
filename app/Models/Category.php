@@ -10,14 +10,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use LaravelLang\Models\HasTranslations;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Category extends Model
+class Category extends Model implements Auditable
 {
     use EloquentDecodeHash;
     use EloquentFindByHash;
     use HasFactory;
     use Hashidable;
     use HasTranslations;
+    use \OwenIt\Auditing\Auditable;
 
     public const HASHID_PREFIX = 'category_';
 

@@ -12,9 +12,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use OwenIt\Auditing\Contracts\Auditable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Auditable
 {
     use EloquentDecodeHash;
     use EloquentFindByHash;
@@ -23,6 +24,7 @@ class User extends Authenticatable
     use Hashidable;
     use HasRoles;
     use Notifiable;
+    use \OwenIt\Auditing\Auditable;
 
     public const HASHID_PREFIX = 'user_';
 

@@ -11,14 +11,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use LaravelLang\Models\HasTranslations;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Blog extends Model
+class Blog extends Model implements Auditable
 {
     use EloquentDecodeHash;
     use EloquentFindByHash;
     use HasFactory;
     use Hashidable;
     use HasTranslations;
+    use \OwenIt\Auditing\Auditable;
 
     public const HASHID_PREFIX = 'blog_';
 

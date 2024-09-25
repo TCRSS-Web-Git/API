@@ -30,6 +30,10 @@ abstract class QueryFilter
         $this->builder = $builder;
 
         foreach ($this->request->all() as $key => $value) {
+            if (trim($value) === '') {
+                continue;
+            }
+
             if (method_exists($this, $key)) {
                 $this->$key($value);
             }
@@ -46,6 +50,10 @@ abstract class QueryFilter
     protected function filter($arr)
     {
         foreach ($arr as $key => $value) {
+            if (trim($value) === '') {
+                continue;
+            }
+
             if (method_exists($this, $key)) {
                 $this->$key($value);
             }
