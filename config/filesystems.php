@@ -73,6 +73,7 @@ return [
             'root' => public_path('temporary'),
             'url' => env('APP_URL').'/temporary',
             'throw' => true,
+            'serve' => true,
         ],
 
         // for public files (e.g. product images, profile pictures, videos, blog content)

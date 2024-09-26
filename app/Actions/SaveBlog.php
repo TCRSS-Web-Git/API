@@ -3,11 +3,14 @@
 namespace App\Actions;
 
 use App\Models\Blog;
+use App\Models\Media;
 use Exception;
 use Mews\Purifier\Facades\Purifier;
 
 class SaveBlog
 {
+    protected Blog $blog;
+
     /**
      * @throws Exception
      */
@@ -32,6 +35,30 @@ class SaveBlog
 
         $blog->save();
 
-        return $blog;
+        $this->blog = $blog;
+
+        //save images
+        // check if data have media_thumbnail and media_cover
+        if (array_key_exists('media_thumbnail', $data) && $data['media_thumbnail']) {
+            $this->saveImage($data['media_thumbnail'], Blog::MEDIA_COLLECTION_THUMBNAIL);
+        }
+        if (array_key_exists('media_cover', $data) && $data['media_cover']) {
+            $this->saveImage($data['media_cover'], Blog::MEDIA_COLLECTION_COVER);
+        }
+
+        return $this->blog;
+    }
+
+    // TODO refactor this method
+    protected function saveImage(array $image, string $collection): void
+    {
+        if ($image && ! $image['id']) {
+            $this->saveImageFromTempToMedia($image, $collection);
+        }
+    }
+
+    protected function saveImageFromTempToMedia($file, $collection): ?Media
+    {
+        return (new SaveTemporaryMedia)->saveFileFromTemp($this->blog, $collection, $file);
     }
 }

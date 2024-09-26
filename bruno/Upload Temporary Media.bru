@@ -1,0 +1,15 @@
+meta {
+  name: Upload Temporary Media
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{backend_url}}/api/v1/temporary-media
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  media: @file()
+}

@@ -13,18 +13,29 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use LaravelLang\Models\HasTranslations;
 use OwenIt\Auditing\Contracts\Auditable;
+use Spatie\Image\Enums\Fit;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Blog extends Model implements Auditable
+class Blog extends Model implements Auditable, HasMedia
 {
     use EloquentDecodeHash;
     use EloquentFindByHash;
     use HasFactory;
     use Hashidable;
     use HasTranslations;
+    use InteractsWithMedia;
     use LatestAudit;
     use \OwenIt\Auditing\Auditable;
 
     public const HASHID_PREFIX = 'blog_';
+
+    public const string MEDIA_COLLECTION_THUMBNAIL = 'thumbnail';
+
+    public const string MEDIA_COLLECTION_COVER = 'cover';
+
+    public const string MEDIA_COLLECTION_DESCRIPTION_PHOTO = 'photos';
 
     protected $fillable = [
         'slug',
@@ -34,6 +45,43 @@ class Blog extends Model implements Auditable
     protected $casts = [
         'published_at' => 'datetime',
     ];
+
+    public function registerMediaCollections(): void
+    {
+        // thumbnail
+        $this->addMediaCollection(self::MEDIA_COLLECTION_THUMBNAIL)
+            ->singleFile()
+            ->registerMediaConversions(function (Media $media) {
+                $this->addMediaConversion(self::MEDIA_COLLECTION_THUMBNAIL.'_optimized')
+                    ->withResponsiveImages()
+                    ->format('webp')
+                    ->background('FFFFFF')
+                    ->fit(Fit::Crop, 1200, 1200) // 1:1
+                    ->optimize();
+            });
+
+        // cover
+        $this->addMediaCollection(self::MEDIA_COLLECTION_COVER)
+            ->singleFile()
+            ->registerMediaConversions(function (Media $media) {
+                $this->addMediaConversion(self::MEDIA_COLLECTION_COVER.'_optimized')
+                    ->withResponsiveImages()
+                    ->format('webp')
+                    ->background('FFFFFF')
+                    ->fit(Fit::Crop, 1920, 480) // 4:1
+                    ->optimize();
+            });
+
+        // รูปใน body
+        $this->addMediaCollection(self::MEDIA_COLLECTION_DESCRIPTION_PHOTO)
+            ->registerMediaConversions(function (Media $media) {
+                $this->addMediaConversion(self::MEDIA_COLLECTION_DESCRIPTION_PHOTO.'_optimized')
+                    ->withResponsiveImages()
+                    ->format('webp')
+                    ->fit(Fit::Max, 2000, 2000)
+                    ->optimize();
+            });
+    }
 
     public function getTranslationTable()
     {

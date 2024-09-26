@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TemporaryMediaController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\User\UserTitleController;
@@ -18,6 +19,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('user/password', [UserProfileController::class, 'updatePassword'])->name('user.password');
     Route::apiResource('users', UserController::class);
     Route::apiResource('roles', RoleController::class);
+
+    Route::post('temporary-media', [TemporaryMediaController::class, 'store'])->name('temporary_media.store');
 
     Route::get('categories/{type}', [CategoryController::class, 'index'])->name('categories.index');
     Route::post('categories/{type}', [CategoryController::class, 'store'])->name('categories.store');

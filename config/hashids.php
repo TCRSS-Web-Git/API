@@ -2,6 +2,7 @@
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Media;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
@@ -55,6 +56,12 @@ return [
 
         Category::class => [
             'salt' => env('HASHIDS_CATEGORY', '7eDm9NeRRUAruPmEFnPd'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
+
+        Media::class => [
+            'salt' => env('HASHIDS_MEDIA', 'uwyS5b76zmHr2cJDbwmn'),
             'length' => 14,
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
         ],
