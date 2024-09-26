@@ -6,6 +6,7 @@ use App\Filters\QueryFilter;
 use App\Traits\EloquentDecodeHash;
 use App\Traits\EloquentFindByHash;
 use App\Traits\Hashidable;
+use App\Traits\LatestAudit;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,6 +21,7 @@ class Blog extends Model implements Auditable
     use HasFactory;
     use Hashidable;
     use HasTranslations;
+    use LatestAudit;
     use \OwenIt\Auditing\Auditable;
 
     public const HASHID_PREFIX = 'blog_';

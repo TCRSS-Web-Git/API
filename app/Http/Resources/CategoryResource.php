@@ -26,11 +26,11 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->hashid,
             'name' => $this->getTranslation('name'),
-            'description' => $this->getTranslation('description'),
+            'description' => $this->when($request->routeIs(['categories.*']), $this->getTranslation('description')),
             'slug' => $this->slug,
-            'sort' => $this->sort,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'sort' => $this->when($request->routeIs(['categories.*']), $this->sort),
+            'created_at' => $this->when($request->routeIs(['categories.*']), $this->created_at),
+            'updated_at' => $this->when($request->routeIs(['categories.*']), $this->updated_at),
         ];
     }
 }

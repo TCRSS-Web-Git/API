@@ -1,0 +1,31 @@
+meta {
+  name: Create Blog
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{backend_url}}/api/v1/blogs
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "slug": "new-test-articles",
+    "category_id": "category_BGN90M7EDVZRQ1",
+    "published_at": null,
+    "th": {
+      "title": "บทความทดสอบ 2",
+      "body": "แพนด้าธุรกรรมไง ออร์แกนกฤษณ์ 2",
+      "meta_title": "บทความทดสอบ 2",
+      "meta_description": "แพนด้าธุรกรรมไง ออร์แกนกฤษณ์ 2"
+    },
+    "en": {
+      "title": "Test edit blog 2",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 2",
+      "meta_title": "Test edit blog 2",
+      "meta_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 2"
+    }
+  }
+}

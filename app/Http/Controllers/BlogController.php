@@ -18,7 +18,7 @@ class BlogController extends Controller
      */
     public function index(BlogFilter $filter)
     {
-        return BlogResource::collection(Blog::with(['category'])->filter($filter)->paginate($this->getPerPage()));
+        return BlogResource::collection(Blog::with(['category', 'latestAudit.user'])->filter($filter)->paginate($this->getPerPage()));
     }
 
     /**

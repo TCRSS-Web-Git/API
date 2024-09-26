@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->mediumText('body')->nullable();
             $table->string('meta_title')->nullable();
-            $table->text('meta_description')->nullable();
+            $table->string('meta_description')->nullable();
 
             $table->unique(['item_id', 'locale']);
         });

@@ -5,12 +5,11 @@ meta {
 }
 
 get {
-  url: {{backend_url}}/api/v1/blogs?sort=title&status=published
+  url: {{backend_url}}/api/v1/blogs?sort=-updated_at
   body: none
   auth: none
 }
 
 params:query {
-  sort: title
-  status: published
+  sort: -updated_at
 }
