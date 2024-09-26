@@ -47,6 +47,15 @@ abstract class QueryFilter
         return $this->builder;
     }
 
+    protected function include($value)
+    {
+        $includes = explode(',', $value);
+
+        if (in_array('translations', $includes)) {
+            $this->builder->with('translations');
+        }
+    }
+
     protected function filter($arr)
     {
         foreach ($arr as $key => $value) {

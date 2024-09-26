@@ -18,4 +18,9 @@ class Role extends Model implements Auditable
     use \OwenIt\Auditing\Auditable;
 
     public const HASHID_PREFIX = 'role_';
+
+    // Default roles, can be changed as needed by user
+    public const ROLE_SUPER_ADMIN = 'Super Admin';
+
+    public const ROLE_ADMIN = 'Admin';
 }

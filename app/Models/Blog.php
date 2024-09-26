@@ -40,6 +40,23 @@ class Blog extends Model implements Auditable
         return 'blog_translations';
     }
 
+    public function getAllTranslations(): array
+    {
+        $locales = config('app.supported_locales');
+        $translations = [];
+
+        foreach ($locales as $locale) {
+            $translations[$locale] = [
+                'title' => $this->getTranslation('title', $locale),
+                'body' => $this->getTranslation('body', $locale),
+                'meta_title' => $this->getTranslation('meta_title', $locale),
+                'meta_description' => $this->getTranslation('meta_description', $locale),
+            ];
+        }
+
+        return $translations;
+    }
+
     public function scopeFilter(Builder $builder, QueryFilter $filters)
     {
         return $filters->apply($builder);

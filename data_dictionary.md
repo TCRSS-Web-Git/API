@@ -6,11 +6,12 @@
 
 บทความ
 
-| Column       | Description                                            | Type                 | Attributes  |
-|--------------|--------------------------------------------------------|----------------------|-------------|
-| id           |                                                        | unsigned big integer | primary key |
-| slug         | URL slug                                               | varchar              | nullable    |
-| published_at | วันเวลาที่ publish (null หรือ published < now = draft) | datetime             | nullable    |
+| Column       | Description                                            | Type                 | Attributes            |
+|--------------|--------------------------------------------------------|----------------------|-----------------------|
+| id           |                                                        | unsigned big integer | primary key           |
+| category_id  | foreign key to [categories](#categories) table         | unsigned big integer | foreign key, nullable |
+| slug         | URL slug                                               | varchar              | nullable              |
+| published_at | วันเวลาที่ publish (null หรือ published < now = draft) | datetime             | nullable              |
 
 
 ## blog_translations
@@ -26,6 +27,31 @@
 | body             | วันเวลาที่ publish (null หรือ published < now = draft) | medium text          | nullable    |
 | meta_title       | Meta title สำหรับ SEO                                  | varchar              | nullable    |
 | meta_description | Meta description สำหรับ SEO                            | varchar              | nullable    |
+
+
+## categories
+
+หมวดหมู่ (general purpose)
+
+| Column | Description                                      | Type                   | Attributes  |
+|--------|--------------------------------------------------|------------------------|-------------|
+| id     |                                                  | unsigned big integer   | primary key |
+| type   | Enum บอกว่าเป็นหมวดหมุ่ของ model ไหน เช่น `blog` | varchar                |             |
+| slug   | URL slug                                         | varchar                | nullable    |
+| sort   | เรียงลำดับหมวดหมู่                               | unsigned small integer | nullable    |
+
+
+## category_translations
+
+เก็บ Localized content สำหรับหมวดหมู่
+
+| Column      | Description                                    | Type                 | Attributes  |
+|-------------|------------------------------------------------|----------------------|-------------|
+| id          |                                                | unsigned big integer | primary key |
+| item_id     | foreign key to [categories](#categories) table | unsigned big integer | foreign key |
+| locale      | ภาษา                                           | varchar              |             |
+| name        | ชื่อหมวดหมู่                                   | varchar              | nullable    |
+| description | คำอธิบายหมวดหมู่                               | text                 | nullable    |
 
 
 ## countries
