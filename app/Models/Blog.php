@@ -6,6 +6,7 @@ use App\Filters\QueryFilter;
 use App\Traits\EloquentDecodeHash;
 use App\Traits\EloquentFindByHash;
 use App\Traits\Hashidable;
+use App\Traits\HasTags;
 use App\Traits\LatestAudit;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,6 +25,7 @@ class Blog extends Model implements Auditable, HasMedia
     use EloquentFindByHash;
     use HasFactory;
     use Hashidable;
+    use HasTags;
     use HasTranslations;
     use InteractsWithMedia;
     use LatestAudit;

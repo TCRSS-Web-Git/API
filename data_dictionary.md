@@ -36,7 +36,7 @@
 | Column | Description                                      | Type                   | Attributes  |
 |--------|--------------------------------------------------|------------------------|-------------|
 | id     |                                                  | unsigned big integer   | primary key |
-| type   | Enum บอกว่าเป็นหมวดหมุ่ของ model ไหน เช่น `blog` | varchar                |             |
+| type   | Enum บอกว่าเป็นหมวดหมู่ของ model ไหน เช่น `blog` | varchar                |             |
 | slug   | URL slug                                         | varchar                | nullable    |
 | sort   | เรียงลำดับหมวดหมู่                               | unsigned small integer | nullable    |
 
@@ -205,6 +205,7 @@ Password reset tokens
 | payload       |             | long text            |                 |                                                                        | big integer           | nullable    |
 | last_activity | unix time   | integer              |                 |                                                                        | big integer           | nullable    |
 
+
 ## subdistricts
 
 สำหรับตำบล/แขวงในประเทศไทย
@@ -217,6 +218,29 @@ Password reset tokens
 | name_en     | ชื่อตำบลภาษาอังกฤษ                                                 | varchar              |             |
 | zip         | zip code                                                           | varchar              |             |   
 | sid         | sid จาก json seed ช่วยในการ map ระหว่าง seed ข้อมูล ไม่ได้เอามาใช้ | varchar              | nullable    |    
+
+
+## taggables
+
+Pivot table สำหรับเก็บ tag ของ model อื่นๆ
+
+| Column        | Description                        | Type                 | Attributes  |
+|---------------|------------------------------------|----------------------|-------------|
+| tag_id        | foreign key to [tags](#tags) table | unsigned big integer | foreign key |
+| taggable_id   | Polymorphic model                  | varchar              |             |
+| taggable_type | Polymorphic ID                     | unsigned big integer |             |
+
+
+## tags
+
+Tag (general purpose)
+
+| Column | Description                                      | Type                 | Attributes  |
+|--------|--------------------------------------------------|----------------------|-------------|
+| id     |                                                  | unsigned big integer | primary key |
+| type   | Enum บอกว่าเป็นหมวดหมู่ของ model ไหน เช่น `blog` | varchar              | nullable    |
+| name   | tag                                              | varchar              |             |
+
 
 ## users
 

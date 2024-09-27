@@ -35,6 +35,7 @@ class BlogResource extends JsonResource
             'meta_description' => $this->getTranslation('meta_description'),
             'translations' => $this->when($includeTranslations, $this->getAllTranslations()),
             'status' => $this->published_at && $this->published_at <= now() ? 'published' : 'draft',
+            'tags' => $this->tags->pluck('name'),
             'updated_by' => $this->latestAudit ? new MiniUserResource($this->latestAudit->user) : null,
             'published_at' => $this->published_at,
             'created_at' => $this->created_at,

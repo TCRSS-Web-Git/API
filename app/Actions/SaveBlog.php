@@ -35,6 +35,8 @@ class SaveBlog
 
         $blog->save();
 
+        $blog->syncTags($data['tags'] ?? []);
+
         $this->blog = $blog;
 
         //save images

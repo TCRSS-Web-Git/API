@@ -28,6 +28,8 @@ class CreateOrUpdateBlogRequest extends FormRequest
             'slug' => ['nullable', 'string', 'max:255'],
             'category_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::BLOG)],
             'published_at' => ['nullable', 'date'],
+            'tags' => ['array'],
+            'tags.*' => ['string', 'max:255'],
             'th' => ['array', 'required'],
             'en' => ['array'],
             'th.title' => ['required', 'string', 'max:255'],
