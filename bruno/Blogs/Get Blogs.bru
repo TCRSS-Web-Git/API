@@ -5,11 +5,16 @@ meta {
 }
 
 get {
-  url: {{backend_url}}/api/v1/blogs?sort=-updated_at
+  url: {{backend_url}}/api/v1/blogs?sort=-updated_at&tags=123
   body: none
   auth: none
 }
 
 params:query {
   sort: -updated_at
+  tags: 123
+}
+
+headers {
+  Accept-Language: en-US,en;q=0.9
 }

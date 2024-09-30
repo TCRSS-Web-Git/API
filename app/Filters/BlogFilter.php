@@ -126,4 +126,17 @@ class BlogFilter extends QueryFilter
                 ->orWhereIn('id', $ids);
         });
     }
+
+    public function tags($value)
+    {
+        $tags = explode(',', $value);
+        $tags = array_map('trim', $tags);
+        $tags = array_filter($tags);
+
+        if (empty($tags)) {
+            return $this->builder;
+        }
+
+        return $this->builder->withAnyTags($tags, Blog::getTagType());
+    }
 }

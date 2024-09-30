@@ -4,12 +4,14 @@ namespace App\Traits;
 
 use App\Models\Tag;
 use ArrayAccess;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Arr;
+use InvalidArgumentException;
 
 trait HasTags
 {
-    public function getTagType(): ?string
+    public static function getTagType(): ?string
     {
         return class_basename(static::class);
     }
@@ -19,15 +21,46 @@ trait HasTags
         return $this->morphToMany(Tag::class, 'taggable', 'taggables');
     }
 
+    public function scopeWithAllTags(
+        Builder $query,
+        string|array|ArrayAccess|Tag $tags,
+        ?string $type = null,
+    ): Builder {
+        $tags = static::convertToTags($tags, $type);
+
+        collect($tags)->each(function ($tag) use ($query) {
+            $query->whereHas('tags', function (Builder $query) use ($tag) {
+                $query->where('tags.id', $tag->id ?? 0);
+            });
+        });
+
+        return $query;
+    }
+
+    public function scopeWithAnyTags(
+        Builder $query,
+        string|array|ArrayAccess|Tag $tags,
+        ?string $type = null,
+    ): Builder {
+        $tags = static::convertToTags($tags, $type);
+
+        return $query
+            ->whereHas('tags', function (Builder $query) use ($tags) {
+                $tagIds = collect($tags)->pluck('id');
+
+                $query->whereIn('tags.id', $tagIds);
+            });
+    }
+
     public function syncTags(string|array|ArrayAccess $tags): static
     {
         if (is_string($tags)) {
             $tags = Arr::wrap($tags);
         }
 
-        $tags = collect(Tag::findOrCreate($tags, $this->getTagType()));
+        $tags = collect(Tag::findOrCreate($tags, static::getTagType()));
 
-        $this->syncTagIds($tags->pluck('id')->toArray(), $this->getTagType());
+        $this->syncTagIds($tags->pluck('id')->toArray(), static::getTagType());
 
         return $this;
     }
@@ -77,7 +110,26 @@ trait HasTags
         if ($isUpdated) {
             $this->tags()->touchIfTouching();
             // delete tags that are not used by any model
-            Tag::where('type', $this->getTagType())->doesntHave('taggables')->delete();
+            Tag::where('type', static::getTagType())->doesntHave('taggables')->delete();
         }
+    }
+
+    protected static function convertToTags($values, $type = null)
+    {
+        if ($values instanceof Tag) {
+            $values = [$values];
+        }
+
+        return collect($values)->map(function ($value) use ($type) {
+            if ($value instanceof Tag) {
+                if (isset($type) && $value->type != $type) {
+                    throw new InvalidArgumentException("Type was set to {$type} but tag is of type {$value->type}");
+                }
+
+                return $value;
+            }
+
+            return Tag::findFromString($value, $type);
+        });
     }
 }

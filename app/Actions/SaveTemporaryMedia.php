@@ -44,7 +44,7 @@ class SaveTemporaryMedia
 
     public function generateUrl(string $path): string
     {
-        return Storage::disk($this->diskName)->temporaryUrl($path, now()->addMinutes(60));
+        return Storage::disk($this->diskName)->temporaryUrl($path, now()->addMinutes(120));
     }
 
     public function delete(string $path): void
