@@ -37,7 +37,7 @@ class Blog extends Model implements Auditable, HasMedia
 
     public const string MEDIA_COLLECTION_COVER = 'cover';
 
-    public const string MEDIA_COLLECTION_DESCRIPTION_PHOTO = 'photos';
+    public const string MEDIA_COLLECTION_BODY_PHOTO = 'photos';
 
     protected $fillable = [
         'slug',
@@ -75,9 +75,9 @@ class Blog extends Model implements Auditable, HasMedia
             });
 
         // รูปใน body
-        $this->addMediaCollection(self::MEDIA_COLLECTION_DESCRIPTION_PHOTO)
+        $this->addMediaCollection(self::MEDIA_COLLECTION_BODY_PHOTO)
             ->registerMediaConversions(function (Media $media) {
-                $this->addMediaConversion(self::MEDIA_COLLECTION_DESCRIPTION_PHOTO.'_optimized')
+                $this->addMediaConversion(self::MEDIA_COLLECTION_BODY_PHOTO.'_optimized')
                     ->withResponsiveImages()
                     ->format('webp')
                     ->fit(Fit::Max, 2000, 2000)

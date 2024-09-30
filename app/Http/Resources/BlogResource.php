@@ -25,8 +25,21 @@ class BlogResource extends JsonResource
     {
         $includeTranslations = $request->query('include') === 'translations';
 
+        $imageThumbnail = $this->getMedia(Blog::MEDIA_COLLECTION_THUMBNAIL)->first();
+
         return [
             'id' => $this->hashid,
+            'thumbnail' => $imageThumbnail ? new MediaResource($imageThumbnail, Blog::MEDIA_COLLECTION_THUMBNAIL.'_optimized') : null,
+            'cover' => $this->when(! $request->routeIs(['blogs.index']), function () {
+                $imageCover = $this->getMedia(Blog::MEDIA_COLLECTION_COVER)->first();
+
+                return $imageCover ? new MediaResource($imageCover, Blog::MEDIA_COLLECTION_COVER.'_optimized') : null;
+            }),
+            'body_images' => $this->when(! $request->routeIs(['blogs.index']), function () {
+                $images = $this->getMedia(Blog::MEDIA_COLLECTION_BODY_PHOTO);
+
+                return $images->count() ? new MediaResourceCollection($images, Blog::MEDIA_COLLECTION_BODY_PHOTO.'_optimized') : [];
+            }),
             'category' => $this->category ? new CategoryResource($this->category) : null,
             'slug' => $this->slug,
             'title' => $this->getTranslation('title'),

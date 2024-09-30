@@ -5,6 +5,7 @@ namespace App\Actions;
 use App\Models\Blog;
 use App\Models\Media;
 use Exception;
+use Illuminate\Support\Str;
 use Mews\Purifier\Facades\Purifier;
 
 class SaveBlog
@@ -16,50 +17,152 @@ class SaveBlog
      */
     public function execute(Blog $blog, array $data): Blog
     {
-        $supportedLanguages = config('app.supported_locales');
+        $this->blog = $blog;
+        $this->setBasicAttributes($data);
+        $usedImageBody = $this->processBodyImages($data);
+        $this->setTranslations($data, $usedImageBody);
+        $this->blog->save();
+        $this->blog->syncTags($data['tags'] ?? []);
+        $this->saveMedia($data);
 
-        $blog->published_at = $data['published_at'] ?? null;
-        $blog->slug = $data['slug'] ?? null;
-        $blog->category_id = $data['category_id'] ?? null;
+        return $this->blog;
+    }
+
+    protected function setBasicAttributes(array $data): void
+    {
+        $this->blog->published_at = $data['published_at'] ?? null;
+        $this->blog->slug = $data['slug'] ?? null;
+        $this->blog->category_id = $data['category_id'] ?? null;
+    }
+
+    protected function processBodyImages(array $data): array
+    {
+        $imagesBody = $data['body_images'] ?? [];
+
+        return $imagesBody ? $this->saveImageDescription($data, $imagesBody) : [];
+    }
+
+    protected function setTranslations(array $data, array $usedImageBody): void
+    {
+        $supportedLanguages = config('app.supported_locales');
 
         foreach ($supportedLanguages as $lang) {
             if (! isset($data[$lang])) {
                 continue;
             }
 
-            $blog->setTranslation('title', $data[$lang]['title'] ?? null, $lang);
-            $blog->setTranslation('body', isset($data[$lang]['body']) ? Purifier::clean($data[$lang]['body']) : null, $lang);
-            $blog->setTranslation('meta_title', $data[$lang]['meta_title'] ?? null, $lang);
-            $blog->setTranslation('meta_description', $data[$lang]['meta_description'] ?? null, $lang);
+            $body = $data[$lang]['body'] ?? null;
+            if ($body) {
+                $body = $this->updateDescriptionImageUrl($body, $usedImageBody);
+            }
+
+            $this->blog->setTranslation('title', $data[$lang]['title'] ?? null, $lang);
+            $this->blog->setTranslation('body', $body ? Purifier::clean($body) : null, $lang);
+            $this->blog->setTranslation('meta_title', $data[$lang]['meta_title'] ?? null, $lang);
+            $this->blog->setTranslation('meta_description', $data[$lang]['meta_description'] ?? null, $lang);
         }
-
-        $blog->save();
-
-        $blog->syncTags($data['tags'] ?? []);
-
-        $this->blog = $blog;
-
-        //save images
-        // check if data have media_thumbnail and media_cover
-        if (array_key_exists('media_thumbnail', $data) && $data['media_thumbnail']) {
-            $this->saveImage($data['media_thumbnail'], Blog::MEDIA_COLLECTION_THUMBNAIL);
-        }
-        if (array_key_exists('media_cover', $data) && $data['media_cover']) {
-            $this->saveImage($data['media_cover'], Blog::MEDIA_COLLECTION_COVER);
-        }
-
-        return $this->blog;
     }
 
-    // TODO refactor this method
+    protected function saveMedia(array $data): void
+    {
+        if (! empty($data['thumbnail'])) {
+            $this->saveImage($data['thumbnail'], Blog::MEDIA_COLLECTION_THUMBNAIL);
+        }
+        if (! empty($data['cover'])) {
+            $this->saveImage($data['cover'], Blog::MEDIA_COLLECTION_COVER);
+        }
+    }
+
+    protected function saveImageDescription(array $data, array $imagesDescription): array
+    {
+        $usedDescriptionImages = [];
+        $cleanDescriptions = $this->getCleanDescriptions($data);
+
+        foreach ($imagesDescription as $image) {
+            if ($this->isImageUsedInDescription($image, $cleanDescriptions)) {
+                $usedDescriptionImages[] = $image;
+            } else {
+                $this->deleteUnusedImage($image);
+            }
+        }
+
+        return $this->setMediaIdsForUsedImages($usedDescriptionImages);
+    }
+
+    protected function getCleanDescriptions(array $data): array
+    {
+        $supportedLanguages = config('app.supported_locales');
+        $cleanDescriptions = [];
+
+        foreach ($supportedLanguages as $language) {
+            $cleanDescriptions[] = str_replace('&amp;', '&', $data[$language]['body'] ?? '');
+        }
+
+        return $cleanDescriptions;
+    }
+
+    protected function isImageUsedInDescription(array $image, array $cleanDescriptions): bool
+    {
+        foreach ($cleanDescriptions as $cleanDescription) {
+            if (Str::contains($cleanDescription, $image['url'])) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    protected function deleteUnusedImage(array $image): void
+    {
+        if (! empty($image['id'])) {
+            $this->blog->media()->where('id', $image['id'])->delete();
+        } elseif (! empty($image['path'])) {
+            (new SaveTemporaryMedia)->delete($image['path']);
+        }
+    }
+
+    protected function setMediaIdsForUsedImages(array $usedDescriptionImages): array
+    {
+        foreach ($usedDescriptionImages as $index => $imageItem) {
+            if (empty($imageItem['id']) && ! empty($imageItem['path'])) {
+                $media = $this->saveImageFromTempToMedia($imageItem, Blog::MEDIA_COLLECTION_BODY_PHOTO);
+                $usedDescriptionImages[$index]['id'] = $media?->id;
+            }
+        }
+
+        return $usedDescriptionImages;
+    }
+
+    protected function updateDescriptionImageUrl(string $description, array $usedDescriptionImages): ?string
+    {
+        if (! $description) {
+            return null;
+        }
+
+        foreach ($usedDescriptionImages as $imageItem) {
+            if (! empty($imageItem['id']) && ! empty($imageItem['path'])) {
+                $media = Media::find($imageItem['id']);
+                if ($media) {
+                    $tempUrl = str_replace('&', '&amp;', $imageItem['url']);
+                    $newUrl = $media->hasGeneratedConversion(Blog::MEDIA_COLLECTION_BODY_PHOTO.'_optimized')
+                        ? $media->getFullUrl(Blog::MEDIA_COLLECTION_BODY_PHOTO.'_optimized')
+                        : $media->getFullUrl();
+                    $description = str_replace($tempUrl, $newUrl, $description);
+                }
+            }
+        }
+
+        return $description;
+    }
+
     protected function saveImage(array $image, string $collection): void
     {
-        if ($image && ! $image['id']) {
+        if (! empty($image) && empty($image['id'])) {
             $this->saveImageFromTempToMedia($image, $collection);
         }
     }
 
-    protected function saveImageFromTempToMedia($file, $collection): ?Media
+    protected function saveImageFromTempToMedia(array $file, string $collection): ?Media
     {
         return (new SaveTemporaryMedia)->saveFileFromTemp($this->blog, $collection, $file);
     }

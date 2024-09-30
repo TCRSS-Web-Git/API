@@ -14,7 +14,7 @@ class TemporaryMediaController extends Controller
         $path = $saveTemporaryMedia->execute('media');
 
         return response()->json([
-            'media' => $path,
+            'data' => $path,
         ]);
     }
 }

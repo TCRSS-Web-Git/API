@@ -30,6 +30,7 @@ class CreateOrUpdateBlogRequest extends FormRequest
             'published_at' => ['nullable', 'date'],
             'tags' => ['array'],
             'tags.*' => ['string', 'max:255'],
+            // Translations
             'th' => ['array', 'required'],
             'en' => ['array'],
             'th.title' => ['required', 'string', 'max:255'],
@@ -40,6 +41,15 @@ class CreateOrUpdateBlogRequest extends FormRequest
             'en.meta_title' => ['nullable', 'string', 'max:100'],
             'th.meta_description' => ['nullable', 'string', 'max:160'],
             'en.meta_description' => ['nullable', 'string', 'max:160'],
+            // Media (temporary media)
+            'cover' => ['nullable', 'array'],
+            'cover.path' => ['nullable', 'string'],
+            'thumbnail' => ['nullable', 'array'],
+            'thumbnail.path' => ['nullable', 'string'],
+            'body_images' => ['array'],
+            'body_images.*.id' => ['nullable'],
+            'body_images.*.path' => ['required_if:id,null', 'string'],
+            'body_images.*.url' => ['required', 'string'],
         ];
     }
 
