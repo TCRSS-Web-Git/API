@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\TemporaryMediaController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserProfileController;
@@ -28,6 +29,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('categories/{type}/{category}', [CategoryController::class, 'update'])->name('categories.show');
     Route::patch('categories/{type}/{category}', [CategoryController::class, 'update']);
     Route::delete('categories/{type}/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+    Route::get('tags/{type}', [TagController::class, 'index'])->name('tags.index');
+
     Route::apiResource('blogs', BlogController::class);
 });
 
