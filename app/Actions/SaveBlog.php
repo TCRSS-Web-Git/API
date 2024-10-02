@@ -5,6 +5,7 @@ namespace App\Actions;
 use App\Models\Blog;
 use App\Models\Media;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Mews\Purifier\Facades\Purifier;
 
@@ -17,13 +18,20 @@ class SaveBlog
      */
     public function execute(Blog $blog, array $data): Blog
     {
-        $this->blog = $blog;
-        $this->setBasicAttributes($data);
-        $usedImageBody = $this->processBodyImages($data);
-        $this->setTranslations($data, $usedImageBody);
-        $this->blog->save();
-        $this->blog->syncTags($data['tags'] ?? []);
-        $this->saveMedia($data);
+        DB::beginTransaction();
+        try {
+            $this->blog = $blog;
+            $this->setBasicAttributes($data);
+            $usedImageBody = $this->processBodyImages($data);
+            $this->setTranslations($data, $usedImageBody);
+            $this->blog->save();
+            $this->blog->syncTags($data['tags'] ?? []);
+            $this->saveMedia($data);
+            DB::commit();
+        } catch (Exception $exception) {
+            DB::rollBack();
+            throw $exception;
+        }
 
         return $this->blog;
     }
@@ -65,10 +73,10 @@ class SaveBlog
 
     protected function saveMedia(array $data): void
     {
-        if (! empty($data['thumbnail'])) {
+        if (! empty($data['thumbnail']) && empty($data['thumbnail']['id'])) {
             $this->saveImage($data['thumbnail'], Blog::MEDIA_COLLECTION_THUMBNAIL);
         }
-        if (! empty($data['cover'])) {
+        if (! empty($data['cover']) && empty($data['cover']['id'])) {
             $this->saveImage($data['cover'], Blog::MEDIA_COLLECTION_COVER);
         }
     }
