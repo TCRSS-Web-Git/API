@@ -14,6 +14,7 @@ class BlogTranslation extends Translation implements Auditable
     use \OwenIt\Auditing\Auditable;
 
     protected $touches = ['blog'];
+
     protected $fillable = [
         'locale',
         'title',

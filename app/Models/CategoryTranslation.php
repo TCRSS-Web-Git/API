@@ -14,6 +14,7 @@ class CategoryTranslation extends Translation implements Auditable
     use \OwenIt\Auditing\Auditable;
 
     protected $touches = ['category'];
+
     protected $fillable = [
         'locale',
         'name',

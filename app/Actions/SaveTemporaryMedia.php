@@ -71,7 +71,6 @@ class SaveTemporaryMedia
          * So we need to get the file content and save it to the media collection manually
          */
         $media = null;
-        // TODO check if it working
         if ($this->exists($file['path'])) {
             $media = $model->addMediaFromString(Storage::disk($this->diskName)->get($file['path']))
                 ->usingFileName(basename($file['path']))
