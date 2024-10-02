@@ -16,9 +16,9 @@ abstract class QueryFilter
 
     protected $defaultSort = ['column' => 'id', 'direction' => 'desc']; // Edit default sorting here
 
-    protected $translatedFields = []; // Add translated fields here
+    protected $translatedFields = []; // Add translated fields here, used for sorting
 
-    protected $joinedTables = []; // Internal DO NOT EDIT, Keep track of joined tables
+    private $joinedTables = []; // Internal DO NOT EDIT, Keep track of joined tables
 
     public function __construct(Request $request)
     {

@@ -16,11 +16,6 @@ class UserFilter extends QueryFilter
         'updated_at',
     ];
 
-    //    public function include($value)
-    //    {
-    //        return $this->builder->with($value);
-    //    }
-
     public function id($value)
     {
         $ids = explode(',', $value);
