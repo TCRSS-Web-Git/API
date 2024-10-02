@@ -42,3 +42,8 @@ Please visit /docs for API documents.
     , <a href="https://github.com/axllent/mailpit" target="_blank">Mailpit</a>,
     or <a href="https://usehelo.com" target="_blank">HELO</a>
 12. Create new feature branch to start working.
+
+
+### Development Documents
+
+For other development documents, please visit [development_docs](development_docs/README.md)

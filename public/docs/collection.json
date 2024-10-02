@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Starter API Documentation",
-        "_postman_id": "ab0cc05a-1c74-439a-893e-a90d406946c5",
+        "_postman_id": "92b4c550-d3bf-4cb8-ad12-0a0619a63364",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"gherzog@example.com\",\"password\":\",uy$~~*MAsC7424\"}"
+                            "raw": "{\"email\":\"margaretta.predovic@example.net\",\"password\":\"E>iydX9'\"}"
                         },
                         "description": "Authenticates the user",
                         "auth": {
@@ -124,7 +124,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":\"blog_Z4DX835P3VNLBK\",\"slug\":\"neque-illo-ut-minima-animi-dolore-deserunt\",\"title\":\"(th) Architecto deserunt est quo quo dolores asperiores saepe.\",\"meta_title\":\"(th) Architecto deserunt est quo quo dolores asperiores saepe.\",\"meta_description\":\"(th) Velit aspernatur minus culpa quidem tempore aut. Reiciendis quis est enim ipsa. Perspiciatis aspernatur optio et et nostrum.\\n\\nQuis expedita nihil ut. Unde quo sint libero magnam quia id.\\n\\nAt consequatur non ea. Dolore voluptatem vitae repellat voluptas. Sed explicabo natus dolor mollitia. Eos sed quae est temporibus.\",\"status\":\"draft\",\"published_at\":null,\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_K6JYM3BW3XBQZ8\",\"slug\":\"voluptas-possimus-omnis-aut-molestiae-est-ea-voluptatem\",\"title\":\"(th) Dolorem deserunt quisquam blanditiis molestiae in.\",\"meta_title\":\"(th) Dolorem deserunt quisquam blanditiis molestiae in.\",\"meta_description\":\"(th) Voluptatem laboriosam consequatur minus similique iste perspiciatis. Rerum quo rerum est. Labore explicabo porro corrupti reiciendis nihil inventore quae numquam.\\n\\nIusto quia eveniet voluptatibus inventore. Pariatur sapiente accusantium corporis illo aut. Voluptatem error inventore libero excepturi voluptas. Occaecati nobis necessitatibus qui libero ullam.\\n\\nCorrupti qui perferendis ut distinctio. Alias et voluptatem quia ipsam laboriosam odit corporis. Dolores id non culpa sunt voluptas sunt. Iste amet omnis eos doloremque similique ut rem.\",\"status\":\"draft\",\"published_at\":null,\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_BW8JN7KB7Z94KQ\",\"slug\":\"est-sit-modi-perferendis-sed-ullam-ipsum\",\"title\":\"(th) Magni possimus nostrum molestias in aliquam et cum.\",\"meta_title\":\"(th) Magni possimus nostrum molestias in aliquam et cum.\",\"meta_description\":\"(th) Commodi fugiat animi in dignissimos. Porro sapiente earum placeat temporibus qui sed sunt. Velit eum reprehenderit possimus voluptatem. Velit excepturi reiciendis consequatur voluptatem.\\n\\nQuia molestias qui omnis dolor. Ut rem est ullam eos et voluptate sed iusto. Magnam aut voluptate odit odit modi inventore est.\\n\\nDolores voluptatem assumenda aut aut explicabo. Accusamus soluta ea omnis asperiores aspernatur et aut. Eveniet ea accusantium delectus qui totam cumque.\",\"status\":\"draft\",\"published_at\":null,\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_JVK923Y53YM1P6\",\"slug\":\"soluta-voluptas-officiis-molestiae-odit-neque-doloribus-occaecati-blanditiis\",\"title\":\"(th) Et pariatur deserunt veritatis vitae facilis cupiditate dignissimos.\",\"meta_title\":\"(th) Et pariatur deserunt veritatis vitae facilis cupiditate dignissimos.\",\"meta_description\":\"(th) Earum velit voluptatum mollitia. Eum repudiandae qui nihil labore explicabo adipisci officia. Odit officiis itaque repellendus ut asperiores ullam voluptas. Aliquid omnis vitae natus quo consequatur soluta quod.\\n\\nAut consectetur odio debitis enim soluta. Vitae quam in sunt praesentium rerum sunt aut.\\n\\nCorrupti nisi non est fugit voluptas maxime consectetur. Autem optio debitis ipsum perferendis optio eligendi molestiae. Libero repellat omnis cum quaerat ut nam vero. Recusandae necessitatibus accusamus dolorem reprehenderit nam tenetur.\",\"status\":\"published\",\"published_at\":\"2023-11-15T17:36:22.000000Z\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_XWPLZ3W03652D8\",\"slug\":\"ab-veritatis-distinctio-omnis-fugiat-eos-optio-totam\",\"title\":\"(th) Recusandae illum nemo officia aperiam accusantium ipsam.\",\"meta_title\":\"(th) Recusandae illum nemo officia aperiam accusantium ipsam.\",\"meta_description\":\"(th) Officia vel quae et deserunt et. Itaque molestiae rerum ut ut aut. Pariatur ullam quia id similique et quia atque. Ut voluptas laborum ut pariatur.\\n\\nNesciunt rerum quam numquam autem praesentium sequi cupiditate in. Dolore cupiditate vel voluptates est. Doloremque amet quia voluptatem ut aliquam eum sunt.\\n\\nVoluptatem cum et velit voluptatem. Id eum qui rem in corporis eos repellendus harum. Non autem cumque aut vitae.\",\"status\":\"draft\",\"published_at\":null,\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_1D0VE7ZMRNLBYG\",\"slug\":\"et-occaecati-aspernatur-aperiam-aut-laboriosam\",\"title\":\"(th) Labore repudiandae nobis sint veniam ea quia.\",\"meta_title\":\"(th) Labore repudiandae nobis sint veniam ea quia.\",\"meta_description\":\"(th) Sint voluptatem necessitatibus placeat sit aliquid. In voluptas aut voluptatem. Et aliquid qui dolores sed.\\n\\nArchitecto doloremque esse ducimus ab. Consequatur veniam tenetur excepturi laborum. Deserunt eveniet velit non. Ratione similique sunt doloribus et qui iusto quis. Alias velit ut ut est possimus.\\n\\nDucimus rerum amet laudantium et quibusdam. Quia praesentium blanditiis sed consequatur temporibus est enim. Ex recusandae est adipisci laboriosam blanditiis repellat et id.\",\"status\":\"published\",\"published_at\":\"2024-06-06T19:05:41.000000Z\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_V1Q9J7423K8XBG\",\"slug\":\"quidem-eaque-magnam-a-iusto-mollitia\",\"title\":\"(th) Totam cum ratione nisi expedita deserunt odit.\",\"meta_title\":\"(th) Totam cum ratione nisi expedita deserunt odit.\",\"meta_description\":\"(th) Et recusandae nihil temporibus recusandae. Sit ipsam sed fugit veritatis qui quia. Sit asperiores quis molestiae. Neque quaerat voluptates est.\\n\\nNon possimus nesciunt molestiae amet libero. Id in quo quisquam voluptatem itaque. Aut esse ipsum ab expedita temporibus. Porro dolores ad consectetur autem aliquam et.\\n\\nArchitecto sequi ratione nam. Ratione perspiciatis vel pariatur.\",\"status\":\"draft\",\"published_at\":null,\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_M9D6P7V27BZEX5\",\"slug\":\"debitis-expedita-quibusdam-hic-atque\",\"title\":\"(th) Rerum et consequatur qui et enim enim eum.\",\"meta_title\":\"(th) Rerum et consequatur qui et enim enim eum.\",\"meta_description\":\"(th) Vitae esse officia excepturi quia autem. Accusamus sunt quis quasi omnis. Et maxime eveniet sunt quo molestiae ipsa accusamus. Soluta non id excepturi ut iste.\\n\\nVoluptatem quos tempora quis perferendis suscipit perferendis perferendis enim. Iure eos perspiciatis natus et. Ab dolore odit fugiat dolore eum. Rerum non voluptates harum at odit.\\n\\nMolestias aliquam debitis quam eos aut. A asperiores iusto sed sunt nesciunt aut voluptatem. Vero eius illum qui. Nesciunt expedita animi quo aperiam impedit culpa.\",\"status\":\"published\",\"published_at\":\"2024-03-31T05:16:37.000000Z\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_WV8J6RP8RXE2BM\",\"slug\":\"voluptas-est-rerum-ea\",\"title\":\"(th) Et minima adipisci dolor ea libero ducimus magni.\",\"meta_title\":\"(th) Et minima adipisci dolor ea libero ducimus magni.\",\"meta_description\":\"(th) Dolorem rerum est est. Aperiam et voluptas ut deleniti qui et itaque. Illo eveniet quia vel.\\n\\nIusto temporibus fuga non alias aperiam ex. Voluptates at doloribus nihil similique aut iste voluptas. Sed et deleniti sunt accusantium et blanditiis ut. Eaque magni necessitatibus rem recusandae ipsum aliquam. Qui praesentium et nemo officiis optio hic aliquid.\\n\\nDignissimos dolore et architecto ducimus qui eum. Delectus ipsam aut et dolores. Repellat doloribus sapiente nostrum.\",\"status\":\"published\",\"published_at\":\"2023-11-02T07:58:21.000000Z\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"blog_ZK6LYR6QR9MP48\",\"slug\":\"ipsam-laudantium-libero-similique-dolores-sed-nobis\",\"title\":\"(th) Labore mollitia tempora eveniet aut.\",\"meta_title\":\"(th) Labore mollitia tempora eveniet aut.\",\"meta_description\":\"(th) Officia aut veniam ipsum corrupti illo. Ullam autem illo consequatur odio incidunt eum omnis. Est eos officia facere ab unde voluptatem molestias non. Facilis omnis aliquam assumenda quas explicabo enim saepe.\\n\\nUt repudiandae dicta illo optio incidunt. Placeat commodi perspiciatis ex et consequatur ab accusamus. Commodi impedit voluptatem aut ab temporibus non. Ducimus quibusdam eos odio nam aperiam ut laboriosam.\\n\\nSint et iste facilis. Voluptatem atque soluta et occaecati quas ipsa eum. Commodi rerum quo accusantium placeat et quia ut.\",\"status\":\"published\",\"published_at\":\"2024-04-21T21:18:27.000000Z\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"}],\"links\":{\"first\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=1\",\"last\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=2\",\"prev\":null,\"next\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=2\"},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":2,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=2\",\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs\",\"per_page\":10,\"to\":10,\"total\":20}}",
+                            "body": "{\"data\":[{\"id\":\"blog_9JPXM7D570YN2Q\",\"thumbnail\":null,\"category\":{\"id\":\"category_BGN90M7EDVZRQ1\",\"name\":\"\\u0e42\\u0e1b\\u0e23\\u0e42\\u0e21\\u0e0a\\u0e31\\u0e48\\u0e19\",\"slug\":\"promotions\"},\"slug\":\"maxime-dolor-numquam-esse-est-vel-aut\",\"title\":\"(th) Minima eos cupiditate facilis fuga ut expedita vero.\",\"meta_title\":\"(th) Minima eos cupiditate facilis fuga ut expedita vero.\",\"meta_description\":\"(th) Ex aut ea minima. Non tempora quo eaque voluptate. Nemo natus voluptatibus dolorem error est. Eius tempora quae non cupiditate.\\n\\nVoluptatum incidunt repudiandae libero doloribus illo ratione aut. Illo officia hic rerum aut quo reiciendis velit. Cum s\",\"status\":\"published\",\"tags\":[],\"updated_by\":null,\"published_at\":\"2024-04-22T16:36:16.000000Z\",\"created_at\":\"2024-10-01T08:02:04.000000Z\",\"updated_at\":\"2024-10-01T08:02:04.000000Z\"}],\"links\":{\"first\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=1\",\"last\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/blogs\",\"per_page\":10,\"to\":1,\"total\":1}}",
                             "name": ""
                         }
                     ]
@@ -149,7 +149,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"slug\":\"em\",\"category_id\":\"enim\",\"published_at\":\"2024-10-02T04:36:18\",\"tags\":[\"yxdqznxmrhesbubf\"],\"th\":{\"title\":\"c\",\"body\":\"wrcqxwbidrashyxplphnpkdlq\",\"meta_title\":\"rvpn\",\"meta_description\":\"takn\"},\"en\":{\"title\":\"dnnqxdt\",\"body\":\"veh\",\"meta_title\":\"ixerihjn\",\"meta_description\":\"kghcuacagfkvzkuopnmyqfdb\"},\"cover\":{\"path\":\"dolorem\"},\"thumbnail\":{\"path\":\"ullam\"},\"body_images\":[{\"path\":\"sit\",\"url\":\"http:\\\/\\\/www.hettinger.com\\\/\"}]}"
+                        },
                         "description": ""
                     },
                     "response": []
@@ -235,7 +238,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"slug\":\"jppkijmdkqhwlogadnsfkyq\",\"category_id\":\"cum\",\"published_at\":\"2024-10-02T04:36:18\",\"tags\":[\"qnqagthsxvzphaoygnsboh\"],\"th\":{\"title\":\"nftifccuaikxvhqiyavnpmupw\",\"body\":\"roprab\",\"meta_title\":\"ukwnoaqtjhryeswojagfa\",\"meta_description\":\"tfvhymrhioizqkzkrjvk\"},\"en\":{\"title\":\"umdwsn\",\"body\":\"sjsxbskxkra\",\"meta_title\":\"rhvsywdvkooqbhiihlmvdoeyx\",\"meta_description\":\"gjpqrwvzfhgqczc\"},\"cover\":{\"path\":\"aliquam\"},\"thumbnail\":{\"path\":\"itaque\"},\"body_images\":[{\"path\":\"consequatur\",\"url\":\"http:\\\/\\\/www.altenwerth.com\\\/animi-voluptas-atque-consequatur-error-omnis-aut-consequatur.html\"}]}"
+                        },
                         "description": ""
                     },
                     "response": []
@@ -276,6 +282,327 @@
             ]
         },
         {
+            "name": "Categories",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get all categories of a type.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:type",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:type",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "blog",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":\"category_V2Y3EMY0P815R9\",\"name\":\"\\u0e1a\\u0e17\\u0e04\\u0e27\\u0e32\\u0e21\",\"description\":null,\"slug\":\"articles\",\"sort\":null,\"created_at\":\"2024-10-01T08:02:04.000000Z\",\"updated_at\":\"2024-10-01T08:02:04.000000Z\"},{\"id\":\"category_BGN90M7EDVZRQ1\",\"name\":\"\\u0e42\\u0e1b\\u0e23\\u0e42\\u0e21\\u0e0a\\u0e31\\u0e48\\u0e19\",\"description\":null,\"slug\":\"promotions\",\"sort\":null,\"created_at\":\"2024-10-01T08:02:04.000000Z\",\"updated_at\":\"2024-10-01T08:02:04.000000Z\"}],\"links\":{\"first\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/categories\\\/blog?page=1\",\"last\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/categories\\\/blog?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/categories\\\/blog?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/categories\\\/blog\",\"per_page\":15,\"to\":2,\"total\":2}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:type",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:type",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "blog",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get category by ID",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:type\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:type\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "blog",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Category] -1\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:type\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:type\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "blog",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:type\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:type\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "blog",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:type\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:type\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "blog",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get all categories of a type.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/tags\/:type",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/tags\/:type",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "sed",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Endpoints",
             "description": "",
             "item": [
@@ -301,7 +628,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"uoiw\",\"last_name\":\"kf\",\"email\":\"reynold.wehner@example.net\",\"password\":\"harum\"}"
+                            "raw": "{\"first_name\":\"dojxiusoqocqvunjvxsarl\",\"last_name\":\"tgjzaewramwugrqofxy\",\"email\":\"buck.rippin@example.com\",\"password\":\"aspernatur\"}"
                         },
                         "description": ""
                     },
@@ -329,7 +656,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"violette86@example.net\"}"
+                            "raw": "{\"email\":\"bauch.meredith@example.com\"}"
                         },
                         "description": ""
                     },
@@ -357,7 +684,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"token\":\"porro\",\"email\":\"kevin15@example.net\",\"password\":\"id\"}"
+                            "raw": "{\"token\":\"dolore\",\"email\":\"winfield.weber@example.net\",\"password\":\"saepe\"}"
                         },
                         "description": ""
                     },
@@ -375,13 +702,13 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "occaecati",
+                                    "value": "ipsum",
                                     "description": "The ID of the verify email."
                                 },
                                 {
                                     "id": "hash",
                                     "key": "hash",
-                                    "value": "quo",
+                                    "value": "amet",
                                     "description": ""
                                 }
                             ]
@@ -425,7 +752,7 @@
                                 },
                                 {
                                     "key": "set-cookie",
-                                    "value": "XSRF-TOKEN=eyJpdiI6IklGZ2NvMDZybWFjZHpMY04xbGMwTmc9PSIsInZhbHVlIjoiTWtsWHM2amRNbUhlQjF5Z0FDdDFlQXFlWHNlSWpqS091TDBNMiszOGh3bmpkOUsrNHFUd3c3enB0aUlkeG1HaVpZRWtiQldTYUYxSFk5ZmE3bTZWN2FrUG02aTYzOVpib2dwR1ZKMWppWVR6eDhqRmxsNnE3am04SlJHbExWY0siLCJtYWMiOiI1ZjVkMDM5YTc0MzkxZWY4NzdkYzQ2ZDA2YWYzNmUzMGEwNjUyNmJlZTJiMmQyM2I0ZTA0MDNjMjQ0NTg0YjU5IiwidGFnIjoiIn0%3D; expires=Tue, 24 Sep 2024 06:39:49 GMT; Max-Age=7200; path=\/; domain=.starter.test; secure; samesite=lax; starter_session=eyJpdiI6Im9xcFk0YkFKNlBqK0dBTDE0M1hxanc9PSIsInZhbHVlIjoiUXZkZkt3OUVZN3pNV01Sd2NHcllKbVlZSEZEYkhSSm9oSklDMS83ZlJXMTdEWWZkUmhzTDNiQ0kyTWRWN3I0dGZZU0RXWFBBYkNHeHhIdnVWaGJNcUhEOGZaNFNUNUZKempnUTk4bDlrbTBlejJpOGU1Qmlad2NIMGJIc2ZndWkiLCJtYWMiOiIxYjlhZWFlOWM5NzM0NGE5YTZlNTA0MjkyMzc4ZmFlNGRiM2FlZTYyZDk2ZTI0NDkwMDY0M2RlM2Q3MTEyNDVkIiwidGFnIjoiIn0%3D; expires=Tue, 24 Sep 2024 06:39:49 GMT; Max-Age=7200; path=\/; domain=.starter.test; secure; httponly; samesite=lax"
+                                    "value": "XSRF-TOKEN=eyJpdiI6IndCMTBNa1p5bnFDeHozYlF0cW9yTUE9PSIsInZhbHVlIjoieUhyOHBEdXQzaVlRTlRWUGpIa3RDT3hocXJvdXpWZ3RXNXJwb1hrZUJhTWljZ3NGNjNpUmhveWZxazVUKzB3eUNocDdGTkhWL2pzZWVtMDF4Ync2TmZJSTZoWjN3U1gwdlhXVnRIcnRXZ0pDY203dFlhSUFNaUEySS9PV1BpYWEiLCJtYWMiOiI5NmFkYjAwOWUxZmVlNjIwNGU3YzBhM2YwNzU0OTY2MzE3ZTIzYjk3ZWRlYTFjMjc0ZWFlMThjNzMzZjJmZjFhIiwidGFnIjoiIn0%3D; expires=Wed, 02 Oct 2024 06:36:17 GMT; Max-Age=7200; path=\/; domain=.starter.test; secure; samesite=lax; starter_session=eyJpdiI6Ikw2a2prQWd6ZGxBNVk4MzQ1M2huL1E9PSIsInZhbHVlIjoiYmswd2RMck55S1FCZURMai8vU1lsMVkxTEpuTkFadDZYbmNYb2dqa1ZLV29nZU1iU1BQNUs4b21iWm04eGM1SFdlbFpWVnFwdGMrVHhWWGt4NUNLdVA5RTBaTE9zaVRJT1EyUVd5NWljcG8xQ1A4emtIWFJ2THNkeVEzMk11R0kiLCJtYWMiOiJlZmRjYzY1YTlhYmE2MTkzZTYzYThhMGE4ZTJlZjE0NmI3YmQ3MTg5MmFkYTFjMzQ3OGY2NmUwNzYxYTM3MDhlIiwidGFnIjoiIn0%3D; expires=Wed, 02 Oct 2024 06:36:17 GMT; Max-Age=7200; path=\/; domain=.starter.test; secure; httponly; samesite=lax"
                                 }
                             ],
                             "code": 403,
@@ -540,7 +867,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":\"role_2VDBZXRV4W8PGL\",\"name\":\"Super Admin\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"},{\"id\":\"role_E8PLJ15WXK9M2Z\",\"name\":\"Admin\",\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"}],\"links\":{\"first\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/roles?page=1\",\"last\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/roles?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/roles?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/roles\",\"per_page\":10,\"to\":2,\"total\":2}}",
+                            "body": "{\"data\":[{\"id\":\"role_2VDBZXRV4W8PGL\",\"name\":\"Super Admin\",\"created_at\":\"2024-10-01T08:02:04.000000Z\",\"updated_at\":\"2024-10-01T08:02:04.000000Z\"},{\"id\":\"role_E8PLJ15WXK9M2Z\",\"name\":\"Admin\",\"created_at\":\"2024-10-01T08:02:04.000000Z\",\"updated_at\":\"2024-10-01T08:02:04.000000Z\"}],\"links\":{\"first\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/roles?page=1\",\"last\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/roles?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/roles?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.starter.test\\\/api\\\/v1\\\/roles\",\"per_page\":10,\"to\":2,\"total\":2}}",
                             "name": ""
                         }
                     ]
@@ -690,6 +1017,40 @@
                     "response": []
                 },
                 {
+                    "name": "POST api\/v1\/temporary-media",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/temporary-media",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/temporary-media"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "media",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
                     "name": "GET api\/v1\/dev-api",
                     "request": {
                         "url": {
@@ -780,7 +1141,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"user_ZMBQEKPDK3X079\",\"title\":\"Ms.\",\"first_name\":\"Super\",\"last_name\":\"Admin\",\"email\":\"superadmin@wawa-x.com\",\"phone\":\"+16512475880\",\"permissions\":[\"USERS:VIEW\",\"USERS:CREATE\",\"USERS:UPDATE\",\"USERS:DELETE\",\"BLOGS:VIEW\",\"BLOGS:CREATE\",\"BLOGS:UPDATE\",\"BLOGS:DELETE\"],\"created_at\":\"2024-09-24T04:05:14.000000Z\",\"updated_at\":\"2024-09-24T04:05:14.000000Z\"}}",
+                            "body": "{\"data\":{\"id\":\"user_ZMBQEKPDK3X079\",\"title\":\"Mr.\",\"first_name\":\"Super\",\"last_name\":\"Admin\",\"email\":\"superadmin@wawa-x.com\",\"phone\":\"+16208473632\",\"permissions\":[\"USERS:VIEW\",\"USERS:CREATE\",\"USERS:UPDATE\",\"USERS:DELETE\",\"BLOGS:VIEW\",\"BLOGS:CREATE\",\"BLOGS:UPDATE\",\"BLOGS:DELETE\",\"BLOG_CATEGORIES:CREATE\",\"BLOG_CATEGORIES:UPDATE\",\"BLOG_CATEGORIES:DELETE\"],\"created_at\":\"2024-10-01T08:02:04.000000Z\",\"updated_at\":\"2024-10-01T08:02:04.000000Z\"}}",
                             "name": ""
                         }
                     ]
@@ -807,7 +1168,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Mr.\",\"first_name\":\"frqwmocdpvarikchhvxdy\",\"last_name\":\"ucoablpn\",\"phone\":\"tnrtcsgtd\"}"
+                            "raw": "{\"title\":\"Mrs.\",\"first_name\":\"n\",\"last_name\":\"gdvdnv\",\"phone\":\"o\"}"
                         },
                         "description": ""
                     },
@@ -835,7 +1196,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"current_password\":\"ut\",\"password\":\"ipsa\"}"
+                            "raw": "{\"current_password\":\"omnis\",\"password\":\"odio\"}"
                         },
                         "description": ""
                     },
@@ -856,24 +1217,24 @@
                                 },
                                 {
                                     "key": "filter%5Bid%5D",
-                                    "value": "ducimus",
+                                    "value": "corrupti",
                                     "description": "Filter user by id.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "filter%5Bemail%5D",
-                                    "value": "temporibus",
+                                    "value": "et",
                                     "description": "Filter user by email.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "search",
-                                    "value": "distinctio",
+                                    "value": "dolorum",
                                     "description": "Search user by name, email, phone.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/users?sort=first_name%2C-createdAt&filter%5Bid%5D=ducimus&filter%5Bemail%5D=temporibus&search=distinctio"
+                            "raw": "{{baseUrl}}\/api\/v1\/users?sort=first_name%2C-createdAt&filter%5Bid%5D=corrupti&filter%5Bemail%5D=et&search=dolorum"
                         },
                         "method": "GET",
                         "header": [
@@ -933,7 +1294,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Mr.\",\"first_name\":\"vohsvfuqhpvj\",\"last_name\":\"p\",\"email\":\"telly07@example.org\",\"phone\":\"yzjachulcfqrt\"}"
+                            "raw": "{\"title\":\"Mrs.\",\"first_name\":\"bynwtdd\",\"last_name\":\"rbeifgvuzijlzbzwaampt\",\"email\":\"schuyler.stehr@example.com\",\"phone\":\"vrpyostzyjpi\"}"
                         },
                         "description": ""
                     },
@@ -1022,7 +1383,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Mrs.\",\"first_name\":\"tqdyhzjvlezcdb\",\"last_name\":\"rzebcfht\",\"phone\":\"llpsgdirem\"}"
+                            "raw": "{\"title\":\"Mr.\",\"first_name\":\"ouxlexklvcvbcefurlpar\",\"last_name\":\"qqunxgscehscufhjywsl\",\"phone\":\"fd\"}"
                         },
                         "description": ""
                     },
