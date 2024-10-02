@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use App\Filters\QueryFilter;
 use App\Traits\EloquentDecodeHash;
 use App\Traits\EloquentFindByHash;
+use App\Traits\HasFilter;
 use App\Traits\Hashidable;
 use App\Traits\HasTags;
 use App\Traits\LatestAudit;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,6 +23,7 @@ class Blog extends Model implements Auditable, HasMedia
     use EloquentDecodeHash;
     use EloquentFindByHash;
     use HasFactory;
+    use HasFilter;
     use Hashidable;
     use HasTags;
     use HasTranslations;
@@ -105,11 +105,6 @@ class Blog extends Model implements Auditable, HasMedia
         }
 
         return $translations;
-    }
-
-    public function scopeFilter(Builder $builder, QueryFilter $filters)
-    {
-        return $filters->apply($builder);
     }
 
     public function category(): BelongsTo

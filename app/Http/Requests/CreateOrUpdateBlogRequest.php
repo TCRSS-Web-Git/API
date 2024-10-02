@@ -50,6 +50,7 @@ class CreateOrUpdateBlogRequest extends FormRequest
             'body_images.*.id' => ['nullable'],
             'body_images.*.path' => ['required_if:id,null', 'string'],
             'body_images.*.url' => ['required', 'string'],
+            'body_images.*.name' => ['nullable', 'string'],
         ];
     }
 

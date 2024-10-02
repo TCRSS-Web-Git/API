@@ -6,6 +6,7 @@ namespace App\Models;
 use App\Filters\QueryFilter;
 use App\Traits\EloquentDecodeHash;
 use App\Traits\EloquentFindByHash;
+use App\Traits\HasFilter;
 use App\Traits\Hashidable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,6 +25,7 @@ class User extends Authenticatable implements Auditable
     use HasFactory;
     use Hashidable;
     use HasRoles;
+    use HasFilter;
     use Notifiable;
     use \OwenIt\Auditing\Auditable;
     use SoftDeletes;
@@ -65,10 +67,5 @@ class User extends Authenticatable implements Auditable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function scopeFilter(Builder $builder, QueryFilter $filters)
-    {
-        return $filters->apply($builder);
     }
 }
