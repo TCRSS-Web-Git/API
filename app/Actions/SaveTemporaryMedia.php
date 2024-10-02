@@ -74,7 +74,7 @@ class SaveTemporaryMedia
         // TODO check if it working
         if ($this->exists($file['path'])) {
             $media = $model->addMediaFromString(Storage::disk($this->diskName)->get($file['path']))
-                ->usingFileName($file['name'])
+                ->usingFileName(basename($file['path']))
                 ->toMediaCollection($collectionName);
         }
 

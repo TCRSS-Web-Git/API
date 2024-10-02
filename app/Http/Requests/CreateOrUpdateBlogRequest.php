@@ -44,8 +44,10 @@ class CreateOrUpdateBlogRequest extends FormRequest
             // Media (temporary media)
             'cover' => ['nullable', 'array'],
             'cover.path' => ['nullable', 'string'],
+            'cover.name' => ['nullable', 'string'],
             'thumbnail' => ['nullable', 'array'],
             'thumbnail.path' => ['nullable', 'string'],
+            'thumbnail.name' => ['nullable', 'string'],
             'body_images' => ['array'],
             'body_images.*.id' => ['nullable'],
             'body_images.*.path' => ['required_if:id,null', 'string'],
