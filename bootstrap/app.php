@@ -46,8 +46,8 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->alias([
             'verified' => \App\Http\Middleware\EnsureEmailIsVerified::class,
+            'signed.invite' => \App\Http\Middleware\ValidateSignature::class,
         ]);
-
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {

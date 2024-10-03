@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TemporaryMediaController;
+use App\Http\Controllers\User\InviteController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\User\UserTitleController;
@@ -33,6 +34,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('tags/{type}', [TagController::class, 'index'])->name('tags.index');
 
     Route::apiResource('blogs', BlogController::class);
+
+    Route::post('/invite/resend/{user}', [InviteController::class, 'resend'])->name('invite.resend');
 });
 
 Route::get('titles', [UserTitleController::class, 'index'])->name('users.titles.index');
+Route::put('/accept-user-invitation', [InviteController::class, 'accept'])->middleware('signed.invite:relative')->name('accept.users.invitation');

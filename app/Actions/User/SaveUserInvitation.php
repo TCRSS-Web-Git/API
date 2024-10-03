@@ -2,6 +2,7 @@
 
 namespace App\Actions\User;
 
+use App\Mail\UserInvitation;
 use App\Models\Invite;
 use App\Models\Role;
 use App\Models\User;
@@ -39,15 +40,24 @@ class SaveUserInvitation
 
             DB::commit();
 
-            //            $url = URL::temporarySignedRoute('accept.users.invitation', now()->addHours(24), ['email' => $invite->email, 'token' => $token], false);
-
-            //            Mail::to($invite->email)->send(new EmployeeInvitation($user, $url));
-
+            $this->sendInviteEmail($invite, $user, $token);
         } catch (Exception $exception) {
             DB::rollBack();
             throw $exception;
         }
 
         return $user;
+    }
+
+    private function sendInviteEmail(Invite $invite, User $user, string $token): void
+    {
+        $url = URL::temporarySignedRoute(
+            'accept.users.invitation',
+            now()->addHours(24),
+            ['email' => $invite->email, 'token' => $token],
+            false
+        );
+
+        Mail::to($invite->email)->send(new UserInvitation($user, $url));
     }
 }

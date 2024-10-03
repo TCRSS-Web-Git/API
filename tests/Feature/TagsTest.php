@@ -3,9 +3,9 @@
 namespace Tests\Feature;
 
 use App\Models\Blog;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Models\User;
 
 class TagsTest extends TestCase
 {
@@ -18,14 +18,14 @@ class TagsTest extends TestCase
         $this->signIn($user);
 
         $blog = Blog::factory()->create();
-        $blog->syncTags(["hello", "123"]);
+        $blog->syncTags(['hello', '123']);
 
         // Make a GET request to the tags.index route
         $response = $this->getJson(route('tags.index', ['type' => Blog::getTagType()]));
 
         // Assert the response status and structure
         $response->assertStatus(200);
-        $response->assertSee("hello");
-        $response->assertSee("123");
+        $response->assertSee('hello');
+        $response->assertSee('123');
     }
 }

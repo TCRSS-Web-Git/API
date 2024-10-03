@@ -16,6 +16,12 @@ use Laravel\Sanctum\HasApiTokens;
 use OwenIt\Auditing\Contracts\Auditable;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * @method static create(array $data)
+ *
+ * @property mixed $id
+ * @property mixed $email
+ */
 class User extends Authenticatable implements Auditable
 {
     use EloquentDecodeHash;
