@@ -74,10 +74,10 @@ class SaveBlog
     protected function saveMedia(array $data): void
     {
         if (! empty($data['thumbnail']) && empty($data['thumbnail']['id'])) {
-            $this->saveImage($data['thumbnail'], Blog::MEDIA_COLLECTION_THUMBNAIL);
+            $this->saveImageFromTempToMedia($data['thumbnail'], Blog::MEDIA_COLLECTION_THUMBNAIL);
         }
         if (! empty($data['cover']) && empty($data['cover']['id'])) {
-            $this->saveImage($data['cover'], Blog::MEDIA_COLLECTION_COVER);
+            $this->saveImageFromTempToMedia($data['cover'], Blog::MEDIA_COLLECTION_COVER);
         }
     }
 
@@ -163,15 +163,12 @@ class SaveBlog
         return $description;
     }
 
-    protected function saveImage(array $image, string $collection): void
-    {
-        if (! empty($image) && empty($image['id'])) {
-            $this->saveImageFromTempToMedia($image, $collection);
-        }
-    }
-
     protected function saveImageFromTempToMedia(array $file, string $collection): ?Media
     {
-        return (new SaveTemporaryMedia)->saveFileFromTemp($this->blog, $collection, $file);
+        if (! empty($file) && empty($file['id'])) {
+            return (new SaveTemporaryMedia)->saveFileFromTemp($this->blog, $collection, $file);
+        }
+
+        return null;
     }
 }
