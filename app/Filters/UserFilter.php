@@ -36,7 +36,11 @@ class UserFilter extends QueryFilter
 
     public function name($value)
     {
-        return $this->builder->whereRaw("LOWER(CONCAT(first_name, ' ', last_name)) LIKE ?", ['%'.strtolower($value).'%']);
+        $expression = config('database.default') === 'sqlite'
+                ? "LOWER(first_name || ' ' || last_name) LIKE ?"
+                : "LOWER(CONCAT(first_name, ' ', last_name)) LIKE ?";
+
+        return $this->builder->whereRaw($expression, ['%'.strtolower($value).'%']);
     }
 
     public function first_name($value)
