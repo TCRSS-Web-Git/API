@@ -48,6 +48,8 @@ class UserPolicy
      */
     public function delete(User $user, User $model): bool
     {
+        echo $user->hasPermissionTo(Permission::USERS_DELETE) ? 'true' : 'false';
+
         return $user->hasPermissionTo(Permission::USERS_DELETE);
     }
 
