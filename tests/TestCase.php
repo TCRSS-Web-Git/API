@@ -12,6 +12,7 @@ abstract class TestCase extends BaseTestCase
 {
     protected function signInSuperAdmin($user = null): User
     {
+        echo '^';
         $this->seed(RolePermissionSeeder::class);
 
         $user = $user ?? User::factory()->create(['first_name' => 'Super Admin', 'last_name' => 'Test', 'email' => 'superadmin@test.com']);
@@ -23,6 +24,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function signInAdmin($user = null): User
     {
+        echo '*';
         $this->seed(RolePermissionSeeder::class);
 
         $user = $user ?? User::factory()->create(['first_name' => 'Admin', 'last_name' => 'Test', 'email' => 'admin@test.com']);

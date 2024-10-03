@@ -57,7 +57,7 @@ class UserTest extends TestCase
         $response->assertJsonFragment(['id' => $userE->hashid]);
     }
 
-    public function test_admin_get_user()
+    public function test_admin_get_user(): void
     {
         $this->signInAdmin();
 
@@ -69,7 +69,7 @@ class UserTest extends TestCase
         $response->assertJsonFragment(['id' => $userA->hashid]);
     }
 
-    public function test_admin_get_user_me()
+    public function test_admin_get_user_me(): void
     {
         $userA = $this->signInAdmin();
 
@@ -79,7 +79,7 @@ class UserTest extends TestCase
         $response->assertJsonFragment(['id' => $userA->hashid]);
     }
 
-    public function test_super_admin_can_create_user()
+    public function test_super_admin_can_create_user(): void
     {
         $this->signInSuperAdmin();
         $mockUser = User::factory()->make();
@@ -103,7 +103,7 @@ class UserTest extends TestCase
         ]);
     }
 
-    public function test_admin_can_not_create_user()
+    public function test_admin_can_not_create_user(): void
     {
         $this->signInAdmin();
         $mockUser = User::factory()->make();
@@ -127,7 +127,7 @@ class UserTest extends TestCase
         ]);
     }
 
-    public function test_super_admin_can_not_create_user_invalid_email()
+    public function test_super_admin_can_not_create_user_invalid_email(): void
     {
         $this->signInAdmin();
         $mockUser = User::factory()->make();
@@ -151,7 +151,7 @@ class UserTest extends TestCase
         ]);
     }
 
-    public function test_super_admin_can_update_user()
+    public function test_super_admin_can_update_user(): void
     {
         $this->signInSuperAdmin();
 
@@ -176,7 +176,7 @@ class UserTest extends TestCase
         ]);
     }
 
-    public function test_admin_can_not_update_user()
+    public function test_admin_can_not_update_user(): void
     {
         $this->signInAdmin();
 
@@ -201,7 +201,7 @@ class UserTest extends TestCase
         ]);
     }
 
-    public function test_super_admin_can_delete_user()
+    public function test_super_admin_can_delete_user(): void
     {
         $this->signInSuperAdmin();
 
