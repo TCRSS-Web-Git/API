@@ -6,10 +6,10 @@ use App\Enums\CategoryType;
 use App\Traits\EloquentDecodeHash;
 use App\Traits\EloquentFindByHash;
 use App\Traits\Hashidable;
+use App\Traits\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use LaravelLang\Models\HasTranslations;
 use OwenIt\Auditing\Contracts\Auditable;
 
 class Category extends Model implements Auditable

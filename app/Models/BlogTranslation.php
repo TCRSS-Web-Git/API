@@ -13,7 +13,7 @@ class BlogTranslation extends Translation implements Auditable
 {
     use \OwenIt\Auditing\Auditable;
 
-    protected $touches = ['blog'];
+    protected $touches = ['parent'];
 
     protected $fillable = [
         'locale',
@@ -35,7 +35,7 @@ class BlogTranslation extends Translation implements Auditable
         return self::whereRaw('MATCH(title, body) AGAINST(? IN BOOLEAN MODE)', [$query]);
     }
 
-    public function blog(): BelongsTo
+    public function parent(): BelongsTo
     {
         return $this->belongsTo(Blog::class, 'item_id');
     }

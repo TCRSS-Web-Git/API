@@ -66,4 +66,12 @@ class User extends Authenticatable implements Auditable
             'password' => 'hashed',
         ];
     }
+
+    public function isAdmin(): bool
+    {
+        return $this->hasRole([
+            Role::ROLE_ADMIN,
+            Role::ROLE_SUPER_ADMIN,
+        ]);
+    }
 }

@@ -81,12 +81,12 @@ class SaveBlog
         }
     }
 
-    protected function saveImageDescription(array $data, array $imagesDescription): array
+    protected function saveImageDescription(array $data, array $bodyImages): array
     {
         $usedDescriptionImages = [];
         $cleanDescriptions = $this->getCleanDescriptions($data);
 
-        foreach ($imagesDescription as $image) {
+        foreach ($bodyImages as $image) {
             if ($this->isImageUsedInDescription($image, $cleanDescriptions)) {
                 $usedDescriptionImages[] = $image;
             } else {
@@ -148,7 +148,7 @@ class SaveBlog
         }
 
         foreach ($usedDescriptionImages as $imageItem) {
-            if (! empty($imageItem['id']) && ! empty($imageItem['path'])) {
+            if (! empty($imageItem['id']) && ! empty($imageItem['path'])) { // if temporary media
                 $media = Media::find($imageItem['id']);
                 if ($media) {
                     $tempUrl = str_replace('&', '&amp;', $imageItem['url']);
