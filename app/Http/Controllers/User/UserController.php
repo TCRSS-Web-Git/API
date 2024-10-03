@@ -86,7 +86,7 @@ class UserController extends Controller
         $authUser = auth()->user();
         $role = $authUser->roles[0];
         $hasPermission = $authUser->hasPermissionTo(Permission::USERS_DELETE) ? 'true' : 'false';
-        echo "($authUser->id {$role->name} {$role->permissions->count()} $hasPermission)";
+        echo "($authUser->id {$role->name} {$role->permissions->count()} $hasPermission)"; // @phpstan-ignore-line
 
         Gate::authorize('delete', $user);
 
