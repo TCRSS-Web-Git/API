@@ -7,6 +7,7 @@ use App\Filters\BlogFilter;
 use App\Http\Requests\CreateOrUpdateBlogRequest;
 use App\Http\Resources\BlogResource;
 use App\Models\Blog;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
 class BlogController extends Controller
@@ -68,7 +69,15 @@ class BlogController extends Controller
     {
         Gate::authorize('delete', $blog);
 
-        $blog->delete();
+        DB::beginTransaction();
+        try {
+            $blog->syncTags([]);
+            $blog->delete();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
 
         return response()->noContent();
     }

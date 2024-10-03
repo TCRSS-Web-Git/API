@@ -13,7 +13,7 @@ class CategoryTranslation extends Translation implements Auditable
 {
     use \OwenIt\Auditing\Auditable;
 
-    protected $touches = ['category'];
+    protected $touches = ['parent'];
 
     protected $fillable = [
         'locale',
@@ -26,7 +26,7 @@ class CategoryTranslation extends Translation implements Auditable
         'description' => TrimCast::class,
     ];
 
-    public function category(): BelongsTo
+    public function parent(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'item_id');
     }
