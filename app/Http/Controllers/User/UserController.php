@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\Actions\User\SaveUserInvitation;
-use App\Enums\Permission;
 use App\Filters\UserFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateUserRequest;
