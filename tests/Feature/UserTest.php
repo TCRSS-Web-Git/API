@@ -203,10 +203,7 @@ class UserTest extends TestCase
 
     public function test_super_admin_can_delete_user(): void
     {
-        $admin = $this->signInSuperAdmin();
-        $role = $admin->roles()->first();
-        echo $role->name;
-        echo $role->permissions->count();
+        $this->signInSuperAdmin();
 
         $user = User::factory()->create();
 
