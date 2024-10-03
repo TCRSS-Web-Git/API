@@ -11,6 +11,29 @@ use InvalidArgumentException;
 
 trait HasTags
 {
+    protected array $queuedTags = [];
+
+    public static function bootHasTags()
+    {
+        static::created(function ($taggableModel) {
+            if (count($taggableModel->queuedTags) === 0) {
+                return;
+            }
+
+            $taggableModel->attachTags($taggableModel->queuedTags, static::getTagType());
+
+            $taggableModel->queuedTags = [];
+        });
+
+        static::deleted(function ($deletedModel) {
+            $tags = $deletedModel->tags()->get();
+
+            $deletedModel->detachTags($tags, static::getTagType());
+
+            static::cleanUnusedTags();
+        });
+    }
+
     public static function getTagType(): ?string
     {
         return class_basename(static::class);
@@ -19,6 +42,17 @@ trait HasTags
     public function tags(): MorphToMany
     {
         return $this->morphToMany(Tag::class, 'taggable', 'taggables');
+    }
+
+    public function setTagsAttribute(string|array|ArrayAccess|Tag $tags)
+    {
+        if (! $this->exists) {
+            $this->queuedTags = $tags;
+
+            return;
+        }
+
+        $this->syncTags($tags);
     }
 
     public function scopeWithAllTags(
@@ -50,6 +84,38 @@ trait HasTags
 
                 $query->whereIn('tags.id', $tagIds);
             });
+    }
+
+    public function attachTags(array|ArrayAccess|Tag $tags, ?string $type = null): static
+    {
+        $className = Tag::class;
+
+        $tags = collect($className::findOrCreate($tags, $type));
+
+        $this->tags()->syncWithoutDetaching($tags->pluck('id')->toArray());
+
+        return $this;
+    }
+
+    public function attachTag(string|Tag $tag, ?string $type = null)
+    {
+        return $this->attachTags([$tag], $type);
+    }
+
+    public function detachTags(array|ArrayAccess $tags, ?string $type = null): static
+    {
+        $tags = static::convertToTags($tags, $type);
+
+        collect($tags)
+            ->filter()
+            ->each(fn (Tag $tag) => $this->tags()->detach($tag));
+
+        return $this;
+    }
+
+    public function detachTag(string|Tag $tag, ?string $type = null): static
+    {
+        return $this->detachTags([$tag], $type);
     }
 
     public function syncTags(string|array|ArrayAccess $tags): static
@@ -109,9 +175,14 @@ trait HasTags
         // relationships if they are configured to touch on any database updates.
         if ($isUpdated) {
             $this->tags()->touchIfTouching();
-            // delete tags that are not used by any model
-            Tag::where('type', static::getTagType())->doesntHave('taggables')->delete();
+            static::cleanUnusedTags();
         }
+    }
+
+    // delete tags that are not used by any model
+    protected static function cleanUnusedTags(): void
+    {
+        Tag::where('type', static::getTagType())->doesntHave('taggables')->delete();
     }
 
     protected static function convertToTags($values, $type = null)
