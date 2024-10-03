@@ -19,7 +19,7 @@ abstract class TestCase extends BaseTestCase
         $role = Role::where('name', Role::ROLE_SUPER_ADMIN)->first();
         $user->assignRole($role);
 
-        return $this->signIn($user);
+        return $this->sanctumSignIn($user);
     }
 
     protected function signInAdmin($user = null): User
@@ -31,7 +31,7 @@ abstract class TestCase extends BaseTestCase
         $role = Role::where('name', Role::ROLE_ADMIN)->first();
         $user->assignRole($role);
 
-        return $this->signIn($user);
+        return $this->sanctumSignIn($user);
     }
 
     protected function signIn($user = null): User
@@ -47,7 +47,7 @@ abstract class TestCase extends BaseTestCase
     {
         $user = $user ?? User::factory()->create();
 
-        Sanctum::actingAs(User::factory()->create(), $abilities);
+        Sanctum::actingAs($user, $abilities);
 
         return $user;
     }
