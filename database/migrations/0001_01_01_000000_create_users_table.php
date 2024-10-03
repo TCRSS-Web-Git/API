@@ -24,8 +24,8 @@ return new class extends Migration
             if (config('database.default') === 'mysql') {
                 // add unique index for email to prevent multiple users with the same email
                 $table->string('email_unique')->storedAs("CONCAT(email, '#', IF(deleted_at IS NULL, '-', deleted_at))")->unique();
-            } else {
-                $table->string('email_unique')->nullable();
+            } elseif (config('database.default') === 'sqlite') {
+                $table->string('email_unique')->storedAs("email || '#' || deleted_at")->unique();
             }
             $table->timestamps();
             $table->softDeletes();
