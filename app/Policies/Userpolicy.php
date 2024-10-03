@@ -64,6 +64,7 @@ class UserPolicy
      */
     public function forceDelete(User $user, User $model): bool
     {
+        echo $user->hasPermissionTo(Permission::USERS_DELETE) ? 'true' : 'false';
         return $user->hasPermissionTo(Permission::USERS_DELETE);
     }
 }
