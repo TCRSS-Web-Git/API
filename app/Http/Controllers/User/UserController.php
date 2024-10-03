@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Actions\User\SaveUserInvitation;
+use App\Enums\Permission;
 use App\Filters\UserFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateUserRequest;
@@ -82,6 +83,11 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        $authUser = auth()->user();
+        $role = $authUser->roles[0];
+        $hasPermission = $authUser->hasPermissionTo(Permission::USERS_DELETE) ? 'true' : 'false';
+        echo "($authUser->id {$role->name} {$role->permissions->count()} $hasPermission)";
+
         Gate::authorize('delete', $user);
 
         $user->delete();
