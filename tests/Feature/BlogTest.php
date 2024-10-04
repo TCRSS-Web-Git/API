@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Enums\BlogStatus;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Media;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
@@ -16,6 +17,16 @@ class BlogTest extends TestCase
     /**
      * A basic test example.
      */
+    private function setup_images()
+    {
+        $fileCover = UploadedFile::fake()->image('image_cover.jpg');
+        $fileThumbnail = UploadedFile::fake()->image('image_thumbnail.jpg');
+        $mediaImageCover = $this->postJson(route('temporary_media.store'), ['media' => $fileCover]);
+        $mediaImageThumbnail = $this->postJson(route('temporary_media.store'), ['media' => $fileThumbnail]);
+
+        return [$mediaImageCover->json('data'), $mediaImageThumbnail->json('data')];
+    }
+
     public function test_the_admin_can_get_all_blogs(): void
     {
         // set up
@@ -41,10 +52,7 @@ class BlogTest extends TestCase
         $category = Category::factory()->blog()->create();
         $blogData = Blog::factory()->for($category)->make()->toArray();
 
-        $fileCover = UploadedFile::fake()->image('image_cover.jpg');
-        $fileThumbnail = UploadedFile::fake()->image('image_thumbnail.jpg');
-        $mediaImageCover = $this->postJson(route('temporary_media.store'), ['media' => $fileCover]);
-        $mediaImageThumbnail = $this->postJson(route('temporary_media.store'), ['media' => $fileThumbnail]);
+        [$cover, $thumbnail] = $this->setup_images();
 
         // act
         $response = $this->postJson(route('blogs.store'), [
@@ -65,11 +73,11 @@ class BlogTest extends TestCase
             ],
             'cover' => [
                 'id' => null,
-                'path' => $mediaImageCover->json('data')['path'],
+                'path' => $cover['path'],
             ],
             'thumbnail' => [
                 'id' => null,
-                'path' => $mediaImageThumbnail->json('data')['path'],
+                'path' => $thumbnail['path'],
             ],
         ]);
 
@@ -85,12 +93,12 @@ class BlogTest extends TestCase
         $this->assertDatabaseHas('media', [
             'model_type' => Blog::class,
             'collection_name' => Blog::MEDIA_COLLECTION_COVER,
-            'file_name' => 'image_cover.jpg',
+            'file_name' => $cover['name'],
         ]);
         $this->assertDatabaseHas('media', [
             'model_type' => Blog::class,
             'collection_name' => Blog::MEDIA_COLLECTION_THUMBNAIL,
-            'file_name' => 'image_thumbnail.jpg',
+            'file_name' => $thumbnail['name'],
         ]);
     }
 
@@ -269,6 +277,72 @@ class BlogTest extends TestCase
         $this->assertDatabaseHas('blog_translations', ['item_id' => $blog->id, 'locale' => 'th', 'title' => 'ชื่อบทความ']);
         $this->assertDatabaseHas('blog_translations', ['item_id' => $blog->id, 'locale' => 'en', 'title' => 'Blog name']);
         $response->assertJsonFragment(['status' => BlogStatus::DRAFT]);
+    }
+
+    public function test_the_admin_can_update_a_blog_with_images(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $category = Category::factory()->blog()->create();
+        $blog = Blog::factory()->create();
+        $updatedData = Blog::factory()->make()->toArray();
+
+        [$cover, $thumbnail] = $this->setup_images();
+
+        $existedMediaA = Media::factory()->for(
+            $blog,
+            'model'
+        )->create([
+            'file_name' => 'existed_cover_file.png',
+            'collection_name' => Blog::MEDIA_COLLECTION_COVER,
+        ]);
+
+        // act
+        $response = $this->putJson(route('blogs.update', $blog), [
+            'category_id' => $category->hashid,
+            'slug' => $updatedData['slug'],
+            'published_at' => now()->addMonth(),
+            'th' => [
+                'title' => 'ชื่อบทความ',
+                'body' => 'เนื้อหาบทความ',
+                'meta_title' => 'ชื่อบทความ',
+                'meta_description' => 'เนื้อหาบทความ',
+            ],
+            'en' => [
+                'title' => 'Blog name',
+                'body' => 'Blog content',
+                'meta_title' => 'Blog name',
+                'meta_description' => 'Blog content',
+            ],
+            'cover' => [
+                'id' => $existedMediaA->hashid,
+            ],
+            'thumbnail' => [
+                'id' => null,
+                'path' => $thumbnail['path'],
+            ],
+        ]);
+
+        // assert
+        $response->assertOk();
+        $this->assertDatabaseHas('blogs', ['slug' => $updatedData['slug']]);
+        $this->assertDatabaseHas('blog_translations', ['item_id' => $blog->id, 'locale' => 'th', 'title' => 'ชื่อบทความ']);
+        $this->assertDatabaseHas('blog_translations', ['item_id' => $blog->id, 'locale' => 'en', 'title' => 'Blog name']);
+        $response->assertJsonFragment(['status' => BlogStatus::DRAFT]);
+
+        $this->assertDatabaseCount('blogs', 1);
+        $this->assertDatabaseCount('media', 2);
+        $this->assertDatabaseHas('media', [
+            'id' => $existedMediaA->id,
+            'model_type' => Blog::class,
+            'collection_name' => Blog::MEDIA_COLLECTION_COVER,
+            'file_name' => 'existed_cover_file.png',
+        ]);
+        $this->assertDatabaseHas('media', [
+            'model_type' => Blog::class,
+            'collection_name' => Blog::MEDIA_COLLECTION_THUMBNAIL,
+            'file_name' => $thumbnail['name'],
+        ]);
     }
 
     /**
