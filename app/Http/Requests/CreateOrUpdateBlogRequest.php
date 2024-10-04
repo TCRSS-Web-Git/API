@@ -24,18 +24,55 @@ class CreateOrUpdateBlogRequest extends FormRequest
      */
     public function rules(): array
     {
+        if ($this->input('published_at') <= now()) {
+            return [
+                'slug' => ['required', 'string', 'max:255'],
+                'category_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::BLOG)],
+                'published_at' => ['required', 'date'],
+                'tags' => ['array'],
+                'tags.*' => ['string', 'max:255'],
+                // Translations
+                'th' => ['array', 'required'],
+                'en' => ['array', 'required'],
+                'th.title' => ['required', 'string', 'max:255'],
+                'en.title' => ['required', 'string', 'max:255'],
+                'th.body' => ['required', 'string', 'max:16777215'], // max medium text
+                'en.body' => ['required', 'string', 'max:16777215'],
+                'th.meta_title' => ['required', 'string', 'max:100'],
+                'en.meta_title' => ['required', 'string', 'max:100'],
+                'th.meta_description' => ['required', 'string', 'max:160'],
+                'en.meta_description' => ['required', 'string', 'max:160'],
+                // Media (temporary media)
+                'cover' => ['required', 'array'],
+                'cover.id' => ['nullable'],
+                'cover.path' => ['required_if:cover.id,null', 'string'],
+                'cover.url' => ['nullable', 'string'],
+                'cover.name' => ['nullable', 'string'],
+                'thumbnail' => ['required', 'array'],
+                'thumbnail.id' => ['nullable'],
+                'thumbnail.path' => ['required_if:thumbnail.id,null', 'string'],
+                'thumbnail.url' => ['nullable', 'string'],
+                'thumbnail.name' => ['nullable', 'string'],
+                'body_images' => ['array', 'nullable'],
+                'body_images.*.id' => ['nullable'],
+                'body_images.*.path' => ['required_if:id,null', 'string'],
+                'body_images.*.url' => ['required', 'string'],
+                'body_images.*.name' => ['nullable', 'string'],
+            ];
+        }
+
         return [
             'slug' => ['nullable', 'string', 'max:255'],
-            'category_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::BLOG)],
+            'category_id' => ['nullable', Rule::exists('categories', 'id')->where('type', CategoryType::BLOG)],
             'published_at' => ['nullable', 'date'],
             'tags' => ['array'],
             'tags.*' => ['string', 'max:255'],
             // Translations
-            'th' => ['array', 'required'],
+            'th' => ['array', 'nullable'],
             'en' => ['array'],
             'th.title' => ['required', 'string', 'max:255'],
             'en.title' => ['nullable', 'string', 'max:255'],
-            'th.body' => ['required', 'string', 'max:16777215'], // max medium text
+            'th.body' => ['nullable', 'string', 'max:16777215'], // max medium text
             'en.body' => ['nullable', 'string', 'max:16777215'],
             'th.meta_title' => ['nullable', 'string', 'max:100'],
             'en.meta_title' => ['nullable', 'string', 'max:100'],

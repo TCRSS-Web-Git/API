@@ -6,6 +6,7 @@ use App\Enums\BlogStatus;
 use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
 
 class BlogTest extends TestCase
@@ -40,6 +41,11 @@ class BlogTest extends TestCase
         $category = Category::factory()->blog()->create();
         $blogData = Blog::factory()->for($category)->make()->toArray();
 
+        $fileCover = UploadedFile::fake()->image('image_cover.jpg');
+        $fileThumbnail = UploadedFile::fake()->image('image_thumbnail.jpg');
+        $mediaImageCover = $this->postJson(route('temporary_media.store'), ['media' => $fileCover]);
+        $mediaImageThumbnail = $this->postJson(route('temporary_media.store'), ['media' => $fileThumbnail]);
+
         // act
         $response = $this->postJson(route('blogs.store'), [
             'category_id' => $category->hashid,
@@ -57,6 +63,14 @@ class BlogTest extends TestCase
                 'meta_title' => 'Blog name',
                 'meta_description' => 'Blog content',
             ],
+            'cover' => [
+                'id' => null,
+                'path' => $mediaImageCover->json('data')['path'],
+            ],
+            'thumbnail' => [
+                'id' => null,
+                'path' => $mediaImageThumbnail->json('data')['path'],
+            ],
         ]);
 
         // assert
@@ -65,6 +79,19 @@ class BlogTest extends TestCase
         $this->assertDatabaseHas('blog_translations', ['locale' => 'th', 'title' => 'ชื่อบทความ']);
         $this->assertDatabaseHas('blog_translations', ['locale' => 'en', 'title' => 'Blog name']);
         $response->assertJsonFragment(['status' => BlogStatus::PUBLISHED]);
+
+        $this->assertDatabaseCount('blogs', 1);
+        $this->assertDatabaseCount('media', 2);
+        $this->assertDatabaseHas('media', [
+            'model_type' => Blog::class,
+            'collection_name' => Blog::MEDIA_COLLECTION_COVER,
+            'file_name' => 'image_cover.jpg',
+        ]);
+        $this->assertDatabaseHas('media', [
+            'model_type' => Blog::class,
+            'collection_name' => Blog::MEDIA_COLLECTION_THUMBNAIL,
+            'file_name' => 'image_thumbnail.jpg',
+        ]);
     }
 
     /**
@@ -102,6 +129,7 @@ class BlogTest extends TestCase
         $this->assertDatabaseHas('blog_translations', ['locale' => 'th', 'title' => 'ชื่อบทความ']);
         $this->assertDatabaseHas('blog_translations', ['locale' => 'en', 'title' => 'Blog name']);
         $response->assertJsonFragment(['status' => BlogStatus::DRAFT]);
+        $this->assertDatabaseCount('blogs', 1);
     }
 
     /**
