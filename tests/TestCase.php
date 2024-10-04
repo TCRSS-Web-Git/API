@@ -45,7 +45,7 @@ abstract class TestCase extends BaseTestCase
     {
         $user = $user ?? User::factory()->create();
 
-        Sanctum::actingAs(User::factory()->create(), $abilities);
+        Sanctum::actingAs($user, $abilities);
 
         return $user;
     }
