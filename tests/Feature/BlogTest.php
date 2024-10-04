@@ -132,6 +132,41 @@ class BlogTest extends TestCase
         $this->assertDatabaseCount('blogs', 1);
     }
 
+    public function test_the_admin_can_create_a_blog_for_null_in_key_published(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $category = Category::factory()->blog()->create();
+        $blogData = Blog::factory()->for($category)->make()->toArray();
+
+        // act
+        $response = $this->postJson(route('blogs.store'), [
+            'category_id' => $category->hashid,
+            'slug' => $blogData['slug'],
+            'published_at' => null,
+            'th' => [
+                'title' => 'ชื่อบทความ',
+                'body' => 'เนื้อหาบทความ',
+                'meta_title' => 'ชื่อบทความ',
+                'meta_description' => 'เนื้อหาบทความ',
+            ],
+            'en' => [
+                'title' => 'Blog name',
+                'body' => 'Blog content',
+                'meta_title' => 'Blog name',
+                'meta_description' => 'Blog content',
+            ],
+        ]);
+
+        // assert
+        $response->assertCreated();
+        $this->assertDatabaseHas('blogs', ['slug' => $blogData['slug']]);
+        $this->assertDatabaseHas('blog_translations', ['locale' => 'th', 'title' => 'ชื่อบทความ']);
+        $this->assertDatabaseHas('blog_translations', ['locale' => 'en', 'title' => 'Blog name']);
+        $response->assertJsonFragment(['status' => BlogStatus::DRAFT]);
+        $this->assertDatabaseCount('blogs', 1);
+    }
+
     /**
      * Test the admin can get a blog by ID.
      */
