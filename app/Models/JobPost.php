@@ -48,7 +48,7 @@ class JobPost extends Model implements Auditable, HasMedia
 
     public function getTranslationTable()
     {
-        return 'job_translations';
+        return 'job_post_translations';
     }
 
     public function registerMediaCollections(): void
