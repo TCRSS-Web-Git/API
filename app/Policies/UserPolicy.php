@@ -5,7 +5,7 @@ namespace App\Policies;
 use App\Enums\Permission;
 use App\Models\User;
 
-class Userpolicy
+class UserPolicy
 {
     /**
      * Determine whether the user can view any models.
