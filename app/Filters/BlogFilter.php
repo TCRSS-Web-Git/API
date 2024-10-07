@@ -17,7 +17,7 @@ class BlogFilter extends QueryFilter
         'updated_at',
     ];
 
-    protected $translatedFields = ['title', 'body', 'meta_title', 'meta_description']; // Add translated fields here
+    protected $translatedFields = ['title', 'body', 'meta_title', 'meta_description']; // Add translated fields here, used for sorting
 
     public function id($value)
     {
@@ -119,7 +119,7 @@ class BlogFilter extends QueryFilter
         $ids = Blog::decodeMultipleHashString($value);
 
         return $this->builder->where(function ($query) use ($value, $ids) {
-            $query->Where('slug', 'LIKE', '%'.strtolower($value).'%')
+            $query->where('slug', 'LIKE', '%'.strtolower($value).'%')
                 ->orWhereHas('translations', function ($query) use ($value) {
                     $query->whereRaw('MATCH(title, body) AGAINST(? IN BOOLEAN MODE)', [$value]);
                 })

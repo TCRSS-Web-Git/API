@@ -16,8 +16,8 @@ class MediaResourceCollection extends ResourceCollection
 
     public function toArray($request)
     {
-        return $this->collection->map(function ($media) use ($request) {
-            return (new MediaResource($media, $this->conversionName))->toArray($request);
+        return $this->collection->map(function ($mediaResource) use ($request) {
+            return (new MediaResource($mediaResource->resource, $this->conversionName))->toArray($request);
         })->all();
     }
 }

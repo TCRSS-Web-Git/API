@@ -16,9 +16,9 @@ abstract class QueryFilter
 
     protected $defaultSort = ['column' => 'id', 'direction' => 'desc']; // Edit default sorting here
 
-    protected $translatedFields = []; // Add translated fields here
+    protected $translatedFields = []; // Add translated fields here, used for sorting
 
-    protected $joinedTables = []; // Internal DO NOT EDIT, Keep track of joined tables
+    private $joinedTables = []; // Internal DO NOT EDIT, Keep track of joined tables
 
     public function __construct(Request $request)
     {
@@ -49,7 +49,7 @@ abstract class QueryFilter
 
     protected function include($value)
     {
-        $includes = explode(',', $value);
+        $includes = array_map('trim', explode(',', $value));
 
         if (in_array('translations', $includes)) {
             $this->builder->with('translations');
@@ -113,28 +113,55 @@ abstract class QueryFilter
 
     public function created_at($value)
     {
-        $dates = explode(',', $value);
-        // convert from Asia/Bangkok to UTC
-        $dates = array_map(function ($date) {
-            return Carbon::parse($date, 'Asia/Bangkok')->tz('UTC');
-        }, $dates);
+        $dates = array_map('trim', explode(',', $value));
+        // convert from Asia/Bangkok to UTC if no time is present
+        $dates = array_map(function ($date, $index) {
+            // Check if the date contains time (ISO format)
+            if (strpos($date, 'T') !== false) {
+                return Carbon::parse($date);
+            }
+            // Convert from Asia/Bangkok to UTC if no time is present
+            if ($index === 0) {
+                return Carbon::parse($date, 'Asia/Bangkok')->startOfDay()->tz('UTC');
+            }
 
-        if (count($dates) == 2) {
+            return Carbon::parse($date, 'Asia/Bangkok')->endOfDay()->tz('UTC');
+        }, $dates, array_keys($dates));
+
+        if (count($dates) > 1) {
             return $this->builder->whereBetween('created_at', $dates);
         }
 
-        // TODO change to manual where between
-        return $this->builder->whereDate('created_at', $dates[0]);
+        // single input date
+        $end = $dates[0]->copy()->tz('Asia/Bangkok')->endOfDay()->tz('UTC');
+
+        return $this->builder->whereBetween('created_at', [$dates[0], $end]);
     }
 
     public function updated_at($value)
     {
-        $dates = explode(',', $value);
+        $dates = array_map('trim', explode(',', $value));
+        // convert from Asia/Bangkok to UTC if no time is present
+        $dates = array_map(function ($date, $index) {
+            // Check if the date contains time (ISO format)
+            if (strpos($date, 'T') !== false) {
+                return Carbon::parse($date);
+            }
+            // Convert from Asia/Bangkok to UTC if no time is present
+            if ($index === 0) {
+                return Carbon::parse($date, 'Asia/Bangkok')->startOfDay()->tz('UTC');
+            }
+
+            return Carbon::parse($date, 'Asia/Bangkok')->endOfDay()->tz('UTC');
+        }, $dates, array_keys($dates));
 
         if (count($dates) > 1) {
             return $this->builder->whereBetween('updated_at', $dates);
         }
 
-        return $this->builder->whereDate('updated_at', $value);
+        // single input date
+        $end = $dates[0]->copy()->tz('Asia/Bangkok')->endOfDay()->tz('UTC');
+
+        return $this->builder->whereBetween('updated_at', [$dates[0], $end]);
     }
 }

@@ -16,11 +16,6 @@ class UserFilter extends QueryFilter
         'updated_at',
     ];
 
-    //    public function include($value)
-    //    {
-    //        return $this->builder->with($value);
-    //    }
-
     public function id($value)
     {
         $ids = explode(',', $value);
@@ -41,7 +36,11 @@ class UserFilter extends QueryFilter
 
     public function name($value)
     {
-        return $this->builder->whereRaw("LOWER(CONCAT(first_name, ' ', last_name)) LIKE ?", ['%'.strtolower($value).'%']);
+        $expression = config('database.default') === 'sqlite'
+                ? "LOWER(first_name || ' ' || last_name) LIKE ?"
+                : "LOWER(CONCAT(first_name, ' ', last_name)) LIKE ?";
+
+        return $this->builder->whereRaw($expression, ['%'.strtolower($value).'%']);
     }
 
     public function first_name($value)
@@ -79,8 +78,12 @@ class UserFilter extends QueryFilter
         // Search by hashID (support multiple hashID, comma separated)
         $ids = User::decodeMultipleHashString($value);
 
-        return $this->builder->where(function ($query) use ($value, $searchPhone, $ids) {
-            $query->whereRaw("LOWER(CONCAT(first_name, ' ', last_name)) LIKE ?", ['%'.strtolower($value).'%'])
+        $nameExpression = config('database.default') === 'sqlite'
+            ? "LOWER(first_name || ' ' || last_name) LIKE ?"
+            : "LOWER(CONCAT(first_name, ' ', last_name)) LIKE ?";
+
+        return $this->builder->where(function ($query) use ($value, $searchPhone, $ids, $nameExpression) {
+            $query->whereRaw($nameExpression, ['%'.strtolower($value).'%'])
                 ->orWhereRaw('LOWER(email) LIKE ?', ['%'.strtolower($value).'%'])
                 ->orWhere('phone', 'LIKE', '%'.$searchPhone.'%')
                 ->orWhereIn('id', $ids);

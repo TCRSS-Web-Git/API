@@ -3,11 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Filters\QueryFilter;
 use App\Traits\EloquentDecodeHash;
 use App\Traits\EloquentFindByHash;
+use App\Traits\HasFilter;
 use App\Traits\Hashidable;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -28,6 +27,7 @@ class User extends Authenticatable implements Auditable
     use EloquentFindByHash;
     use HasApiTokens;
     use HasFactory;
+    use HasFilter;
     use Hashidable;
     use HasRoles;
     use Notifiable;
@@ -73,8 +73,11 @@ class User extends Authenticatable implements Auditable
         ];
     }
 
-    public function scopeFilter(Builder $builder, QueryFilter $filters)
+    public function isAdmin(): bool
     {
-        return $filters->apply($builder);
+        return $this->hasRole([
+            Role::ROLE_ADMIN,
+            Role::ROLE_SUPER_ADMIN,
+        ]);
     }
 }

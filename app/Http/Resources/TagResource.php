@@ -14,7 +14,7 @@ class TagResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @return array<int, string>.
+     * @return array<string>
      */
     public function toArray(Request $request): array
     {

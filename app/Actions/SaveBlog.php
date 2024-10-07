@@ -5,6 +5,7 @@ namespace App\Actions;
 use App\Models\Blog;
 use App\Models\Media;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Mews\Purifier\Facades\Purifier;
 
@@ -17,13 +18,20 @@ class SaveBlog
      */
     public function execute(Blog $blog, array $data): Blog
     {
-        $this->blog = $blog;
-        $this->setBasicAttributes($data);
-        $usedImageBody = $this->processBodyImages($data);
-        $this->setTranslations($data, $usedImageBody);
-        $this->blog->save();
-        $this->blog->syncTags($data['tags'] ?? []);
-        $this->saveMedia($data);
+        DB::beginTransaction();
+        try {
+            $this->blog = $blog;
+            $this->setBasicAttributes($data);
+            $usedImageBody = $this->processBodyImages($data);
+            $this->setTranslations($data, $usedImageBody);
+            $this->blog->save();
+            $this->blog->syncTags($data['tags'] ?? []);
+            $this->saveMedia($data);
+            DB::commit();
+        } catch (Exception $exception) {
+            DB::rollBack();
+            throw $exception;
+        }
 
         return $this->blog;
     }
@@ -65,20 +73,20 @@ class SaveBlog
 
     protected function saveMedia(array $data): void
     {
-        if (! empty($data['thumbnail'])) {
-            $this->saveImage($data['thumbnail'], Blog::MEDIA_COLLECTION_THUMBNAIL);
+        if (! empty($data['thumbnail']) && empty($data['thumbnail']['id'])) {
+            $this->saveImageFromTempToMedia($data['thumbnail'], Blog::MEDIA_COLLECTION_THUMBNAIL);
         }
-        if (! empty($data['cover'])) {
-            $this->saveImage($data['cover'], Blog::MEDIA_COLLECTION_COVER);
+        if (! empty($data['cover']) && empty($data['cover']['id'])) {
+            $this->saveImageFromTempToMedia($data['cover'], Blog::MEDIA_COLLECTION_COVER);
         }
     }
 
-    protected function saveImageDescription(array $data, array $imagesDescription): array
+    protected function saveImageDescription(array $data, array $bodyImages): array
     {
         $usedDescriptionImages = [];
         $cleanDescriptions = $this->getCleanDescriptions($data);
 
-        foreach ($imagesDescription as $image) {
+        foreach ($bodyImages as $image) {
             if ($this->isImageUsedInDescription($image, $cleanDescriptions)) {
                 $usedDescriptionImages[] = $image;
             } else {
@@ -140,7 +148,7 @@ class SaveBlog
         }
 
         foreach ($usedDescriptionImages as $imageItem) {
-            if (! empty($imageItem['id']) && ! empty($imageItem['path'])) {
+            if (! empty($imageItem['id']) && ! empty($imageItem['path'])) { // if temporary media
                 $media = Media::find($imageItem['id']);
                 if ($media) {
                     $tempUrl = str_replace('&', '&amp;', $imageItem['url']);
@@ -155,15 +163,12 @@ class SaveBlog
         return $description;
     }
 
-    protected function saveImage(array $image, string $collection): void
-    {
-        if (! empty($image) && empty($image['id'])) {
-            $this->saveImageFromTempToMedia($image, $collection);
-        }
-    }
-
     protected function saveImageFromTempToMedia(array $file, string $collection): ?Media
     {
-        return (new SaveTemporaryMedia)->saveFileFromTemp($this->blog, $collection, $file);
+        if (! empty($file) && empty($file['id'])) {
+            return (new SaveTemporaryMedia)->saveFileFromTemp($this->blog, $collection, $file);
+        }
+
+        return null;
     }
 }

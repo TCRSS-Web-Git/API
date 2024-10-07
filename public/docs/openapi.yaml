@@ -26,11 +26,11 @@ paths:
                 email:
                   type: string
                   description: 'ข้อมูล value ต้องเป็นอีเมล.'
-                  example: gherzog@example.com
+                  example: margaretta.predovic@example.net
                 password:
                   type: string
                   description: ''
-                  example: ',uy$~~*MAsC7424'
+                  example: "E>iydX9'"
               required:
                 - email
                 - password
@@ -61,114 +61,31 @@ paths:
                 example:
                   data:
                     -
-                      id: blog_Z4DX835P3VNLBK
-                      slug: neque-illo-ut-minima-animi-dolore-deserunt
-                      title: '(th) Architecto deserunt est quo quo dolores asperiores saepe.'
-                      meta_title: '(th) Architecto deserunt est quo quo dolores asperiores saepe.'
-                      meta_description: "(th) Velit aspernatur minus culpa quidem tempore aut. Reiciendis quis est enim ipsa. Perspiciatis aspernatur optio et et nostrum.\n\nQuis expedita nihil ut. Unde quo sint libero magnam quia id.\n\nAt consequatur non ea. Dolore voluptatem vitae repellat voluptas. Sed explicabo natus dolor mollitia. Eos sed quae est temporibus."
-                      status: draft
-                      published_at: null
-                      created_at: '2024-09-24T04:05:14.000000Z'
-                      updated_at: '2024-09-24T04:05:14.000000Z'
-                    -
-                      id: blog_K6JYM3BW3XBQZ8
-                      slug: voluptas-possimus-omnis-aut-molestiae-est-ea-voluptatem
-                      title: '(th) Dolorem deserunt quisquam blanditiis molestiae in.'
-                      meta_title: '(th) Dolorem deserunt quisquam blanditiis molestiae in.'
-                      meta_description: "(th) Voluptatem laboriosam consequatur minus similique iste perspiciatis. Rerum quo rerum est. Labore explicabo porro corrupti reiciendis nihil inventore quae numquam.\n\nIusto quia eveniet voluptatibus inventore. Pariatur sapiente accusantium corporis illo aut. Voluptatem error inventore libero excepturi voluptas. Occaecati nobis necessitatibus qui libero ullam.\n\nCorrupti qui perferendis ut distinctio. Alias et voluptatem quia ipsam laboriosam odit corporis. Dolores id non culpa sunt voluptas sunt. Iste amet omnis eos doloremque similique ut rem."
-                      status: draft
-                      published_at: null
-                      created_at: '2024-09-24T04:05:14.000000Z'
-                      updated_at: '2024-09-24T04:05:14.000000Z'
-                    -
-                      id: blog_BW8JN7KB7Z94KQ
-                      slug: est-sit-modi-perferendis-sed-ullam-ipsum
-                      title: '(th) Magni possimus nostrum molestias in aliquam et cum.'
-                      meta_title: '(th) Magni possimus nostrum molestias in aliquam et cum.'
-                      meta_description: "(th) Commodi fugiat animi in dignissimos. Porro sapiente earum placeat temporibus qui sed sunt. Velit eum reprehenderit possimus voluptatem. Velit excepturi reiciendis consequatur voluptatem.\n\nQuia molestias qui omnis dolor. Ut rem est ullam eos et voluptate sed iusto. Magnam aut voluptate odit odit modi inventore est.\n\nDolores voluptatem assumenda aut aut explicabo. Accusamus soluta ea omnis asperiores aspernatur et aut. Eveniet ea accusantium delectus qui totam cumque."
-                      status: draft
-                      published_at: null
-                      created_at: '2024-09-24T04:05:14.000000Z'
-                      updated_at: '2024-09-24T04:05:14.000000Z'
-                    -
-                      id: blog_JVK923Y53YM1P6
-                      slug: soluta-voluptas-officiis-molestiae-odit-neque-doloribus-occaecati-blanditiis
-                      title: '(th) Et pariatur deserunt veritatis vitae facilis cupiditate dignissimos.'
-                      meta_title: '(th) Et pariatur deserunt veritatis vitae facilis cupiditate dignissimos.'
-                      meta_description: "(th) Earum velit voluptatum mollitia. Eum repudiandae qui nihil labore explicabo adipisci officia. Odit officiis itaque repellendus ut asperiores ullam voluptas. Aliquid omnis vitae natus quo consequatur soluta quod.\n\nAut consectetur odio debitis enim soluta. Vitae quam in sunt praesentium rerum sunt aut.\n\nCorrupti nisi non est fugit voluptas maxime consectetur. Autem optio debitis ipsum perferendis optio eligendi molestiae. Libero repellat omnis cum quaerat ut nam vero. Recusandae necessitatibus accusamus dolorem reprehenderit nam tenetur."
+                      id: blog_9JPXM7D570YN2Q
+                      thumbnail: null
+                      category:
+                        id: category_BGN90M7EDVZRQ1
+                        name: โปรโมชั่น
+                        slug: promotions
+                      slug: maxime-dolor-numquam-esse-est-vel-aut
+                      title: '(th) Minima eos cupiditate facilis fuga ut expedita vero.'
+                      meta_title: '(th) Minima eos cupiditate facilis fuga ut expedita vero.'
+                      meta_description: "(th) Ex aut ea minima. Non tempora quo eaque voluptate. Nemo natus voluptatibus dolorem error est. Eius tempora quae non cupiditate.\n\nVoluptatum incidunt repudiandae libero doloribus illo ratione aut. Illo officia hic rerum aut quo reiciendis velit. Cum s"
                       status: published
-                      published_at: '2023-11-15T17:36:22.000000Z'
-                      created_at: '2024-09-24T04:05:14.000000Z'
-                      updated_at: '2024-09-24T04:05:14.000000Z'
-                    -
-                      id: blog_XWPLZ3W03652D8
-                      slug: ab-veritatis-distinctio-omnis-fugiat-eos-optio-totam
-                      title: '(th) Recusandae illum nemo officia aperiam accusantium ipsam.'
-                      meta_title: '(th) Recusandae illum nemo officia aperiam accusantium ipsam.'
-                      meta_description: "(th) Officia vel quae et deserunt et. Itaque molestiae rerum ut ut aut. Pariatur ullam quia id similique et quia atque. Ut voluptas laborum ut pariatur.\n\nNesciunt rerum quam numquam autem praesentium sequi cupiditate in. Dolore cupiditate vel voluptates est. Doloremque amet quia voluptatem ut aliquam eum sunt.\n\nVoluptatem cum et velit voluptatem. Id eum qui rem in corporis eos repellendus harum. Non autem cumque aut vitae."
-                      status: draft
-                      published_at: null
-                      created_at: '2024-09-24T04:05:14.000000Z'
-                      updated_at: '2024-09-24T04:05:14.000000Z'
-                    -
-                      id: blog_1D0VE7ZMRNLBYG
-                      slug: et-occaecati-aspernatur-aperiam-aut-laboriosam
-                      title: '(th) Labore repudiandae nobis sint veniam ea quia.'
-                      meta_title: '(th) Labore repudiandae nobis sint veniam ea quia.'
-                      meta_description: "(th) Sint voluptatem necessitatibus placeat sit aliquid. In voluptas aut voluptatem. Et aliquid qui dolores sed.\n\nArchitecto doloremque esse ducimus ab. Consequatur veniam tenetur excepturi laborum. Deserunt eveniet velit non. Ratione similique sunt doloribus et qui iusto quis. Alias velit ut ut est possimus.\n\nDucimus rerum amet laudantium et quibusdam. Quia praesentium blanditiis sed consequatur temporibus est enim. Ex recusandae est adipisci laboriosam blanditiis repellat et id."
-                      status: published
-                      published_at: '2024-06-06T19:05:41.000000Z'
-                      created_at: '2024-09-24T04:05:14.000000Z'
-                      updated_at: '2024-09-24T04:05:14.000000Z'
-                    -
-                      id: blog_V1Q9J7423K8XBG
-                      slug: quidem-eaque-magnam-a-iusto-mollitia
-                      title: '(th) Totam cum ratione nisi expedita deserunt odit.'
-                      meta_title: '(th) Totam cum ratione nisi expedita deserunt odit.'
-                      meta_description: "(th) Et recusandae nihil temporibus recusandae. Sit ipsam sed fugit veritatis qui quia. Sit asperiores quis molestiae. Neque quaerat voluptates est.\n\nNon possimus nesciunt molestiae amet libero. Id in quo quisquam voluptatem itaque. Aut esse ipsum ab expedita temporibus. Porro dolores ad consectetur autem aliquam et.\n\nArchitecto sequi ratione nam. Ratione perspiciatis vel pariatur."
-                      status: draft
-                      published_at: null
-                      created_at: '2024-09-24T04:05:14.000000Z'
-                      updated_at: '2024-09-24T04:05:14.000000Z'
-                    -
-                      id: blog_M9D6P7V27BZEX5
-                      slug: debitis-expedita-quibusdam-hic-atque
-                      title: '(th) Rerum et consequatur qui et enim enim eum.'
-                      meta_title: '(th) Rerum et consequatur qui et enim enim eum.'
-                      meta_description: "(th) Vitae esse officia excepturi quia autem. Accusamus sunt quis quasi omnis. Et maxime eveniet sunt quo molestiae ipsa accusamus. Soluta non id excepturi ut iste.\n\nVoluptatem quos tempora quis perferendis suscipit perferendis perferendis enim. Iure eos perspiciatis natus et. Ab dolore odit fugiat dolore eum. Rerum non voluptates harum at odit.\n\nMolestias aliquam debitis quam eos aut. A asperiores iusto sed sunt nesciunt aut voluptatem. Vero eius illum qui. Nesciunt expedita animi quo aperiam impedit culpa."
-                      status: published
-                      published_at: '2024-03-31T05:16:37.000000Z'
-                      created_at: '2024-09-24T04:05:14.000000Z'
-                      updated_at: '2024-09-24T04:05:14.000000Z'
-                    -
-                      id: blog_WV8J6RP8RXE2BM
-                      slug: voluptas-est-rerum-ea
-                      title: '(th) Et minima adipisci dolor ea libero ducimus magni.'
-                      meta_title: '(th) Et minima adipisci dolor ea libero ducimus magni.'
-                      meta_description: "(th) Dolorem rerum est est. Aperiam et voluptas ut deleniti qui et itaque. Illo eveniet quia vel.\n\nIusto temporibus fuga non alias aperiam ex. Voluptates at doloribus nihil similique aut iste voluptas. Sed et deleniti sunt accusantium et blanditiis ut. Eaque magni necessitatibus rem recusandae ipsum aliquam. Qui praesentium et nemo officiis optio hic aliquid.\n\nDignissimos dolore et architecto ducimus qui eum. Delectus ipsam aut et dolores. Repellat doloribus sapiente nostrum."
-                      status: published
-                      published_at: '2023-11-02T07:58:21.000000Z'
-                      created_at: '2024-09-24T04:05:14.000000Z'
-                      updated_at: '2024-09-24T04:05:14.000000Z'
-                    -
-                      id: blog_ZK6LYR6QR9MP48
-                      slug: ipsam-laudantium-libero-similique-dolores-sed-nobis
-                      title: '(th) Labore mollitia tempora eveniet aut.'
-                      meta_title: '(th) Labore mollitia tempora eveniet aut.'
-                      meta_description: "(th) Officia aut veniam ipsum corrupti illo. Ullam autem illo consequatur odio incidunt eum omnis. Est eos officia facere ab unde voluptatem molestias non. Facilis omnis aliquam assumenda quas explicabo enim saepe.\n\nUt repudiandae dicta illo optio incidunt. Placeat commodi perspiciatis ex et consequatur ab accusamus. Commodi impedit voluptatem aut ab temporibus non. Ducimus quibusdam eos odio nam aperiam ut laboriosam.\n\nSint et iste facilis. Voluptatem atque soluta et occaecati quas ipsa eum. Commodi rerum quo accusantium placeat et quia ut."
-                      status: published
-                      published_at: '2024-04-21T21:18:27.000000Z'
-                      created_at: '2024-09-24T04:05:14.000000Z'
-                      updated_at: '2024-09-24T04:05:14.000000Z'
+                      tags: []
+                      updated_by: null
+                      published_at: '2024-04-22T16:36:16.000000Z'
+                      created_at: '2024-10-01T08:02:04.000000Z'
+                      updated_at: '2024-10-01T08:02:04.000000Z'
                   links:
                     first: 'https://api.starter.test/api/v1/blogs?page=1'
-                    last: 'https://api.starter.test/api/v1/blogs?page=2'
+                    last: 'https://api.starter.test/api/v1/blogs?page=1'
                     prev: null
-                    next: 'https://api.starter.test/api/v1/blogs?page=2'
+                    next: null
                   meta:
                     current_page: 1
                     from: 1
-                    last_page: 2
+                    last_page: 1
                     links:
                       -
                         url: null
@@ -179,151 +96,85 @@ paths:
                         label: '1'
                         active: true
                       -
-                        url: 'https://api.starter.test/api/v1/blogs?page=2'
-                        label: '2'
-                        active: false
-                      -
-                        url: 'https://api.starter.test/api/v1/blogs?page=2'
+                        url: null
                         label: 'ถัดไป &raquo;'
                         active: false
                     path: 'https://api.starter.test/api/v1/blogs'
                     per_page: 10
-                    to: 10
-                    total: 20
+                    to: 1
+                    total: 1
                 properties:
                   data:
                     type: array
                     example:
                       -
-                        id: blog_Z4DX835P3VNLBK
-                        slug: neque-illo-ut-minima-animi-dolore-deserunt
-                        title: '(th) Architecto deserunt est quo quo dolores asperiores saepe.'
-                        meta_title: '(th) Architecto deserunt est quo quo dolores asperiores saepe.'
-                        meta_description: "(th) Velit aspernatur minus culpa quidem tempore aut. Reiciendis quis est enim ipsa. Perspiciatis aspernatur optio et et nostrum.\n\nQuis expedita nihil ut. Unde quo sint libero magnam quia id.\n\nAt consequatur non ea. Dolore voluptatem vitae repellat voluptas. Sed explicabo natus dolor mollitia. Eos sed quae est temporibus."
-                        status: draft
-                        published_at: null
-                        created_at: '2024-09-24T04:05:14.000000Z'
-                        updated_at: '2024-09-24T04:05:14.000000Z'
-                      -
-                        id: blog_K6JYM3BW3XBQZ8
-                        slug: voluptas-possimus-omnis-aut-molestiae-est-ea-voluptatem
-                        title: '(th) Dolorem deserunt quisquam blanditiis molestiae in.'
-                        meta_title: '(th) Dolorem deserunt quisquam blanditiis molestiae in.'
-                        meta_description: "(th) Voluptatem laboriosam consequatur minus similique iste perspiciatis. Rerum quo rerum est. Labore explicabo porro corrupti reiciendis nihil inventore quae numquam.\n\nIusto quia eveniet voluptatibus inventore. Pariatur sapiente accusantium corporis illo aut. Voluptatem error inventore libero excepturi voluptas. Occaecati nobis necessitatibus qui libero ullam.\n\nCorrupti qui perferendis ut distinctio. Alias et voluptatem quia ipsam laboriosam odit corporis. Dolores id non culpa sunt voluptas sunt. Iste amet omnis eos doloremque similique ut rem."
-                        status: draft
-                        published_at: null
-                        created_at: '2024-09-24T04:05:14.000000Z'
-                        updated_at: '2024-09-24T04:05:14.000000Z'
-                      -
-                        id: blog_BW8JN7KB7Z94KQ
-                        slug: est-sit-modi-perferendis-sed-ullam-ipsum
-                        title: '(th) Magni possimus nostrum molestias in aliquam et cum.'
-                        meta_title: '(th) Magni possimus nostrum molestias in aliquam et cum.'
-                        meta_description: "(th) Commodi fugiat animi in dignissimos. Porro sapiente earum placeat temporibus qui sed sunt. Velit eum reprehenderit possimus voluptatem. Velit excepturi reiciendis consequatur voluptatem.\n\nQuia molestias qui omnis dolor. Ut rem est ullam eos et voluptate sed iusto. Magnam aut voluptate odit odit modi inventore est.\n\nDolores voluptatem assumenda aut aut explicabo. Accusamus soluta ea omnis asperiores aspernatur et aut. Eveniet ea accusantium delectus qui totam cumque."
-                        status: draft
-                        published_at: null
-                        created_at: '2024-09-24T04:05:14.000000Z'
-                        updated_at: '2024-09-24T04:05:14.000000Z'
-                      -
-                        id: blog_JVK923Y53YM1P6
-                        slug: soluta-voluptas-officiis-molestiae-odit-neque-doloribus-occaecati-blanditiis
-                        title: '(th) Et pariatur deserunt veritatis vitae facilis cupiditate dignissimos.'
-                        meta_title: '(th) Et pariatur deserunt veritatis vitae facilis cupiditate dignissimos.'
-                        meta_description: "(th) Earum velit voluptatum mollitia. Eum repudiandae qui nihil labore explicabo adipisci officia. Odit officiis itaque repellendus ut asperiores ullam voluptas. Aliquid omnis vitae natus quo consequatur soluta quod.\n\nAut consectetur odio debitis enim soluta. Vitae quam in sunt praesentium rerum sunt aut.\n\nCorrupti nisi non est fugit voluptas maxime consectetur. Autem optio debitis ipsum perferendis optio eligendi molestiae. Libero repellat omnis cum quaerat ut nam vero. Recusandae necessitatibus accusamus dolorem reprehenderit nam tenetur."
+                        id: blog_9JPXM7D570YN2Q
+                        thumbnail: null
+                        category:
+                          id: category_BGN90M7EDVZRQ1
+                          name: โปรโมชั่น
+                          slug: promotions
+                        slug: maxime-dolor-numquam-esse-est-vel-aut
+                        title: '(th) Minima eos cupiditate facilis fuga ut expedita vero.'
+                        meta_title: '(th) Minima eos cupiditate facilis fuga ut expedita vero.'
+                        meta_description: "(th) Ex aut ea minima. Non tempora quo eaque voluptate. Nemo natus voluptatibus dolorem error est. Eius tempora quae non cupiditate.\n\nVoluptatum incidunt repudiandae libero doloribus illo ratione aut. Illo officia hic rerum aut quo reiciendis velit. Cum s"
                         status: published
-                        published_at: '2023-11-15T17:36:22.000000Z'
-                        created_at: '2024-09-24T04:05:14.000000Z'
-                        updated_at: '2024-09-24T04:05:14.000000Z'
-                      -
-                        id: blog_XWPLZ3W03652D8
-                        slug: ab-veritatis-distinctio-omnis-fugiat-eos-optio-totam
-                        title: '(th) Recusandae illum nemo officia aperiam accusantium ipsam.'
-                        meta_title: '(th) Recusandae illum nemo officia aperiam accusantium ipsam.'
-                        meta_description: "(th) Officia vel quae et deserunt et. Itaque molestiae rerum ut ut aut. Pariatur ullam quia id similique et quia atque. Ut voluptas laborum ut pariatur.\n\nNesciunt rerum quam numquam autem praesentium sequi cupiditate in. Dolore cupiditate vel voluptates est. Doloremque amet quia voluptatem ut aliquam eum sunt.\n\nVoluptatem cum et velit voluptatem. Id eum qui rem in corporis eos repellendus harum. Non autem cumque aut vitae."
-                        status: draft
-                        published_at: null
-                        created_at: '2024-09-24T04:05:14.000000Z'
-                        updated_at: '2024-09-24T04:05:14.000000Z'
-                      -
-                        id: blog_1D0VE7ZMRNLBYG
-                        slug: et-occaecati-aspernatur-aperiam-aut-laboriosam
-                        title: '(th) Labore repudiandae nobis sint veniam ea quia.'
-                        meta_title: '(th) Labore repudiandae nobis sint veniam ea quia.'
-                        meta_description: "(th) Sint voluptatem necessitatibus placeat sit aliquid. In voluptas aut voluptatem. Et aliquid qui dolores sed.\n\nArchitecto doloremque esse ducimus ab. Consequatur veniam tenetur excepturi laborum. Deserunt eveniet velit non. Ratione similique sunt doloribus et qui iusto quis. Alias velit ut ut est possimus.\n\nDucimus rerum amet laudantium et quibusdam. Quia praesentium blanditiis sed consequatur temporibus est enim. Ex recusandae est adipisci laboriosam blanditiis repellat et id."
-                        status: published
-                        published_at: '2024-06-06T19:05:41.000000Z'
-                        created_at: '2024-09-24T04:05:14.000000Z'
-                        updated_at: '2024-09-24T04:05:14.000000Z'
-                      -
-                        id: blog_V1Q9J7423K8XBG
-                        slug: quidem-eaque-magnam-a-iusto-mollitia
-                        title: '(th) Totam cum ratione nisi expedita deserunt odit.'
-                        meta_title: '(th) Totam cum ratione nisi expedita deserunt odit.'
-                        meta_description: "(th) Et recusandae nihil temporibus recusandae. Sit ipsam sed fugit veritatis qui quia. Sit asperiores quis molestiae. Neque quaerat voluptates est.\n\nNon possimus nesciunt molestiae amet libero. Id in quo quisquam voluptatem itaque. Aut esse ipsum ab expedita temporibus. Porro dolores ad consectetur autem aliquam et.\n\nArchitecto sequi ratione nam. Ratione perspiciatis vel pariatur."
-                        status: draft
-                        published_at: null
-                        created_at: '2024-09-24T04:05:14.000000Z'
-                        updated_at: '2024-09-24T04:05:14.000000Z'
-                      -
-                        id: blog_M9D6P7V27BZEX5
-                        slug: debitis-expedita-quibusdam-hic-atque
-                        title: '(th) Rerum et consequatur qui et enim enim eum.'
-                        meta_title: '(th) Rerum et consequatur qui et enim enim eum.'
-                        meta_description: "(th) Vitae esse officia excepturi quia autem. Accusamus sunt quis quasi omnis. Et maxime eveniet sunt quo molestiae ipsa accusamus. Soluta non id excepturi ut iste.\n\nVoluptatem quos tempora quis perferendis suscipit perferendis perferendis enim. Iure eos perspiciatis natus et. Ab dolore odit fugiat dolore eum. Rerum non voluptates harum at odit.\n\nMolestias aliquam debitis quam eos aut. A asperiores iusto sed sunt nesciunt aut voluptatem. Vero eius illum qui. Nesciunt expedita animi quo aperiam impedit culpa."
-                        status: published
-                        published_at: '2024-03-31T05:16:37.000000Z'
-                        created_at: '2024-09-24T04:05:14.000000Z'
-                        updated_at: '2024-09-24T04:05:14.000000Z'
-                      -
-                        id: blog_WV8J6RP8RXE2BM
-                        slug: voluptas-est-rerum-ea
-                        title: '(th) Et minima adipisci dolor ea libero ducimus magni.'
-                        meta_title: '(th) Et minima adipisci dolor ea libero ducimus magni.'
-                        meta_description: "(th) Dolorem rerum est est. Aperiam et voluptas ut deleniti qui et itaque. Illo eveniet quia vel.\n\nIusto temporibus fuga non alias aperiam ex. Voluptates at doloribus nihil similique aut iste voluptas. Sed et deleniti sunt accusantium et blanditiis ut. Eaque magni necessitatibus rem recusandae ipsum aliquam. Qui praesentium et nemo officiis optio hic aliquid.\n\nDignissimos dolore et architecto ducimus qui eum. Delectus ipsam aut et dolores. Repellat doloribus sapiente nostrum."
-                        status: published
-                        published_at: '2023-11-02T07:58:21.000000Z'
-                        created_at: '2024-09-24T04:05:14.000000Z'
-                        updated_at: '2024-09-24T04:05:14.000000Z'
-                      -
-                        id: blog_ZK6LYR6QR9MP48
-                        slug: ipsam-laudantium-libero-similique-dolores-sed-nobis
-                        title: '(th) Labore mollitia tempora eveniet aut.'
-                        meta_title: '(th) Labore mollitia tempora eveniet aut.'
-                        meta_description: "(th) Officia aut veniam ipsum corrupti illo. Ullam autem illo consequatur odio incidunt eum omnis. Est eos officia facere ab unde voluptatem molestias non. Facilis omnis aliquam assumenda quas explicabo enim saepe.\n\nUt repudiandae dicta illo optio incidunt. Placeat commodi perspiciatis ex et consequatur ab accusamus. Commodi impedit voluptatem aut ab temporibus non. Ducimus quibusdam eos odio nam aperiam ut laboriosam.\n\nSint et iste facilis. Voluptatem atque soluta et occaecati quas ipsa eum. Commodi rerum quo accusantium placeat et quia ut."
-                        status: published
-                        published_at: '2024-04-21T21:18:27.000000Z'
-                        created_at: '2024-09-24T04:05:14.000000Z'
-                        updated_at: '2024-09-24T04:05:14.000000Z'
+                        tags: []
+                        updated_by: null
+                        published_at: '2024-04-22T16:36:16.000000Z'
+                        created_at: '2024-10-01T08:02:04.000000Z'
+                        updated_at: '2024-10-01T08:02:04.000000Z'
                     items:
                       type: object
                       properties:
                         id:
                           type: string
-                          example: blog_Z4DX835P3VNLBK
-                        slug:
-                          type: string
-                          example: neque-illo-ut-minima-animi-dolore-deserunt
-                        title:
-                          type: string
-                          example: '(th) Architecto deserunt est quo quo dolores asperiores saepe.'
-                        meta_title:
-                          type: string
-                          example: '(th) Architecto deserunt est quo quo dolores asperiores saepe.'
-                        meta_description:
-                          type: string
-                          example: "(th) Velit aspernatur minus culpa quidem tempore aut. Reiciendis quis est enim ipsa. Perspiciatis aspernatur optio et et nostrum.\n\nQuis expedita nihil ut. Unde quo sint libero magnam quia id.\n\nAt consequatur non ea. Dolore voluptatem vitae repellat voluptas. Sed explicabo natus dolor mollitia. Eos sed quae est temporibus."
-                        status:
-                          type: string
-                          example: draft
-                        published_at:
+                          example: blog_9JPXM7D570YN2Q
+                        thumbnail:
                           type: string
                           example: null
+                        category:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: category_BGN90M7EDVZRQ1
+                            name:
+                              type: string
+                              example: โปรโมชั่น
+                            slug:
+                              type: string
+                              example: promotions
+                        slug:
+                          type: string
+                          example: maxime-dolor-numquam-esse-est-vel-aut
+                        title:
+                          type: string
+                          example: '(th) Minima eos cupiditate facilis fuga ut expedita vero.'
+                        meta_title:
+                          type: string
+                          example: '(th) Minima eos cupiditate facilis fuga ut expedita vero.'
+                        meta_description:
+                          type: string
+                          example: "(th) Ex aut ea minima. Non tempora quo eaque voluptate. Nemo natus voluptatibus dolorem error est. Eius tempora quae non cupiditate.\n\nVoluptatum incidunt repudiandae libero doloribus illo ratione aut. Illo officia hic rerum aut quo reiciendis velit. Cum s"
+                        status:
+                          type: string
+                          example: published
+                        tags:
+                          type: array
+                          example: []
+                        updated_by:
+                          type: string
+                          example: null
+                        published_at:
+                          type: string
+                          example: '2024-04-22T16:36:16.000000Z'
                         created_at:
                           type: string
-                          example: '2024-09-24T04:05:14.000000Z'
+                          example: '2024-10-01T08:02:04.000000Z'
                         updated_at:
                           type: string
-                          example: '2024-09-24T04:05:14.000000Z'
+                          example: '2024-10-01T08:02:04.000000Z'
                   links:
                     type: object
                     properties:
@@ -332,13 +183,13 @@ paths:
                         example: 'https://api.starter.test/api/v1/blogs?page=1'
                       last:
                         type: string
-                        example: 'https://api.starter.test/api/v1/blogs?page=2'
+                        example: 'https://api.starter.test/api/v1/blogs?page=1'
                       prev:
                         type: string
                         example: null
                       next:
                         type: string
-                        example: 'https://api.starter.test/api/v1/blogs?page=2'
+                        example: null
                   meta:
                     type: object
                     properties:
@@ -350,7 +201,7 @@ paths:
                         example: 1
                       last_page:
                         type: integer
-                        example: 2
+                        example: 1
                       links:
                         type: array
                         example:
@@ -363,11 +214,7 @@ paths:
                             label: '1'
                             active: true
                           -
-                            url: 'https://api.starter.test/api/v1/blogs?page=2'
-                            label: '2'
-                            active: false
-                          -
-                            url: 'https://api.starter.test/api/v1/blogs?page=2'
+                            url: null
                             label: 'ถัดไป &raquo;'
                             active: false
                         items:
@@ -390,10 +237,10 @@ paths:
                         example: 10
                       to:
                         type: integer
-                        example: 10
+                        example: 1
                       total:
                         type: integer
-                        example: 20
+                        example: 1
       tags:
         - Blogs
     post:
@@ -404,6 +251,116 @@ paths:
       responses: {  }
       tags:
         - Blogs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: em
+                category_id:
+                  type: string
+                  description: ''
+                  example: enim
+                published_at:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นวันที่.'
+                  example: '2024-10-02T04:36:18'
+                tags:
+                  type: array
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example:
+                    - yxdqznxmrhesbubf
+                  items:
+                    type: string
+                th:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                      example: c
+                    body:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร.'
+                      example: wrcqxwbidrashyxplphnpkdlq
+                    meta_title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร.'
+                      example: rvpn
+                    meta_description:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร.'
+                      example: takn
+                en:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                      example: dnnqxdt
+                    body:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร.'
+                      example: veh
+                    meta_title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร.'
+                      example: ixerihjn
+                    meta_description:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร.'
+                      example: kghcuacagfkvzkuopnmyqfdb
+                cover:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    path:
+                      type: string
+                      description: ''
+                      example: dolorem
+                thumbnail:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    path:
+                      type: string
+                      description: ''
+                      example: ullam
+                body_images:
+                  type: array
+                  description: ''
+                  example: null
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: ''
+                        example: null
+                      path:
+                        type: string
+                        description: 'This field is required when <code>id</code> is <code>null</code>.'
+                        example: sit
+                      url:
+                        type: string
+                        description: ''
+                        example: 'http://www.hettinger.com/'
+                    required:
+                      - url
+              required:
+                - category_id
+                - th
   '/api/v1/blogs/{id}':
     get:
       summary: 'Get blog by ID'
@@ -433,6 +390,116 @@ paths:
       responses: {  }
       tags:
         - Blogs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: jppkijmdkqhwlogadnsfkyq
+                category_id:
+                  type: string
+                  description: ''
+                  example: cum
+                published_at:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นวันที่.'
+                  example: '2024-10-02T04:36:18'
+                tags:
+                  type: array
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example:
+                    - qnqagthsxvzphaoygnsboh
+                  items:
+                    type: string
+                th:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                      example: nftifccuaikxvhqiyavnpmupw
+                    body:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร.'
+                      example: roprab
+                    meta_title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร.'
+                      example: ukwnoaqtjhryeswojagfa
+                    meta_description:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร.'
+                      example: tfvhymrhioizqkzkrjvk
+                en:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                      example: umdwsn
+                    body:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร.'
+                      example: sjsxbskxkra
+                    meta_title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร.'
+                      example: rhvsywdvkooqbhiihlmvdoeyx
+                    meta_description:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร.'
+                      example: gjpqrwvzfhgqczc
+                cover:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    path:
+                      type: string
+                      description: ''
+                      example: aliquam
+                thumbnail:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    path:
+                      type: string
+                      description: ''
+                      example: itaque
+                body_images:
+                  type: array
+                  description: ''
+                  example: null
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: ''
+                        example: null
+                      path:
+                        type: string
+                        description: 'This field is required when <code>id</code> is <code>null</code>.'
+                        example: consequatur
+                      url:
+                        type: string
+                        description: ''
+                        example: 'http://www.altenwerth.com/animi-voluptas-atque-consequatur-error-omnis-aut-consequatur.html'
+                    required:
+                      - url
+              required:
+                - category_id
+                - th
     delete:
       summary: 'Delete blog'
       operationId: deleteBlog
@@ -450,6 +517,284 @@ paths:
         required: true
         schema:
           type: integer
+  '/api/v1/categories/{type}':
+    get:
+      summary: 'Get all categories of a type.'
+      operationId: getAllCategoriesOfAType
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: category_V2Y3EMY0P815R9
+                      name: บทความ
+                      description: null
+                      slug: articles
+                      sort: null
+                      created_at: '2024-10-01T08:02:04.000000Z'
+                      updated_at: '2024-10-01T08:02:04.000000Z'
+                    -
+                      id: category_BGN90M7EDVZRQ1
+                      name: โปรโมชั่น
+                      description: null
+                      slug: promotions
+                      sort: null
+                      created_at: '2024-10-01T08:02:04.000000Z'
+                      updated_at: '2024-10-01T08:02:04.000000Z'
+                  links:
+                    first: 'https://api.starter.test/api/v1/categories/blog?page=1'
+                    last: 'https://api.starter.test/api/v1/categories/blog?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; ก่อนหน้า'
+                        active: false
+                      -
+                        url: 'https://api.starter.test/api/v1/categories/blog?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'ถัดไป &raquo;'
+                        active: false
+                    path: 'https://api.starter.test/api/v1/categories/blog'
+                    per_page: 15
+                    to: 2
+                    total: 2
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: category_V2Y3EMY0P815R9
+                        name: บทความ
+                        description: null
+                        slug: articles
+                        sort: null
+                        created_at: '2024-10-01T08:02:04.000000Z'
+                        updated_at: '2024-10-01T08:02:04.000000Z'
+                      -
+                        id: category_BGN90M7EDVZRQ1
+                        name: โปรโมชั่น
+                        description: null
+                        slug: promotions
+                        sort: null
+                        created_at: '2024-10-01T08:02:04.000000Z'
+                        updated_at: '2024-10-01T08:02:04.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: category_V2Y3EMY0P815R9
+                        name:
+                          type: string
+                          example: บทความ
+                        description:
+                          type: string
+                          example: null
+                        slug:
+                          type: string
+                          example: articles
+                        sort:
+                          type: string
+                          example: null
+                        created_at:
+                          type: string
+                          example: '2024-10-01T08:02:04.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-10-01T08:02:04.000000Z'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'https://api.starter.test/api/v1/categories/blog?page=1'
+                      last:
+                        type: string
+                        example: 'https://api.starter.test/api/v1/categories/blog?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; ก่อนหน้า'
+                            active: false
+                          -
+                            url: 'https://api.starter.test/api/v1/categories/blog?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'ถัดไป &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; ก่อนหน้า'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'https://api.starter.test/api/v1/categories/blog'
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: integer
+                        example: 2
+                      total:
+                        type: integer
+                        example: 2
+      tags:
+        - Categories
+    post:
+      summary: 'Create category'
+      operationId: createCategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Categories
+    parameters:
+      -
+        in: path
+        name: type
+        description: ''
+        example: blog
+        required: true
+        schema:
+          type: string
+  '/api/v1/categories/{type}/{category_id}':
+    get:
+      summary: 'Get category by ID'
+      operationId: getCategoryByID
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Category] -1'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Category] -1'
+      tags:
+        - Categories
+    put:
+      summary: 'Update category'
+      operationId: updateCategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Categories
+    patch:
+      summary: 'Update category'
+      operationId: updateCategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Categories
+    delete:
+      summary: 'Delete category'
+      operationId: deleteCategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Categories
+    parameters:
+      -
+        in: path
+        name: type
+        description: ''
+        example: blog
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: category_id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/tags/{type}':
+    get:
+      summary: 'Get all categories of a type.'
+      operationId: getAllCategoriesOfAType
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Categories
+    parameters:
+      -
+        in: path
+        name: type
+        description: ''
+        example: sed
+        required: true
+        schema:
+          type: string
   /api/v1/register:
     post:
       summary: 'Handle an incoming registration request.'
@@ -473,19 +818,19 @@ paths:
                 first_name:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: uoiw
+                  example: dojxiusoqocqvunjvxsarl
                 last_name:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: kf
+                  example: tgjzaewramwugrqofxy
                 email:
                   type: string
                   description: 'ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: reynold.wehner@example.net
+                  example: buck.rippin@example.com
                 password:
                   type: string
                   description: ''
-                  example: harum
+                  example: aspernatur
               required:
                 - first_name
                 - last_name
@@ -510,7 +855,7 @@ paths:
                 email:
                   type: string
                   description: 'ข้อมูล value ต้องเป็นอีเมล.'
-                  example: violette86@example.net
+                  example: bauch.meredith@example.com
               required:
                 - email
   /api/v1/reset-password:
@@ -532,15 +877,15 @@ paths:
                 token:
                   type: string
                   description: ''
-                  example: porro
+                  example: dolore
                 email:
                   type: string
                   description: 'ข้อมูล value ต้องเป็นอีเมล.'
-                  example: kevin15@example.net
+                  example: winfield.weber@example.net
                 password:
                   type: string
                   description: ''
-                  example: id
+                  example: saepe
               required:
                 - token
                 - email
@@ -571,7 +916,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the verify email.'
-        example: occaecati
+        example: ipsum
         required: true
         schema:
           type: string
@@ -579,7 +924,7 @@ paths:
         in: path
         name: hash
         description: ''
-        example: quo
+        example: amet
         required: true
         schema:
           type: string
@@ -621,13 +966,13 @@ paths:
                     -
                       id: role_2VDBZXRV4W8PGL
                       name: 'Super Admin'
-                      created_at: '2024-09-24T04:05:14.000000Z'
-                      updated_at: '2024-09-24T04:05:14.000000Z'
+                      created_at: '2024-10-01T08:02:04.000000Z'
+                      updated_at: '2024-10-01T08:02:04.000000Z'
                     -
                       id: role_E8PLJ15WXK9M2Z
                       name: Admin
-                      created_at: '2024-09-24T04:05:14.000000Z'
-                      updated_at: '2024-09-24T04:05:14.000000Z'
+                      created_at: '2024-10-01T08:02:04.000000Z'
+                      updated_at: '2024-10-01T08:02:04.000000Z'
                   links:
                     first: 'https://api.starter.test/api/v1/roles?page=1'
                     last: 'https://api.starter.test/api/v1/roles?page=1'
@@ -661,13 +1006,13 @@ paths:
                       -
                         id: role_2VDBZXRV4W8PGL
                         name: 'Super Admin'
-                        created_at: '2024-09-24T04:05:14.000000Z'
-                        updated_at: '2024-09-24T04:05:14.000000Z'
+                        created_at: '2024-10-01T08:02:04.000000Z'
+                        updated_at: '2024-10-01T08:02:04.000000Z'
                       -
                         id: role_E8PLJ15WXK9M2Z
                         name: Admin
-                        created_at: '2024-09-24T04:05:14.000000Z'
-                        updated_at: '2024-09-24T04:05:14.000000Z'
+                        created_at: '2024-10-01T08:02:04.000000Z'
+                        updated_at: '2024-10-01T08:02:04.000000Z'
                     items:
                       type: object
                       properties:
@@ -679,10 +1024,10 @@ paths:
                           example: 'Super Admin'
                         created_at:
                           type: string
-                          example: '2024-09-24T04:05:14.000000Z'
+                          example: '2024-10-01T08:02:04.000000Z'
                         updated_at:
                           type: string
-                          example: '2024-09-24T04:05:14.000000Z'
+                          example: '2024-10-01T08:02:04.000000Z'
                   links:
                     type: object
                     properties:
@@ -805,6 +1150,28 @@ paths:
         required: true
         schema:
           type: integer
+  /api/v1/temporary-media:
+    post:
+      summary: ''
+      operationId: postApiV1TemporaryMedia
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                media:
+                  type: string
+                  format: binary
+                  description: 'Must be a file. ข้อมูล value ต้องมีขนาดไม่เกิน 102400 กิโลไบต์.'
+              required:
+                - media
   /api/v1/dev-api:
     get:
       summary: ''
@@ -842,11 +1209,11 @@ paths:
                 example:
                   data:
                     id: user_ZMBQEKPDK3X079
-                    title: Ms.
+                    title: Mr.
                     first_name: Super
                     last_name: Admin
                     email: superadmin@wawa-x.com
-                    phone: '+16512475880'
+                    phone: '+16208473632'
                     permissions:
                       - 'USERS:VIEW'
                       - 'USERS:CREATE'
@@ -856,8 +1223,11 @@ paths:
                       - 'BLOGS:CREATE'
                       - 'BLOGS:UPDATE'
                       - 'BLOGS:DELETE'
-                    created_at: '2024-09-24T04:05:14.000000Z'
-                    updated_at: '2024-09-24T04:05:14.000000Z'
+                      - 'BLOG_CATEGORIES:CREATE'
+                      - 'BLOG_CATEGORIES:UPDATE'
+                      - 'BLOG_CATEGORIES:DELETE'
+                    created_at: '2024-10-01T08:02:04.000000Z'
+                    updated_at: '2024-10-01T08:02:04.000000Z'
                 properties:
                   data:
                     type: object
@@ -867,7 +1237,7 @@ paths:
                         example: user_ZMBQEKPDK3X079
                       title:
                         type: string
-                        example: Ms.
+                        example: Mr.
                       first_name:
                         type: string
                         example: Super
@@ -879,7 +1249,7 @@ paths:
                         example: superadmin@wawa-x.com
                       phone:
                         type: string
-                        example: '+16512475880'
+                        example: '+16208473632'
                       permissions:
                         type: array
                         example:
@@ -891,14 +1261,17 @@ paths:
                           - 'BLOGS:CREATE'
                           - 'BLOGS:UPDATE'
                           - 'BLOGS:DELETE'
+                          - 'BLOG_CATEGORIES:CREATE'
+                          - 'BLOG_CATEGORIES:UPDATE'
+                          - 'BLOG_CATEGORIES:DELETE'
                         items:
                           type: string
                       created_at:
                         type: string
-                        example: '2024-09-24T04:05:14.000000Z'
+                        example: '2024-10-01T08:02:04.000000Z'
                       updated_at:
                         type: string
-                        example: '2024-09-24T04:05:14.000000Z'
+                        example: '2024-10-01T08:02:04.000000Z'
       tags:
         - Users
     put:
@@ -919,7 +1292,7 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: Mr.
+                  example: Mrs.
                   enum:
                     - Mr.
                     - Mrs.
@@ -927,15 +1300,15 @@ paths:
                 first_name:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: frqwmocdpvarikchhvxdy
+                  example: 'n'
                 last_name:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: ucoablpn
+                  example: gdvdnv
                 phone:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร.'
-                  example: tnrtcsgtd
+                  example: o
               required:
                 - first_name
                 - last_name
@@ -958,11 +1331,11 @@ paths:
                 current_password:
                   type: string
                   description: ''
-                  example: ut
+                  example: omnis
                 password:
                   type: string
                   description: ''
-                  example: ipsa
+                  example: odio
               required:
                 - current_password
                 - password
@@ -986,32 +1359,32 @@ paths:
           in: query
           name: 'filter[id]'
           description: 'Filter user by id.'
-          example: ducimus
+          example: corrupti
           required: false
           schema:
             type: string
             description: 'Filter user by id.'
-            example: ducimus
+            example: corrupti
         -
           in: query
           name: 'filter[email]'
           description: 'Filter user by email.'
-          example: temporibus
+          example: et
           required: false
           schema:
             type: string
             description: 'Filter user by email.'
-            example: temporibus
+            example: et
         -
           in: query
           name: search
           description: 'Search user by name, email, phone.'
-          example: distinctio
+          example: dolorum
           required: false
           schema:
             type: string
             description: 'Search user by name, email, phone.'
-            example: distinctio
+            example: dolorum
       responses:
         200:
           description: ''
@@ -1137,7 +1510,7 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: Mr.
+                  example: Mrs.
                   enum:
                     - Mr.
                     - Mrs.
@@ -1145,19 +1518,19 @@ paths:
                 first_name:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: vohsvfuqhpvj
+                  example: bynwtdd
                 last_name:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: p
+                  example: rbeifgvuzijlzbzwaampt
                 email:
                   type: string
                   description: 'ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: telly07@example.org
+                  example: schuyler.stehr@example.com
                 phone:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร.'
-                  example: yzjachulcfqrt
+                  example: vrpyostzyjpi
               required:
                 - first_name
                 - last_name
@@ -1201,7 +1574,7 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: Mrs.
+                  example: Mr.
                   enum:
                     - Mr.
                     - Mrs.
@@ -1209,15 +1582,15 @@ paths:
                 first_name:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: tqdyhzjvlezcdb
+                  example: ouxlexklvcvbcefurlpar
                 last_name:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
-                  example: rzebcfht
+                  example: qqunxgscehscufhjywsl
                 phone:
                   type: string
                   description: 'ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร.'
-                  example: llpsgdirem
+                  example: fd
               required:
                 - first_name
                 - last_name
@@ -1293,6 +1666,9 @@ tags:
     description: ''
   -
     name: Blogs
+    description: ''
+  -
+    name: Categories
     description: ''
   -
     name: Endpoints
