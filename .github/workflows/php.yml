@@ -8,10 +8,17 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv
+          coverage: none
 
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
@@ -36,6 +43,12 @@ jobs:
           mkdir -p database
           touch database/database.sqlite
 
+      - name: Run migrations
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: database/database.sqlite
+        run: php artisan migrate
+
       - name: Execute Code Style Checker
         run: vendor/bin/pint --test
 
@@ -48,7 +61,7 @@ jobs:
           DB_DATABASE: database/database.sqlite
           CACHE_STORE: array
           SESSION_DRIVER: array
-          QUEUE_DRIVER: sync
+          QUEUE_CONNECTION: sync
         #        run: vendor/bin/phpunit
         run: php artisan test --parallel
 
