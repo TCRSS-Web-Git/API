@@ -53,7 +53,6 @@ class JobPost extends Model implements Auditable, HasMedia
 
     public function registerMediaCollections(): void
     {
-        // รูปใน body
         $this->addMediaCollection(self::MEDIA_COLLECTION_BODY_PHOTO)
             ->registerMediaConversions(function (Media $media) {
                 $this->addMediaConversion(self::MEDIA_COLLECTION_BODY_PHOTO.'_optimized')
