@@ -25,7 +25,6 @@ class SaveJobPost
             $usedImageBody = $this->processBodyImages($data);
             $this->setTranslations($data, $usedImageBody);
             $this->jobPost->save();
-            $this->saveMedia($data);
             DB::commit();
         } catch (Exception $exception) {
             DB::rollBack();
@@ -122,7 +121,7 @@ class SaveJobPost
     {
         foreach ($usedDescriptionImages as $index => $imageItem) {
             if (empty($imageItem['id']) && ! empty($imageItem['path'])) {
-                $media = $this->saveImageFromTempToMedia($imageItem, JobPost ::MEDIA_COLLECTION_BODY_PHOTO);
+                $media = $this->saveImageFromTempToMedia($imageItem, JobPost::MEDIA_COLLECTION_BODY_PHOTO);
                 $usedDescriptionImages[$index]['id'] = $media?->id;
             }
         }
@@ -141,8 +140,8 @@ class SaveJobPost
                 $media = Media::find($imageItem['id']);
                 if ($media) {
                     $tempUrl = str_replace('&', '&amp;', $imageItem['url']);
-                    $newUrl = $media->hasGeneratedConversion(JobPost ::MEDIA_COLLECTION_BODY_PHOTO . '_optimized')
-                        ? $media->getFullUrl(JobPost ::MEDIA_COLLECTION_BODY_PHOTO . '_optimized')
+                    $newUrl = $media->hasGeneratedConversion(JobPost::MEDIA_COLLECTION_BODY_PHOTO.'_optimized')
+                        ? $media->getFullUrl(JobPost::MEDIA_COLLECTION_BODY_PHOTO.'_optimized')
                         : $media->getFullUrl();
                     $description = str_replace($tempUrl, $newUrl, $description);
                 }
