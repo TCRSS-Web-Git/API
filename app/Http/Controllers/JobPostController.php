@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\SaveJobPost;
+use App\Http\Requests\CreateOrUpdateJobPostRequest;
 use App\Http\Requests\StoreJobPostRequest;
-use App\Http\Requests\UpdateJobPostRequest;
+use App\Models\Blog;
 use App\Models\JobPost;
+use Illuminate\Support\Facades\Gate;
 
 class JobPostController extends Controller
 {
@@ -27,9 +30,11 @@ class JobPostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreJobPostRequest $request)
+    public function store(CreateOrUpdateJobPostRequest $request, SaveJobPost $saveJobPost)
     {
-        //
+//        Gate::authorize('create', JobPost::class);
+//
+//        $jobPost = $saveJobPost->execute(new JobPost, $request->validated());
     }
 
     /**
@@ -51,7 +56,7 @@ class JobPostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateJobPostRequest $request, JobPost $jobPost)
+    public function update(CreateOrUpdateJobPostRequest $request, JobPost $jobPost)
     {
         //
     }
