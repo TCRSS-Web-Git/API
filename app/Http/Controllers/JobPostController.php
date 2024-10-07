@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Filters\JobPostFilter;
-use App\Http\Resources\JobPostResource;
-use App\Models\JobPost;
-use Illuminate\Http\Request;
 use App\Actions\SaveJobPost;
+use App\Filters\JobPostFilter;
 use App\Http\Requests\CreateOrUpdateJobPostRequest;
+use App\Http\Resources\JobPostResource;
 use App\Models\JobPost;
 use Illuminate\Support\Facades\Gate;
 
