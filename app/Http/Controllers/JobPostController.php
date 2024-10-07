@@ -18,7 +18,7 @@ class JobPostController extends Controller
      */
     public function index(JobPostFilter $filter)
     {
-        return JobPostResource::collection(JobPost::with(['category', 'latestAudit.user'])->filter($filter)->paginate($this->getPerPage()));
+        return JobPostResource::collection(JobPost::with(['location', 'department', 'latestAudit.user'])->filter($filter)->paginate($this->getPerPage()));
     }
 
     /**
@@ -30,7 +30,7 @@ class JobPostController extends Controller
 
         $jobPost = $saveJobPost->execute(new JobPost, $request->validated());
 
-        return $jobPost;
+        return new JobPostResource($jobPost);
     }
 
     /**
@@ -38,7 +38,7 @@ class JobPostController extends Controller
      */
     public function show(JobPost $jobPost)
     {
-        //
+        return new JobPostResource($jobPost);
     }
 
     /**
@@ -50,7 +50,7 @@ class JobPostController extends Controller
 
         $jobPost = $saveJobPost->execute(new JobPost, $request->validated());
 
-        return $jobPost;
+        return new JobPostResource($jobPost);
     }
 
     /**
