@@ -5,8 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -18,7 +17,7 @@ return new class extends Migration
                 ->nullable()
                 ->constrained('categories')
                 ->nullOnDelete();
-            $table->foreignIdFor(Category::class, 'depart_id')
+            $table->foreignIdFor(Category::class, 'department_id')
                 ->nullable()
                 ->constrained('categories')
                 ->nullOnDelete();
