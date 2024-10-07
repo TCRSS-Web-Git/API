@@ -32,6 +32,10 @@ class JobPost extends Model implements Auditable, HasMedia
     use LatestAudit;
     use \OwenIt\Auditing\Auditable;
 
+    public const HASHID_PREFIX = 'job_';
+
+    public const string MEDIA_COLLECTION_BODY_PHOTO = 'photos';
+
     protected $fillable = [
         'type',
         'published_at',
@@ -52,7 +56,7 @@ class JobPost extends Model implements Auditable, HasMedia
         // รูปใน body
         $this->addMediaCollection(self::MEDIA_COLLECTION_BODY_PHOTO)
             ->registerMediaConversions(function (Media $media) {
-                $this->addMediaConversion(self::MEDIA_COLLECTION_BODY_PHOTO . '_optimized')
+                $this->addMediaConversion(self::MEDIA_COLLECTION_BODY_PHOTO.'_optimized')
                     ->withResponsiveImages()
                     ->format('webp')
                     ->fit(Fit::Max, 2000, 2000)
