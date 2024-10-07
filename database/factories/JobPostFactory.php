@@ -34,14 +34,14 @@ class JobPostFactory extends Factory
             $body = $this->faker->paragraphs(3, true);
 
             $jobPost->setTranslation('title', $title, 'en');
-            $jobPost->setTranslation('title', '(th) ' . $title, 'th');
+            $jobPost->setTranslation('title', '(th) '.$title, 'th');
             $jobPost->setTranslation('body', $body, 'en');
-            $jobPost->setTranslation('body', '(th) ' . $body, 'th');
+            $jobPost->setTranslation('body', '(th) '.$body, 'th');
             $jobPost->setTranslation('meta_title', $title, 'en');
-            $jobPost->setTranslation('meta_title', '(th) ' . $title, 'th');
+            $jobPost->setTranslation('meta_title', '(th) '.$title, 'th');
             $metaDescription = mb_substr($body, 0, 250);
             $jobPost->setTranslation('meta_description', $metaDescription, 'en');
-            $jobPost->setTranslation('meta_description', '(th) ' . $metaDescription, 'th');
+            $jobPost->setTranslation('meta_description', '(th) '.$metaDescription, 'th');
             $jobPost->save();
         });
     }

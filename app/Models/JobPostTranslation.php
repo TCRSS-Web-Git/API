@@ -9,7 +9,7 @@ use LaravelLang\Models\Casts\TrimCast;
 use LaravelLang\Models\Eloquent\Translation;
 use OwenIt\Auditing\Contracts\Auditable;
 
-class JobTranslation extends Translation implements Auditable
+class JobPostTranslation extends Translation implements Auditable
 {
     use \OwenIt\Auditing\Auditable;
 

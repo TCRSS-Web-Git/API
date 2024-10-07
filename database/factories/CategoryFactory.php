@@ -32,30 +32,30 @@ class CategoryFactory extends Factory
             $description = $this->faker->paragraphs(2, true);
 
             $category->setTranslation('name', $name, 'en');
-            $category->setTranslation('name', '(th) ' . $name, 'th');
+            $category->setTranslation('name', '(th) '.$name, 'th');
             $category->setTranslation('description', $description, 'en');
-            $category->setTranslation('description', '(th) ' . $description, 'th');
+            $category->setTranslation('description', '(th) '.$description, 'th');
             $category->save();
         });
     }
 
     public function blog(): Factory
     {
-        return $this->state(fn(array $attributes) => [
+        return $this->state(fn (array $attributes) => [
             'type' => CategoryType::BLOG,
         ]);
     }
 
     public function jobPost(): Factory
     {
-        return $this->state(fn(array $attributes) => [
+        return $this->state(fn (array $attributes) => [
             'type' => CategoryType::CAREER,
         ]);
     }
 
     public function location(): Factory
     {
-        return $this->state(fn(array $attributes) => [
+        return $this->state(fn (array $attributes) => [
             'type' => CategoryType::LOCATION,
         ]);
     }

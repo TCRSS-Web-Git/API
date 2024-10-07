@@ -12,7 +12,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('job_translations', function (Blueprint $table) {
+        Schema::create('job_post_translations', function (Blueprint $table) {
             $table->id();
 
             $table->foreignIdFor(JobPost::class, 'item_id')
@@ -30,12 +30,12 @@ return new class extends Migration
         });
 
         if (config('database.default') === 'mysql') {
-            DB::statement('ALTER TABLE job_translations ADD FULLTEXT job_translations_fulltext (title, body) WITH PARSER ngram');
+            DB::statement('ALTER TABLE job_post_translations ADD FULLTEXT job_post_translations_fulltext (title, body) WITH PARSER ngram');
         }
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('job_translations');
+        Schema::dropIfExists('job_post_translations');
     }
 };
