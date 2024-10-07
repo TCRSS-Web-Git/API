@@ -13,7 +13,7 @@ class JobPostTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_the_admin_can_get_all_blogs(): void
+    public function test_the_admin_can_get_all_jobs(): void
     {
         // set up
         $this->signInAdmin();
