@@ -26,7 +26,7 @@ class CreateOrUpdateJobPostRequest extends FormRequest
         return [
             'type' => ['nullable', 'string', 'max:255'],
             'location_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::LOCATION)],
-            'depart_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::CAREER)],
+            'department_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::CAREER)],
             'published_at' => ['nullable', 'date'],
             // Translations
             'th' => ['array', 'required'],
