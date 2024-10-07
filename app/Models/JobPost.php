@@ -81,8 +81,13 @@ class JobPost extends Model implements Auditable, HasMedia
         return $translations;
     }
 
-    public function category(): BelongsTo
+    public function location(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'location_id', 'id');
+    }
+
+    public function department(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'department_id', 'id');
     }
 }
