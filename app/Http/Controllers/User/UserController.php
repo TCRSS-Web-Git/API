@@ -9,6 +9,7 @@ use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
@@ -33,8 +34,10 @@ class UserController extends Controller
      * Create User
      *
      * @group Users
+     *
+     * @throws Exception
      */
-    public function store(CreateUserRequest $request, SaveUserInvitation $saveUserInvitation)
+    public function store(CreateUserRequest $request, SaveUserInvitation $saveUserInvitation): UserResource
     {
         Gate::authorize('create', User::class);
 

@@ -11,6 +11,7 @@ use App\Http\Requests\AcceptUserInvitationRequest;
 use App\Http\Requests\CreateUserRequest;
 use App\Models\User;
 use App\Traits\ResponseTrait;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +20,9 @@ class InviteController extends Controller
 {
     use ResponseTrait;
 
+    /**
+     * @throws Exception
+     */
     public function invite(CreateUserRequest $request, SaveUserInvitation $saveUserInvitation): JsonResponse
     {
         Gate::authorize('create', User::class);
