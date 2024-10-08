@@ -46,7 +46,7 @@ class CategoryFactory extends Factory
         ]);
     }
 
-    public function jobPost(): Factory
+    public function career(): Factory
     {
         return $this->state(fn (array $attributes) => [
             'type' => CategoryType::CAREER,

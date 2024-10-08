@@ -2,10 +2,10 @@
 
 namespace App\Filters;
 
+use App\Models\Career;
 use App\Models\Category;
-use App\Models\JobPost;
 
-class JobPostFilter extends QueryFilter
+class CareerFilter extends QueryFilter
 {
     protected $sortable = [
         'id',
@@ -25,7 +25,7 @@ class JobPostFilter extends QueryFilter
     {
         $ids = explode(',', $value);
         $ids = array_map(static function ($id) {
-            return JobPost::decodeHash(trim($id));
+            return Career::decodeHash(trim($id));
         }, $ids);
         $ids = array_filter($ids, static function ($id) {
             return $id > 0;
@@ -119,7 +119,7 @@ class JobPostFilter extends QueryFilter
     public function search($value)
     {
         // Search by hashID (support multiple hashID, comma separated)
-        $ids = JobPost::decodeMultipleHashString($value);
+        $ids = Career::decodeMultipleHashString($value);
 
         return $this->builder->where(function ($query) use ($value, $ids) {
             $query->whereHas('translations', function ($query) use ($value) {

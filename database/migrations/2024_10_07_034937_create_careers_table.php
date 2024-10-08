@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('job_posts', function (Blueprint $table) {
+        Schema::create('careers', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Category::class, 'location_id')
                 ->nullable()
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('job_posts');
+        Schema::dropIfExists('careers');
     }
 };

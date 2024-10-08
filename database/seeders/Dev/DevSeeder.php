@@ -13,6 +13,6 @@ class DevSeeder extends Seeder
     {
         $this->call(TestUserSeeder::class);
         $this->call(TestBlogSeeder::class);
-        $this->call(TestJobPostSeeder::class);
+        $this->call(TestCareerSeeder::class);
     }
 }

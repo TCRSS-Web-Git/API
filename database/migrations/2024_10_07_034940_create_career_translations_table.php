@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Models\JobPost;
+use App\Models\Career;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -12,11 +12,11 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('job_post_translations', function (Blueprint $table) {
+        Schema::create('career_translations', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignIdFor(JobPost::class, 'item_id')
-                ->constrained('job_posts')
+            $table->foreignIdFor(Career::class, 'item_id')
+                ->constrained('careers')
                 ->cascadeOnDelete();
 
             $table->string('locale');
@@ -30,12 +30,12 @@ return new class extends Migration
         });
 
         if (config('database.default') === 'mysql') {
-            DB::statement('ALTER TABLE job_post_translations ADD FULLTEXT job_post_translations_fulltext (title, body) WITH PARSER ngram');
+            DB::statement('ALTER TABLE career_translations ADD FULLTEXT career_translations_fulltext (title, body) WITH PARSER ngram');
         }
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('job_post_translations');
+        Schema::dropIfExists('career_translations');
     }
 };

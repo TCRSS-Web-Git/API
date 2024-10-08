@@ -2,14 +2,14 @@
 
 namespace Tests\Feature;
 
-use App\Enums\JobPostStatus;
+use App\Enums\CareerStatus;
+use App\Models\Career;
 use App\Models\Category;
-use App\Models\JobPost;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class JobPostTest extends TestCase
+class CareerTest extends TestCase
 {
     use refreshDatabase;
 
@@ -20,7 +20,7 @@ class JobPostTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        [$jobPostA, $jobPostB] = JobPost::factory()->count(2)->create();
+        [$jobPostA, $jobPostB] = Career::factory()->count(2)->create();
 
         // act
         $response = $this->getJson(route('careers.index'));
@@ -38,7 +38,7 @@ class JobPostTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        [$jobPostA, $jobPostB, $jobPostC] = JobPost::factory()->count(3)->create();
+        [$jobPostA, $jobPostB, $jobPostC] = Career::factory()->count(3)->create();
         $jobPostA->setTranslation('title', 'test A', 'en');
         $jobPostA->save();
         $jobPostB->setTranslation('title', 'B test', 'en');
@@ -63,14 +63,14 @@ class JobPostTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $departmentA = Category::factory()->jobPost()->create();
-        $departmentB = Category::factory()->jobPost()->create();
-        $departmentC = Category::factory()->jobPost()->create();
+        $departmentA = Category::factory()->career()->create();
+        $departmentB = Category::factory()->career()->create();
+        $departmentC = Category::factory()->career()->create();
 
-        $jobPost1 = JobPost::factory()->create(['department_id' => $departmentA->id]);
-        $jobPost2 = JobPost::factory()->create(['department_id' => $departmentB->id]);
-        $jobPost3 = JobPost::factory()->create(['department_id' => $departmentC->id]);
-        $jobPost4 = JobPost::factory()->create(['department_id' => $departmentA->id]);
+        $jobPost1 = Career::factory()->create(['department_id' => $departmentA->id]);
+        $jobPost2 = Career::factory()->create(['department_id' => $departmentB->id]);
+        $jobPost3 = Career::factory()->create(['department_id' => $departmentC->id]);
+        $jobPost4 = Career::factory()->create(['department_id' => $departmentA->id]);
 
         // act
         $response = $this->getJson(route('careers.index', ['department_id' => "$departmentA->hashid,$departmentB->hashid"]));
@@ -104,10 +104,10 @@ class JobPostTest extends TestCase
         $locationB = Category::factory()->location()->create();
         $locationC = Category::factory()->location()->create();
 
-        $jobPost1 = JobPost::factory()->create(['location_id' => $locationA->id]);
-        $jobPost2 = JobPost::factory()->create(['location_id' => $locationB->id]);
-        $jobPost3 = JobPost::factory()->create(['location_id' => $locationC->id]);
-        $jobPost4 = JobPost::factory()->create(['location_id' => $locationA->id]);
+        $jobPost1 = Career::factory()->create(['location_id' => $locationA->id]);
+        $jobPost2 = Career::factory()->create(['location_id' => $locationB->id]);
+        $jobPost3 = Career::factory()->create(['location_id' => $locationC->id]);
+        $jobPost4 = Career::factory()->create(['location_id' => $locationA->id]);
 
         // act
         $response = $this->getJson(route('careers.index', ['location_id' => "$locationA->hashid,$locationB->hashid"]));
@@ -138,11 +138,11 @@ class JobPostTest extends TestCase
         // set up
         Carbon::setTestNow(Carbon::now());
         $this->signInAdmin();
-        $jobPost1 = JobPost::factory()->create(['published_at' => Carbon::now()]);
-        $jobPost2 = JobPost::factory()->create(['published_at' => Carbon::now()->subSecond()]);
-        $jobPost3 = JobPost::factory()->create(['published_at' => Carbon::now()->subDay()]);
-        $jobPost4 = JobPost::factory()->create(['published_at' => Carbon::now()->addSecond()]);
-        $jobPost5 = JobPost::factory()->create(['published_at' => Carbon::now()->addDay()]);
+        $jobPost1 = Career::factory()->create(['published_at' => Carbon::now()]);
+        $jobPost2 = Career::factory()->create(['published_at' => Carbon::now()->subSecond()]);
+        $jobPost3 = Career::factory()->create(['published_at' => Carbon::now()->subDay()]);
+        $jobPost4 = Career::factory()->create(['published_at' => Carbon::now()->addSecond()]);
+        $jobPost5 = Career::factory()->create(['published_at' => Carbon::now()->addDay()]);
 
         // act
         $response = $this->getJson(route('careers.index', ['status' => 'published']));
@@ -174,7 +174,7 @@ class JobPostTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $jobPost = JobPost::factory()->create();
+        $jobPost = Career::factory()->create();
 
         // act
         $response = $this->getJson(route('careers.show', $jobPost));
@@ -192,7 +192,7 @@ class JobPostTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $jobPost = JobPost::factory()->create();
+        $jobPost = Career::factory()->create();
 
         // act Thai
         $response = $this->getJson(route('careers.show', $jobPost), ['X-Localization' => 'th']);
@@ -218,7 +218,7 @@ class JobPostTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $jobPost = JobPost::factory()->create();
+        $jobPost = Career::factory()->create();
 
         // act
         $response = $this->getJson(route('careers.show', ['career' => $jobPost, 'include' => 'translations']));
@@ -237,9 +237,9 @@ class JobPostTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $jobCategory = Category::factory()->jobPost()->create();
+        $jobCategory = Category::factory()->career()->create();
         $locationCategory = Category::factory()->location()->create();
-        $jobData = JobPost::factory()->make()->toArray();
+        $jobData = Career::factory()->make()->toArray();
 
         // act
         $response = $this->postJson(route('careers.store'), [
@@ -263,22 +263,22 @@ class JobPostTest extends TestCase
 
         // assert
         $response->assertCreated();
-        $this->assertDatabaseHas('job_posts', ['type' => $jobData['type']]);
-        $this->assertDatabaseHas('job_posts', ['location_id' => $locationCategory->id]);
-        $this->assertDatabaseHas('job_posts', ['department_id' => $jobCategory->id]);
-        $this->assertDatabaseHas('job_post_translations', ['locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
-        $this->assertDatabaseHas('job_post_translations', ['locale' => 'en', 'title' => 'Job name']);
-        $response->assertJsonFragment(['status' => JobPostStatus::PUBLISHED]);
+        $this->assertDatabaseHas('careers', ['type' => $jobData['type']]);
+        $this->assertDatabaseHas('careers', ['location_id' => $locationCategory->id]);
+        $this->assertDatabaseHas('careers', ['department_id' => $jobCategory->id]);
+        $this->assertDatabaseHas('career_translations', ['locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
+        $this->assertDatabaseHas('career_translations', ['locale' => 'en', 'title' => 'Job name']);
+        $response->assertJsonFragment(['status' => CareerStatus::PUBLISHED]);
     }
 
     public function test_the_admin_can_update_a_job_post(): void
     {
         // set up
         $this->signInAdmin();
-        $jobCategory = Category::factory()->jobPost()->create();
+        $jobCategory = Category::factory()->career()->create();
         $locationCategory = Category::factory()->location()->create();
-        $jobData = JobPost::factory()->create();
-        $updatedData = JobPost::factory()->make()->toArray();
+        $jobData = Career::factory()->create();
+        $updatedData = Career::factory()->make()->toArray();
 
         // act
         $response = $this->putJson(route('careers.update', $jobData), [
@@ -302,25 +302,25 @@ class JobPostTest extends TestCase
 
         // assert
 
-        $this->assertDatabaseHas('job_posts', ['type' => $updatedData['type']]);
-        $this->assertDatabaseHas('job_posts', ['location_id' => $locationCategory->id]);
-        $this->assertDatabaseHas('job_posts', ['department_id' => $jobCategory->id]);
-        $this->assertDatabaseHas('job_post_translations', ['locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
-        $this->assertDatabaseHas('job_post_translations', ['locale' => 'en', 'title' => 'Job name']);
-        $response->assertJsonFragment(['status' => JobPostStatus::PUBLISHED]);
+        $this->assertDatabaseHas('careers', ['type' => $updatedData['type']]);
+        $this->assertDatabaseHas('careers', ['location_id' => $locationCategory->id]);
+        $this->assertDatabaseHas('careers', ['department_id' => $jobCategory->id]);
+        $this->assertDatabaseHas('career_translations', ['locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
+        $this->assertDatabaseHas('career_translations', ['locale' => 'en', 'title' => 'Job name']);
+        $response->assertJsonFragment(['status' => CareerStatus::PUBLISHED]);
     }
 
     public function test_the_admin_can_delete_a_job_post(): void
     {
         // set up
         $this->signInAdmin();
-        $jobPost = JobPost::factory()->create();
+        $jobPost = Career::factory()->create();
 
         // act
         $response = $this->deleteJson(route('careers.destroy', $jobPost));
 
         // assert
         $response->assertNoContent();
-        $this->assertDatabaseMissing('job_posts', ['id' => $jobPost->id]);
+        $this->assertDatabaseMissing('careers', ['id' => $jobPost->id]);
     }
 }

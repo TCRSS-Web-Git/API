@@ -9,7 +9,7 @@ use LaravelLang\Models\Casts\TrimCast;
 use LaravelLang\Models\Eloquent\Translation;
 use OwenIt\Auditing\Contracts\Auditable;
 
-class JobPostTranslation extends Translation implements Auditable
+class CareerTranslation extends Translation implements Auditable
 {
     use \OwenIt\Auditing\Auditable;
 
@@ -37,6 +37,6 @@ class JobPostTranslation extends Translation implements Auditable
 
     public function parent(): BelongsTo
     {
-        return $this->belongsTo(JobPost::class, 'item_id');
+        return $this->belongsTo(Career::class, 'item_id');
     }
 }

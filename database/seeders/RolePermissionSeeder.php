@@ -39,10 +39,10 @@ class RolePermissionSeeder extends Seeder
         Permission::firstOrCreate(['name' => PermissionEnum::BLOG_CATEGORIES_DELETE, 'guard_name' => 'web']);
 
         // Career Management
-        Permission::firstOrCreate(['name' => PermissionEnum::JOB_POST_VIEW, 'guard_name' => 'web']);
-        Permission::firstOrCreate(['name' => PermissionEnum::JOB_POST_CREATE, 'guard_name' => 'web']);
-        Permission::firstOrCreate(['name' => PermissionEnum::JOB_POST_UPDATE, 'guard_name' => 'web']);
-        Permission::firstOrCreate(['name' => PermissionEnum::JOB_POST_DELETE, 'guard_name' => 'web']);
+        Permission::firstOrCreate(['name' => PermissionEnum::CAREERS_VIEW, 'guard_name' => 'web']);
+        Permission::firstOrCreate(['name' => PermissionEnum::CAREERS_CREATE, 'guard_name' => 'web']);
+        Permission::firstOrCreate(['name' => PermissionEnum::CAREERS_UPDATE, 'guard_name' => 'web']);
+        Permission::firstOrCreate(['name' => PermissionEnum::CAREERS_DELETE, 'guard_name' => 'web']);
 
         $superAdminRole->syncPermissions(PermissionEnum::defaultSuperAdminPermissions());
         $adminRole->syncPermissions(PermissionEnum::defaultAdminPermissions());

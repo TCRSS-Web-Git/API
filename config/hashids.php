@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\Blog;
+use App\Models\Career;
 use App\Models\Category;
-use App\Models\JobPost;
 use App\Models\Media;
 use App\Models\Permission;
 use App\Models\Role;
@@ -61,7 +61,7 @@ return [
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
         ],
 
-        JobPost::class => [
+        Career::class => [
             'salt' => env('HASHIDS_CATEGORY', '02daee7be1849d32b55c'),
             'length' => 14,
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',

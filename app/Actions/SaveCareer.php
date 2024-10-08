@@ -2,44 +2,44 @@
 
 namespace App\Actions;
 
-use App\Models\JobPost;
+use App\Models\Career;
 use App\Models\Media;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Mews\Purifier\Facades\Purifier;
 
-class SaveJobPost
+class SaveCareer
 {
-    protected JobPost $jobPost;
+    protected Career $career;
 
     /**
      * @throws Exception
      */
-    public function execute(JobPost $jobPost, array $data): JobPost
+    public function execute(Career $jobPost, array $data): Career
     {
         DB::beginTransaction();
         try {
-            $this->jobPost = $jobPost;
+            $this->career = $jobPost;
             $this->setBasicAttributes($data);
             $usedImageBody = $this->processBodyImages($data);
             $this->setTranslations($data, $usedImageBody);
-            $this->jobPost->save();
+            $this->career->save();
             DB::commit();
         } catch (Exception $exception) {
             DB::rollBack();
             throw $exception;
         }
 
-        return $this->jobPost;
+        return $this->career;
     }
 
     protected function setBasicAttributes(array $data): void
     {
-        $this->jobPost->published_at = $data['published_at'] ?? null;
-        $this->jobPost->location_id = $data['location_id'] ?? null;
-        $this->jobPost->department_id = $data['department_id'] ?? null;
-        $this->jobPost->type = $data['type'] ?? null;
+        $this->career->published_at = $data['published_at'] ?? null;
+        $this->career->location_id = $data['location_id'] ?? null;
+        $this->career->department_id = $data['department_id'] ?? null;
+        $this->career->type = $data['type'] ?? null;
     }
 
     protected function processBodyImages(array $data): array
@@ -63,10 +63,10 @@ class SaveJobPost
                 $body = $this->updateDescriptionImageUrl($body, $usedImageBody);
             }
 
-            $this->jobPost->setTranslation('title', $data[$lang]['title'] ?? null, $lang);
-            $this->jobPost->setTranslation('body', $body ? Purifier::clean($body) : null, $lang);
-            $this->jobPost->setTranslation('meta_title', $data[$lang]['meta_title'] ?? null, $lang);
-            $this->jobPost->setTranslation('meta_description', $data[$lang]['meta_description'] ?? null, $lang);
+            $this->career->setTranslation('title', $data[$lang]['title'] ?? null, $lang);
+            $this->career->setTranslation('body', $body ? Purifier::clean($body) : null, $lang);
+            $this->career->setTranslation('meta_title', $data[$lang]['meta_title'] ?? null, $lang);
+            $this->career->setTranslation('meta_description', $data[$lang]['meta_description'] ?? null, $lang);
         }
     }
 
@@ -112,7 +112,7 @@ class SaveJobPost
     protected function deleteUnusedImage(array $image): void
     {
         if (! empty($image['id'])) {
-            $this->jobPost->media()->where('id', $image['id'])->delete();
+            $this->career->media()->where('id', $image['id'])->delete();
         } elseif (! empty($image['path'])) {
             (new SaveTemporaryMedia)->delete($image['path']);
         }
@@ -122,7 +122,7 @@ class SaveJobPost
     {
         foreach ($usedDescriptionImages as $index => $imageItem) {
             if (empty($imageItem['id']) && ! empty($imageItem['path'])) {
-                $media = $this->saveImageFromTempToMedia($imageItem, JobPost::MEDIA_COLLECTION_BODY_PHOTO);
+                $media = $this->saveImageFromTempToMedia($imageItem, Career::MEDIA_COLLECTION_BODY_PHOTO);
                 $usedDescriptionImages[$index]['id'] = $media?->id;
             }
         }
@@ -141,8 +141,8 @@ class SaveJobPost
                 $media = Media::find($imageItem['id']);
                 if ($media) {
                     $tempUrl = str_replace('&', '&amp;', $imageItem['url']);
-                    $newUrl = $media->hasGeneratedConversion(JobPost::MEDIA_COLLECTION_BODY_PHOTO.'_optimized')
-                        ? $media->getFullUrl(JobPost::MEDIA_COLLECTION_BODY_PHOTO.'_optimized')
+                    $newUrl = $media->hasGeneratedConversion(Career::MEDIA_COLLECTION_BODY_PHOTO.'_optimized')
+                        ? $media->getFullUrl(Career::MEDIA_COLLECTION_BODY_PHOTO.'_optimized')
                         : $media->getFullUrl();
                     $description = str_replace($tempUrl, $newUrl, $description);
                 }
@@ -155,7 +155,7 @@ class SaveJobPost
     protected function saveImageFromTempToMedia(array $file, string $collection): ?Media
     {
         if (! empty($file) && empty($file['id'])) {
-            return (new SaveTemporaryMedia)->saveFileFromTemp($this->jobPost, $collection, $file);
+            return (new SaveTemporaryMedia)->saveFileFromTemp($this->career, $collection, $file);
         }
 
         return null;

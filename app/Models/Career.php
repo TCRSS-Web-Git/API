@@ -19,7 +19,7 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class JobPost extends Model implements Auditable, HasMedia
+class Career extends Model implements Auditable, HasMedia
 {
     use EloquentDecodeHash;
     use EloquentFindByHash;
@@ -32,7 +32,7 @@ class JobPost extends Model implements Auditable, HasMedia
     use LatestAudit;
     use \OwenIt\Auditing\Auditable;
 
-    public const HASHID_PREFIX = 'job_';
+    public const HASHID_PREFIX = 'career_';
 
     public const string MEDIA_COLLECTION_BODY_PHOTO = 'photos';
 
@@ -48,7 +48,7 @@ class JobPost extends Model implements Auditable, HasMedia
 
     public function getTranslationTable()
     {
-        return 'job_post_translations';
+        return 'career_translations';
     }
 
     public function registerMediaCollections(): void

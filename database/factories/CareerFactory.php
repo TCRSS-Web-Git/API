@@ -3,14 +3,14 @@
 namespace Database\Factories;
 
 use App\Enums\JobType;
+use App\Models\Career;
 use App\Models\Category;
-use App\Models\JobPost;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\JobPost>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Career>
  */
-class JobPostFactory extends Factory
+class CareerFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -21,7 +21,7 @@ class JobPostFactory extends Factory
     {
         return [
             'location_id' => Category::factory()->location(),
-            'department_id' => Category::factory()->jobPost(),
+            'department_id' => Category::factory()->career(),
             'type' => fake()->randomElement([JobType::FULL_TIME, JobType::PART_TIME]),
             'published_at' => $this->faker->randomElement([null, $this->faker->dateTimeBetween('-1 year', 'now')]),
         ];
@@ -30,7 +30,7 @@ class JobPostFactory extends Factory
     public function configure()
     {
 
-        return $this->afterCreating(function (JobPost $jobPost) {
+        return $this->afterCreating(function (Career $jobPost) {
             $title = $this->faker->sentence();
             $body = $this->faker->paragraphs(3, true);
 

@@ -3,12 +3,12 @@
 namespace Database\Seeders\Dev;
 
 use App\Enums\CategoryType;
+use App\Models\Career;
 use App\Models\Category;
-use App\Models\JobPost;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
-class TestJobPostSeeder extends Seeder
+class TestCareerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -33,7 +33,7 @@ class TestJobPostSeeder extends Seeder
         $location2->setTranslation('name', 'เชียงใหม่', 'en');
         $location2->save();
 
-        JobPost::factory(25)
+        Career::factory(25)
             ->state(new Sequence(
                 fn (Sequence $sequence) => [
                     'department_id' => fake()->randomElement([$department1->id, $department2->id]),

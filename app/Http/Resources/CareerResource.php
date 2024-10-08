@@ -2,16 +2,16 @@
 
 namespace App\Http\Resources;
 
-use App\Models\JobPost;
+use App\Models\Career;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * @mixin JobPost
+ * @mixin Career
  */
-class JobPostResource extends JsonResource
+class CareerResource extends JsonResource
 {
-    public function __construct(JobPost $resource)
+    public function __construct(Career $resource)
     {
         parent::__construct($resource);
     }
@@ -28,9 +28,9 @@ class JobPostResource extends JsonResource
         return [
             'id' => $this->hashid,
             'body_images' => $this->when(! $request->routeIs(['careers.index']), function () {
-                $images = $this->getMedia(JobPost::MEDIA_COLLECTION_BODY_PHOTO);
+                $images = $this->getMedia(Career::MEDIA_COLLECTION_BODY_PHOTO);
 
-                return $images->count() ? new MediaResourceCollection($images, JobPost::MEDIA_COLLECTION_BODY_PHOTO.'_optimized') : [];
+                return $images->count() ? new MediaResourceCollection($images, Career::MEDIA_COLLECTION_BODY_PHOTO.'_optimized') : [];
             }),
             'location' => $this->location ? new CategoryResource($this->location) : null,
             'type' => $this->type->label(),
