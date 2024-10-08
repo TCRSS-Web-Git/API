@@ -22,7 +22,9 @@ class JobPostController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create a job post.
+     *
+     * @group Careers
      */
     public function store(CreateOrUpdateJobPostRequest $request, SaveJobPost $saveJobPost)
     {
@@ -34,7 +36,9 @@ class JobPostController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Get a job post by id.
+     *
+     * @group Careers
      */
     public function show(JobPost $career)
     {
@@ -42,7 +46,9 @@ class JobPostController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update a job post.
+     *
+     * @group Careers
      */
     public function update(JobPost $career, CreateOrUpdateJobPostRequest $request, SaveJobPost $saveJobPost)
     {
@@ -54,7 +60,9 @@ class JobPostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete a job post.
+     *
+     * @group Careers
      */
     public function destroy(JobPost $career)
     {
