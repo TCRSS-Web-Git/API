@@ -28,22 +28,21 @@ class CareerFactory extends Factory
 
     public function configure()
     {
-
-        return $this->afterCreating(function (Career $jobPost) {
+        return $this->afterCreating(function (Career $career) {
             $title = $this->faker->sentence();
             $body = $this->faker->paragraphs(3, true);
 
-            $jobPost->setTranslation('title', $title, 'en');
-            $jobPost->setTranslation('title', '(th) '.$title, 'th');
-            $jobPost->setTranslation('body', $body, 'en');
-            $jobPost->setTranslation('body', '(th) '.$body, 'th');
-            $jobPost->setTranslation('meta_title', $title, 'en');
-            $jobPost->setTranslation('meta_title', '(th) '.$title, 'th');
+            $career->setTranslation('title', $title, 'en');
+            $career->setTranslation('title', '(th) '.$title, 'th');
+            $career->setTranslation('body', $body, 'en');
+            $career->setTranslation('body', '(th) '.$body, 'th');
+            $career->setTranslation('meta_title', $title, 'en');
+            $career->setTranslation('meta_title', '(th) '.$title, 'th');
             $metaDescription = mb_substr($body, 0, 250);
 
-            $jobPost->setTranslation('meta_description', $metaDescription, 'en');
-            $jobPost->setTranslation('meta_description', '(th) '.$metaDescription, 'th');
-            $jobPost->save();
+            $career->setTranslation('meta_description', $metaDescription, 'en');
+            $career->setTranslation('meta_description', '(th) '.$metaDescription, 'th');
+            $career->save();
         });
     }
 }

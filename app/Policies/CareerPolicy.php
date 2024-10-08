@@ -19,7 +19,7 @@ class CareerPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Career $jobPost): bool
+    public function view(User $user, Career $career): bool
     {
         return true;
     }
@@ -35,7 +35,7 @@ class CareerPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Career $jobPost): bool
+    public function update(User $user, Career $career): bool
     {
         return $user->hasPermissionTo(Permission::CAREERS_UPDATE);
     }
@@ -43,7 +43,7 @@ class CareerPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Career $jobPost): bool
+    public function delete(User $user, Career $career): bool
     {
         return $user->hasPermissionTo(Permission::CAREERS_DELETE);
 
@@ -52,7 +52,7 @@ class CareerPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Career $jobPost): bool
+    public function restore(User $user, Career $career): bool
     {
         return false;
     }
@@ -60,7 +60,7 @@ class CareerPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Career $jobPost): bool
+    public function forceDelete(User $user, Career $career): bool
     {
         return $user->hasPermissionTo(Permission::CAREERS_DELETE);
     }

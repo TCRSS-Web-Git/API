@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Gate;
 class CareerController extends Controller
 {
     /**
-     * Get all job posts
+     * Get all career.
      *
      * @group Careers
      */
@@ -22,7 +22,7 @@ class CareerController extends Controller
     }
 
     /**
-     * Create a job post.
+     * Create a career.
      *
      * @group Careers
      */
@@ -30,13 +30,13 @@ class CareerController extends Controller
     {
         Gate::authorize('create', Career::class);
 
-        $jobPost = $saveCareer->execute(new Career, $request->validated());
+        $career = $saveCareer->execute(new Career, $request->validated());
 
-        return new CareerResource($jobPost);
+        return new CareerResource($career);
     }
 
     /**
-     * Get a job post by id.
+     * Get a career by id.
      *
      * @group Careers
      */
@@ -46,7 +46,7 @@ class CareerController extends Controller
     }
 
     /**
-     * Update a job post.
+     * Update a career.
      *
      * @group Careers
      */
@@ -60,7 +60,7 @@ class CareerController extends Controller
     }
 
     /**
-     * Delete a job post.
+     * Delete a career.
      *
      * @group Careers
      */

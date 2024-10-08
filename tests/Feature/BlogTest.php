@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Enums\BlogStatus;
 use App\Models\Blog;
-use App\Models\Career;
 use App\Models\Category;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -29,43 +28,6 @@ class BlogTest extends TestCase
         $response->assertOk();
         $response->assertJsonFragment(['title' => $blogA->title]);
         $response->assertJsonFragment(['title' => $blogB->title]);
-    }
-
-    /**
-     * Test the admin can get filtered jobs by departments.
-     */
-    public function test_the_admin_can_get_jobs_filtered_by_department(): void
-    {
-        // set up
-        $this->signInAdmin();
-        $departmentA = Category::factory()->department()->create();
-        $departmentB = Category::factory()->department()->create();
-        $departmentC = Category::factory()->department()->create();
-
-        $jobPost1 = Career::factory()->create(['department_id' => $departmentA->id]);
-        $jobPost2 = Career::factory()->create(['department_id' => $departmentB->id]);
-        $jobPost3 = Career::factory()->create(['department_id' => $departmentC->id]);
-        $jobPost4 = Career::factory()->create(['department_id' => $departmentA->id]);
-
-        // act
-        $response = $this->getJson(route('careers.index', ['department_id' => "$departmentA->hashid,$departmentB->hashid"]));
-
-        // assert
-        $response->assertOk();
-        $response->assertJsonFragment(['id' => $jobPost1->hashid]);
-        $response->assertJsonFragment(['id' => $jobPost2->hashid]);
-        $response->assertJsonFragment(['id' => $jobPost4->hashid]);
-        $response->assertJsonMissing(['id' => $jobPost3->hashid]);
-
-        // act
-        $response = $this->getJson(route('careers.index', ['department_id' => "$departmentC->hashid"]));
-
-        // assert
-        $response->assertOk();
-        $response->assertJsonFragment(['id' => $jobPost3->hashid]);
-        $response->assertJsonMissing(['id' => $jobPost1->hashid]);
-        $response->assertJsonMissing(['id' => $jobPost2->hashid]);
-        $response->assertJsonMissing(['id' => $jobPost4->hashid]);
     }
 
     /**

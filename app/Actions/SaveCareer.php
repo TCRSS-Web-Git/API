@@ -16,11 +16,11 @@ class SaveCareer
     /**
      * @throws Exception
      */
-    public function execute(Career $jobPost, array $data): Career
+    public function execute(Career $career, array $data): Career
     {
         DB::beginTransaction();
         try {
-            $this->career = $jobPost;
+            $this->career = $career;
             $this->setBasicAttributes($data);
             $usedImageBody = $this->processBodyImages($data);
             $this->setTranslations($data, $usedImageBody);
