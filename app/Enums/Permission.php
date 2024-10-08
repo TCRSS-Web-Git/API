@@ -35,6 +35,7 @@ enum Permission: string
     public static function defaultAdminPermissions(): array
     {
         $allPermissions = collect(Permission::cases())->pluck('value')->toArray();
+
         $except = [
             Permission::USERS_CREATE->value,
             Permission::USERS_UPDATE->value,

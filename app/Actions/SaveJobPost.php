@@ -39,6 +39,7 @@ class SaveJobPost
         $this->jobPost->published_at = $data['published_at'] ?? null;
         $this->jobPost->location_id = $data['location_id'] ?? null;
         $this->jobPost->department_id = $data['department_id'] ?? null;
+        $this->jobPost->type = $data['type'] ?? null;
     }
 
     protected function processBodyImages(array $data): array
