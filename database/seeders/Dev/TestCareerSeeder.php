@@ -45,6 +45,7 @@ class TestCareerSeeder extends Seeder
         Career::factory(25)
             ->state(new Sequence(
                 fn (Sequence $sequence) => [
+                    'type_id' => fake()->randomElement([$type1->id, $type2->id]),
                     'department_id' => fake()->randomElement([$department1->id, $department2->id]),
                     'location_id' => fake()->randomElement([$location1->id, $location2->id]),
                 ],
