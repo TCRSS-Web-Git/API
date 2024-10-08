@@ -123,9 +123,16 @@ class JobPostFilter extends QueryFilter
 
         return $this->builder->where(function ($query) use ($value, $ids) {
             $query->whereHas('translations', function ($query) use ($value) {
-                $query->whereRaw('MATCH(title, body) AGAINST(? IN BOOLEAN MODE)', [$value]);
+                if (config('database.default') === 'mysql') {
+                    $query->whereRaw('MATCH(title, body) AGAINST(? IN BOOLEAN MODE)', [$value]);
+                } elseif (config('database.default') === 'sqlite') {
+                    $query->where('title', 'like', '%'.$value.'%');
+                    $query->orWhere('body', 'like', '%'.$value.'%');
+                }
             })
-                ->orWhereIn('id', $ids);
+                ->when($ids, function ($query) use ($ids) {
+                    $query->orWhereIn('id', $ids);
+                });
         });
     }
 }
