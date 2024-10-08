@@ -12,7 +12,7 @@ class CareerFilter extends QueryFilter
         'title',
         'department_id',
         'location_id',
-        'type',
+        'type_id',
         'meta_title',
         'meta_description',
         'created_at',
@@ -80,6 +80,23 @@ class CareerFilter extends QueryFilter
         }
 
         return $this->builder;
+    }
+
+    public function type_id($value)
+    {
+        $types = explode(',', $value);
+        $types = array_map(static function ($id) {
+            return Category::decodeHash(trim($id));
+        }, $types);
+        $types = array_filter($types, static function ($id) {
+            return $id > 0;
+        });
+
+        if (empty($types)) {
+            return $this->builder;
+        }
+
+        return $this->builder->whereIn('type_id', $types);
     }
 
     public function location_id($value)

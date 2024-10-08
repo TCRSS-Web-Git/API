@@ -39,7 +39,7 @@ class SaveCareer
         $this->career->published_at = $data['published_at'] ?? null;
         $this->career->location_id = $data['location_id'] ?? null;
         $this->career->department_id = $data['department_id'] ?? null;
-        $this->career->type = $data['type'] ?? null;
+        $this->career->type_id = $data['type_id'] ?? null;
     }
 
     protected function processBodyImages(array $data): array

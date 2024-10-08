@@ -18,7 +18,7 @@ class CareerController extends Controller
      */
     public function index(CareerFilter $filter)
     {
-        return CareerResource::collection(Career::with(['location', 'department', 'latestAudit.user'])->filter($filter)->paginate($this->getPerPage()));
+        return CareerResource::collection(Career::with(['type', 'location', 'department', 'latestAudit.user'])->filter($filter)->paginate($this->getPerPage()));
     }
 
     /**

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Enums\JobType;
 use App\Traits\EloquentDecodeHash;
 use App\Traits\EloquentFindByHash;
 use App\Traits\HasFilter;
@@ -37,12 +36,11 @@ class Career extends Model implements Auditable, HasMedia
     public const string MEDIA_COLLECTION_BODY_PHOTO = 'photos';
 
     protected $fillable = [
-        'type',
+        'type_id',
         'published_at',
     ];
 
     protected $casts = [
-        'type' => JobType::class,
         'published_at' => 'datetime',
     ];
 
@@ -88,5 +86,10 @@ class Career extends Model implements Auditable, HasMedia
     public function department(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'department_id', 'id');
+    }
+
+    public function type(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'type_id', 'id');
     }
 }

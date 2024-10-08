@@ -233,19 +233,20 @@ class CareerTest extends TestCase
         $response->assertJsonStructure(['data' => ['translations' => ['en' => ['title']]]]);
     }
 
-    public function test_the_admin_can_create_a_published_job_post(): void
+    public function test_the_admin_can_create_a_published_career(): void
     {
         // set up
         $this->signInAdmin();
         $jobCategory = Category::factory()->career()->create();
         $locationCategory = Category::factory()->location()->create();
+        $careerTypeCategory = Category::factory()->careerType()->create();
         $jobData = Career::factory()->make()->toArray();
 
         // act
         $response = $this->postJson(route('careers.store'), [
             'location_id' => $locationCategory->hashid,
             'department_id' => $jobCategory->hashid,
-            'type' => $jobData['type'],
+            'type_id' => $careerTypeCategory->hashid,
             'published_at' => now()->subDay(),
             'th' => [
                 'title' => 'ชื่อประกาศสมัครงาน',
@@ -263,7 +264,7 @@ class CareerTest extends TestCase
 
         // assert
         $response->assertCreated();
-        $this->assertDatabaseHas('careers', ['type' => $jobData['type']]);
+        $this->assertDatabaseHas('careers', ['type_id' => $careerTypeCategory->id]);
         $this->assertDatabaseHas('careers', ['location_id' => $locationCategory->id]);
         $this->assertDatabaseHas('careers', ['department_id' => $jobCategory->id]);
         $this->assertDatabaseHas('career_translations', ['locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
@@ -271,12 +272,13 @@ class CareerTest extends TestCase
         $response->assertJsonFragment(['status' => CareerStatus::PUBLISHED]);
     }
 
-    public function test_the_admin_can_update_a_job_post(): void
+    public function test_the_admin_can_update_a_career(): void
     {
         // set up
         $this->signInAdmin();
         $jobCategory = Category::factory()->career()->create();
         $locationCategory = Category::factory()->location()->create();
+        $careerTypeCategory = Category::factory()->careerType()->create();
         $jobData = Career::factory()->create();
         $updatedData = Career::factory()->make()->toArray();
 
@@ -284,7 +286,7 @@ class CareerTest extends TestCase
         $response = $this->putJson(route('careers.update', $jobData), [
             'location_id' => $locationCategory->hashid,
             'department_id' => $jobCategory->hashid,
-            'type' => $updatedData['type'],
+            'type_id' => $careerTypeCategory->hashid,
             'published_at' => now()->subDay(),
             'th' => [
                 'title' => 'ชื่อประกาศสมัครงาน',
@@ -301,8 +303,7 @@ class CareerTest extends TestCase
         ]);
 
         // assert
-
-        $this->assertDatabaseHas('careers', ['type' => $updatedData['type']]);
+        $this->assertDatabaseHas('careers', ['type_id' => $careerTypeCategory->id]);
         $this->assertDatabaseHas('careers', ['location_id' => $locationCategory->id]);
         $this->assertDatabaseHas('careers', ['department_id' => $jobCategory->id]);
         $this->assertDatabaseHas('career_translations', ['locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
@@ -310,7 +311,7 @@ class CareerTest extends TestCase
         $response->assertJsonFragment(['status' => CareerStatus::PUBLISHED]);
     }
 
-    public function test_the_admin_can_delete_a_job_post(): void
+    public function test_the_admin_can_delete_a_career(): void
     {
         // set up
         $this->signInAdmin();

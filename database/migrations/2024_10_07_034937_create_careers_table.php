@@ -22,7 +22,10 @@ return new class extends Migration
                 ->nullable()
                 ->constrained('categories')
                 ->nullOnDelete();
-            $table->unsignedInteger('type');
+            $table->foreignIdFor(Category::class, 'type_id')
+                ->nullable()
+                ->constrained('categories')
+                ->nullOnDelete();
             $table->dateTime('published_at')->nullable();
             $table->timestamps();
         });

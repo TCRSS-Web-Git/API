@@ -59,4 +59,11 @@ class CategoryFactory extends Factory
             'type' => CategoryType::LOCATION,
         ]);
     }
+
+    public function careerType(): Factory
+    {
+        return $this->state(fn (array $attributes) => [
+            'type' => CategoryType::CAREER_TYPE,
+        ]);
+    }
 }
