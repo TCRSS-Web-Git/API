@@ -14,7 +14,7 @@ class JobPostController extends Controller
     /**
      * Get all job posts
      *
-     * @group Blogs
+     * @group Careers
      */
     public function index(JobPostFilter $filter)
     {
@@ -36,9 +36,9 @@ class JobPostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(JobPost $jobPost)
+    public function show(JobPost $career)
     {
-        return new JobPostResource($jobPost);
+        return new JobPostResource($career);
     }
 
     /**

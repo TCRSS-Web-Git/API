@@ -13,7 +13,7 @@ class JobPostTest extends TestCase
     use refreshDatabase;
 
     /**
-     * A basic feature test example.
+     * Test the admin can get jobs.
      */
     public function test_the_admin_can_get_all_jobs(): void
     {
@@ -26,8 +26,34 @@ class JobPostTest extends TestCase
 
         // assert
         $response->assertOk();
-        $response->assertJsonFragment(['title' => $jobPostA->title]);
-        $response->assertJsonFragment(['title' => $jobPostB->title]);
+        $response->assertJsonFragment(['id' => $jobPostA->hashid]);
+        $response->assertJsonFragment(['id' => $jobPostB->hashid]);
+    }
+
+    /**
+     * Test the admin can get a job by ID.
+     */
+    public function test_the_admin_can_get_a_job_by_id_localized(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $jobPost = JobPost::factory()->create();
+
+        // act Thai
+        $response = $this->getJson(route('careers.show', $jobPost), ['X-Localization' => 'th']);
+
+        // assert Thai
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $jobPost->hashid]);
+        $response->assertJsonFragment(['title' => $jobPost->getTranslation('title', 'th')]);
+
+        // act English
+        $response = $this->getJson(route('careers.show', $jobPost), ['X-Localization' => 'en']);
+
+        // assert English
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $jobPost->hashid]);
+        $response->assertJsonFragment(['title' => $jobPost->getTranslation('title', 'en')]);
     }
 
     public function test_the_admin_can_create_a_published_job(): void
