@@ -27,7 +27,7 @@ class CreateOrUpdateCareerRequest extends FormRequest
         return [
             'type_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::CAREER_TYPE)],
             'location_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::LOCATION)],
-            'department_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::CAREER)],
+            'department_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::DEPARTMENT)],
             'published_at' => ['nullable', 'date'],
             // Translations
             'th' => ['array', 'required'],

@@ -20,7 +20,7 @@ class CareerFactory extends Factory
     {
         return [
             'location_id' => Category::factory()->location(),
-            'department_id' => Category::factory()->career(),
+            'department_id' => Category::factory()->department(),
             'type_id' => Category::factory()->careerType(),
             'published_at' => $this->faker->randomElement([null, $this->faker->dateTimeBetween('-1 year', 'now')]),
         ];

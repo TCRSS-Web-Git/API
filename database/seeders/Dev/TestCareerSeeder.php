@@ -24,11 +24,11 @@ class TestCareerSeeder extends Seeder
         $type2->setTranslation('name', 'Part-Time', 'en');
         $type2->save();
 
-        $department1 = Category::create(['type' => CategoryType::CAREER]);
+        $department1 = Category::create(['type' => CategoryType::DEPARTMENT]);
         $department1->setTranslation('name', 'ฝ่าย IT', 'th');
         $department1->setTranslation('name', 'IT', 'en');
         $department1->save();
-        $department2 = Category::create(['type' => CategoryType::CAREER]);
+        $department2 = Category::create(['type' => CategoryType::DEPARTMENT]);
         $department2->setTranslation('name', 'ฝ่ายบุคคล', 'th');
         $department2->setTranslation('name', 'HR', 'en');
         $department2->save();

@@ -46,10 +46,10 @@ class CategoryFactory extends Factory
         ]);
     }
 
-    public function career(): Factory
+    public function department(): Factory
     {
         return $this->state(fn (array $attributes) => [
-            'type' => CategoryType::CAREER,
+            'type' => CategoryType::DEPARTMENT,
         ]);
     }
 

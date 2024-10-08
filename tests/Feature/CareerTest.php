@@ -63,9 +63,9 @@ class CareerTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $departmentA = Category::factory()->career()->create();
-        $departmentB = Category::factory()->career()->create();
-        $departmentC = Category::factory()->career()->create();
+        $departmentA = Category::factory()->department()->create();
+        $departmentB = Category::factory()->department()->create();
+        $departmentC = Category::factory()->department()->create();
 
         $jobPost1 = Career::factory()->create(['department_id' => $departmentA->id]);
         $jobPost2 = Career::factory()->create(['department_id' => $departmentB->id]);
@@ -237,7 +237,7 @@ class CareerTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $jobCategory = Category::factory()->career()->create();
+        $jobCategory = Category::factory()->department()->create();
         $locationCategory = Category::factory()->location()->create();
         $careerTypeCategory = Category::factory()->careerType()->create();
         $jobData = Career::factory()->make()->toArray();
@@ -276,7 +276,7 @@ class CareerTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $jobCategory = Category::factory()->career()->create();
+        $jobCategory = Category::factory()->department()->create();
         $locationCategory = Category::factory()->location()->create();
         $careerTypeCategory = Category::factory()->careerType()->create();
         $jobData = Career::factory()->create();
