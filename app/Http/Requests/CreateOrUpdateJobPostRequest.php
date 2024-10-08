@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use App\Enums\CategoryType;
-use App\Models\Category;
 use App\Enums\JobType;
+use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
