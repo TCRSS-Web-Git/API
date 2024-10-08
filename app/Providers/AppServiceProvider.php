@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\JobPost;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
@@ -62,6 +63,10 @@ class AppServiceProvider extends ServiceProvider
 
         Route::bind('category', function ($value) {
             return Category::findByHashOrFail($value);
+        });
+
+        Route::bind('career', function ($value) {
+            return JobPost::findByHashOrFail($value);
         });
 
         Route::bind('user', function ($value) {
