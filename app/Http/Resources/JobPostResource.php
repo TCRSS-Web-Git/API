@@ -33,6 +33,7 @@ class JobPostResource extends JsonResource
                 return $images->count() ? new MediaResourceCollection($images, JobPost::MEDIA_COLLECTION_BODY_PHOTO.'_optimized') : [];
             }),
             'location' => $this->location ? new CategoryResource($this->location) : null,
+            'type' => $this->type->label(),
             'department' => $this->department ? new CategoryResource($this->department) : null,
             'title' => $this->getTranslation('title'),
             'body' => $this->when(! $request->routeIs(['careers.index']), $this->getTranslation('body')),

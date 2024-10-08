@@ -3,8 +3,10 @@
 namespace App\Http\Requests;
 
 use App\Enums\CategoryType;
+use App\Enums\JobType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Enum;
 
 class CreateOrUpdateJobPostRequest extends FormRequest
 {
@@ -24,7 +26,7 @@ class CreateOrUpdateJobPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type' => ['nullable', 'string', 'max:255'],
+            'type' => ['nullable', new Enum(JobType::class), 'max:255'],
             'location_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::LOCATION)],
             'department_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::CAREER)],
             'published_at' => ['nullable', 'date'],
