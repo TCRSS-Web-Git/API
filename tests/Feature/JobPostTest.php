@@ -56,7 +56,7 @@ class JobPostTest extends TestCase
         $response->assertJsonFragment(['title' => $jobPost->getTranslation('title', 'en')]);
     }
 
-    public function test_the_admin_can_create_a_published_job(): void
+    public function test_the_admin_can_create_a_published_job_post(): void
     {
         // set up
         $this->signInAdmin();
