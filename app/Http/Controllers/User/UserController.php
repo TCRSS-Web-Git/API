@@ -42,9 +42,6 @@ class UserController extends Controller
         Gate::authorize('create', User::class);
 
         $data = $request->validated();
-
-        //        $data['password'] = Hash::make($data['password']);
-
         $user = $saveUserInvitation->execute($data);
 
         return new UserResource($user);

@@ -20,6 +20,8 @@ use Spatie\Permission\Traits\HasRoles;
  *
  * @property mixed $id
  * @property mixed $email
+ * @property mixed $password
+ * @property mixed $email_verified_at
  */
 class User extends Authenticatable implements Auditable
 {
@@ -48,6 +50,7 @@ class User extends Authenticatable implements Auditable
         'email',
         'phone',
         'password',
+        'email_verified_at',
     ];
 
     /**

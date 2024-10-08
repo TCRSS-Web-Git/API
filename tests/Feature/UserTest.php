@@ -2,8 +2,12 @@
 
 namespace Tests\Feature;
 
+use App\Http\Middleware\ValidateSignature;
+use App\Mail\UserInvitation;
+use App\Models\Invite;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -84,6 +88,8 @@ class UserTest extends TestCase
         $this->signInSuperAdmin();
         $mockUser = User::factory()->make();
 
+        Mail::fake();
+
         $response = $this->postJson(route('users.store', [
             'title' => 'Mr.',
             'first_name' => $mockUser->first_name,
@@ -101,6 +107,14 @@ class UserTest extends TestCase
             'email' => $mockUser->email,
             'phone' => $mockUser->phone,
         ]);
+
+        $this->assertDatabaseHas('invites', [
+            'email' => $mockUser->email,
+        ]);
+
+        Mail::assertSent(UserInvitation::class, static function ($mail) use ($mockUser) {
+            return $mail->hasTo($mockUser->email);
+        });
     }
 
     public function test_admin_can_not_create_user(): void
@@ -212,5 +226,52 @@ class UserTest extends TestCase
         // assert
         $response->assertNoContent();
         $this->assertSoftDeleted($user);
+    }
+
+    public function test_invited_user_can_accept_invitation(): void
+    {
+        /* @var User $user */
+        $user = User::factory()->create(['password' => null]);
+
+        /* @var Invite $invite */
+        $invite = Invite::factory()->for($user)->create([
+            'email' => $user->email,
+        ]);
+
+        $response = $this->withoutMiddleware(ValidateSignature::class)
+            ->put(route('accept.users.invitation', ['email' => $invite->email, 'token' => $invite->token]), [
+                'password' => 'password',
+                'password_confirmation' => 'password',
+            ]);
+        $response->assertNoContent();
+
+        $user->refresh();
+        $this->assertDatabaseCount('invites', 0);
+        $this->assertNotNull($user->password);
+        $this->assertNotNull($user->email_verified_at);
+    }
+
+    public function test_super_admin_can_resend_user_invitation_email(): void
+    {
+        $this->signInSuperAdmin();
+
+        /** @var User $user */
+        $user = User::factory()->create(['password' => null]);
+
+        /* @var Invite $invite */
+        Invite::factory()->for($user)->create([
+            'email' => $user->email,
+        ]);
+
+        Mail::fake();
+
+        $response = $this->post(route('invite.resend', $user));
+        $response->assertNoContent();
+
+        $this->assertDatabaseCount('invites', 1);
+
+        Mail::assertSent(UserInvitation::class, static function ($mail) use ($user) {
+            return $mail->hasTo($user->email);
+        });
     }
 }

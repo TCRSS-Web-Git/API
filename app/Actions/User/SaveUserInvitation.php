@@ -8,7 +8,6 @@ use App\Models\Role;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
@@ -25,12 +24,9 @@ class SaveUserInvitation
         DB::beginTransaction();
 
         try {
-            //            $data['password'] = Hash::make($data['password']);
-
             $user = User::create($data);
 
-            // TODO assign role
-            //            $user->assignRole(Role::find($data['role_id']));
+            // TODO assign role // $user->assignRole(Role::find($data['role_id']));
 
             $invite = Invite::create([
                 'email' => $data['email'],
