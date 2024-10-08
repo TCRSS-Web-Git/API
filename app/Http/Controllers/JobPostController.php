@@ -44,23 +44,23 @@ class JobPostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CreateOrUpdateJobPostRequest $request, SaveJobPost $saveJobPost, JobPost $jobPost)
+    public function update(JobPost $career, CreateOrUpdateJobPostRequest $request, SaveJobPost $saveJobPost)
     {
-        Gate::authorize('update', $jobPost);
+        Gate::authorize('update', $career);
 
-        $jobPost = $saveJobPost->execute(new JobPost, $request->validated());
+        $career = $saveJobPost->execute(new JobPost, $request->validated());
 
-        return new JobPostResource($jobPost);
+        return new JobPostResource($career);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(JobPost $jobPost)
+    public function destroy(JobPost $career)
     {
-        Gate::authorize('delete', $jobPost);
+        Gate::authorize('delete', $career);
 
-        $jobPost->delete();
+        $career->delete();
 
         return response()->noContent();
     }

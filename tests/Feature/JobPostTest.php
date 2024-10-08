@@ -87,8 +87,63 @@ class JobPostTest extends TestCase
         // assert
         $response->assertCreated();
         $this->assertDatabaseHas('job_posts', ['type' => $jobData['type']]);
+        $this->assertDatabaseHas('job_posts', ['location_id' => $locationCategory->id]);
+        $this->assertDatabaseHas('job_posts', ['department_id' => $jobCategory->id]);
         $this->assertDatabaseHas('job_post_translations', ['locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
         $this->assertDatabaseHas('job_post_translations', ['locale' => 'en', 'title' => 'Job name']);
         $response->assertJsonFragment(['status' => JobPostStatus::PUBLISHED]);
+    }
+
+    public function test_the_admin_can_update_a_job_post(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $jobCategory = Category::factory()->jobPost()->create();
+        $locationCategory = Category::factory()->location()->create();
+        $jobData = JobPost::factory()->create();
+        $updatedData = JobPost::factory()->make()->toArray();
+
+        // act
+        $response = $this->putJson(route('careers.update', $jobData), [
+            'location_id' => $locationCategory->id,
+            'department_id' => $jobCategory->id,
+            'type' => $updatedData['type'],
+            'published_at' => now()->subDay(),
+            'th' => [
+                'title' => 'ชื่อประกาศสมัครงาน',
+                'body' => 'เนื้อหาประกาศสมัครงาน',
+                'meta_title' => 'ชื่อประกาศสมัครงาน',
+                'meta_description' => 'เนื้อหาประกาศสมัครงาน',
+            ],
+            'en' => [
+                'title' => 'Job name',
+                'body' => 'Job content',
+                'meta_title' => 'Job name',
+                'meta_description' => 'Job content',
+            ],
+        ]);
+
+        // assert
+
+        $this->assertDatabaseHas('job_posts', ['type' => $updatedData['type']]);
+        $this->assertDatabaseHas('job_posts', ['location_id' => $locationCategory->id]);
+        $this->assertDatabaseHas('job_posts', ['department_id' => $jobCategory->id]);
+        $this->assertDatabaseHas('job_post_translations', ['locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
+        $this->assertDatabaseHas('job_post_translations', ['locale' => 'en', 'title' => 'Job name']);
+        $response->assertJsonFragment(['status' => JobPostStatus::PUBLISHED]);
+    }
+
+    public function test_the_admin_can_delete_a_job_post(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $jobPost = JobPost::factory()->create();
+
+        // act
+        $response = $this->deleteJson(route('careers.destroy', $jobPost));
+
+        // assert
+        $response->assertNoContent();
+        $this->assertDatabaseMissing('job_posts', ['id' => $jobPost->id]);
     }
 }
