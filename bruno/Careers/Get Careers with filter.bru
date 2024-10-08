@@ -5,13 +5,14 @@ meta {
 }
 
 get {
-  url: {{backend_url}}/api/v1/careers?location_id=category_0821RDE5P753VQ,category_325KBP4LPLXQN1&department_id=category_Z8GQ6D2LPY1NKR,category_BY4ERMG6PQL7JK&search=test
+  url: {{backend_url}}/api/v1/careers?search=test&type_id=category_Z8GQ6D2LPY1NKR
   body: none
   auth: none
 }
 
 query {
-  location_id: category_0821RDE5P753VQ,category_325KBP4LPLXQN1
-  department_id: category_Z8GQ6D2LPY1NKR,category_BY4ERMG6PQL7JK
   search: test
+  type_id: category_Z8GQ6D2LPY1NKR
+  ~location_id: category_0821RDE5P753VQ,category_325KBP4LPLXQN1
+  ~department_id: category_Z8GQ6D2LPY1NKR,category_BY4ERMG6PQL7JK
 }
