@@ -11,6 +11,7 @@ class BlogFilter extends QueryFilter
         'id',
         'title',
         'body',
+        'category_id',
         'meta_title',
         'meta_description',
         'created_at',

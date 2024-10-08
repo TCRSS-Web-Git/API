@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Enums\BlogStatus;
 use App\Models\Blog;
+use App\Models\Career;
 use App\Models\Category;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -31,40 +32,84 @@ class BlogTest extends TestCase
     }
 
     /**
-     * Test the admin can create a published blog.
+     * Test the admin can get filtered jobs by departments.
      */
-    public function test_the_admin_can_create_a_published_blog(): void
+    public function test_the_admin_can_get_jobs_filtered_by_department(): void
     {
         // set up
         $this->signInAdmin();
-        $category = Category::factory()->blog()->create();
-        $blogData = Blog::factory()->for($category)->make()->toArray();
+        $departmentA = Category::factory()->department()->create();
+        $departmentB = Category::factory()->department()->create();
+        $departmentC = Category::factory()->department()->create();
+
+        $jobPost1 = Career::factory()->create(['department_id' => $departmentA->id]);
+        $jobPost2 = Career::factory()->create(['department_id' => $departmentB->id]);
+        $jobPost3 = Career::factory()->create(['department_id' => $departmentC->id]);
+        $jobPost4 = Career::factory()->create(['department_id' => $departmentA->id]);
 
         // act
-        $response = $this->postJson(route('blogs.store'), [
-            'category_id' => $category->hashid,
-            'slug' => $blogData['slug'],
-            'published_at' => now()->subDay(),
-            'th' => [
-                'title' => 'ชื่อบทความ',
-                'body' => 'เนื้อหาบทความ',
-                'meta_title' => 'ชื่อบทความ',
-                'meta_description' => 'เนื้อหาบทความ',
-            ],
-            'en' => [
-                'title' => 'Blog name',
-                'body' => 'Blog content',
-                'meta_title' => 'Blog name',
-                'meta_description' => 'Blog content',
-            ],
-        ]);
+        $response = $this->getJson(route('careers.index', ['department_id' => "$departmentA->hashid,$departmentB->hashid"]));
 
         // assert
-        $response->assertCreated();
-        $this->assertDatabaseHas('blogs', ['slug' => $blogData['slug']]);
-        $this->assertDatabaseHas('blog_translations', ['locale' => 'th', 'title' => 'ชื่อบทความ']);
-        $this->assertDatabaseHas('blog_translations', ['locale' => 'en', 'title' => 'Blog name']);
-        $response->assertJsonFragment(['status' => BlogStatus::PUBLISHED]);
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $jobPost1->hashid]);
+        $response->assertJsonFragment(['id' => $jobPost2->hashid]);
+        $response->assertJsonFragment(['id' => $jobPost4->hashid]);
+        $response->assertJsonMissing(['id' => $jobPost3->hashid]);
+
+        // act
+        $response = $this->getJson(route('careers.index', ['department_id' => "$departmentC->hashid"]));
+
+        // assert
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $jobPost3->hashid]);
+        $response->assertJsonMissing(['id' => $jobPost1->hashid]);
+        $response->assertJsonMissing(['id' => $jobPost2->hashid]);
+        $response->assertJsonMissing(['id' => $jobPost4->hashid]);
+    }
+
+    /**
+     * Test the admin can sort blogs.
+     */
+    public function test_the_admin_can_sort_blogs(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $categoryA = Category::factory()->blog()->create();
+        $categoryA->setTranslation('name', 'A', 'en');
+        $categoryA->setTranslation('name', 'ก', 'th');
+        $categoryA->save();
+        $categoryB = Category::factory()->blog()->create();
+        $categoryB->setTranslation('name', 'B', 'en');
+        $categoryB->setTranslation('name', 'ข', 'th');
+        $categoryB->save();
+        $categoryC = Category::factory()->blog()->create();
+        $categoryC->setTranslation('name', 'C', 'en');
+        $categoryC->setTranslation('name', 'ค', 'th');
+        $categoryC->save();
+        $blog1 = Blog::factory()->create(['category_id' => $categoryA->id]);
+        $blog2 = Blog::factory()->create(['category_id' => $categoryB->id]);
+        $blog3 = Blog::factory()->create(['category_id' => $categoryC->id]);
+
+        // act
+        $response = $this->getJson(route('blogs.index', ['sort' => '-category_id']));
+
+        // assert
+        $response->assertOk();
+        $result = $response->json('data');
+        $this->assertEquals($blog3->hashid, $result[0]['id']);
+        $this->assertEquals($blog2->hashid, $result[1]['id']);
+        $this->assertEquals($blog1->hashid, $result[2]['id']);
+
+        // act
+        $response = $this->getJson(route('blogs.index', ['sort' => 'category_id']));
+
+        // assert
+        $response->assertOk();
+        $result = $response->json('data');
+        $this->assertEquals($blog1->hashid, $result[0]['id']);
+        $this->assertEquals($blog2->hashid, $result[1]['id']);
+        $this->assertEquals($blog3->hashid, $result[2]['id']);
     }
 
     /**
