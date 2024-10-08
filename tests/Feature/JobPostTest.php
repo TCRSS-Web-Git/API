@@ -66,8 +66,8 @@ class JobPostTest extends TestCase
 
         // act
         $response = $this->postJson(route('careers.store'), [
-            'location_id' => $locationCategory->id,
-            'department_id' => $jobCategory->id,
+            'location_id' => $locationCategory->hashid,
+            'department_id' => $jobCategory->hashid,
             'type' => $jobData['type'],
             'published_at' => now()->subDay(),
             'th' => [
@@ -105,8 +105,8 @@ class JobPostTest extends TestCase
 
         // act
         $response = $this->putJson(route('careers.update', $jobData), [
-            'location_id' => $locationCategory->id,
-            'department_id' => $jobCategory->id,
+            'location_id' => $locationCategory->hashid,
+            'department_id' => $jobCategory->hashid,
             'type' => $updatedData['type'],
             'published_at' => now()->subDay(),
             'th' => [

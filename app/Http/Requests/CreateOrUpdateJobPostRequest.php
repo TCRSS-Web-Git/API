@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Enums\CategoryType;
+use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -46,5 +47,13 @@ class CreateOrUpdateJobPostRequest extends FormRequest
             'body_images.*.url' => ['required', 'string'],
             'body_images.*.name' => ['nullable', 'string'],
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'location_id' => Category::decodeHash($this->location_id),
+            'department_id' => Category::decodeHash($this->department_id),
+        ]);
     }
 }
