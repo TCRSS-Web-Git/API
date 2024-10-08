@@ -1,0 +1,19 @@
+meta {
+  name: Get Career by ID with translation
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{backend_url}}/api/v1/careers/career_046XZB4DDLNRQ5?include=translations
+  body: none
+  auth: none
+}
+
+query {
+  include: translations
+}
+
+headers {
+  X-Localization: th
+}
