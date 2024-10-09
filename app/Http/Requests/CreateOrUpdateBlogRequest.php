@@ -75,6 +75,9 @@ class CreateOrUpdateBlogRequest extends FormRequest
         return [
             'category_id' => __('validation.attributes.category'),
 
+            'th' => __('validation.attributes.th'),
+            'en' => __('validation.attributes.en'),
+
             'th.title' => __('validation.attributes.title'),
             'th.body' => __('validation.attributes.body'),
             'th.meta_title' => __('validation.attributes.meta_title'),
