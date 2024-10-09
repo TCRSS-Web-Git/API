@@ -1,0 +1,33 @@
+meta {
+  name: Create Career
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{backend_url}}/api/v1/careers
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "type_id": "category_Z8GQ6D2LPY1NKR",
+    "department_id": "category_0821RDE5P753VQ",
+    "location_id": "category_51L8XP69P7WR30",
+    "published_at": null,
+    "body_images": [],
+    "th": {
+      "title": "งานธุรการ",
+      "body": "เนื้อหางาน",
+      "meta_title": "งานธุรการ",
+      "meta_description": "เนื้อหางาน"
+    },
+    "en": {
+      "title": "Administor position",
+      "body": "job description",
+      "meta_title": "Administor position",
+      "meta_description": "job description"
+    }
+  }
+}

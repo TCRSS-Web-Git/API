@@ -47,4 +47,19 @@ class Category extends Model implements Auditable
     {
         return $query->where('type', CategoryType::BLOG);
     }
+
+    public function scopeDepartment($query)
+    {
+        return $query->where('type', CategoryType::DEPARTMENT);
+    }
+
+    public function scopeLocation($query)
+    {
+        return $query->where('type', CategoryType::LOCATION);
+    }
+
+    public function scopeCareerType($query)
+    {
+        return $query->where('type', CategoryType::CAREER_TYPE);
+    }
 }

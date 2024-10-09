@@ -24,7 +24,6 @@ abstract class TestCase extends BaseTestCase
     protected function signInAdmin($user = null): User
     {
         $this->seed(RolePermissionSeeder::class);
-
         $user = $user ?? User::factory()->create(['first_name' => 'Admin', 'last_name' => 'Test', 'email' => 'admin@test.com']);
         $role = Role::where('name', Role::ROLE_ADMIN)->first();
         $user->assignRole($role);

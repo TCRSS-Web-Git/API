@@ -19,6 +19,11 @@ enum Permission: string
     case BLOG_CATEGORIES_UPDATE = 'BLOG_CATEGORIES:UPDATE';
     case BLOG_CATEGORIES_DELETE = 'BLOG_CATEGORIES:DELETE';
 
+    case CAREERS_VIEW = 'CAREERS:VIEW';
+    case CAREERS_CREATE = 'CAREERS:CREATE';
+    case CAREERS_UPDATE = 'CAREERS:UPDATE';
+    case CAREERS_DELETE = 'CAREERS:DELETE';
+
     public static function defaultSuperAdminPermissions(): array
     {
         $allPermissions = collect(Permission::cases())->pluck('value')->toArray();
@@ -30,6 +35,7 @@ enum Permission: string
     public static function defaultAdminPermissions(): array
     {
         $allPermissions = collect(Permission::cases())->pluck('value')->toArray();
+
         $except = [
             Permission::USERS_CREATE->value,
             Permission::USERS_UPDATE->value,

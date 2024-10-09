@@ -101,6 +101,28 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-careers" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="careers">
+                    <a href="#careers">Careers</a>
+                </li>
+                                    <ul id="tocify-subheader-careers" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="careers-GETapi-v1-careers">
+                                <a href="#careers-GETapi-v1-careers">Get all job posts</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="careers-POSTapi-v1-careers">
+                                <a href="#careers-POSTapi-v1-careers">Create a job post.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="careers-GETapi-v1-careers--id-">
+                                <a href="#careers-GETapi-v1-careers--id-">Get a job post by id.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="careers-PUTapi-v1-careers--id-">
+                                <a href="#careers-PUTapi-v1-careers--id-">Update a job post.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="careers-DELETEapi-v1-careers--id-">
+                                <a href="#careers-DELETEapi-v1-careers--id-">Delete a job post.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-categories" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="categories">
                     <a href="#categories">Categories</a>
@@ -218,7 +240,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: October 2, 2024</li>
+        <li>Last updated: October 8, 2024</li>
     </ul>
 </div>
 
@@ -259,8 +281,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"margaretta.predovic@example.net\",
-    \"password\": \"E&gt;iydX9\'\"
+    \"email\": \"bradtke.brendon@example.org\",
+    \"password\": \"IsBvp3^?[]PVSs8M\"
 }"
 </code></pre></div>
 
@@ -276,8 +298,8 @@ const headers = {
 };
 
 let body = {
-    "email": "margaretta.predovic@example.net",
-    "password": "E&gt;iydX9'"
+    "email": "bradtke.brendon@example.org",
+    "password": "IsBvp3^?[]PVSs8M"
 };
 
 fetch(url, {
@@ -366,10 +388,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-login"
-               value="margaretta.predovic@example.net"
+               value="bradtke.brendon@example.org"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นอีเมล. Example: <code>margaretta.predovic@example.net</code></p>
+<p>ข้อมูล value ต้องเป็นอีเมล. Example: <code>bradtke.brendon@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -377,10 +399,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-login"
-               value="E>iydX9'"
+               value="IsBvp3^?[]PVSs8M"
                data-component="body">
     <br>
-<p>Example: <code>E&gt;iydX9'</code></p>
+<p>Example: <code>IsBvp3^?[]PVSs8M</code></p>
         </div>
         </form>
 
@@ -550,35 +572,211 @@ vary: Origin
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: &quot;blog_9JPXM7D570YN2Q&quot;,
+            &quot;id&quot;: &quot;blog_VD90Q31PRN4BM6&quot;,
+            &quot;thumbnail&quot;: null,
+            &quot;category&quot;: {
+                &quot;id&quot;: &quot;category_V2Y3EMY0P815R9&quot;,
+                &quot;name&quot;: &quot;บทความ&quot;,
+                &quot;slug&quot;: &quot;articles&quot;
+            },
+            &quot;slug&quot;: &quot;sdfsdf&quot;,
+            &quot;title&quot;: &quot;sdf&quot;,
+            &quot;meta_title&quot;: &quot;sdfsdf&quot;,
+            &quot;meta_description&quot;: &quot;sdfsdf&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;tags&quot;: [],
+            &quot;updated_by&quot;: {
+                &quot;id&quot;: &quot;user_ZMBQEKPDK3X079&quot;,
+                &quot;title&quot;: &quot;Ms.&quot;,
+                &quot;first_name&quot;: &quot;Super&quot;,
+                &quot;last_name&quot;: &quot;Admin&quot;
+            },
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-03T03:41:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-03T03:41:45.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;blog_Z4DX835P3VNLBK&quot;,
             &quot;thumbnail&quot;: null,
             &quot;category&quot;: {
                 &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
                 &quot;name&quot;: &quot;โปรโมชั่น&quot;,
                 &quot;slug&quot;: &quot;promotions&quot;
             },
-            &quot;slug&quot;: &quot;maxime-dolor-numquam-esse-est-vel-aut&quot;,
-            &quot;title&quot;: &quot;(th) Minima eos cupiditate facilis fuga ut expedita vero.&quot;,
-            &quot;meta_title&quot;: &quot;(th) Minima eos cupiditate facilis fuga ut expedita vero.&quot;,
-            &quot;meta_description&quot;: &quot;(th) Ex aut ea minima. Non tempora quo eaque voluptate. Nemo natus voluptatibus dolorem error est. Eius tempora quae non cupiditate.\n\nVoluptatum incidunt repudiandae libero doloribus illo ratione aut. Illo officia hic rerum aut quo reiciendis velit. Cum s&quot;,
+            &quot;slug&quot;: &quot;velit-voluptatem-atque-quo-velit-deserunt&quot;,
+            &quot;title&quot;: &quot;(th) Aspernatur fuga assumenda cupiditate voluptatem totam.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Aspernatur fuga assumenda cupiditate voluptatem totam.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Et rerum qui minima minus in est. Dolore ullam consequatur laborum dignissimos repudiandae aliquid. Voluptatem earum esse et sint ipsum beatae. Fugiat non facilis placeat praesentium. Non corrupti veniam velit accusantium.\n\nAnimi sint excepturi paria&quot;,
             &quot;status&quot;: &quot;published&quot;,
             &quot;tags&quot;: [],
             &quot;updated_by&quot;: null,
-            &quot;published_at&quot;: &quot;2024-04-22T16:36:16.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2024-10-01T08:02:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-01T08:02:04.000000Z&quot;
+            &quot;published_at&quot;: &quot;2024-03-22T03:18:35.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;blog_K6JYM3BW3XBQZ8&quot;,
+            &quot;thumbnail&quot;: null,
+            &quot;category&quot;: {
+                &quot;id&quot;: &quot;category_V2Y3EMY0P815R9&quot;,
+                &quot;name&quot;: &quot;บทความ&quot;,
+                &quot;slug&quot;: &quot;articles&quot;
+            },
+            &quot;slug&quot;: &quot;officiis-et-labore-error-quo-et-sed-id&quot;,
+            &quot;title&quot;: &quot;(th) Dolore aperiam neque suscipit velit ipsam.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Dolore aperiam neque suscipit velit ipsam.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Eius velit culpa dolores rem autem. Magnam nostrum animi reiciendis voluptas temporibus et doloremque deserunt. Architecto provident sint et aliquid.\n\nQuod consequatur voluptas at ducimus voluptas vel. Consequatur ex cupiditate voluptatum eius quo mi&quot;,
+            &quot;status&quot;: &quot;published&quot;,
+            &quot;tags&quot;: [],
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: &quot;2024-08-24T18:55:38.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;blog_BW8JN7KB7Z94KQ&quot;,
+            &quot;thumbnail&quot;: null,
+            &quot;category&quot;: {
+                &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
+                &quot;name&quot;: &quot;โปรโมชั่น&quot;,
+                &quot;slug&quot;: &quot;promotions&quot;
+            },
+            &quot;slug&quot;: &quot;quia-perferendis-doloremque-nemo-quo-eligendi&quot;,
+            &quot;title&quot;: &quot;(th) Cum consequatur sint facere dignissimos vel cumque.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Cum consequatur sint facere dignissimos vel cumque.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Aspernatur expedita laborum et iste nostrum. Sit molestias quibusdam voluptatem sint sit ut. Vitae quis eum nihil asperiores sed. Nostrum reiciendis quas neque asperiores velit eveniet autem.\n\nTenetur et dolor neque est cum illo iusto. Eum voluptatem&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;tags&quot;: [],
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;blog_JVK923Y53YM1P6&quot;,
+            &quot;thumbnail&quot;: null,
+            &quot;category&quot;: {
+                &quot;id&quot;: &quot;category_V2Y3EMY0P815R9&quot;,
+                &quot;name&quot;: &quot;บทความ&quot;,
+                &quot;slug&quot;: &quot;articles&quot;
+            },
+            &quot;slug&quot;: &quot;aut-magni-laudantium-perspiciatis-sed&quot;,
+            &quot;title&quot;: &quot;(th) Rerum vel earum qui non est voluptate ut.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Rerum vel earum qui non est voluptate ut.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Dolore omnis voluptatem consectetur dignissimos natus alias culpa. Soluta maxime ullam in non laborum. Dicta ut voluptatum expedita. Reprehenderit non dolores fugiat dolores adipisci necessitatibus nihil.\n\nPorro nostrum fugit velit et aut provident n&quot;,
+            &quot;status&quot;: &quot;published&quot;,
+            &quot;tags&quot;: [],
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: &quot;2024-06-18T01:45:57.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;blog_XWPLZ3W03652D8&quot;,
+            &quot;thumbnail&quot;: null,
+            &quot;category&quot;: {
+                &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
+                &quot;name&quot;: &quot;โปรโมชั่น&quot;,
+                &quot;slug&quot;: &quot;promotions&quot;
+            },
+            &quot;slug&quot;: &quot;et-quas-dolor-molestiae-perspiciatis-molestias&quot;,
+            &quot;title&quot;: &quot;(th) Ea impedit voluptatum cupiditate praesentium quia atque.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Ea impedit voluptatum cupiditate praesentium quia atque.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Ea vero ad reprehenderit reprehenderit optio ducimus. Voluptate fugit ex dolores minima dolorem aperiam culpa. Aliquam sunt et illum dolor hic. Ea autem beatae quod molestiae et reiciendis.\n\nVoluptatem nihil iste nesciunt. Eveniet cupiditate reprehen&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;tags&quot;: [],
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;blog_1D0VE7ZMRNLBYG&quot;,
+            &quot;thumbnail&quot;: null,
+            &quot;category&quot;: {
+                &quot;id&quot;: &quot;category_V2Y3EMY0P815R9&quot;,
+                &quot;name&quot;: &quot;บทความ&quot;,
+                &quot;slug&quot;: &quot;articles&quot;
+            },
+            &quot;slug&quot;: &quot;id-rerum-quae-quae-voluptatem-aut-ut-velit&quot;,
+            &quot;title&quot;: &quot;(th) Qui voluptas fugit doloribus ea totam voluptas explicabo.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Qui voluptas fugit doloribus ea totam voluptas explicabo.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Sed sapiente esse fugit rerum ullam. Laudantium asperiores accusamus delectus consequuntur. Quidem dolor similique velit qui sit iusto natus aut. Molestiae omnis dicta optio aperiam. Quae praesentium id laborum dolorem odit voluptatem quasi.\n\nIllo eu&quot;,
+            &quot;status&quot;: &quot;published&quot;,
+            &quot;tags&quot;: [],
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: &quot;2024-06-09T08:31:04.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;blog_V1Q9J7423K8XBG&quot;,
+            &quot;thumbnail&quot;: null,
+            &quot;category&quot;: {
+                &quot;id&quot;: &quot;category_V2Y3EMY0P815R9&quot;,
+                &quot;name&quot;: &quot;บทความ&quot;,
+                &quot;slug&quot;: &quot;articles&quot;
+            },
+            &quot;slug&quot;: &quot;sunt-quae-dolores-rem-veritatis&quot;,
+            &quot;title&quot;: &quot;(th) Assumenda necessitatibus rerum sit beatae aperiam explicabo laborum.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Assumenda necessitatibus rerum sit beatae aperiam explicabo laborum.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Ea sapiente odio debitis velit omnis est eius. Ea est tempore ea animi. Voluptas excepturi ea voluptates non consequatur quo.\n\nNam dolores qui minus sit et. Et sint tempora commodi nostrum.\n\nDucimus illo voluptas sequi corporis. Maxime voluptate aliq&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;tags&quot;: [],
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;blog_M9D6P7V27BZEX5&quot;,
+            &quot;thumbnail&quot;: null,
+            &quot;category&quot;: {
+                &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
+                &quot;name&quot;: &quot;โปรโมชั่น&quot;,
+                &quot;slug&quot;: &quot;promotions&quot;
+            },
+            &quot;slug&quot;: &quot;ut-sed-sed-vero-a-labore-voluptatem&quot;,
+            &quot;title&quot;: &quot;(th) Dolores aut quia sed et.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Dolores aut quia sed et.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Nisi temporibus sequi sint animi numquam omnis corporis. Rerum voluptatem explicabo suscipit corporis delectus soluta repellendus. Eaque delectus id sint.\n\nCorporis inventore facere rem deleniti qui laboriosam. Harum placeat exercitationem sed accusa&quot;,
+            &quot;status&quot;: &quot;published&quot;,
+            &quot;tags&quot;: [],
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: &quot;2023-12-19T05:04:10.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;blog_WV8J6RP8RXE2BM&quot;,
+            &quot;thumbnail&quot;: null,
+            &quot;category&quot;: {
+                &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
+                &quot;name&quot;: &quot;โปรโมชั่น&quot;,
+                &quot;slug&quot;: &quot;promotions&quot;
+            },
+            &quot;slug&quot;: &quot;quis-ea-perferendis-dolores-quidem-et-soluta&quot;,
+            &quot;title&quot;: &quot;(th) Corrupti eveniet totam et voluptas molestiae sit.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Corrupti eveniet totam et voluptas molestiae sit.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Quidem reprehenderit quia vel. Laborum iure voluptas corporis itaque. Sit qui delectus qui explicabo. Rerum quam aliquid architecto omnis cumque.\n\nSuscipit sit qui ut dignissimos et. Et id voluptatem consequatur eligendi. Consectetur iure ut et sed u&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;tags&quot;: [],
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
         }
     ],
     &quot;links&quot;: {
         &quot;first&quot;: &quot;https://api.starter.test/api/v1/blogs?page=1&quot;,
-        &quot;last&quot;: &quot;https://api.starter.test/api/v1/blogs?page=1&quot;,
+        &quot;last&quot;: &quot;https://api.starter.test/api/v1/blogs?page=3&quot;,
         &quot;prev&quot;: null,
-        &quot;next&quot;: null
+        &quot;next&quot;: &quot;https://api.starter.test/api/v1/blogs?page=2&quot;
     },
     &quot;meta&quot;: {
         &quot;current_page&quot;: 1,
         &quot;from&quot;: 1,
-        &quot;last_page&quot;: 1,
+        &quot;last_page&quot;: 3,
         &quot;links&quot;: [
             {
                 &quot;url&quot;: null,
@@ -591,15 +789,25 @@ vary: Origin
                 &quot;active&quot;: true
             },
             {
-                &quot;url&quot;: null,
+                &quot;url&quot;: &quot;https://api.starter.test/api/v1/blogs?page=2&quot;,
+                &quot;label&quot;: &quot;2&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;https://api.starter.test/api/v1/blogs?page=3&quot;,
+                &quot;label&quot;: &quot;3&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;https://api.starter.test/api/v1/blogs?page=2&quot;,
                 &quot;label&quot;: &quot;ถัดไป &amp;raquo;&quot;,
                 &quot;active&quot;: false
             }
         ],
         &quot;path&quot;: &quot;https://api.starter.test/api/v1/blogs&quot;,
         &quot;per_page&quot;: 10,
-        &quot;to&quot;: 1,
-        &quot;total&quot;: 1
+        &quot;to&quot;: 10,
+        &quot;total&quot;: 21
     }
 }</code>
  </pre>
@@ -705,34 +913,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"slug\": \"em\",
-    \"category_id\": \"enim\",
-    \"published_at\": \"2024-10-02T04:36:18\",
+    \"slug\": \"tvuz\",
+    \"category_id\": \"suscipit\",
+    \"published_at\": \"2024-10-08T06:31:00\",
     \"tags\": [
-        \"yxdqznxmrhesbubf\"
+        \"yidfgd\"
     ],
     \"th\": {
-        \"title\": \"c\",
-        \"body\": \"wrcqxwbidrashyxplphnpkdlq\",
-        \"meta_title\": \"rvpn\",
-        \"meta_description\": \"takn\"
+        \"title\": \"lvywfwkxdwqtvp\",
+        \"body\": \"ikxhjncykejjiqjm\",
+        \"meta_title\": \"wezrituz\",
+        \"meta_description\": \"mxhwxxnjhthaexew\"
     },
     \"en\": {
-        \"title\": \"dnnqxdt\",
-        \"body\": \"veh\",
-        \"meta_title\": \"ixerihjn\",
-        \"meta_description\": \"kghcuacagfkvzkuopnmyqfdb\"
+        \"title\": \"zryzxbnyvvuzgkxi\",
+        \"body\": \"chslauxvjrdvogvlnriug\",
+        \"meta_title\": \"vlcnz\",
+        \"meta_description\": \"tgw\"
     },
     \"cover\": {
-        \"path\": \"dolorem\"
+        \"path\": \"tenetur\",
+        \"url\": \"http:\\/\\/crona.com\\/cupiditate-dolorem-dolore-ut-dolorum-dolores-exercitationem\",
+        \"name\": \"porro\"
     },
     \"thumbnail\": {
-        \"path\": \"ullam\"
+        \"path\": \"amet\",
+        \"url\": \"http:\\/\\/www.johnston.com\\/\",
+        \"name\": \"fugiat\"
     },
     \"body_images\": [
         {
-            \"path\": \"sit\",
-            \"url\": \"http:\\/\\/www.hettinger.com\\/\"
+            \"path\": \"vero\",
+            \"url\": \"http:\\/\\/runolfsdottir.net\\/quidem-veritatis-saepe-sed-perferendis-aperiam.html\",
+            \"name\": \"et\"
         }
     ]
 }"
@@ -751,34 +964,39 @@ const headers = {
 };
 
 let body = {
-    "slug": "em",
-    "category_id": "enim",
-    "published_at": "2024-10-02T04:36:18",
+    "slug": "tvuz",
+    "category_id": "suscipit",
+    "published_at": "2024-10-08T06:31:00",
     "tags": [
-        "yxdqznxmrhesbubf"
+        "yidfgd"
     ],
     "th": {
-        "title": "c",
-        "body": "wrcqxwbidrashyxplphnpkdlq",
-        "meta_title": "rvpn",
-        "meta_description": "takn"
+        "title": "lvywfwkxdwqtvp",
+        "body": "ikxhjncykejjiqjm",
+        "meta_title": "wezrituz",
+        "meta_description": "mxhwxxnjhthaexew"
     },
     "en": {
-        "title": "dnnqxdt",
-        "body": "veh",
-        "meta_title": "ixerihjn",
-        "meta_description": "kghcuacagfkvzkuopnmyqfdb"
+        "title": "zryzxbnyvvuzgkxi",
+        "body": "chslauxvjrdvogvlnriug",
+        "meta_title": "vlcnz",
+        "meta_description": "tgw"
     },
     "cover": {
-        "path": "dolorem"
+        "path": "tenetur",
+        "url": "http:\/\/crona.com\/cupiditate-dolorem-dolore-ut-dolorum-dolores-exercitationem",
+        "name": "porro"
     },
     "thumbnail": {
-        "path": "ullam"
+        "path": "amet",
+        "url": "http:\/\/www.johnston.com\/",
+        "name": "fugiat"
     },
     "body_images": [
         {
-            "path": "sit",
-            "url": "http:\/\/www.hettinger.com\/"
+            "path": "vero",
+            "url": "http:\/\/runolfsdottir.net\/quidem-veritatis-saepe-sed-perferendis-aperiam.html",
+            "name": "et"
         }
     ]
 };
@@ -880,10 +1098,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="slug"                data-endpoint="POSTapi-v1-blogs"
-               value="em"
+               value="tvuz"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>em</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>tvuz</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>category_id</code></b>&nbsp;&nbsp;
@@ -891,10 +1109,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category_id"                data-endpoint="POSTapi-v1-blogs"
-               value="enim"
+               value="suscipit"
                data-component="body">
     <br>
-<p>Example: <code>enim</code></p>
+<p>Example: <code>suscipit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
@@ -902,10 +1120,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="published_at"                data-endpoint="POSTapi-v1-blogs"
-               value="2024-10-02T04:36:18"
+               value="2024-10-08T06:31:00"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-02T04:36:18</code></p>
+<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-08T06:31:00</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tags</code></b>&nbsp;&nbsp;
@@ -935,10 +1153,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="th.title"                data-endpoint="POSTapi-v1-blogs"
-               value="c"
+               value="lvywfwkxdwqtvp"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>c</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>lvywfwkxdwqtvp</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
@@ -946,10 +1164,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="th.body"                data-endpoint="POSTapi-v1-blogs"
-               value="wrcqxwbidrashyxplphnpkdlq"
+               value="ikxhjncykejjiqjm"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>wrcqxwbidrashyxplphnpkdlq</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>ikxhjncykejjiqjm</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -957,10 +1175,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.meta_title"                data-endpoint="POSTapi-v1-blogs"
-               value="rvpn"
+               value="wezrituz"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>rvpn</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>wezrituz</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -968,10 +1186,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.meta_description"                data-endpoint="POSTapi-v1-blogs"
-               value="takn"
+               value="mxhwxxnjhthaexew"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>takn</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>mxhwxxnjhthaexew</code></p>
                     </div>
                                     </details>
         </div>
@@ -990,10 +1208,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.title"                data-endpoint="POSTapi-v1-blogs"
-               value="dnnqxdt"
+               value="zryzxbnyvvuzgkxi"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>dnnqxdt</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>zryzxbnyvvuzgkxi</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
@@ -1001,10 +1219,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.body"                data-endpoint="POSTapi-v1-blogs"
-               value="veh"
+               value="chslauxvjrdvogvlnriug"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>veh</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>chslauxvjrdvogvlnriug</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -1012,10 +1230,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.meta_title"                data-endpoint="POSTapi-v1-blogs"
-               value="ixerihjn"
+               value="vlcnz"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>ixerihjn</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>vlcnz</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -1023,10 +1241,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.meta_description"                data-endpoint="POSTapi-v1-blogs"
-               value="kghcuacagfkvzkuopnmyqfdb"
+               value="tgw"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>kghcuacagfkvzkuopnmyqfdb</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>tgw</code></p>
                     </div>
                                     </details>
         </div>
@@ -1040,15 +1258,48 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
             </summary>
                                                 <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="cover.id"                data-endpoint="POSTapi-v1-blogs"
+               value=""
+               data-component="body">
+    <br>
+
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>path</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="cover.path"                data-endpoint="POSTapi-v1-blogs"
-               value="dolorem"
+               value="tenetur"
                data-component="body">
     <br>
-<p>Example: <code>dolorem</code></p>
+<p>This field is required when <code>cover.id</code> is <code>null</code>. Example: <code>tenetur</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="cover.url"                data-endpoint="POSTapi-v1-blogs"
+               value="http://crona.com/cupiditate-dolorem-dolore-ut-dolorum-dolores-exercitationem"
+               data-component="body">
+    <br>
+<p>Example: <code>http://crona.com/cupiditate-dolorem-dolore-ut-dolorum-dolores-exercitationem</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="cover.name"                data-endpoint="POSTapi-v1-blogs"
+               value="porro"
+               data-component="body">
+    <br>
+<p>Example: <code>porro</code></p>
                     </div>
                                     </details>
         </div>
@@ -1062,15 +1313,48 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
             </summary>
                                                 <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="thumbnail.id"                data-endpoint="POSTapi-v1-blogs"
+               value=""
+               data-component="body">
+    <br>
+
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>path</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="thumbnail.path"                data-endpoint="POSTapi-v1-blogs"
-               value="ullam"
+               value="amet"
                data-component="body">
     <br>
-<p>Example: <code>ullam</code></p>
+<p>This field is required when <code>thumbnail.id</code> is <code>null</code>. Example: <code>amet</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="thumbnail.url"                data-endpoint="POSTapi-v1-blogs"
+               value="http://www.johnston.com/"
+               data-component="body">
+    <br>
+<p>Example: <code>http://www.johnston.com/</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="thumbnail.name"                data-endpoint="POSTapi-v1-blogs"
+               value="fugiat"
+               data-component="body">
+    <br>
+<p>Example: <code>fugiat</code></p>
                     </div>
                                     </details>
         </div>
@@ -1100,10 +1384,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.path"                data-endpoint="POSTapi-v1-blogs"
-               value="sit"
+               value="vero"
                data-component="body">
     <br>
-<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>sit</code></p>
+<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>vero</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
@@ -1111,10 +1395,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.url"                data-endpoint="POSTapi-v1-blogs"
-               value="http://www.hettinger.com/"
+               value="http://runolfsdottir.net/quidem-veritatis-saepe-sed-perferendis-aperiam.html"
                data-component="body">
     <br>
-<p>Example: <code>http://www.hettinger.com/</code></p>
+<p>Example: <code>http://runolfsdottir.net/quidem-veritatis-saepe-sed-perferendis-aperiam.html</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="body_images.0.name"                data-endpoint="POSTapi-v1-blogs"
+               value="et"
+               data-component="body">
+    <br>
+<p>Example: <code>et</code></p>
                     </div>
                                     </details>
         </div>
@@ -1289,34 +1584,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"slug\": \"jppkijmdkqhwlogadnsfkyq\",
-    \"category_id\": \"cum\",
-    \"published_at\": \"2024-10-02T04:36:18\",
+    \"slug\": \"bqtozwldljqdtnstlzwy\",
+    \"category_id\": \"culpa\",
+    \"published_at\": \"2024-10-08T06:31:00\",
     \"tags\": [
-        \"qnqagthsxvzphaoygnsboh\"
+        \"edbu\"
     ],
     \"th\": {
-        \"title\": \"nftifccuaikxvhqiyavnpmupw\",
-        \"body\": \"roprab\",
-        \"meta_title\": \"ukwnoaqtjhryeswojagfa\",
-        \"meta_description\": \"tfvhymrhioizqkzkrjvk\"
+        \"title\": \"fetgfmxmzcycffanxyawbjcrl\",
+        \"body\": \"puxghmvafkyebctzf\",
+        \"meta_title\": \"iqevjznyjsojmvwvf\",
+        \"meta_description\": \"dwzs\"
     },
     \"en\": {
-        \"title\": \"umdwsn\",
-        \"body\": \"sjsxbskxkra\",
-        \"meta_title\": \"rhvsywdvkooqbhiihlmvdoeyx\",
-        \"meta_description\": \"gjpqrwvzfhgqczc\"
+        \"title\": \"fpaltcrqzfwafs\",
+        \"body\": \"yazyybxyr\",
+        \"meta_title\": \"twbjvdmgkmmc\",
+        \"meta_description\": \"cpxodezh\"
     },
     \"cover\": {
-        \"path\": \"aliquam\"
+        \"path\": \"unde\",
+        \"url\": \"http:\\/\\/www.schulist.com\\/quasi-eum-eligendi-excepturi-optio-quos-iste\",
+        \"name\": \"illo\"
     },
     \"thumbnail\": {
-        \"path\": \"itaque\"
+        \"path\": \"autem\",
+        \"url\": \"https:\\/\\/adams.biz\\/voluptatem-voluptatum-voluptas-aut-illum-harum.html\",
+        \"name\": \"recusandae\"
     },
     \"body_images\": [
         {
-            \"path\": \"consequatur\",
-            \"url\": \"http:\\/\\/www.altenwerth.com\\/animi-voluptas-atque-consequatur-error-omnis-aut-consequatur.html\"
+            \"path\": \"omnis\",
+            \"url\": \"http:\\/\\/kuhlman.com\\/\",
+            \"name\": \"rerum\"
         }
     ]
 }"
@@ -1335,34 +1635,39 @@ const headers = {
 };
 
 let body = {
-    "slug": "jppkijmdkqhwlogadnsfkyq",
-    "category_id": "cum",
-    "published_at": "2024-10-02T04:36:18",
+    "slug": "bqtozwldljqdtnstlzwy",
+    "category_id": "culpa",
+    "published_at": "2024-10-08T06:31:00",
     "tags": [
-        "qnqagthsxvzphaoygnsboh"
+        "edbu"
     ],
     "th": {
-        "title": "nftifccuaikxvhqiyavnpmupw",
-        "body": "roprab",
-        "meta_title": "ukwnoaqtjhryeswojagfa",
-        "meta_description": "tfvhymrhioizqkzkrjvk"
+        "title": "fetgfmxmzcycffanxyawbjcrl",
+        "body": "puxghmvafkyebctzf",
+        "meta_title": "iqevjznyjsojmvwvf",
+        "meta_description": "dwzs"
     },
     "en": {
-        "title": "umdwsn",
-        "body": "sjsxbskxkra",
-        "meta_title": "rhvsywdvkooqbhiihlmvdoeyx",
-        "meta_description": "gjpqrwvzfhgqczc"
+        "title": "fpaltcrqzfwafs",
+        "body": "yazyybxyr",
+        "meta_title": "twbjvdmgkmmc",
+        "meta_description": "cpxodezh"
     },
     "cover": {
-        "path": "aliquam"
+        "path": "unde",
+        "url": "http:\/\/www.schulist.com\/quasi-eum-eligendi-excepturi-optio-quos-iste",
+        "name": "illo"
     },
     "thumbnail": {
-        "path": "itaque"
+        "path": "autem",
+        "url": "https:\/\/adams.biz\/voluptatem-voluptatum-voluptas-aut-illum-harum.html",
+        "name": "recusandae"
     },
     "body_images": [
         {
-            "path": "consequatur",
-            "url": "http:\/\/www.altenwerth.com\/animi-voluptas-atque-consequatur-error-omnis-aut-consequatur.html"
+            "path": "omnis",
+            "url": "http:\/\/kuhlman.com\/",
+            "name": "rerum"
         }
     ]
 };
@@ -1480,10 +1785,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="slug"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="jppkijmdkqhwlogadnsfkyq"
+               value="bqtozwldljqdtnstlzwy"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>jppkijmdkqhwlogadnsfkyq</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>bqtozwldljqdtnstlzwy</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>category_id</code></b>&nbsp;&nbsp;
@@ -1491,10 +1796,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category_id"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="cum"
+               value="culpa"
                data-component="body">
     <br>
-<p>Example: <code>cum</code></p>
+<p>Example: <code>culpa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
@@ -1502,10 +1807,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="published_at"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="2024-10-02T04:36:18"
+               value="2024-10-08T06:31:00"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-02T04:36:18</code></p>
+<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-08T06:31:00</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tags</code></b>&nbsp;&nbsp;
@@ -1535,10 +1840,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="th.title"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="nftifccuaikxvhqiyavnpmupw"
+               value="fetgfmxmzcycffanxyawbjcrl"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>nftifccuaikxvhqiyavnpmupw</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>fetgfmxmzcycffanxyawbjcrl</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
@@ -1546,10 +1851,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="th.body"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="roprab"
+               value="puxghmvafkyebctzf"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>roprab</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>puxghmvafkyebctzf</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -1557,10 +1862,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.meta_title"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="ukwnoaqtjhryeswojagfa"
+               value="iqevjznyjsojmvwvf"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>ukwnoaqtjhryeswojagfa</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>iqevjznyjsojmvwvf</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -1568,10 +1873,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.meta_description"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="tfvhymrhioizqkzkrjvk"
+               value="dwzs"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>tfvhymrhioizqkzkrjvk</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>dwzs</code></p>
                     </div>
                                     </details>
         </div>
@@ -1590,10 +1895,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.title"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="umdwsn"
+               value="fpaltcrqzfwafs"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>umdwsn</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>fpaltcrqzfwafs</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
@@ -1601,10 +1906,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.body"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="sjsxbskxkra"
+               value="yazyybxyr"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>sjsxbskxkra</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>yazyybxyr</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -1612,10 +1917,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.meta_title"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="rhvsywdvkooqbhiihlmvdoeyx"
+               value="twbjvdmgkmmc"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>rhvsywdvkooqbhiihlmvdoeyx</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>twbjvdmgkmmc</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -1623,10 +1928,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.meta_description"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="gjpqrwvzfhgqczc"
+               value="cpxodezh"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>gjpqrwvzfhgqczc</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>cpxodezh</code></p>
                     </div>
                                     </details>
         </div>
@@ -1640,15 +1945,48 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
             </summary>
                                                 <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="cover.id"                data-endpoint="PUTapi-v1-blogs--id-"
+               value=""
+               data-component="body">
+    <br>
+
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>path</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="cover.path"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="aliquam"
+               value="unde"
                data-component="body">
     <br>
-<p>Example: <code>aliquam</code></p>
+<p>This field is required when <code>cover.id</code> is <code>null</code>. Example: <code>unde</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="cover.url"                data-endpoint="PUTapi-v1-blogs--id-"
+               value="http://www.schulist.com/quasi-eum-eligendi-excepturi-optio-quos-iste"
+               data-component="body">
+    <br>
+<p>Example: <code>http://www.schulist.com/quasi-eum-eligendi-excepturi-optio-quos-iste</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="cover.name"                data-endpoint="PUTapi-v1-blogs--id-"
+               value="illo"
+               data-component="body">
+    <br>
+<p>Example: <code>illo</code></p>
                     </div>
                                     </details>
         </div>
@@ -1662,15 +2000,48 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
             </summary>
                                                 <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="thumbnail.id"                data-endpoint="PUTapi-v1-blogs--id-"
+               value=""
+               data-component="body">
+    <br>
+
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>path</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="thumbnail.path"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="itaque"
+               value="autem"
                data-component="body">
     <br>
-<p>Example: <code>itaque</code></p>
+<p>This field is required when <code>thumbnail.id</code> is <code>null</code>. Example: <code>autem</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="thumbnail.url"                data-endpoint="PUTapi-v1-blogs--id-"
+               value="https://adams.biz/voluptatem-voluptatum-voluptas-aut-illum-harum.html"
+               data-component="body">
+    <br>
+<p>Example: <code>https://adams.biz/voluptatem-voluptatum-voluptas-aut-illum-harum.html</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="thumbnail.name"                data-endpoint="PUTapi-v1-blogs--id-"
+               value="recusandae"
+               data-component="body">
+    <br>
+<p>Example: <code>recusandae</code></p>
                     </div>
                                     </details>
         </div>
@@ -1700,10 +2071,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.path"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="consequatur"
+               value="omnis"
                data-component="body">
     <br>
-<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>consequatur</code></p>
+<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>omnis</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
@@ -1711,10 +2082,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.url"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="http://www.altenwerth.com/animi-voluptas-atque-consequatur-error-omnis-aut-consequatur.html"
+               value="http://kuhlman.com/"
                data-component="body">
     <br>
-<p>Example: <code>http://www.altenwerth.com/animi-voluptas-atque-consequatur-error-omnis-aut-consequatur.html</code></p>
+<p>Example: <code>http://kuhlman.com/</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="body_images.0.name"                data-endpoint="PUTapi-v1-blogs--id-"
+               value="rerum"
+               data-component="body">
+    <br>
+<p>Example: <code>rerum</code></p>
                     </div>
                                     </details>
         </div>
@@ -1854,6 +2236,1218 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                <h1 id="careers">Careers</h1>
+
+    
+
+                                <h2 id="careers-GETapi-v1-careers">Get all job posts</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-careers">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://api.starter.test/api/v1/careers" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api.starter.test/api/v1/careers"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-careers">
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+vary: Origin
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Server Error&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-careers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-careers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-careers"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-careers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-careers">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-careers" data-method="GET"
+      data-path="api/v1/careers"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-careers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-careers"
+                    onclick="tryItOut('GETapi-v1-careers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-careers"
+                    onclick="cancelTryOut('GETapi-v1-careers');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-careers"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/careers</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-careers"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-careers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-careers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="careers-POSTapi-v1-careers">Create a job post.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-careers">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://api.starter.test/api/v1/careers" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"jnzfeaskms\",
+    \"location_id\": \"dolorem\",
+    \"department_id\": \"cumque\",
+    \"published_at\": \"2024-10-08T06:31:00\",
+    \"th\": {
+        \"title\": \"ehdkju\",
+        \"body\": \"guglssuoojkbg\",
+        \"meta_title\": \"fpzpc\",
+        \"meta_description\": \"revawldqoirsphldbfsqno\"
+    },
+    \"en\": {
+        \"title\": \"cipri\",
+        \"body\": \"powtrzgoowvxajk\",
+        \"meta_title\": \"dbjxytvoizhmkwcceh\",
+        \"meta_description\": \"a\"
+    },
+    \"body_images\": [
+        {
+            \"path\": \"repudiandae\",
+            \"url\": \"http:\\/\\/hirthe.com\\/aspernatur-laudantium-minima-fugiat-non-veniam\",
+            \"name\": \"aut\"
+        }
+    ]
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api.starter.test/api/v1/careers"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "type": "jnzfeaskms",
+    "location_id": "dolorem",
+    "department_id": "cumque",
+    "published_at": "2024-10-08T06:31:00",
+    "th": {
+        "title": "ehdkju",
+        "body": "guglssuoojkbg",
+        "meta_title": "fpzpc",
+        "meta_description": "revawldqoirsphldbfsqno"
+    },
+    "en": {
+        "title": "cipri",
+        "body": "powtrzgoowvxajk",
+        "meta_title": "dbjxytvoizhmkwcceh",
+        "meta_description": "a"
+    },
+    "body_images": [
+        {
+            "path": "repudiandae",
+            "url": "http:\/\/hirthe.com\/aspernatur-laudantium-minima-fugiat-non-veniam",
+            "name": "aut"
+        }
+    ]
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-careers">
+</span>
+<span id="execution-results-POSTapi-v1-careers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-careers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-careers"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-careers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-careers">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-careers" data-method="POST"
+      data-path="api/v1/careers"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-careers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-careers"
+                    onclick="tryItOut('POSTapi-v1-careers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-careers"
+                    onclick="cancelTryOut('POSTapi-v1-careers');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-careers"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/careers</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-careers"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-careers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-careers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="type"                data-endpoint="POSTapi-v1-careers"
+               value="jnzfeaskms"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>jnzfeaskms</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>location_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="location_id"                data-endpoint="POSTapi-v1-careers"
+               value="dolorem"
+               data-component="body">
+    <br>
+<p>Example: <code>dolorem</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>department_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="department_id"                data-endpoint="POSTapi-v1-careers"
+               value="cumque"
+               data-component="body">
+    <br>
+<p>Example: <code>cumque</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="published_at"                data-endpoint="POSTapi-v1-careers"
+               value="2024-10-08T06:31:00"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-08T06:31:00</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>th</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="th.title"                data-endpoint="POSTapi-v1-careers"
+               value="ehdkju"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>ehdkju</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="th.body"                data-endpoint="POSTapi-v1-careers"
+               value="guglssuoojkbg"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>guglssuoojkbg</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="th.meta_title"                data-endpoint="POSTapi-v1-careers"
+               value="fpzpc"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>fpzpc</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="th.meta_description"                data-endpoint="POSTapi-v1-careers"
+               value="revawldqoirsphldbfsqno"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>revawldqoirsphldbfsqno</code></p>
+                    </div>
+                                    </details>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>en</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="en.title"                data-endpoint="POSTapi-v1-careers"
+               value="cipri"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>cipri</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="en.body"                data-endpoint="POSTapi-v1-careers"
+               value="powtrzgoowvxajk"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>powtrzgoowvxajk</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="en.meta_title"                data-endpoint="POSTapi-v1-careers"
+               value="dbjxytvoizhmkwcceh"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>dbjxytvoizhmkwcceh</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="en.meta_description"                data-endpoint="POSTapi-v1-careers"
+               value="a"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>a</code></p>
+                    </div>
+                                    </details>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>body_images</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="body_images.0.id"                data-endpoint="POSTapi-v1-careers"
+               value=""
+               data-component="body">
+    <br>
+
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>path</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="body_images.0.path"                data-endpoint="POSTapi-v1-careers"
+               value="repudiandae"
+               data-component="body">
+    <br>
+<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>repudiandae</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="body_images.0.url"                data-endpoint="POSTapi-v1-careers"
+               value="http://hirthe.com/aspernatur-laudantium-minima-fugiat-non-veniam"
+               data-component="body">
+    <br>
+<p>Example: <code>http://hirthe.com/aspernatur-laudantium-minima-fugiat-non-veniam</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="body_images.0.name"                data-endpoint="POSTapi-v1-careers"
+               value="aut"
+               data-component="body">
+    <br>
+<p>Example: <code>aut</code></p>
+                    </div>
+                                    </details>
+        </div>
+        </form>
+
+                    <h2 id="careers-GETapi-v1-careers--id-">Get a job post by id.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-careers--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://api.starter.test/api/v1/careers/16" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api.starter.test/api/v1/careers/16"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-careers--id-">
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+vary: Origin
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Server Error&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-careers--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-careers--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-careers--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-careers--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-careers--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-careers--id-" data-method="GET"
+      data-path="api/v1/careers/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-careers--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-careers--id-"
+                    onclick="tryItOut('GETapi-v1-careers--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-careers--id-"
+                    onclick="cancelTryOut('GETapi-v1-careers--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-careers--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/careers/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-careers--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-careers--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-careers--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-v1-careers--id-"
+               value="16"
+               data-component="url">
+    <br>
+<p>The ID of the career. Example: <code>16</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="careers-PUTapi-v1-careers--id-">Update a job post.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-v1-careers--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "https://api.starter.test/api/v1/careers/9" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"iqazgpjbkzgizrtuhjmvai\",
+    \"location_id\": \"corporis\",
+    \"department_id\": \"praesentium\",
+    \"published_at\": \"2024-10-08T06:31:00\",
+    \"th\": {
+        \"title\": \"eapxte\",
+        \"body\": \"gonmpzfndvwud\",
+        \"meta_title\": \"eo\",
+        \"meta_description\": \"afjbjwynwutrqkyocauaudl\"
+    },
+    \"en\": {
+        \"title\": \"smmwrzxeb\",
+        \"body\": \"x\",
+        \"meta_title\": \"vtklnlw\",
+        \"meta_description\": \"pbntoafrtajkfpcaqvmlmomg\"
+    },
+    \"body_images\": [
+        {
+            \"path\": \"modi\",
+            \"url\": \"http:\\/\\/schuster.com\\/\",
+            \"name\": \"maiores\"
+        }
+    ]
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api.starter.test/api/v1/careers/9"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "type": "iqazgpjbkzgizrtuhjmvai",
+    "location_id": "corporis",
+    "department_id": "praesentium",
+    "published_at": "2024-10-08T06:31:00",
+    "th": {
+        "title": "eapxte",
+        "body": "gonmpzfndvwud",
+        "meta_title": "eo",
+        "meta_description": "afjbjwynwutrqkyocauaudl"
+    },
+    "en": {
+        "title": "smmwrzxeb",
+        "body": "x",
+        "meta_title": "vtklnlw",
+        "meta_description": "pbntoafrtajkfpcaqvmlmomg"
+    },
+    "body_images": [
+        {
+            "path": "modi",
+            "url": "http:\/\/schuster.com\/",
+            "name": "maiores"
+        }
+    ]
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-careers--id-">
+</span>
+<span id="execution-results-PUTapi-v1-careers--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-careers--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-careers--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-careers--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-careers--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-careers--id-" data-method="PUT"
+      data-path="api/v1/careers/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-careers--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-careers--id-"
+                    onclick="tryItOut('PUTapi-v1-careers--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-careers--id-"
+                    onclick="cancelTryOut('PUTapi-v1-careers--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-careers--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/careers/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/v1/careers/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-careers--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-careers--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-careers--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-v1-careers--id-"
+               value="9"
+               data-component="url">
+    <br>
+<p>The ID of the career. Example: <code>9</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="type"                data-endpoint="PUTapi-v1-careers--id-"
+               value="iqazgpjbkzgizrtuhjmvai"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>iqazgpjbkzgizrtuhjmvai</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>location_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="location_id"                data-endpoint="PUTapi-v1-careers--id-"
+               value="corporis"
+               data-component="body">
+    <br>
+<p>Example: <code>corporis</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>department_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="department_id"                data-endpoint="PUTapi-v1-careers--id-"
+               value="praesentium"
+               data-component="body">
+    <br>
+<p>Example: <code>praesentium</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="published_at"                data-endpoint="PUTapi-v1-careers--id-"
+               value="2024-10-08T06:31:00"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-08T06:31:00</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>th</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="th.title"                data-endpoint="PUTapi-v1-careers--id-"
+               value="eapxte"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>eapxte</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="th.body"                data-endpoint="PUTapi-v1-careers--id-"
+               value="gonmpzfndvwud"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>gonmpzfndvwud</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="th.meta_title"                data-endpoint="PUTapi-v1-careers--id-"
+               value="eo"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>eo</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="th.meta_description"                data-endpoint="PUTapi-v1-careers--id-"
+               value="afjbjwynwutrqkyocauaudl"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>afjbjwynwutrqkyocauaudl</code></p>
+                    </div>
+                                    </details>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>en</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="en.title"                data-endpoint="PUTapi-v1-careers--id-"
+               value="smmwrzxeb"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>smmwrzxeb</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="en.body"                data-endpoint="PUTapi-v1-careers--id-"
+               value="x"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>x</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="en.meta_title"                data-endpoint="PUTapi-v1-careers--id-"
+               value="vtklnlw"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>vtklnlw</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="en.meta_description"                data-endpoint="PUTapi-v1-careers--id-"
+               value="pbntoafrtajkfpcaqvmlmomg"
+               data-component="body">
+    <br>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>pbntoafrtajkfpcaqvmlmomg</code></p>
+                    </div>
+                                    </details>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>body_images</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="body_images.0.id"                data-endpoint="PUTapi-v1-careers--id-"
+               value=""
+               data-component="body">
+    <br>
+
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>path</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="body_images.0.path"                data-endpoint="PUTapi-v1-careers--id-"
+               value="modi"
+               data-component="body">
+    <br>
+<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>modi</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="body_images.0.url"                data-endpoint="PUTapi-v1-careers--id-"
+               value="http://schuster.com/"
+               data-component="body">
+    <br>
+<p>Example: <code>http://schuster.com/</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="body_images.0.name"                data-endpoint="PUTapi-v1-careers--id-"
+               value="maiores"
+               data-component="body">
+    <br>
+<p>Example: <code>maiores</code></p>
+                    </div>
+                                    </details>
+        </div>
+        </form>
+
+                    <h2 id="careers-DELETEapi-v1-careers--id-">Delete a job post.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-v1-careers--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "https://api.starter.test/api/v1/careers/3" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api.starter.test/api/v1/careers/3"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-careers--id-">
+</span>
+<span id="execution-results-DELETEapi-v1-careers--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-careers--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-careers--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-careers--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-careers--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-careers--id-" data-method="DELETE"
+      data-path="api/v1/careers/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-careers--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-careers--id-"
+                    onclick="tryItOut('DELETEapi-v1-careers--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-careers--id-"
+                    onclick="cancelTryOut('DELETEapi-v1-careers--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-careers--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/careers/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-careers--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-careers--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-careers--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-v1-careers--id-"
+               value="3"
+               data-component="url">
+    <br>
+<p>The ID of the career. Example: <code>3</code></p>
+            </div>
+                    </form>
+
                 <h1 id="categories">Categories</h1>
 
     
@@ -1917,8 +3511,8 @@ vary: Origin
             &quot;description&quot;: null,
             &quot;slug&quot;: &quot;articles&quot;,
             &quot;sort&quot;: null,
-            &quot;created_at&quot;: &quot;2024-10-01T08:02:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-01T08:02:04.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
         },
         {
             &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
@@ -1926,8 +3520,8 @@ vary: Origin
             &quot;description&quot;: null,
             &quot;slug&quot;: &quot;promotions&quot;,
             &quot;sort&quot;: null,
-            &quot;created_at&quot;: &quot;2024-10-01T08:02:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-01T08:02:04.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
         }
     ],
     &quot;links&quot;: {
@@ -2803,7 +4397,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/tags/sed" \
+    --get "https://api.starter.test/api/v1/tags/ad" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2811,7 +4405,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/tags/sed"
+    "https://api.starter.test/api/v1/tags/ad"
 );
 
 const headers = {
@@ -2932,10 +4526,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi-v1-tags--type-"
-               value="sed"
+               value="ad"
                data-component="url">
     <br>
-<p>Example: <code>sed</code></p>
+<p>Example: <code>ad</code></p>
             </div>
                     </form>
 
@@ -2962,10 +4556,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"first_name\": \"dojxiusoqocqvunjvxsarl\",
-    \"last_name\": \"tgjzaewramwugrqofxy\",
-    \"email\": \"buck.rippin@example.com\",
-    \"password\": \"aspernatur\"
+    \"first_name\": \"wtexdxeazwiy\",
+    \"last_name\": \"sjd\",
+    \"email\": \"reichel.chasity@example.org\",
+    \"password\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -2982,10 +4576,10 @@ const headers = {
 };
 
 let body = {
-    "first_name": "dojxiusoqocqvunjvxsarl",
-    "last_name": "tgjzaewramwugrqofxy",
-    "email": "buck.rippin@example.com",
-    "password": "aspernatur"
+    "first_name": "wtexdxeazwiy",
+    "last_name": "sjd",
+    "email": "reichel.chasity@example.org",
+    "password": "architecto"
 };
 
 fetch(url, {
@@ -3096,10 +4690,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="POSTapi-v1-register"
-               value="dojxiusoqocqvunjvxsarl"
+               value="wtexdxeazwiy"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>dojxiusoqocqvunjvxsarl</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>wtexdxeazwiy</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -3107,10 +4701,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="POSTapi-v1-register"
-               value="tgjzaewramwugrqofxy"
+               value="sjd"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>tgjzaewramwugrqofxy</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>sjd</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -3118,10 +4712,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-register"
-               value="buck.rippin@example.com"
+               value="reichel.chasity@example.org"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>buck.rippin@example.com</code></p>
+<p>ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>reichel.chasity@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -3129,10 +4723,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-register"
-               value="aspernatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Example: <code>aspernatur</code></p>
+<p>Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -3155,7 +4749,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"bauch.meredith@example.com\"
+    \"email\": \"josefina66@example.net\"
 }"
 </code></pre></div>
 
@@ -3172,7 +4766,7 @@ const headers = {
 };
 
 let body = {
-    "email": "bauch.meredith@example.com"
+    "email": "josefina66@example.net"
 };
 
 fetch(url, {
@@ -3272,10 +4866,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-forgot-password"
-               value="bauch.meredith@example.com"
+               value="josefina66@example.net"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นอีเมล. Example: <code>bauch.meredith@example.com</code></p>
+<p>ข้อมูล value ต้องเป็นอีเมล. Example: <code>josefina66@example.net</code></p>
         </div>
         </form>
 
@@ -3298,9 +4892,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"token\": \"dolore\",
-    \"email\": \"winfield.weber@example.net\",
-    \"password\": \"saepe\"
+    \"token\": \"fugiat\",
+    \"email\": \"dylan87@example.net\",
+    \"password\": \"ad\"
 }"
 </code></pre></div>
 
@@ -3317,9 +4911,9 @@ const headers = {
 };
 
 let body = {
-    "token": "dolore",
-    "email": "winfield.weber@example.net",
-    "password": "saepe"
+    "token": "fugiat",
+    "email": "dylan87@example.net",
+    "password": "ad"
 };
 
 fetch(url, {
@@ -3419,10 +5013,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="token"                data-endpoint="POSTapi-v1-reset-password"
-               value="dolore"
+               value="fugiat"
                data-component="body">
     <br>
-<p>Example: <code>dolore</code></p>
+<p>Example: <code>fugiat</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -3430,10 +5024,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-reset-password"
-               value="winfield.weber@example.net"
+               value="dylan87@example.net"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นอีเมล. Example: <code>winfield.weber@example.net</code></p>
+<p>ข้อมูล value ต้องเป็นอีเมล. Example: <code>dylan87@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -3441,10 +5035,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-reset-password"
-               value="saepe"
+               value="ad"
                data-component="body">
     <br>
-<p>Example: <code>saepe</code></p>
+<p>Example: <code>ad</code></p>
         </div>
         </form>
 
@@ -3462,7 +5056,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/verify-email/ipsum/amet" \
+    --get "https://api.starter.test/api/v1/verify-email/qui/cupiditate" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3470,7 +5064,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/verify-email/ipsum/amet"
+    "https://api.starter.test/api/v1/verify-email/qui/cupiditate"
 );
 
 const headers = {
@@ -3499,7 +5093,7 @@ content-type: application/json
 x-ratelimit-limit: 6
 x-ratelimit-remaining: 5
 vary: Origin
-set-cookie: XSRF-TOKEN=eyJpdiI6IndCMTBNa1p5bnFDeHozYlF0cW9yTUE9PSIsInZhbHVlIjoieUhyOHBEdXQzaVlRTlRWUGpIa3RDT3hocXJvdXpWZ3RXNXJwb1hrZUJhTWljZ3NGNjNpUmhveWZxazVUKzB3eUNocDdGTkhWL2pzZWVtMDF4Ync2TmZJSTZoWjN3U1gwdlhXVnRIcnRXZ0pDY203dFlhSUFNaUEySS9PV1BpYWEiLCJtYWMiOiI5NmFkYjAwOWUxZmVlNjIwNGU3YzBhM2YwNzU0OTY2MzE3ZTIzYjk3ZWRlYTFjMjc0ZWFlMThjNzMzZjJmZjFhIiwidGFnIjoiIn0%3D; expires=Wed, 02 Oct 2024 06:36:17 GMT; Max-Age=7200; path=/; domain=.starter.test; secure; samesite=lax; starter_session=eyJpdiI6Ikw2a2prQWd6ZGxBNVk4MzQ1M2huL1E9PSIsInZhbHVlIjoiYmswd2RMck55S1FCZURMai8vU1lsMVkxTEpuTkFadDZYbmNYb2dqa1ZLV29nZU1iU1BQNUs4b21iWm04eGM1SFdlbFpWVnFwdGMrVHhWWGt4NUNLdVA5RTBaTE9zaVRJT1EyUVd5NWljcG8xQ1A4emtIWFJ2THNkeVEzMk11R0kiLCJtYWMiOiJlZmRjYzY1YTlhYmE2MTkzZTYzYThhMGE4ZTJlZjE0NmI3YmQ3MTg5MmFkYTFjMzQ3OGY2NmUwNzYxYTM3MDhlIiwidGFnIjoiIn0%3D; expires=Wed, 02 Oct 2024 06:36:17 GMT; Max-Age=7200; path=/; domain=.starter.test; secure; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IlRQdzEzbTdhRFZWUVE2cjFDK3BTWWc9PSIsInZhbHVlIjoiUDdOR0dVa2Y0TkxicmV1alQ3aXRpYnA0QXNYWCs0YVFSbDI0ZW5UQUlZR3NKOHlIR3ZndUxpMU9aMUFkS1Q5U3lObU5TclhGY1phNENoV2c0VHgvelFRc0EyVUMzRndwcVVnc1FYS3d4VFNYcHFVODZSNXdWMXdjRnJmYjgvUWQiLCJtYWMiOiI2NjAzM2YxODgwMWU2YTk1M2NkN2M0MzEzZWIyMWQ4YjM1NDFmMWExNmE1NzljZDQyZTIxNzUxZWE2YjVkZjdlIiwidGFnIjoiIn0%3D; expires=Tue, 08 Oct 2024 08:31:00 GMT; Max-Age=7200; path=/; domain=.starter.test; secure; samesite=lax; laravel_session=eyJpdiI6IllOM2RZVXViNzlQamZuMmJWdCtCc0E9PSIsInZhbHVlIjoieUlYTjJ6dVd6emtUNmNUN0s0ckNWeUZRc21HbWhLM0U4dGljS1Vxbjc1VUc2aWo2Ujh4QXVjOVhpYThHVUgxaDUybm9Pa2Y0MzUweWlXQlhpNHRtNEVwQUxHQlp1amFHRTRoNVRtRGoxdnV0bGlxQ3hwNHlzV0VONkVSc1Zxb1IiLCJtYWMiOiJlNWU1YmE5MzY4MjJmNWRjY2NhZjQ2YzA0ZjlhMTdlZDgwZWEwNDdkZDdkMjY2MTgyZDk2MjcxM2QzM2ZmZTMxIiwidGFnIjoiIn0%3D; expires=Tue, 08 Oct 2024 08:31:00 GMT; Max-Age=7200; path=/; domain=.starter.test; secure; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3594,10 +5188,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-verify-email--id---hash-"
-               value="ipsum"
+               value="qui"
                data-component="url">
     <br>
-<p>The ID of the verify email. Example: <code>ipsum</code></p>
+<p>The ID of the verify email. Example: <code>qui</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>hash</code></b>&nbsp;&nbsp;
@@ -3605,10 +5199,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="hash"                data-endpoint="GETapi-v1-verify-email--id---hash-"
-               value="amet"
+               value="cupiditate"
                data-component="url">
     <br>
-<p>Example: <code>amet</code></p>
+<p>Example: <code>cupiditate</code></p>
             </div>
                     </form>
 
@@ -3924,14 +5518,14 @@ vary: Origin
         {
             &quot;id&quot;: &quot;role_2VDBZXRV4W8PGL&quot;,
             &quot;name&quot;: &quot;Super Admin&quot;,
-            &quot;created_at&quot;: &quot;2024-10-01T08:02:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-01T08:02:04.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
         },
         {
             &quot;id&quot;: &quot;role_E8PLJ15WXK9M2Z&quot;,
             &quot;name&quot;: &quot;Admin&quot;,
-            &quot;created_at&quot;: &quot;2024-10-01T08:02:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-01T08:02:04.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
         }
     ],
     &quot;links&quot;: {
@@ -4613,7 +6207,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "media=@C:\Users\PopPio-Office\AppData\Local\Temp\php91B8.tmp" </code></pre></div>
+    --form "media=@/private/var/folders/t4/h773wx1s4y7gvt_9646qym0m0000gn/T/phpqwnIW7" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -4730,7 +6324,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. ข้อมูล value ต้องมีขนาดไม่เกิน 102400 กิโลไบต์. Example: <code>C:\Users\PopPio-Office\AppData\Local\Temp\php91B8.tmp</code></p>
+<p>Must be a file. ข้อมูล value ต้องมีขนาดไม่เกิน 102400 กิโลไบต์. Example: <code>/private/var/folders/t4/h773wx1s4y7gvt_9646qym0m0000gn/T/phpqwnIW7</code></p>
         </div>
         </form>
 
@@ -4930,11 +6524,11 @@ vary: Origin
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
         &quot;id&quot;: &quot;user_ZMBQEKPDK3X079&quot;,
-        &quot;title&quot;: &quot;Mr.&quot;,
+        &quot;title&quot;: &quot;Ms.&quot;,
         &quot;first_name&quot;: &quot;Super&quot;,
         &quot;last_name&quot;: &quot;Admin&quot;,
         &quot;email&quot;: &quot;superadmin@wawa-x.com&quot;,
-        &quot;phone&quot;: &quot;+16208473632&quot;,
+        &quot;phone&quot;: null,
         &quot;permissions&quot;: [
             &quot;USERS:VIEW&quot;,
             &quot;USERS:CREATE&quot;,
@@ -4948,8 +6542,8 @@ vary: Origin
             &quot;BLOG_CATEGORIES:UPDATE&quot;,
             &quot;BLOG_CATEGORIES:DELETE&quot;
         ],
-        &quot;created_at&quot;: &quot;2024-10-01T08:02:04.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-01T08:02:04.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
     }
 }</code>
  </pre>
@@ -5055,10 +6649,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"Mrs.\",
-    \"first_name\": \"n\",
-    \"last_name\": \"gdvdnv\",
-    \"phone\": \"o\"
+    \"title\": \"Ms.\",
+    \"first_name\": \"pwnnm\",
+    \"last_name\": \"dhccfvupqbah\",
+    \"phone\": \"pcddllcyrpek\"
 }"
 </code></pre></div>
 
@@ -5075,10 +6669,10 @@ const headers = {
 };
 
 let body = {
-    "title": "Mrs.",
-    "first_name": "n",
-    "last_name": "gdvdnv",
-    "phone": "o"
+    "title": "Ms.",
+    "first_name": "pwnnm",
+    "last_name": "dhccfvupqbah",
+    "phone": "pcddllcyrpek"
 };
 
 fetch(url, {
@@ -5178,10 +6772,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="PUTapi-v1-user"
-               value="Mrs."
+               value="Ms."
                data-component="body">
     <br>
-<p>Example: <code>Mrs.</code></p>
+<p>Example: <code>Ms.</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>Mr.</code></li> <li><code>Mrs.</code></li> <li><code>Ms.</code></li></ul>
         </div>
@@ -5191,10 +6785,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="PUTapi-v1-user"
-               value="n"
+               value="pwnnm"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>n</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>pwnnm</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -5202,10 +6796,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="PUTapi-v1-user"
-               value="gdvdnv"
+               value="dhccfvupqbah"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>gdvdnv</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>dhccfvupqbah</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -5213,10 +6807,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="PUTapi-v1-user"
-               value="o"
+               value="pcddllcyrpek"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร. Example: <code>o</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร. Example: <code>pcddllcyrpek</code></p>
         </div>
         </form>
 
@@ -5239,8 +6833,8 @@ Must be one of:
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"current_password\": \"omnis\",
-    \"password\": \"odio\"
+    \"current_password\": \"dolor\",
+    \"password\": \"culpa\"
 }"
 </code></pre></div>
 
@@ -5257,8 +6851,8 @@ const headers = {
 };
 
 let body = {
-    "current_password": "omnis",
-    "password": "odio"
+    "current_password": "dolor",
+    "password": "culpa"
 };
 
 fetch(url, {
@@ -5358,10 +6952,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="current_password"                data-endpoint="PUTapi-v1-user-password"
-               value="omnis"
+               value="dolor"
                data-component="body">
     <br>
-<p>Example: <code>omnis</code></p>
+<p>Example: <code>dolor</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -5369,10 +6963,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="PUTapi-v1-user-password"
-               value="odio"
+               value="culpa"
                data-component="body">
     <br>
-<p>Example: <code>odio</code></p>
+<p>Example: <code>culpa</code></p>
         </div>
         </form>
 
@@ -5390,7 +6984,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/users?sort=first_name%2C-createdAt&amp;filter%5Bid%5D=corrupti&amp;filter%5Bemail%5D=et&amp;search=dolorum" \
+    --get "https://api.starter.test/api/v1/users?sort=first_name%2C-createdAt&amp;filter%5Bid%5D=ea&amp;filter%5Bemail%5D=dolorem&amp;search=dolores" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5403,9 +6997,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 const params = {
     "sort": "first_name,-createdAt",
-    "filter[id]": "corrupti",
-    "filter[email]": "et",
-    "search": "dolorum",
+    "filter[id]": "ea",
+    "filter[email]": "dolorem",
+    "search": "dolores",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -5571,10 +7165,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="filter[id]"                data-endpoint="GETapi-v1-users"
-               value="corrupti"
+               value="ea"
                data-component="query">
     <br>
-<p>Filter user by id. Example: <code>corrupti</code></p>
+<p>Filter user by id. Example: <code>ea</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter[email]</code></b>&nbsp;&nbsp;
@@ -5582,10 +7176,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="filter[email]"                data-endpoint="GETapi-v1-users"
-               value="et"
+               value="dolorem"
                data-component="query">
     <br>
-<p>Filter user by email. Example: <code>et</code></p>
+<p>Filter user by email. Example: <code>dolorem</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
@@ -5593,10 +7187,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="search"                data-endpoint="GETapi-v1-users"
-               value="dolorum"
+               value="dolores"
                data-component="query">
     <br>
-<p>Search user by name, email, phone. Example: <code>dolorum</code></p>
+<p>Search user by name, email, phone. Example: <code>dolores</code></p>
             </div>
                 </form>
 
@@ -5619,11 +7213,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"Mrs.\",
-    \"first_name\": \"bynwtdd\",
-    \"last_name\": \"rbeifgvuzijlzbzwaampt\",
-    \"email\": \"schuyler.stehr@example.com\",
-    \"phone\": \"vrpyostzyjpi\"
+    \"title\": \"Ms.\",
+    \"first_name\": \"pizdpdonxinnpcepd\",
+    \"last_name\": \"snwpykcfhi\",
+    \"email\": \"mhartmann@example.net\",
+    \"phone\": \"cvnmxuwfomhztgt\"
 }"
 </code></pre></div>
 
@@ -5640,11 +7234,11 @@ const headers = {
 };
 
 let body = {
-    "title": "Mrs.",
-    "first_name": "bynwtdd",
-    "last_name": "rbeifgvuzijlzbzwaampt",
-    "email": "schuyler.stehr@example.com",
-    "phone": "vrpyostzyjpi"
+    "title": "Ms.",
+    "first_name": "pizdpdonxinnpcepd",
+    "last_name": "snwpykcfhi",
+    "email": "mhartmann@example.net",
+    "phone": "cvnmxuwfomhztgt"
 };
 
 fetch(url, {
@@ -5744,10 +7338,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-v1-users"
-               value="Mrs."
+               value="Ms."
                data-component="body">
     <br>
-<p>Example: <code>Mrs.</code></p>
+<p>Example: <code>Ms.</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>Mr.</code></li> <li><code>Mrs.</code></li> <li><code>Ms.</code></li></ul>
         </div>
@@ -5757,10 +7351,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="POSTapi-v1-users"
-               value="bynwtdd"
+               value="pizdpdonxinnpcepd"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>bynwtdd</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>pizdpdonxinnpcepd</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -5768,10 +7362,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="POSTapi-v1-users"
-               value="rbeifgvuzijlzbzwaampt"
+               value="snwpykcfhi"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>rbeifgvuzijlzbzwaampt</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>snwpykcfhi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -5779,10 +7373,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-users"
-               value="schuyler.stehr@example.com"
+               value="mhartmann@example.net"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>schuyler.stehr@example.com</code></p>
+<p>ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>mhartmann@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -5790,10 +7384,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v1-users"
-               value="vrpyostzyjpi"
+               value="cvnmxuwfomhztgt"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร. Example: <code>vrpyostzyjpi</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร. Example: <code>cvnmxuwfomhztgt</code></p>
         </div>
         </form>
 
@@ -5966,10 +7560,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"Mr.\",
-    \"first_name\": \"ouxlexklvcvbcefurlpar\",
-    \"last_name\": \"qqunxgscehscufhjywsl\",
-    \"phone\": \"fd\"
+    \"title\": \"Mrs.\",
+    \"first_name\": \"rudnmybj\",
+    \"last_name\": \"sqi\",
+    \"phone\": \"gnmicd\"
 }"
 </code></pre></div>
 
@@ -5986,10 +7580,10 @@ const headers = {
 };
 
 let body = {
-    "title": "Mr.",
-    "first_name": "ouxlexklvcvbcefurlpar",
-    "last_name": "qqunxgscehscufhjywsl",
-    "phone": "fd"
+    "title": "Mrs.",
+    "first_name": "rudnmybj",
+    "last_name": "sqi",
+    "phone": "gnmicd"
 };
 
 fetch(url, {
@@ -6105,10 +7699,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="PUTapi-v1-users--id-"
-               value="Mr."
+               value="Mrs."
                data-component="body">
     <br>
-<p>Example: <code>Mr.</code></p>
+<p>Example: <code>Mrs.</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>Mr.</code></li> <li><code>Mrs.</code></li> <li><code>Ms.</code></li></ul>
         </div>
@@ -6118,10 +7712,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="PUTapi-v1-users--id-"
-               value="ouxlexklvcvbcefurlpar"
+               value="rudnmybj"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>ouxlexklvcvbcefurlpar</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>rudnmybj</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -6129,10 +7723,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="PUTapi-v1-users--id-"
-               value="qqunxgscehscufhjywsl"
+               value="sqi"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>qqunxgscehscufhjywsl</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>sqi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -6140,10 +7734,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="PUTapi-v1-users--id-"
-               value="fd"
+               value="gnmicd"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร. Example: <code>fd</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร. Example: <code>gnmicd</code></p>
         </div>
         </form>
 

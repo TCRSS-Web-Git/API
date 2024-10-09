@@ -5,5 +5,7 @@ namespace App\Enums;
 enum CategoryType: string
 {
     case BLOG = 'blog';
-    case CAREER = 'career';
+    case DEPARTMENT = 'department';
+    case LOCATION = 'location';
+    case CAREER_TYPE = 'career_type';
 }
