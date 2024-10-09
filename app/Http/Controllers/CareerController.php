@@ -54,7 +54,7 @@ class CareerController extends Controller
     {
         Gate::authorize('update', $career);
 
-        $career = $saveCareer->execute(new Career, $request->validated());
+        $career = $saveCareer->execute($career, $request->validated());
 
         return new CareerResource($career);
     }

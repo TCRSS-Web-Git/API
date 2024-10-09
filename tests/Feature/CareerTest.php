@@ -280,7 +280,6 @@ class CareerTest extends TestCase
         $locationCategory = Category::factory()->location()->create();
         $careerTypeCategory = Category::factory()->careerType()->create();
         $jobData = Career::factory()->create();
-        $updatedData = Career::factory()->make()->toArray();
 
         // act
         $response = $this->putJson(route('careers.update', $jobData), [
@@ -309,6 +308,7 @@ class CareerTest extends TestCase
         $this->assertDatabaseHas('career_translations', ['locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
         $this->assertDatabaseHas('career_translations', ['locale' => 'en', 'title' => 'career name']);
         $response->assertJsonFragment(['status' => CareerStatus::PUBLISHED]);
+        $this->assertDatabaseCount('careers', 1);
     }
 
     public function test_the_admin_can_delete_a_career(): void
