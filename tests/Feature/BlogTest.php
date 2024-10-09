@@ -14,9 +14,6 @@ class BlogTest extends TestCase
 {
     use refreshDatabase;
 
-    /**
-     * A basic test example.
-     */
     private function setupImages()
     {
         $fileCover = UploadedFile::fake()->image('image_cover.jpg');
@@ -103,6 +100,25 @@ class BlogTest extends TestCase
             'collection_name' => Blog::MEDIA_COLLECTION_THUMBNAIL,
             'file_name' => $thumbnail['name'],
         ]);
+    }
+
+    /**
+     * Test the admin cannot create a published blog when data is required.
+     */
+    public function test_the_admin_cannot_create_a_published_blog_when_data_is_required(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $category = Category::factory()->blog()->create();
+
+        // act
+        $response = $this->postJson(route('blogs.store'), [
+            'published_at' => now()->subDay(),
+        ]);
+
+        // assert
+        $response->assertUnprocessable();
+        $this->assertDatabaseCount('blogs', 0);
     }
 
     /**
