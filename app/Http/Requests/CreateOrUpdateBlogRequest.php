@@ -24,30 +24,32 @@ class CreateOrUpdateBlogRequest extends FormRequest
      */
     public function rules(): array
     {
+        $requiredIfPublished = Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now());
+
         return [
-            'slug' => ['nullable', 'string', 'max:255', Rule::requiredIf($this->input('published_at') <= now())],
-            'category_id' => ['nullable', Rule::exists('categories', 'id')->where('type', CategoryType::BLOG), Rule::requiredIf($this->input('published_at') <= now())],
-            'published_at' => ['nullable', 'date', Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now())],
+            'slug' => ['nullable', 'string', 'max:255', $requiredIfPublished],
+            'category_id' => ['nullable', Rule::exists('categories', 'id')->where('type', CategoryType::BLOG), $requiredIfPublished],
+            'published_at' => ['nullable', 'date', $requiredIfPublished],
             'tags' => ['array'],
             'tags.*' => ['string', 'max:255'],
             // Translations
-            'th' => ['array', 'nullable', Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now())],
-            'en' => ['array', Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now())],
+            'th' => ['array', 'nullable', $requiredIfPublished],
+            'en' => ['array', $requiredIfPublished],
             'th.title' => ['required', 'string', 'max:255'],
-            'en.title' => ['nullable', 'string', 'max:255', Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now())],
-            'th.body' => ['nullable', 'string', 'max:16777215', Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now())], // max medium text
-            'en.body' => ['nullable', 'string', 'max:16777215', Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now())],
-            'th.meta_title' => ['nullable', 'string', 'max:100', Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now())],
-            'en.meta_title' => ['nullable', 'string', 'max:100', Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now())],
-            'th.meta_description' => ['nullable', 'string', 'max:160', Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now())],
-            'en.meta_description' => ['nullable', 'string', 'max:160', Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now())],
+            'en.title' => ['nullable', 'string', 'max:255', $requiredIfPublished],
+            'th.body' => ['nullable', 'string', 'max:16777215', $requiredIfPublished], // max medium text
+            'en.body' => ['nullable', 'string', 'max:16777215', $requiredIfPublished],
+            'th.meta_title' => ['nullable', 'string', 'max:100', $requiredIfPublished],
+            'en.meta_title' => ['nullable', 'string', 'max:100', $requiredIfPublished],
+            'th.meta_description' => ['nullable', 'string', 'max:160', $requiredIfPublished],
+            'en.meta_description' => ['nullable', 'string', 'max:160', $requiredIfPublished],
             // Media (temporary media)
-            'cover' => ['nullable', 'array', Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now())],
+            'cover' => ['nullable', 'array', $requiredIfPublished],
             'cover.id' => ['nullable'],
             'cover.path' => ['required_if:cover.id,null', 'string'],
             'cover.url' => ['nullable', 'string'],
             'cover.name' => ['nullable', 'string'],
-            'thumbnail' => ['nullable', 'array', Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now())],
+            'thumbnail' => ['nullable', 'array', $requiredIfPublished],
             'thumbnail.id' => ['nullable'],
             'thumbnail.path' => ['required_if:thumbnail.id,null', 'string'],
             'thumbnail.url' => ['nullable', 'string'],
