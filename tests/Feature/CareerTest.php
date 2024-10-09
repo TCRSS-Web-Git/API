@@ -240,7 +240,6 @@ class CareerTest extends TestCase
         $jobCategory = Category::factory()->department()->create();
         $locationCategory = Category::factory()->location()->create();
         $careerTypeCategory = Category::factory()->careerType()->create();
-        $jobData = Career::factory()->make()->toArray();
 
         // act
         $response = $this->postJson(route('careers.store'), [
@@ -264,11 +263,10 @@ class CareerTest extends TestCase
 
         // assert
         $response->assertCreated();
-        $this->assertDatabaseHas('careers', ['type_id' => $careerTypeCategory->id]);
-        $this->assertDatabaseHas('careers', ['location_id' => $locationCategory->id]);
-        $this->assertDatabaseHas('careers', ['department_id' => $jobCategory->id]);
-        $this->assertDatabaseHas('career_translations', ['locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
-        $this->assertDatabaseHas('career_translations', ['locale' => 'en', 'title' => 'Job name']);
+        $careerId = Career::decodeHash($response->json('data.id'));
+        $this->assertDatabaseHas('careers', ['id' => $careerId, 'type_id' => $careerTypeCategory->id, 'location_id' => $locationCategory->id, 'department_id' => $jobCategory->id]);
+        $this->assertDatabaseHas('career_translations', ['item_id' => $careerId, 'locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
+        $this->assertDatabaseHas('career_translations', ['item_id' => $careerId, 'locale' => 'en', 'title' => 'Job name']);
         $response->assertJsonFragment(['status' => CareerStatus::PUBLISHED]);
     }
 
@@ -279,10 +277,10 @@ class CareerTest extends TestCase
         $jobCategory = Category::factory()->department()->create();
         $locationCategory = Category::factory()->location()->create();
         $careerTypeCategory = Category::factory()->careerType()->create();
-        $jobData = Career::factory()->create();
+        $career = Career::factory()->create();
 
         // act
-        $response = $this->putJson(route('careers.update', $jobData), [
+        $response = $this->putJson(route('careers.update', $career), [
             'location_id' => $locationCategory->hashid,
             'department_id' => $jobCategory->hashid,
             'type_id' => $careerTypeCategory->hashid,
@@ -302,11 +300,9 @@ class CareerTest extends TestCase
         ]);
 
         // assert
-        $this->assertDatabaseHas('careers', ['type_id' => $careerTypeCategory->id]);
-        $this->assertDatabaseHas('careers', ['location_id' => $locationCategory->id]);
-        $this->assertDatabaseHas('careers', ['department_id' => $jobCategory->id]);
-        $this->assertDatabaseHas('career_translations', ['locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
-        $this->assertDatabaseHas('career_translations', ['locale' => 'en', 'title' => 'career name']);
+        $this->assertDatabaseHas('careers', ['id' => $career->id, 'type_id' => $careerTypeCategory->id, 'location_id' => $locationCategory->id, 'department_id' => $jobCategory->id]);
+        $this->assertDatabaseHas('career_translations', ['item_id' => $career->id, 'locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
+        $this->assertDatabaseHas('career_translations', ['item_id' => $career->id, 'locale' => 'en', 'title' => 'career name']);
         $response->assertJsonFragment(['status' => CareerStatus::PUBLISHED]);
         $this->assertDatabaseCount('careers', 1);
     }
@@ -323,5 +319,8 @@ class CareerTest extends TestCase
         // assert
         $response->assertNoContent();
         $this->assertDatabaseMissing('careers', ['id' => $career->id]);
+        $this->assertDatabaseCount('careers', 0);
+        $this->assertDatabaseMissing('career_translations', ['item_id' => $career->id]);
+        $this->assertDatabaseCount('career_translations', 0);
     }
 }
