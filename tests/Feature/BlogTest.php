@@ -17,7 +17,7 @@ class BlogTest extends TestCase
     /**
      * A basic test example.
      */
-    private function setup_images()
+    private function setupImages()
     {
         $fileCover = UploadedFile::fake()->image('image_cover.jpg');
         $fileThumbnail = UploadedFile::fake()->image('image_thumbnail.jpg');
@@ -52,7 +52,7 @@ class BlogTest extends TestCase
         $category = Category::factory()->blog()->create();
         $blogData = Blog::factory()->for($category)->make()->toArray();
 
-        [$cover, $thumbnail] = $this->setup_images();
+        [$cover, $thumbnail] = $this->setupImages();
 
         // act
         $response = $this->postJson(route('blogs.store'), [
@@ -90,13 +90,16 @@ class BlogTest extends TestCase
 
         $this->assertDatabaseCount('blogs', 1);
         $this->assertDatabaseCount('media', 2);
+        $blogId = Blog::decodeHash($response->json('data.id'));
         $this->assertDatabaseHas('media', [
             'model_type' => Blog::class,
+            'model_id' => $blogId,
             'collection_name' => Blog::MEDIA_COLLECTION_COVER,
             'file_name' => $cover['name'],
         ]);
         $this->assertDatabaseHas('media', [
             'model_type' => Blog::class,
+            'model_id' => $blogId,
             'collection_name' => Blog::MEDIA_COLLECTION_THUMBNAIL,
             'file_name' => $thumbnail['name'],
         ]);
@@ -287,7 +290,7 @@ class BlogTest extends TestCase
         $blog = Blog::factory()->create();
         $updatedData = Blog::factory()->make()->toArray();
 
-        [$cover, $thumbnail] = $this->setup_images();
+        [$cover, $thumbnail] = $this->setupImages();
 
         $existedMediaA = Media::factory()->for(
             $blog,
@@ -334,11 +337,13 @@ class BlogTest extends TestCase
         $this->assertDatabaseCount('media', 2);
         $this->assertDatabaseHas('media', [
             'id' => $existedMediaA->id,
+            'model_id' => $blog->id,
             'model_type' => Blog::class,
             'collection_name' => Blog::MEDIA_COLLECTION_COVER,
             'file_name' => 'existed_cover_file.png',
         ]);
         $this->assertDatabaseHas('media', [
+            'model_id' => $blog->id,
             'model_type' => Blog::class,
             'collection_name' => Blog::MEDIA_COLLECTION_THUMBNAIL,
             'file_name' => $thumbnail['name'],
