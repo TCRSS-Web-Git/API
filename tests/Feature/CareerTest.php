@@ -246,28 +246,69 @@ class CareerTest extends TestCase
             'location_id' => $locationCategory->hashid,
             'department_id' => $jobCategory->hashid,
             'type_id' => $careerTypeCategory->hashid,
-            'published_at' => now()->subDay(),
+            'published_at' => $publishedAt = now()->subDay(),
             'th' => [
-                'title' => 'ชื่อประกาศสมัครงาน',
-                'body' => 'เนื้อหาประกาศสมัครงาน',
-                'meta_title' => 'ชื่อประกาศสมัครงาน',
-                'meta_description' => 'เนื้อหาประกาศสมัครงาน',
+                'title' => $titleTh = 'ชื่อประกาศสมัครงาน',
+                'body' => $bodyTh = 'เนื้อหาประกาศสมัครงาน',
+                'meta_title' => $metaTitleTh = 'ชื่อประกาศสมัครงาน',
+                'meta_description' => $metaDescriptionTh = 'เนื้อหาประกาศสมัครงาน',
             ],
             'en' => [
-                'title' => 'Job name',
-                'body' => 'Job content',
-                'meta_title' => 'Job name',
-                'meta_description' => 'Job content',
+                'title' => $titleEn = 'Job name',
+                'body' => $bodyEn = 'Job content',
+                'meta_title' => $metaTitleEn = 'Job name',
+                'meta_description' => $metaDescriptionEn = 'Job content',
             ],
         ]);
 
         // assert
         $response->assertCreated();
         $careerId = Career::decodeHash($response->json('data.id'));
-        $this->assertDatabaseHas('careers', ['id' => $careerId, 'type_id' => $careerTypeCategory->id, 'location_id' => $locationCategory->id, 'department_id' => $jobCategory->id]);
-        $this->assertDatabaseHas('career_translations', ['item_id' => $careerId, 'locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
-        $this->assertDatabaseHas('career_translations', ['item_id' => $careerId, 'locale' => 'en', 'title' => 'Job name']);
+        $this->assertDatabaseHas('careers', ['id' => $careerId, 'type_id' => $careerTypeCategory->id, 'location_id' => $locationCategory->id, 'department_id' => $jobCategory->id, 'published_at' => $publishedAt]);
+        $this->assertDatabaseHas('career_translations', ['item_id' => $careerId, 'locale' => 'th', 'title' => $titleTh, 'body' => $bodyTh, 'meta_title' => $metaTitleTh, 'meta_description' => $metaDescriptionTh]);
+        $this->assertDatabaseHas('career_translations', ['item_id' => $careerId, 'locale' => 'en', 'title' => $titleEn, 'body' => $bodyEn, 'meta_title' => $metaTitleEn, 'meta_description' => $metaDescriptionEn]);
         $response->assertJsonFragment(['status' => CareerStatus::PUBLISHED]);
+        $this->assertDatabaseCount('careers', 1);
+        $this->assertDatabaseCount('career_translations', 2);
+    }
+
+    public function test_the_admin_can_create_a_draft_career(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $jobCategory = Category::factory()->department()->create();
+        $locationCategory = Category::factory()->location()->create();
+        $careerTypeCategory = Category::factory()->careerType()->create();
+
+        // act
+        $response = $this->postJson(route('careers.store'), [
+            'location_id' => $locationCategory->hashid,
+            'department_id' => $jobCategory->hashid,
+            'type_id' => $careerTypeCategory->hashid,
+            'published_at' => $publishedAt = null,
+            'th' => [
+                'title' => $titleTh = 'ชื่อประกาศสมัครงาน',
+                'body' => $bodyTh = 'เนื้อหาประกาศสมัครงาน',
+                'meta_title' => $metaTitleTh = 'ชื่อประกาศสมัครงาน',
+                'meta_description' => $metaDescriptionTh = 'เนื้อหาประกาศสมัครงาน',
+            ],
+            'en' => [
+                'title' => $titleEn = 'Job name',
+                'body' => $bodyEn = 'Job content',
+                'meta_title' => $metaTitleEn = 'Job name',
+                'meta_description' => $metaDescriptionEn = 'Job content',
+            ],
+        ]);
+
+        // assert
+        $response->assertCreated();
+        $careerId = Career::decodeHash($response->json('data.id'));
+        $this->assertDatabaseHas('careers', ['id' => $careerId, 'type_id' => $careerTypeCategory->id, 'location_id' => $locationCategory->id, 'department_id' => $jobCategory->id, 'published_at' => $publishedAt]);
+        $this->assertDatabaseHas('career_translations', ['item_id' => $careerId, 'locale' => 'th', 'title' => $titleTh, 'body' => $bodyTh, 'meta_title' => $metaTitleTh, 'meta_description' => $metaDescriptionTh]);
+        $this->assertDatabaseHas('career_translations', ['item_id' => $careerId, 'locale' => 'en', 'title' => $titleEn, 'body' => $bodyEn, 'meta_title' => $metaTitleEn, 'meta_description' => $metaDescriptionEn]);
+        $response->assertJsonFragment(['status' => CareerStatus::DRAFT]);
+        $this->assertDatabaseCount('careers', 1);
+        $this->assertDatabaseCount('career_translations', 2);
     }
 
     public function test_the_admin_can_update_a_career(): void
@@ -284,27 +325,28 @@ class CareerTest extends TestCase
             'location_id' => $locationCategory->hashid,
             'department_id' => $jobCategory->hashid,
             'type_id' => $careerTypeCategory->hashid,
-            'published_at' => now()->subDay(),
+            'published_at' => $publishedAt = now()->subDay(),
             'th' => [
-                'title' => 'ชื่อประกาศสมัครงาน',
-                'body' => 'เนื้อหาประกาศสมัครงาน',
-                'meta_title' => 'ชื่อประกาศสมัครงาน',
-                'meta_description' => 'เนื้อหาประกาศสมัครงาน',
+                'title' => $titleTh = 'ชื่อประกาศสมัครงาน',
+                'body' => $bodyTh = 'เนื้อหาประกาศสมัครงาน',
+                'meta_title' => $metaTitleTh = 'ชื่อประกาศสมัครงาน',
+                'meta_description' => $metaDescriptionTh = 'เนื้อหาประกาศสมัครงาน',
             ],
             'en' => [
-                'title' => 'career name',
-                'body' => 'career content',
-                'meta_title' => 'career name',
-                'meta_description' => 'career content',
+                'title' => $titleEn = 'Job name',
+                'body' => $bodyEn = 'Job content',
+                'meta_title' => $metaTitleEn = 'Job name',
+                'meta_description' => $metaDescriptionEn = 'Job content',
             ],
         ]);
 
         // assert
-        $this->assertDatabaseHas('careers', ['id' => $career->id, 'type_id' => $careerTypeCategory->id, 'location_id' => $locationCategory->id, 'department_id' => $jobCategory->id]);
-        $this->assertDatabaseHas('career_translations', ['item_id' => $career->id, 'locale' => 'th', 'title' => 'ชื่อประกาศสมัครงาน']);
-        $this->assertDatabaseHas('career_translations', ['item_id' => $career->id, 'locale' => 'en', 'title' => 'career name']);
+        $this->assertDatabaseHas('careers', ['id' => $career->id, 'type_id' => $careerTypeCategory->id, 'location_id' => $locationCategory->id, 'department_id' => $jobCategory->id, 'published_at' => $publishedAt]);
+        $this->assertDatabaseHas('career_translations', ['item_id' => $career->id, 'locale' => 'th', 'title' => $titleTh, 'body' => $bodyTh, 'meta_title' => $metaTitleTh, 'meta_description' => $metaDescriptionTh]);
+        $this->assertDatabaseHas('career_translations', ['item_id' => $career->id, 'locale' => 'en', 'title' => $titleEn, 'body' => $bodyEn, 'meta_title' => $metaTitleEn, 'meta_description' => $metaDescriptionEn]);
         $response->assertJsonFragment(['status' => CareerStatus::PUBLISHED]);
         $this->assertDatabaseCount('careers', 1);
+        $this->assertDatabaseCount('career_translations', 2);
     }
 
     public function test_the_admin_can_delete_a_career(): void
