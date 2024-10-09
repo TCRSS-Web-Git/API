@@ -31,6 +31,43 @@ class BlogTest extends TestCase
     }
 
     /**
+     * Test the admin can create a published blog.
+     */
+    public function test_the_admin_can_create_a_published_blog(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $category = Category::factory()->blog()->create();
+        $blogData = Blog::factory()->for($category)->make()->toArray();
+
+        // act
+        $response = $this->postJson(route('blogs.store'), [
+            'category_id' => $category->hashid,
+            'slug' => $blogData['slug'],
+            'published_at' => now()->subDay(),
+            'th' => [
+                'title' => 'ชื่อบทความ',
+                'body' => 'เนื้อหาบทความ',
+                'meta_title' => 'ชื่อบทความ',
+                'meta_description' => 'เนื้อหาบทความ',
+            ],
+            'en' => [
+                'title' => 'Blog name',
+                'body' => 'Blog content',
+                'meta_title' => 'Blog name',
+                'meta_description' => 'Blog content',
+            ],
+        ]);
+
+        // assert
+        $response->assertCreated();
+        $this->assertDatabaseHas('blogs', ['slug' => $blogData['slug']]);
+        $this->assertDatabaseHas('blog_translations', ['locale' => 'th', 'title' => 'ชื่อบทความ']);
+        $this->assertDatabaseHas('blog_translations', ['locale' => 'en', 'title' => 'Blog name']);
+        $response->assertJsonFragment(['status' => BlogStatus::PUBLISHED]);
+    }
+
+    /**
      * Test the admin can sort blogs.
      */
     public function test_the_admin_can_sort_blogs(): void
