@@ -163,6 +163,7 @@ return [
         'available' => 'available',
         'birthday' => 'birthday',
         'body' => 'content',
+        'category' => 'category',
         'city' => 'city',
         'compilation' => 'compilation',
         'concept' => 'concept',

@@ -73,6 +73,8 @@ class CreateOrUpdateBlogRequest extends FormRequest
     public function attributes(): array
     {
         return [
+            'category_id' => __('validation.attributes.category'),
+
             'th.title' => __('validation.attributes.title'),
             'th.body' => __('validation.attributes.body'),
             'th.meta_title' => __('validation.attributes.meta_title'),

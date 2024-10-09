@@ -163,6 +163,7 @@ return [
         'available' => 'มีอยู่',
         'birthday' => 'วันเกิด',
         'body' => 'เนื้อหา',
+        'category' => 'หมวดหมู่',
         'city' => 'เมือง',
         'compilation' => 'การรวบรวม',
         'concept' => 'แนวคิด',
