@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Enums\CategoryType;
 use App\Models\Category;
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -24,7 +25,7 @@ class CreateOrUpdateBlogRequest extends FormRequest
      */
     public function rules(): array
     {
-        $requiredIfPublished = Rule::requiredIf($this->input('published_at') && $this->input('published_at') <= now());
+        $requiredIfPublished = Rule::requiredIf($this->input('published_at') && Carbon::parse($this->input('published_at'))->timezone('UTC') <= now());
 
         return [
             'slug' => ['nullable', 'string', 'max:255', $requiredIfPublished],
@@ -67,5 +68,26 @@ class CreateOrUpdateBlogRequest extends FormRequest
         $this->merge([
             'category_id' => Category::decodeHash($this->category_id),
         ]);
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'category_id' => __('validation.attributes.category'),
+            'slug' => __('validation.attributes.url_slug'),
+
+            'th' => __('validation.attributes.th'),
+            'en' => __('validation.attributes.en'),
+
+            'th.title' => __('validation.attributes.title'),
+            'th.body' => __('validation.attributes.body'),
+            'th.meta_title' => __('validation.attributes.meta_title'),
+            'th.meta_description' => __('validation.attributes.meta_description'),
+
+            'en.title' => __('validation.attributes.title'),
+            'en.body' => __('validation.attributes.body'),
+            'en.meta_title' => __('validation.attributes.meta_title'),
+            'en.meta_description' => __('validation.attributes.meta_description'),
+        ];
     }
 }
