@@ -62,7 +62,7 @@ class CareerFilter extends QueryFilter
     public function meta_description($value)
     {
         return $this->builder->whereHas('translations', function ($query) use ($value) {
-            $query->whereRaw('LOWER(meta_title) LIKE ?', ['%'.strtolower($value).'%']);
+            $query->whereRaw('LOWER(meta_description) LIKE ?', ['%'.strtolower($value).'%']);
         });
     }
 

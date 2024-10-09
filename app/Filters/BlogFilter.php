@@ -66,7 +66,7 @@ class BlogFilter extends QueryFilter
     public function meta_description($value)
     {
         return $this->builder->whereHas('translations', function ($query) use ($value) {
-            $query->whereRaw('LOWER(meta_title) LIKE ?', ['%'.strtolower($value).'%']);
+            $query->whereRaw('LOWER(meta_description) LIKE ?', ['%'.strtolower($value).'%']);
         });
     }
 
@@ -124,7 +124,9 @@ class BlogFilter extends QueryFilter
                 ->orWhereHas('translations', function ($query) use ($value) {
                     $query->whereRaw('MATCH(title, body) AGAINST(? IN BOOLEAN MODE)', [$value]);
                 })
-                ->orWhereIn('id', $ids);
+                ->when($ids, function ($query) use ($ids) {
+                    $query->orWhereIn('id', $ids);
+                });
         });
     }
 
