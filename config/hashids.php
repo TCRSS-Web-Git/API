@@ -62,7 +62,7 @@ return [
         ],
 
         Career::class => [
-            'salt' => env('HASHIDS_CATEGORY', '02daee7be1849d32b55c'),
+            'salt' => env('HASHIDS_CAREER', '02daee7be1849d32b55c'),
             'length' => 14,
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
         ],
