@@ -4,45 +4,29 @@ namespace App\Actions\User;
 
 use App\Mail\UserInvitation;
 use App\Models\Invite;
-use App\Models\Role;
 use App\Models\User;
-use Exception;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
-class SaveUserInvitation
+class ResendUserInvitation
 {
-    /**
-     * @throws Exception
-     */
-    public function execute(array $data): User
+    public function execute(User $user): Invite
     {
-        $token = Str::random(40);
+        $invite = Invite::whereUserId($user->id)->first();
 
-        DB::beginTransaction();
-
-        try {
-            $user = User::create($data);
-
-            // TODO assign role // $user->assignRole(Role::find($data['role_id']));
-
+        if (! $invite) {
+            $token = Str::random(40);
             $invite = Invite::create([
-                'email' => $data['email'],
+                'email' => $user->email,
                 'token' => $token,
                 'user_id' => $user->id,
             ]);
-
-            DB::commit();
-
-            $this->sendInviteEmail($invite, $user, $token);
-        } catch (Exception $exception) {
-            DB::rollBack();
-            throw $exception;
         }
 
-        return $user;
+        $this->sendInviteEmail($invite, $user, $invite->token);
+
+        return $invite;
     }
 
     private function sendInviteEmail(Invite $invite, User $user, string $token): void

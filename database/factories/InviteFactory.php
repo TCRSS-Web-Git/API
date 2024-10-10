@@ -2,10 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\Invite;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Invite>
+ * @extends Factory<Invite>
  */
 class InviteFactory extends Factory
 {
@@ -16,8 +19,13 @@ class InviteFactory extends Factory
      */
     public function definition(): array
     {
+        /* @var User $user */
+        $user = User::factory()->create();
+
         return [
-            //
+            'email' => $user->email,
+            'token' => Str::random(40),
+            'user_id' => $user->id,
         ];
     }
 }
