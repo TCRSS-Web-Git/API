@@ -231,7 +231,7 @@ class UserTest extends TestCase
     public function test_invited_user_can_accept_invitation(): void
     {
         /* @var User $user */
-        $user = User::factory()->create(['password' => null]);
+        $user = User::factory()->create(['password' => null, 'email_verified_at' => null]);
 
         /* @var Invite $invite */
         $invite = Invite::factory()->for($user)->create([
@@ -256,7 +256,7 @@ class UserTest extends TestCase
         $this->signInSuperAdmin();
 
         /** @var User $user */
-        $user = User::factory()->create(['password' => null]);
+        $user = User::factory()->create(['password' => null, 'email_verified_at' => null]);
 
         /* @var Invite $invite */
         Invite::factory()->for($user)->create([
