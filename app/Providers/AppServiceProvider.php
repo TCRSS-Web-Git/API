@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Blog;
+use App\Models\Career;
 use App\Models\Category;
 use App\Models\Role;
 use App\Models\User;
@@ -62,6 +63,10 @@ class AppServiceProvider extends ServiceProvider
 
         Route::bind('category', function ($value) {
             return Category::findByHashOrFail($value);
+        });
+
+        Route::bind('career', function ($value) {
+            return Career::findByHashOrFail($value);
         });
 
         Route::bind('user', function ($value) {

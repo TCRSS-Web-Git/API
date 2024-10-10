@@ -8,7 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class CreateOrUpdateBlogRequest extends FormRequest
+class CreateOrUpdateCareerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,33 +28,22 @@ class CreateOrUpdateBlogRequest extends FormRequest
         $requiredIfPublished = Rule::requiredIf($this->input('published_at') && Carbon::parse($this->input('published_at'))->timezone('UTC') <= now());
 
         return [
-            'slug' => ['nullable', 'string', 'max:255', $requiredIfPublished],
-            'category_id' => ['nullable', Rule::exists('categories', 'id')->where('type', CategoryType::BLOG), $requiredIfPublished],
-            'published_at' => ['nullable', 'date', $requiredIfPublished],
-            'tags' => ['array'],
-            'tags.*' => ['string', 'max:255'],
+            'type_id' => ['nullable', $requiredIfPublished, Rule::exists('categories', 'id')->where('type', CategoryType::CAREER_TYPE)],
+            'location_id' => ['nullable', $requiredIfPublished, Rule::exists('categories', 'id')->where('type', CategoryType::LOCATION)],
+            'department_id' => ['nullable', $requiredIfPublished, Rule::exists('categories', 'id')->where('type', CategoryType::DEPARTMENT)],
+            'published_at' => ['nullable', 'date'],
             // Translations
             'th' => ['array', 'nullable', $requiredIfPublished],
             'en' => ['array', $requiredIfPublished],
             'th.title' => ['required', 'string', 'max:255'],
-            'en.title' => ['nullable', 'string', 'max:255', $requiredIfPublished],
-            'th.body' => ['nullable', 'string', 'max:16777215', $requiredIfPublished], // max medium text
-            'en.body' => ['nullable', 'string', 'max:16777215', $requiredIfPublished],
-            'th.meta_title' => ['nullable', 'string', 'max:100', $requiredIfPublished],
-            'en.meta_title' => ['nullable', 'string', 'max:100', $requiredIfPublished],
-            'th.meta_description' => ['nullable', 'string', 'max:160', $requiredIfPublished],
-            'en.meta_description' => ['nullable', 'string', 'max:160', $requiredIfPublished],
+            'en.title' => ['nullable', $requiredIfPublished, 'string', 'max:255'],
+            'th.body' => ['nullable', $requiredIfPublished, 'string', 'max:16777215'], // max medium text
+            'en.body' => ['nullable', $requiredIfPublished, 'string', 'max:16777215'],
+            'th.meta_title' => ['nullable', $requiredIfPublished, 'string', 'max:100'],
+            'en.meta_title' => ['nullable', $requiredIfPublished, 'string', 'max:100'],
+            'th.meta_description' => ['nullable', $requiredIfPublished, 'string', 'max:160'],
+            'en.meta_description' => ['nullable', $requiredIfPublished, 'string', 'max:160'],
             // Media (temporary media)
-            'cover' => ['nullable', 'array', $requiredIfPublished],
-            'cover.id' => ['nullable'],
-            'cover.path' => ['required_if:cover.id,null', 'string'],
-            'cover.url' => ['nullable', 'string'],
-            'cover.name' => ['nullable', 'string'],
-            'thumbnail' => ['nullable', 'array', $requiredIfPublished],
-            'thumbnail.id' => ['nullable'],
-            'thumbnail.path' => ['required_if:thumbnail.id,null', 'string'],
-            'thumbnail.url' => ['nullable', 'string'],
-            'thumbnail.name' => ['nullable', 'string'],
             'body_images' => ['array'],
             'body_images.*.id' => ['nullable'],
             'body_images.*.path' => ['required_if:id,null', 'string'],
@@ -66,15 +55,18 @@ class CreateOrUpdateBlogRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $this->merge([
-            'category_id' => Category::decodeHash($this->category_id),
+            'type_id' => $this->type_id ? Category::decodeHash($this->type_id) : null,
+            'location_id' => $this->location_id ? Category::decodeHash($this->location_id) : null,
+            'department_id' => $this->department_id ? Category::decodeHash($this->department_id) : null,
         ]);
     }
 
     public function attributes(): array
     {
         return [
-            'category_id' => __('validation.attributes.category'),
-            'slug' => __('validation.attributes.url_slug'),
+            'type_id' => __('validation.attributes.career_type'),
+            'location_id' => __('validation.attributes.location'),
+            'department_id' => __('validation.attributes.department'),
 
             'th' => __('validation.attributes.th'),
             'en' => __('validation.attributes.en'),

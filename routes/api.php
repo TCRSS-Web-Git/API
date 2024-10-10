@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TagController;
@@ -34,6 +35,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('tags/{type}', [TagController::class, 'index'])->name('tags.index');
 
     Route::apiResource('blogs', BlogController::class);
+    Route::apiResource('careers', CareerController::class);
 
     Route::post('/invite/resend/{user}', [InviteController::class, 'resend'])->name('invite.resend');
 });

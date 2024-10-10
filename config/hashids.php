@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Blog;
+use App\Models\Career;
 use App\Models\Category;
 use App\Models\Media;
 use App\Models\Permission;
@@ -56,6 +57,12 @@ return [
 
         Category::class => [
             'salt' => env('HASHIDS_CATEGORY', '7eDm9NeRRUAruPmEFnPd'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
+
+        Career::class => [
+            'salt' => env('HASHIDS_CAREER', '02daee7be1849d32b55c'),
             'length' => 14,
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
         ],

@@ -2,16 +2,17 @@
 
 namespace App\Filters;
 
-use App\Models\Blog;
+use App\Models\Career;
 use App\Models\Category;
 
-class BlogFilter extends QueryFilter
+class CareerFilter extends QueryFilter
 {
     protected $sortable = [
         'id',
         'title',
-        'body',
-        'category_id',
+        'department_id',
+        'location_id',
+        'type_id',
         'meta_title',
         'meta_description',
         'created_at',
@@ -24,7 +25,7 @@ class BlogFilter extends QueryFilter
     {
         $ids = explode(',', $value);
         $ids = array_map(static function ($id) {
-            return Blog::decodeHash(trim($id));
+            return Career::decodeHash(trim($id));
         }, $ids);
         $ids = array_filter($ids, static function ($id) {
             return $id > 0;
@@ -35,11 +36,6 @@ class BlogFilter extends QueryFilter
         }
 
         return $this->builder->whereIn('id', $ids);
-    }
-
-    public function slug($value)
-    {
-        return $this->builder->whereRaw('LOWER(slug) LIKE ?', ['%'.strtolower($value).'%']);
     }
 
     public function title($value)
@@ -86,60 +82,74 @@ class BlogFilter extends QueryFilter
         return $this->builder;
     }
 
-    public function category_id($value)
+    public function type_id($value)
     {
-        $categoryIds = explode(',', $value);
-        $categoryIds = array_map(static function ($id) {
+        $types = explode(',', $value);
+        $types = array_map(static function ($id) {
             return Category::decodeHash(trim($id));
-        }, $categoryIds);
-        $categoryIds = array_filter($categoryIds, static function ($id) {
+        }, $types);
+        $types = array_filter($types, static function ($id) {
             return $id > 0;
         });
 
-        if (empty($categoryIds)) {
+        if (empty($types)) {
             return $this->builder;
         }
 
-        return $this->builder->whereIn('category_id', $categoryIds);
+        return $this->builder->whereIn('type_id', $types);
+    }
+
+    public function location_id($value)
+    {
+        $locationIds = explode(',', $value);
+        $locationIds = array_map(static function ($id) {
+            return Category::decodeHash(trim($id));
+        }, $locationIds);
+        $locationIds = array_filter($locationIds, static function ($id) {
+            return $id > 0;
+        });
+
+        if (empty($locationIds)) {
+            return $this->builder;
+        }
+
+        return $this->builder->whereIn('location_id', $locationIds);
+    }
+
+    public function department_id($value)
+    {
+        $departmentIds = explode(',', $value);
+        $departmentIds = array_map(static function ($id) {
+            return Category::decodeHash(trim($id));
+        }, $departmentIds);
+        $departmentIds = array_filter($departmentIds, static function ($id) {
+            return $id > 0;
+        });
+
+        if (empty($departmentIds)) {
+            return $this->builder;
+        }
+
+        return $this->builder->whereIn('department_id', $departmentIds);
     }
 
     public function search($value)
     {
-        //        return $this->builder->where(function ($query) use ($value) {
-        //            $query->where('id', $value)
-        //                ->orWhere('slug', 'LIKE', '%'.strtolower($value).'%')
-        //                ->orWhereHas('translations', function ($query) use ($value) {
-        //                    $query->whereRaw('LOWER(title) LIKE ?', ['%'.strtolower($value).'%'])
-        //                        ->orWhereRaw('LOWER(body) LIKE ?', ['%'.strtolower($value).'%'])
-        //                        ->orWhereRaw('LOWER(meta_title) LIKE ?', ['%'.strtolower($value).'%'])
-        //                        ->orWhereRaw('LOWER(meta_description) LIKE ?', ['%'.strtolower($value).'%']);
-        //                });
-        //        });
-
         // Search by hashID (support multiple hashID, comma separated)
-        $ids = Blog::decodeMultipleHashString($value);
+        $ids = Career::decodeMultipleHashString($value);
 
         return $this->builder->where(function ($query) use ($value, $ids) {
-            $query->where('slug', 'LIKE', '%'.strtolower($value).'%')
-                ->orWhereHas('translations', function ($query) use ($value) {
+            $query->whereHas('translations', function ($query) use ($value) {
+                if (config('database.default') === 'mysql') {
                     $query->whereRaw('MATCH(title, body) AGAINST(? IN BOOLEAN MODE)', [$value]);
-                })
+                } elseif (config('database.default') === 'sqlite') {
+                    $query->where('title', 'like', '%'.$value.'%');
+                    $query->orWhere('body', 'like', '%'.$value.'%');
+                }
+            })
                 ->when($ids, function ($query) use ($ids) {
                     $query->orWhereIn('id', $ids);
                 });
         });
-    }
-
-    public function tags($value)
-    {
-        $tags = explode(',', $value);
-        $tags = array_map('trim', $tags);
-        $tags = array_filter($tags);
-
-        if (empty($tags)) {
-            return $this->builder;
-        }
-
-        return $this->builder->withAnyTags($tags, Blog::getTagType());
     }
 }

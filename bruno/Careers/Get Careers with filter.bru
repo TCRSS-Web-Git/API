@@ -1,0 +1,18 @@
+meta {
+  name: Get Careers with filter
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{backend_url}}/api/v1/careers?search=test&type_id=category_Z8GQ6D2LPY1NKR
+  body: none
+  auth: none
+}
+
+query {
+  search: test
+  type_id: category_Z8GQ6D2LPY1NKR
+  ~location_id: category_0821RDE5P753VQ,category_325KBP4LPLXQN1
+  ~department_id: category_Z8GQ6D2LPY1NKR,category_BY4ERMG6PQL7JK
+}

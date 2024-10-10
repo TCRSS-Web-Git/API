@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\CategoryType;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -26,7 +27,7 @@ class CategoryFactory extends Factory
 
     public function configure()
     {
-        return $this->afterCreating(function (\App\Models\Category $category) {
+        return $this->afterCreating(function (Category $category) {
             $name = $this->faker->word();
             $description = $this->faker->paragraphs(2, true);
 
@@ -42,6 +43,27 @@ class CategoryFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'type' => CategoryType::BLOG,
+        ]);
+    }
+
+    public function department(): Factory
+    {
+        return $this->state(fn (array $attributes) => [
+            'type' => CategoryType::DEPARTMENT,
+        ]);
+    }
+
+    public function location(): Factory
+    {
+        return $this->state(fn (array $attributes) => [
+            'type' => CategoryType::LOCATION,
+        ]);
+    }
+
+    public function careerType(): Factory
+    {
+        return $this->state(fn (array $attributes) => [
+            'type' => CategoryType::CAREER_TYPE,
         ]);
     }
 }
