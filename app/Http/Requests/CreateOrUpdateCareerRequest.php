@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Enums\CategoryType;
 use App\Models\Category;
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -24,22 +25,24 @@ class CreateOrUpdateCareerRequest extends FormRequest
      */
     public function rules(): array
     {
+        $requiredIfPublished = Rule::requiredIf($this->input('published_at') && Carbon::parse($this->input('published_at'))->timezone('UTC') <= now());
+
         return [
-            'type_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::CAREER_TYPE)],
-            'location_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::LOCATION)],
-            'department_id' => ['required', Rule::exists('categories', 'id')->where('type', CategoryType::DEPARTMENT)],
+            'type_id' => ['nullable', $requiredIfPublished, Rule::exists('categories', 'id')->where('type', CategoryType::CAREER_TYPE)],
+            'location_id' => ['nullable', $requiredIfPublished, Rule::exists('categories', 'id')->where('type', CategoryType::LOCATION)],
+            'department_id' => ['nullable', $requiredIfPublished, Rule::exists('categories', 'id')->where('type', CategoryType::DEPARTMENT)],
             'published_at' => ['nullable', 'date'],
             // Translations
-            'th' => ['array', 'required'],
-            'en' => ['array'],
+            'th' => ['array', 'nullable', $requiredIfPublished],
+            'en' => ['array', $requiredIfPublished],
             'th.title' => ['required', 'string', 'max:255'],
-            'en.title' => ['nullable', 'string', 'max:255'],
-            'th.body' => ['required', 'string', 'max:16777215'], // max medium text
-            'en.body' => ['nullable', 'string', 'max:16777215'],
-            'th.meta_title' => ['nullable', 'string', 'max:100'],
-            'en.meta_title' => ['nullable', 'string', 'max:100'],
-            'th.meta_description' => ['nullable', 'string', 'max:160'],
-            'en.meta_description' => ['nullable', 'string', 'max:160'],
+            'en.title' => ['nullable', $requiredIfPublished, 'string', 'max:255'],
+            'th.body' => ['nullable', $requiredIfPublished, 'string', 'max:16777215'], // max medium text
+            'en.body' => ['nullable', $requiredIfPublished, 'string', 'max:16777215'],
+            'th.meta_title' => ['nullable', $requiredIfPublished, 'string', 'max:100'],
+            'en.meta_title' => ['nullable', $requiredIfPublished, 'string', 'max:100'],
+            'th.meta_description' => ['nullable', $requiredIfPublished, 'string', 'max:160'],
+            'en.meta_description' => ['nullable', $requiredIfPublished, 'string', 'max:160'],
             // Media (temporary media)
             'body_images' => ['array'],
             'body_images.*.id' => ['nullable'],
@@ -52,9 +55,31 @@ class CreateOrUpdateCareerRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $this->merge([
-            'type_id' => Category::decodeHash($this->type_id),
-            'location_id' => Category::decodeHash($this->location_id),
-            'department_id' => Category::decodeHash($this->department_id),
+            'type_id' => $this->type_id ? Category::decodeHash($this->type_id) : null,
+            'location_id' => $this->location_id ? Category::decodeHash($this->location_id) : null,
+            'department_id' => $this->department_id ? Category::decodeHash($this->department_id) : null,
         ]);
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'type_id' => __('validation.attributes.career_type'),
+            'location_id' => __('validation.attributes.location'),
+            'department_id' => __('validation.attributes.department'),
+
+            'th' => __('validation.attributes.th'),
+            'en' => __('validation.attributes.en'),
+
+            'th.title' => __('validation.attributes.title'),
+            'th.body' => __('validation.attributes.body'),
+            'th.meta_title' => __('validation.attributes.meta_title'),
+            'th.meta_description' => __('validation.attributes.meta_description'),
+
+            'en.title' => __('validation.attributes.title'),
+            'en.body' => __('validation.attributes.body'),
+            'en.meta_title' => __('validation.attributes.meta_title'),
+            'en.meta_description' => __('validation.attributes.meta_description'),
+        ];
     }
 }
