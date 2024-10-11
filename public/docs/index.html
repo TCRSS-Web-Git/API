@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Starter API Documentation</title>
+    <title>TCRSS API Documentation</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "https://api.starter.test";
+        var tryItOutBaseUrl = "https://api.tcrss.test";
         var useCsrf = Boolean(1);
         var csrfUrl = "/api/v1/csrf-cookie";
     </script>
@@ -107,19 +107,19 @@
                 </li>
                                     <ul id="tocify-subheader-careers" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="careers-GETapi-v1-careers">
-                                <a href="#careers-GETapi-v1-careers">Get all job posts</a>
+                                <a href="#careers-GETapi-v1-careers">Get all career.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="careers-POSTapi-v1-careers">
-                                <a href="#careers-POSTapi-v1-careers">Create a job post.</a>
+                                <a href="#careers-POSTapi-v1-careers">Create a career.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="careers-GETapi-v1-careers--id-">
-                                <a href="#careers-GETapi-v1-careers--id-">Get a job post by id.</a>
+                                <a href="#careers-GETapi-v1-careers--id-">Get a career by id.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="careers-PUTapi-v1-careers--id-">
-                                <a href="#careers-PUTapi-v1-careers--id-">Update a job post.</a>
+                                <a href="#careers-PUTapi-v1-careers--id-">Update a career.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="careers-DELETEapi-v1-careers--id-">
-                                <a href="#careers-DELETEapi-v1-careers--id-">Delete a job post.</a>
+                                <a href="#careers-DELETEapi-v1-careers--id-">Delete a career.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -192,6 +192,12 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-temporary-media">
                                 <a href="#endpoints-POSTapi-v1-temporary-media">POST api/v1/temporary-media</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-invite-resend--user_id-">
+                                <a href="#endpoints-POSTapi-v1-invite-resend--user_id-">POST api/v1/invite/resend/{user_id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-v1-accept-user-invitation">
+                                <a href="#endpoints-PUTapi-v1-accept-user-invitation">PUT api/v1/accept-user-invitation</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-dev-api">
                                 <a href="#endpoints-GETapi-v1-dev-api">GET api/v1/dev-api</a>
                             </li>
@@ -240,7 +246,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: October 8, 2024</li>
+        <li>Last updated: October 11, 2024</li>
     </ul>
 </div>
 
@@ -249,7 +255,7 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>https://api.starter.test</code>
+    <strong>Base URL</strong>: <code>https://api.tcrss.test</code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -277,19 +283,19 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api.starter.test/api/v1/login" \
+    "https://api.tcrss.test/api/v1/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"bradtke.brendon@example.org\",
-    \"password\": \"IsBvp3^?[]PVSs8M\"
+    \"email\": \"crona.dangelo@example.net\",
+    \"password\": \"m\\\\VIk387Rw@&amp;1ZOO}\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/login"
+    "https://api.tcrss.test/api/v1/login"
 );
 
 const headers = {
@@ -298,8 +304,8 @@ const headers = {
 };
 
 let body = {
-    "email": "bradtke.brendon@example.org",
-    "password": "IsBvp3^?[]PVSs8M"
+    "email": "crona.dangelo@example.net",
+    "password": "m\\VIk387Rw@&amp;1ZOO}"
 };
 
 fetch(url, {
@@ -388,10 +394,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-login"
-               value="bradtke.brendon@example.org"
+               value="crona.dangelo@example.net"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นอีเมล. Example: <code>bradtke.brendon@example.org</code></p>
+<p>ข้อมูล value ต้องเป็นอีเมล. Example: <code>crona.dangelo@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -399,10 +405,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-login"
-               value="IsBvp3^?[]PVSs8M"
+               value="m\VIk387Rw@&1ZOO}"
                data-component="body">
     <br>
-<p>Example: <code>IsBvp3^?[]PVSs8M</code></p>
+<p>Example: <code>m\VIk387Rw@&amp;1ZOO}</code></p>
         </div>
         </form>
 
@@ -419,14 +425,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api.starter.test/api/v1/logout" \
+    "https://api.tcrss.test/api/v1/logout" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/logout"
+    "https://api.tcrss.test/api/v1/logout"
 );
 
 const headers = {
@@ -532,7 +538,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/blogs" \
+    --get "https://api.tcrss.test/api/v1/blogs" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -540,7 +546,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/blogs"
+    "https://api.tcrss.test/api/v1/blogs"
 );
 
 const headers = {
@@ -572,47 +578,23 @@ vary: Origin
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: &quot;blog_VD90Q31PRN4BM6&quot;,
+            &quot;id&quot;: &quot;blog_Z4DX835P3VNLBK&quot;,
             &quot;thumbnail&quot;: null,
             &quot;category&quot;: {
                 &quot;id&quot;: &quot;category_V2Y3EMY0P815R9&quot;,
                 &quot;name&quot;: &quot;บทความ&quot;,
                 &quot;slug&quot;: &quot;articles&quot;
             },
-            &quot;slug&quot;: &quot;sdfsdf&quot;,
-            &quot;title&quot;: &quot;sdf&quot;,
-            &quot;meta_title&quot;: &quot;sdfsdf&quot;,
-            &quot;meta_description&quot;: &quot;sdfsdf&quot;,
-            &quot;status&quot;: &quot;draft&quot;,
-            &quot;tags&quot;: [],
-            &quot;updated_by&quot;: {
-                &quot;id&quot;: &quot;user_ZMBQEKPDK3X079&quot;,
-                &quot;title&quot;: &quot;Ms.&quot;,
-                &quot;first_name&quot;: &quot;Super&quot;,
-                &quot;last_name&quot;: &quot;Admin&quot;
-            },
-            &quot;published_at&quot;: null,
-            &quot;created_at&quot;: &quot;2024-10-03T03:41:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-03T03:41:45.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: &quot;blog_Z4DX835P3VNLBK&quot;,
-            &quot;thumbnail&quot;: null,
-            &quot;category&quot;: {
-                &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
-                &quot;name&quot;: &quot;โปรโมชั่น&quot;,
-                &quot;slug&quot;: &quot;promotions&quot;
-            },
-            &quot;slug&quot;: &quot;velit-voluptatem-atque-quo-velit-deserunt&quot;,
-            &quot;title&quot;: &quot;(th) Aspernatur fuga assumenda cupiditate voluptatem totam.&quot;,
-            &quot;meta_title&quot;: &quot;(th) Aspernatur fuga assumenda cupiditate voluptatem totam.&quot;,
-            &quot;meta_description&quot;: &quot;(th) Et rerum qui minima minus in est. Dolore ullam consequatur laborum dignissimos repudiandae aliquid. Voluptatem earum esse et sint ipsum beatae. Fugiat non facilis placeat praesentium. Non corrupti veniam velit accusantium.\n\nAnimi sint excepturi paria&quot;,
+            &quot;slug&quot;: &quot;eum-repellat-quis-placeat-rerum-non-quis-unde&quot;,
+            &quot;title&quot;: &quot;(th) Rem dolores aspernatur in.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Rem dolores aspernatur in.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Sunt aspernatur quibusdam odit ut vero vel cupiditate. Ducimus ex impedit laudantium voluptatum qui dolor placeat. Rerum inventore sit sint expedita repellat qui sed. Veniam architecto aliquam amet consequuntur ea accusamus eveniet.\n\nEius et tenetur&quot;,
             &quot;status&quot;: &quot;published&quot;,
             &quot;tags&quot;: [],
             &quot;updated_by&quot;: null,
-            &quot;published_at&quot;: &quot;2024-03-22T03:18:35.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;published_at&quot;: &quot;2023-12-13T05:56:06.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         },
         {
             &quot;id&quot;: &quot;blog_K6JYM3BW3XBQZ8&quot;,
@@ -622,16 +604,16 @@ vary: Origin
                 &quot;name&quot;: &quot;บทความ&quot;,
                 &quot;slug&quot;: &quot;articles&quot;
             },
-            &quot;slug&quot;: &quot;officiis-et-labore-error-quo-et-sed-id&quot;,
-            &quot;title&quot;: &quot;(th) Dolore aperiam neque suscipit velit ipsam.&quot;,
-            &quot;meta_title&quot;: &quot;(th) Dolore aperiam neque suscipit velit ipsam.&quot;,
-            &quot;meta_description&quot;: &quot;(th) Eius velit culpa dolores rem autem. Magnam nostrum animi reiciendis voluptas temporibus et doloremque deserunt. Architecto provident sint et aliquid.\n\nQuod consequatur voluptas at ducimus voluptas vel. Consequatur ex cupiditate voluptatum eius quo mi&quot;,
+            &quot;slug&quot;: &quot;officia-non-qui-voluptas&quot;,
+            &quot;title&quot;: &quot;(th) Neque error deleniti aut autem voluptas.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Neque error deleniti aut autem voluptas.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Culpa eum dolorem ut aut. Temporibus ipsam corrupti est ipsum animi. Officia quis et voluptas. Voluptatem fugit veniam quos sequi.\n\nEst quo dignissimos magni et est. Est corrupti quod facere eveniet alias enim quam totam. Et soluta reiciendis molesti&quot;,
             &quot;status&quot;: &quot;published&quot;,
             &quot;tags&quot;: [],
             &quot;updated_by&quot;: null,
-            &quot;published_at&quot;: &quot;2024-08-24T18:55:38.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;published_at&quot;: &quot;2024-04-11T10:48:32.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         },
         {
             &quot;id&quot;: &quot;blog_BW8JN7KB7Z94KQ&quot;,
@@ -641,35 +623,35 @@ vary: Origin
                 &quot;name&quot;: &quot;โปรโมชั่น&quot;,
                 &quot;slug&quot;: &quot;promotions&quot;
             },
-            &quot;slug&quot;: &quot;quia-perferendis-doloremque-nemo-quo-eligendi&quot;,
-            &quot;title&quot;: &quot;(th) Cum consequatur sint facere dignissimos vel cumque.&quot;,
-            &quot;meta_title&quot;: &quot;(th) Cum consequatur sint facere dignissimos vel cumque.&quot;,
-            &quot;meta_description&quot;: &quot;(th) Aspernatur expedita laborum et iste nostrum. Sit molestias quibusdam voluptatem sint sit ut. Vitae quis eum nihil asperiores sed. Nostrum reiciendis quas neque asperiores velit eveniet autem.\n\nTenetur et dolor neque est cum illo iusto. Eum voluptatem&quot;,
+            &quot;slug&quot;: &quot;qui-ut-ullam-culpa-soluta-illo-accusamus&quot;,
+            &quot;title&quot;: &quot;(th) Blanditiis eaque facere qui quia fuga ea atque.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Blanditiis eaque facere qui quia fuga ea atque.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Ad maiores dolorem omnis dignissimos. Quasi in explicabo adipisci soluta. Sequi quibusdam numquam tenetur quo et iste nostrum.\n\nTenetur a eum fugiat. Voluptatem eum distinctio iure doloremque. Ad ut consectetur suscipit neque atque hic velit.\n\nPraese&quot;,
             &quot;status&quot;: &quot;draft&quot;,
             &quot;tags&quot;: [],
             &quot;updated_by&quot;: null,
             &quot;published_at&quot;: null,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         },
         {
             &quot;id&quot;: &quot;blog_JVK923Y53YM1P6&quot;,
             &quot;thumbnail&quot;: null,
             &quot;category&quot;: {
-                &quot;id&quot;: &quot;category_V2Y3EMY0P815R9&quot;,
-                &quot;name&quot;: &quot;บทความ&quot;,
-                &quot;slug&quot;: &quot;articles&quot;
+                &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
+                &quot;name&quot;: &quot;โปรโมชั่น&quot;,
+                &quot;slug&quot;: &quot;promotions&quot;
             },
-            &quot;slug&quot;: &quot;aut-magni-laudantium-perspiciatis-sed&quot;,
-            &quot;title&quot;: &quot;(th) Rerum vel earum qui non est voluptate ut.&quot;,
-            &quot;meta_title&quot;: &quot;(th) Rerum vel earum qui non est voluptate ut.&quot;,
-            &quot;meta_description&quot;: &quot;(th) Dolore omnis voluptatem consectetur dignissimos natus alias culpa. Soluta maxime ullam in non laborum. Dicta ut voluptatum expedita. Reprehenderit non dolores fugiat dolores adipisci necessitatibus nihil.\n\nPorro nostrum fugit velit et aut provident n&quot;,
-            &quot;status&quot;: &quot;published&quot;,
+            &quot;slug&quot;: &quot;vitae-assumenda-explicabo-aut-sapiente-similique-totam-fugit&quot;,
+            &quot;title&quot;: &quot;(th) Perferendis doloremque nobis aspernatur totam asperiores architecto.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Perferendis doloremque nobis aspernatur totam asperiores architecto.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Est qui voluptatem voluptate magni tempora enim. Omnis tempore consectetur eum quidem ut consequuntur. Dolores ea minus qui perspiciatis repellendus quas voluptatem.\n\nQuia dignissimos unde quibusdam earum dolor ab voluptatem deserunt. Officiis exerci&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
             &quot;tags&quot;: [],
             &quot;updated_by&quot;: null,
-            &quot;published_at&quot;: &quot;2024-06-18T01:45:57.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         },
         {
             &quot;id&quot;: &quot;blog_XWPLZ3W03652D8&quot;,
@@ -679,104 +661,123 @@ vary: Origin
                 &quot;name&quot;: &quot;โปรโมชั่น&quot;,
                 &quot;slug&quot;: &quot;promotions&quot;
             },
-            &quot;slug&quot;: &quot;et-quas-dolor-molestiae-perspiciatis-molestias&quot;,
-            &quot;title&quot;: &quot;(th) Ea impedit voluptatum cupiditate praesentium quia atque.&quot;,
-            &quot;meta_title&quot;: &quot;(th) Ea impedit voluptatum cupiditate praesentium quia atque.&quot;,
-            &quot;meta_description&quot;: &quot;(th) Ea vero ad reprehenderit reprehenderit optio ducimus. Voluptate fugit ex dolores minima dolorem aperiam culpa. Aliquam sunt et illum dolor hic. Ea autem beatae quod molestiae et reiciendis.\n\nVoluptatem nihil iste nesciunt. Eveniet cupiditate reprehen&quot;,
-            &quot;status&quot;: &quot;draft&quot;,
+            &quot;slug&quot;: &quot;est-hic-officiis-facere-explicabo-ut-aut-aut&quot;,
+            &quot;title&quot;: &quot;(th) Accusamus dignissimos reiciendis nemo.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Accusamus dignissimos reiciendis nemo.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Ut ducimus eum in quos. Quis qui voluptate sed non tempore voluptas sequi. Cum est et sunt deserunt reiciendis eveniet facere.\n\nEt odit incidunt omnis quas eos. Neque ullam sit ut dolorum ipsa. Quos ipsam ducimus velit velit non nemo perspiciatis. Fa&quot;,
+            &quot;status&quot;: &quot;published&quot;,
             &quot;tags&quot;: [],
             &quot;updated_by&quot;: null,
-            &quot;published_at&quot;: null,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;published_at&quot;: &quot;2024-09-22T08:58:09.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         },
         {
             &quot;id&quot;: &quot;blog_1D0VE7ZMRNLBYG&quot;,
             &quot;thumbnail&quot;: null,
             &quot;category&quot;: {
-                &quot;id&quot;: &quot;category_V2Y3EMY0P815R9&quot;,
-                &quot;name&quot;: &quot;บทความ&quot;,
-                &quot;slug&quot;: &quot;articles&quot;
+                &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
+                &quot;name&quot;: &quot;โปรโมชั่น&quot;,
+                &quot;slug&quot;: &quot;promotions&quot;
             },
-            &quot;slug&quot;: &quot;id-rerum-quae-quae-voluptatem-aut-ut-velit&quot;,
-            &quot;title&quot;: &quot;(th) Qui voluptas fugit doloribus ea totam voluptas explicabo.&quot;,
-            &quot;meta_title&quot;: &quot;(th) Qui voluptas fugit doloribus ea totam voluptas explicabo.&quot;,
-            &quot;meta_description&quot;: &quot;(th) Sed sapiente esse fugit rerum ullam. Laudantium asperiores accusamus delectus consequuntur. Quidem dolor similique velit qui sit iusto natus aut. Molestiae omnis dicta optio aperiam. Quae praesentium id laborum dolorem odit voluptatem quasi.\n\nIllo eu&quot;,
-            &quot;status&quot;: &quot;published&quot;,
+            &quot;slug&quot;: &quot;et-minus-voluptate-deleniti&quot;,
+            &quot;title&quot;: &quot;(th) Voluptatibus et consequatur nam culpa nam sit sequi.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Voluptatibus et consequatur nam culpa nam sit sequi.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Perferendis nulla magnam corrupti non. Quae eos totam quam. Ipsum aut sint porro magni. Explicabo laudantium unde id itaque.\n\nNemo reprehenderit consequuntur soluta asperiores consequatur. Nihil non quo laboriosam est eius sequi illo. Et ea unde quis&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
             &quot;tags&quot;: [],
             &quot;updated_by&quot;: null,
-            &quot;published_at&quot;: &quot;2024-06-09T08:31:04.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         },
         {
             &quot;id&quot;: &quot;blog_V1Q9J7423K8XBG&quot;,
             &quot;thumbnail&quot;: null,
             &quot;category&quot;: {
-                &quot;id&quot;: &quot;category_V2Y3EMY0P815R9&quot;,
-                &quot;name&quot;: &quot;บทความ&quot;,
-                &quot;slug&quot;: &quot;articles&quot;
+                &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
+                &quot;name&quot;: &quot;โปรโมชั่น&quot;,
+                &quot;slug&quot;: &quot;promotions&quot;
             },
-            &quot;slug&quot;: &quot;sunt-quae-dolores-rem-veritatis&quot;,
-            &quot;title&quot;: &quot;(th) Assumenda necessitatibus rerum sit beatae aperiam explicabo laborum.&quot;,
-            &quot;meta_title&quot;: &quot;(th) Assumenda necessitatibus rerum sit beatae aperiam explicabo laborum.&quot;,
-            &quot;meta_description&quot;: &quot;(th) Ea sapiente odio debitis velit omnis est eius. Ea est tempore ea animi. Voluptas excepturi ea voluptates non consequatur quo.\n\nNam dolores qui minus sit et. Et sint tempora commodi nostrum.\n\nDucimus illo voluptas sequi corporis. Maxime voluptate aliq&quot;,
-            &quot;status&quot;: &quot;draft&quot;,
+            &quot;slug&quot;: &quot;esse-et-omnis-similique-dolorum-repellat-ut-quia-velit&quot;,
+            &quot;title&quot;: &quot;(th) Quibusdam aut quis dicta eveniet vero.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Quibusdam aut quis dicta eveniet vero.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Qui unde suscipit id voluptatem voluptatem. Qui facere aliquid ipsam. Iusto eligendi provident error enim molestias. Nemo omnis rerum error possimus.\n\nEst delectus iure voluptates incidunt. Illum assumenda et totam sed fugit sed voluptatem. Dolore di&quot;,
+            &quot;status&quot;: &quot;published&quot;,
             &quot;tags&quot;: [],
             &quot;updated_by&quot;: null,
-            &quot;published_at&quot;: null,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;published_at&quot;: &quot;2024-02-05T00:03:19.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         },
         {
             &quot;id&quot;: &quot;blog_M9D6P7V27BZEX5&quot;,
             &quot;thumbnail&quot;: null,
             &quot;category&quot;: {
-                &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
-                &quot;name&quot;: &quot;โปรโมชั่น&quot;,
-                &quot;slug&quot;: &quot;promotions&quot;
+                &quot;id&quot;: &quot;category_V2Y3EMY0P815R9&quot;,
+                &quot;name&quot;: &quot;บทความ&quot;,
+                &quot;slug&quot;: &quot;articles&quot;
             },
-            &quot;slug&quot;: &quot;ut-sed-sed-vero-a-labore-voluptatem&quot;,
-            &quot;title&quot;: &quot;(th) Dolores aut quia sed et.&quot;,
-            &quot;meta_title&quot;: &quot;(th) Dolores aut quia sed et.&quot;,
-            &quot;meta_description&quot;: &quot;(th) Nisi temporibus sequi sint animi numquam omnis corporis. Rerum voluptatem explicabo suscipit corporis delectus soluta repellendus. Eaque delectus id sint.\n\nCorporis inventore facere rem deleniti qui laboriosam. Harum placeat exercitationem sed accusa&quot;,
-            &quot;status&quot;: &quot;published&quot;,
+            &quot;slug&quot;: &quot;sit-soluta-doloribus-assumenda-laudantium&quot;,
+            &quot;title&quot;: &quot;(th) Occaecati rem et voluptatem impedit nam.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Occaecati rem et voluptatem impedit nam.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Vitae rem vitae deserunt repudiandae sunt. Delectus accusamus aperiam vero earum.\n\nVeniam provident facere aut dolore nobis rem voluptas quidem. Deleniti totam ut id exercitationem dolorem illo voluptate. Doloremque est eos et.\n\nQuia quam nam ut blan&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
             &quot;tags&quot;: [],
             &quot;updated_by&quot;: null,
-            &quot;published_at&quot;: &quot;2023-12-19T05:04:10.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         },
         {
             &quot;id&quot;: &quot;blog_WV8J6RP8RXE2BM&quot;,
+            &quot;thumbnail&quot;: null,
+            &quot;category&quot;: {
+                &quot;id&quot;: &quot;category_V2Y3EMY0P815R9&quot;,
+                &quot;name&quot;: &quot;บทความ&quot;,
+                &quot;slug&quot;: &quot;articles&quot;
+            },
+            &quot;slug&quot;: &quot;animi-itaque-ab-voluptatem-voluptates-sequi-beatae-non-nemo&quot;,
+            &quot;title&quot;: &quot;(th) Quam tempore sit enim voluptatum perferendis qui.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Quam tempore sit enim voluptatum perferendis qui.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Et voluptas voluptatem eveniet sed architecto repellat. Placeat quae voluptatibus quas vel praesentium. Et beatae expedita quaerat ipsam.\n\nDolores adipisci totam earum tenetur velit ipsam cum. Voluptatem voluptatem ea rerum at architecto. Qui quidem&quot;,
+            &quot;status&quot;: &quot;published&quot;,
+            &quot;tags&quot;: [],
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: &quot;2023-12-09T18:10:05.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;blog_ZK6LYR6QR9MP48&quot;,
             &quot;thumbnail&quot;: null,
             &quot;category&quot;: {
                 &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
                 &quot;name&quot;: &quot;โปรโมชั่น&quot;,
                 &quot;slug&quot;: &quot;promotions&quot;
             },
-            &quot;slug&quot;: &quot;quis-ea-perferendis-dolores-quidem-et-soluta&quot;,
-            &quot;title&quot;: &quot;(th) Corrupti eveniet totam et voluptas molestiae sit.&quot;,
-            &quot;meta_title&quot;: &quot;(th) Corrupti eveniet totam et voluptas molestiae sit.&quot;,
-            &quot;meta_description&quot;: &quot;(th) Quidem reprehenderit quia vel. Laborum iure voluptas corporis itaque. Sit qui delectus qui explicabo. Rerum quam aliquid architecto omnis cumque.\n\nSuscipit sit qui ut dignissimos et. Et id voluptatem consequatur eligendi. Consectetur iure ut et sed u&quot;,
+            &quot;slug&quot;: &quot;ab-officia-labore-qui-sunt-repellendus-quibusdam-impedit-odit&quot;,
+            &quot;title&quot;: &quot;(th) Placeat ea qui rerum corrupti rem.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Placeat ea qui rerum corrupti rem.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Fuga nostrum a voluptatum libero veniam corrupti. Totam et sint similique excepturi fugiat est tempora. Et beatae praesentium enim dolorem.\n\nInventore necessitatibus rerum ratione id et quisquam ut. Rerum fuga labore consequuntur qui ut quas. Dolor n&quot;,
             &quot;status&quot;: &quot;draft&quot;,
             &quot;tags&quot;: [],
             &quot;updated_by&quot;: null,
             &quot;published_at&quot;: null,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         }
     ],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;https://api.starter.test/api/v1/blogs?page=1&quot;,
-        &quot;last&quot;: &quot;https://api.starter.test/api/v1/blogs?page=3&quot;,
+        &quot;first&quot;: &quot;https://api.tcrss.test/api/v1/blogs?page=1&quot;,
+        &quot;last&quot;: &quot;https://api.tcrss.test/api/v1/blogs?page=2&quot;,
         &quot;prev&quot;: null,
-        &quot;next&quot;: &quot;https://api.starter.test/api/v1/blogs?page=2&quot;
+        &quot;next&quot;: &quot;https://api.tcrss.test/api/v1/blogs?page=2&quot;
     },
     &quot;meta&quot;: {
         &quot;current_page&quot;: 1,
         &quot;from&quot;: 1,
-        &quot;last_page&quot;: 3,
+        &quot;last_page&quot;: 2,
         &quot;links&quot;: [
             {
                 &quot;url&quot;: null,
@@ -784,30 +785,25 @@ vary: Origin
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;https://api.starter.test/api/v1/blogs?page=1&quot;,
+                &quot;url&quot;: &quot;https://api.tcrss.test/api/v1/blogs?page=1&quot;,
                 &quot;label&quot;: &quot;1&quot;,
                 &quot;active&quot;: true
             },
             {
-                &quot;url&quot;: &quot;https://api.starter.test/api/v1/blogs?page=2&quot;,
+                &quot;url&quot;: &quot;https://api.tcrss.test/api/v1/blogs?page=2&quot;,
                 &quot;label&quot;: &quot;2&quot;,
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;https://api.starter.test/api/v1/blogs?page=3&quot;,
-                &quot;label&quot;: &quot;3&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;https://api.starter.test/api/v1/blogs?page=2&quot;,
+                &quot;url&quot;: &quot;https://api.tcrss.test/api/v1/blogs?page=2&quot;,
                 &quot;label&quot;: &quot;ถัดไป &amp;raquo;&quot;,
                 &quot;active&quot;: false
             }
         ],
-        &quot;path&quot;: &quot;https://api.starter.test/api/v1/blogs&quot;,
+        &quot;path&quot;: &quot;https://api.tcrss.test/api/v1/blogs&quot;,
         &quot;per_page&quot;: 10,
         &quot;to&quot;: 10,
-        &quot;total&quot;: 21
+        &quot;total&quot;: 20
     }
 }</code>
  </pre>
@@ -908,44 +904,43 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api.starter.test/api/v1/blogs" \
+    "https://api.tcrss.test/api/v1/blogs" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"slug\": \"tvuz\",
-    \"category_id\": \"suscipit\",
-    \"published_at\": \"2024-10-08T06:31:00\",
+    \"slug\": \"klpchjifpkt\",
+    \"published_at\": \"2024-10-11T04:56:11\",
     \"tags\": [
-        \"yidfgd\"
+        \"srm\"
     ],
     \"th\": {
-        \"title\": \"lvywfwkxdwqtvp\",
-        \"body\": \"ikxhjncykejjiqjm\",
-        \"meta_title\": \"wezrituz\",
-        \"meta_description\": \"mxhwxxnjhthaexew\"
+        \"title\": \"ibpsdofjxiqceekm\",
+        \"body\": \"c\",
+        \"meta_title\": \"nfmwflqeqzvjz\",
+        \"meta_description\": \"qdksjwvotzfkrzrrfvckz\"
     },
     \"en\": {
-        \"title\": \"zryzxbnyvvuzgkxi\",
-        \"body\": \"chslauxvjrdvogvlnriug\",
-        \"meta_title\": \"vlcnz\",
-        \"meta_description\": \"tgw\"
+        \"title\": \"drwccbunesssdcnn\",
+        \"body\": \"zcwcwzfmetncfnqsn\",
+        \"meta_title\": \"dmctmtjbupcy\",
+        \"meta_description\": \"mjzwjcgbqvdyuagxcniqot\"
     },
     \"cover\": {
-        \"path\": \"tenetur\",
-        \"url\": \"http:\\/\\/crona.com\\/cupiditate-dolorem-dolore-ut-dolorum-dolores-exercitationem\",
-        \"name\": \"porro\"
+        \"path\": \"accusantium\",
+        \"url\": \"https:\\/\\/www.metz.com\\/magnam-esse-animi-cupiditate-ex-nihil-eius\",
+        \"name\": \"quaerat\"
     },
     \"thumbnail\": {
-        \"path\": \"amet\",
-        \"url\": \"http:\\/\\/www.johnston.com\\/\",
-        \"name\": \"fugiat\"
+        \"path\": \"dolores\",
+        \"url\": \"http:\\/\\/www.lemke.net\\/\",
+        \"name\": \"qui\"
     },
     \"body_images\": [
         {
-            \"path\": \"vero\",
-            \"url\": \"http:\\/\\/runolfsdottir.net\\/quidem-veritatis-saepe-sed-perferendis-aperiam.html\",
-            \"name\": \"et\"
+            \"path\": \"voluptate\",
+            \"url\": \"http:\\/\\/www.thompson.com\\/a-in-quia-a-explicabo-modi-soluta-provident\",
+            \"name\": \"tenetur\"
         }
     ]
 }"
@@ -954,7 +949,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/blogs"
+    "https://api.tcrss.test/api/v1/blogs"
 );
 
 const headers = {
@@ -964,39 +959,38 @@ const headers = {
 };
 
 let body = {
-    "slug": "tvuz",
-    "category_id": "suscipit",
-    "published_at": "2024-10-08T06:31:00",
+    "slug": "klpchjifpkt",
+    "published_at": "2024-10-11T04:56:11",
     "tags": [
-        "yidfgd"
+        "srm"
     ],
     "th": {
-        "title": "lvywfwkxdwqtvp",
-        "body": "ikxhjncykejjiqjm",
-        "meta_title": "wezrituz",
-        "meta_description": "mxhwxxnjhthaexew"
+        "title": "ibpsdofjxiqceekm",
+        "body": "c",
+        "meta_title": "nfmwflqeqzvjz",
+        "meta_description": "qdksjwvotzfkrzrrfvckz"
     },
     "en": {
-        "title": "zryzxbnyvvuzgkxi",
-        "body": "chslauxvjrdvogvlnriug",
-        "meta_title": "vlcnz",
-        "meta_description": "tgw"
+        "title": "drwccbunesssdcnn",
+        "body": "zcwcwzfmetncfnqsn",
+        "meta_title": "dmctmtjbupcy",
+        "meta_description": "mjzwjcgbqvdyuagxcniqot"
     },
     "cover": {
-        "path": "tenetur",
-        "url": "http:\/\/crona.com\/cupiditate-dolorem-dolore-ut-dolorum-dolores-exercitationem",
-        "name": "porro"
+        "path": "accusantium",
+        "url": "https:\/\/www.metz.com\/magnam-esse-animi-cupiditate-ex-nihil-eius",
+        "name": "quaerat"
     },
     "thumbnail": {
-        "path": "amet",
-        "url": "http:\/\/www.johnston.com\/",
-        "name": "fugiat"
+        "path": "dolores",
+        "url": "http:\/\/www.lemke.net\/",
+        "name": "qui"
     },
     "body_images": [
         {
-            "path": "vero",
-            "url": "http:\/\/runolfsdottir.net\/quidem-veritatis-saepe-sed-perferendis-aperiam.html",
-            "name": "et"
+            "path": "voluptate",
+            "url": "http:\/\/www.thompson.com\/a-in-quia-a-explicabo-modi-soluta-provident",
+            "name": "tenetur"
         }
     ]
 };
@@ -1098,21 +1092,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="slug"                data-endpoint="POSTapi-v1-blogs"
-               value="tvuz"
+               value="klpchjifpkt"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>tvuz</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>klpchjifpkt</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>category_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="category_id"                data-endpoint="POSTapi-v1-blogs"
-               value="suscipit"
+               value=""
                data-component="body">
     <br>
-<p>Example: <code>suscipit</code></p>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
@@ -1120,10 +1114,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="published_at"                data-endpoint="POSTapi-v1-blogs"
-               value="2024-10-08T06:31:00"
+               value="2024-10-11T04:56:11"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-08T06:31:00</code></p>
+<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-11T04:56:11</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tags</code></b>&nbsp;&nbsp;
@@ -1143,7 +1137,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <summary style="padding-bottom: 10px;">
                 <b style="line-height: 2;"><code>th</code></b>&nbsp;&nbsp;
 <small>object</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
 <br>
 
             </summary>
@@ -1153,21 +1147,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="th.title"                data-endpoint="POSTapi-v1-blogs"
-               value="lvywfwkxdwqtvp"
+               value="ibpsdofjxiqceekm"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>lvywfwkxdwqtvp</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>ibpsdofjxiqceekm</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.body"                data-endpoint="POSTapi-v1-blogs"
-               value="ikxhjncykejjiqjm"
+               value="c"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>ikxhjncykejjiqjm</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>c</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -1175,10 +1169,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.meta_title"                data-endpoint="POSTapi-v1-blogs"
-               value="wezrituz"
+               value="nfmwflqeqzvjz"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>wezrituz</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>nfmwflqeqzvjz</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -1186,10 +1180,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.meta_description"                data-endpoint="POSTapi-v1-blogs"
-               value="mxhwxxnjhthaexew"
+               value="qdksjwvotzfkrzrrfvckz"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>mxhwxxnjhthaexew</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>qdksjwvotzfkrzrrfvckz</code></p>
                     </div>
                                     </details>
         </div>
@@ -1208,10 +1202,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.title"                data-endpoint="POSTapi-v1-blogs"
-               value="zryzxbnyvvuzgkxi"
+               value="drwccbunesssdcnn"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>zryzxbnyvvuzgkxi</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>drwccbunesssdcnn</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
@@ -1219,10 +1213,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.body"                data-endpoint="POSTapi-v1-blogs"
-               value="chslauxvjrdvogvlnriug"
+               value="zcwcwzfmetncfnqsn"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>chslauxvjrdvogvlnriug</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>zcwcwzfmetncfnqsn</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -1230,10 +1224,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.meta_title"                data-endpoint="POSTapi-v1-blogs"
-               value="vlcnz"
+               value="dmctmtjbupcy"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>vlcnz</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>dmctmtjbupcy</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -1241,10 +1235,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.meta_description"                data-endpoint="POSTapi-v1-blogs"
-               value="tgw"
+               value="mjzwjcgbqvdyuagxcniqot"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>tgw</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>mjzwjcgbqvdyuagxcniqot</code></p>
                     </div>
                                     </details>
         </div>
@@ -1274,10 +1268,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="cover.path"                data-endpoint="POSTapi-v1-blogs"
-               value="tenetur"
+               value="accusantium"
                data-component="body">
     <br>
-<p>This field is required when <code>cover.id</code> is <code>null</code>. Example: <code>tenetur</code></p>
+<p>This field is required when <code>cover.id</code> is <code>null</code>. Example: <code>accusantium</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
@@ -1285,10 +1279,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="cover.url"                data-endpoint="POSTapi-v1-blogs"
-               value="http://crona.com/cupiditate-dolorem-dolore-ut-dolorum-dolores-exercitationem"
+               value="https://www.metz.com/magnam-esse-animi-cupiditate-ex-nihil-eius"
                data-component="body">
     <br>
-<p>Example: <code>http://crona.com/cupiditate-dolorem-dolore-ut-dolorum-dolores-exercitationem</code></p>
+<p>Example: <code>https://www.metz.com/magnam-esse-animi-cupiditate-ex-nihil-eius</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -1296,10 +1290,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="cover.name"                data-endpoint="POSTapi-v1-blogs"
-               value="porro"
+               value="quaerat"
                data-component="body">
     <br>
-<p>Example: <code>porro</code></p>
+<p>Example: <code>quaerat</code></p>
                     </div>
                                     </details>
         </div>
@@ -1329,10 +1323,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="thumbnail.path"                data-endpoint="POSTapi-v1-blogs"
-               value="amet"
+               value="dolores"
                data-component="body">
     <br>
-<p>This field is required when <code>thumbnail.id</code> is <code>null</code>. Example: <code>amet</code></p>
+<p>This field is required when <code>thumbnail.id</code> is <code>null</code>. Example: <code>dolores</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
@@ -1340,10 +1334,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="thumbnail.url"                data-endpoint="POSTapi-v1-blogs"
-               value="http://www.johnston.com/"
+               value="http://www.lemke.net/"
                data-component="body">
     <br>
-<p>Example: <code>http://www.johnston.com/</code></p>
+<p>Example: <code>http://www.lemke.net/</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -1351,10 +1345,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="thumbnail.name"                data-endpoint="POSTapi-v1-blogs"
-               value="fugiat"
+               value="qui"
                data-component="body">
     <br>
-<p>Example: <code>fugiat</code></p>
+<p>Example: <code>qui</code></p>
                     </div>
                                     </details>
         </div>
@@ -1384,10 +1378,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.path"                data-endpoint="POSTapi-v1-blogs"
-               value="vero"
+               value="voluptate"
                data-component="body">
     <br>
-<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>vero</code></p>
+<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>voluptate</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
@@ -1395,10 +1389,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.url"                data-endpoint="POSTapi-v1-blogs"
-               value="http://runolfsdottir.net/quidem-veritatis-saepe-sed-perferendis-aperiam.html"
+               value="http://www.thompson.com/a-in-quia-a-explicabo-modi-soluta-provident"
                data-component="body">
     <br>
-<p>Example: <code>http://runolfsdottir.net/quidem-veritatis-saepe-sed-perferendis-aperiam.html</code></p>
+<p>Example: <code>http://www.thompson.com/a-in-quia-a-explicabo-modi-soluta-provident</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -1406,10 +1400,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.name"                data-endpoint="POSTapi-v1-blogs"
-               value="et"
+               value="tenetur"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>tenetur</code></p>
                     </div>
                                     </details>
         </div>
@@ -1429,7 +1423,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/blogs/1" \
+    --get "https://api.tcrss.test/api/v1/blogs/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1437,7 +1431,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/blogs/1"
+    "https://api.tcrss.test/api/v1/blogs/1"
 );
 
 const headers = {
@@ -1579,44 +1573,43 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://api.starter.test/api/v1/blogs/1" \
+    "https://api.tcrss.test/api/v1/blogs/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"slug\": \"bqtozwldljqdtnstlzwy\",
-    \"category_id\": \"culpa\",
-    \"published_at\": \"2024-10-08T06:31:00\",
+    \"slug\": \"otiuqmiqxzsrjlcaehtcerlb\",
+    \"published_at\": \"2024-10-11T04:56:11\",
     \"tags\": [
-        \"edbu\"
+        \"pzgpwe\"
     ],
     \"th\": {
-        \"title\": \"fetgfmxmzcycffanxyawbjcrl\",
-        \"body\": \"puxghmvafkyebctzf\",
-        \"meta_title\": \"iqevjznyjsojmvwvf\",
-        \"meta_description\": \"dwzs\"
+        \"title\": \"qmpqcuuxhcxuj\",
+        \"body\": \"xtfytuowf\",
+        \"meta_title\": \"cgxchockya\",
+        \"meta_description\": \"sulrr\"
     },
     \"en\": {
-        \"title\": \"fpaltcrqzfwafs\",
-        \"body\": \"yazyybxyr\",
-        \"meta_title\": \"twbjvdmgkmmc\",
-        \"meta_description\": \"cpxodezh\"
+        \"title\": \"imtzamystsm\",
+        \"body\": \"nlyvdmdauvzmf\",
+        \"meta_title\": \"keivpyotgkhzployortkogj\",
+        \"meta_description\": \"thabyzbwsynidrnvvrjo\"
     },
     \"cover\": {
-        \"path\": \"unde\",
-        \"url\": \"http:\\/\\/www.schulist.com\\/quasi-eum-eligendi-excepturi-optio-quos-iste\",
-        \"name\": \"illo\"
+        \"path\": \"perferendis\",
+        \"url\": \"https:\\/\\/jerde.com\\/omnis-porro-quis-et-dolores-quia.html\",
+        \"name\": \"aut\"
     },
     \"thumbnail\": {
-        \"path\": \"autem\",
-        \"url\": \"https:\\/\\/adams.biz\\/voluptatem-voluptatum-voluptas-aut-illum-harum.html\",
-        \"name\": \"recusandae\"
+        \"path\": \"debitis\",
+        \"url\": \"https:\\/\\/terry.com\\/iusto-nihil-qui-rem-culpa-sit-omnis.html\",
+        \"name\": \"magni\"
     },
     \"body_images\": [
         {
-            \"path\": \"omnis\",
-            \"url\": \"http:\\/\\/kuhlman.com\\/\",
-            \"name\": \"rerum\"
+            \"path\": \"quia\",
+            \"url\": \"https:\\/\\/larkin.com\\/deleniti-iure-ex-qui-et-impedit-sed-eaque-ratione.html\",
+            \"name\": \"ipsam\"
         }
     ]
 }"
@@ -1625,7 +1618,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/blogs/1"
+    "https://api.tcrss.test/api/v1/blogs/1"
 );
 
 const headers = {
@@ -1635,39 +1628,38 @@ const headers = {
 };
 
 let body = {
-    "slug": "bqtozwldljqdtnstlzwy",
-    "category_id": "culpa",
-    "published_at": "2024-10-08T06:31:00",
+    "slug": "otiuqmiqxzsrjlcaehtcerlb",
+    "published_at": "2024-10-11T04:56:11",
     "tags": [
-        "edbu"
+        "pzgpwe"
     ],
     "th": {
-        "title": "fetgfmxmzcycffanxyawbjcrl",
-        "body": "puxghmvafkyebctzf",
-        "meta_title": "iqevjznyjsojmvwvf",
-        "meta_description": "dwzs"
+        "title": "qmpqcuuxhcxuj",
+        "body": "xtfytuowf",
+        "meta_title": "cgxchockya",
+        "meta_description": "sulrr"
     },
     "en": {
-        "title": "fpaltcrqzfwafs",
-        "body": "yazyybxyr",
-        "meta_title": "twbjvdmgkmmc",
-        "meta_description": "cpxodezh"
+        "title": "imtzamystsm",
+        "body": "nlyvdmdauvzmf",
+        "meta_title": "keivpyotgkhzployortkogj",
+        "meta_description": "thabyzbwsynidrnvvrjo"
     },
     "cover": {
-        "path": "unde",
-        "url": "http:\/\/www.schulist.com\/quasi-eum-eligendi-excepturi-optio-quos-iste",
-        "name": "illo"
+        "path": "perferendis",
+        "url": "https:\/\/jerde.com\/omnis-porro-quis-et-dolores-quia.html",
+        "name": "aut"
     },
     "thumbnail": {
-        "path": "autem",
-        "url": "https:\/\/adams.biz\/voluptatem-voluptatum-voluptas-aut-illum-harum.html",
-        "name": "recusandae"
+        "path": "debitis",
+        "url": "https:\/\/terry.com\/iusto-nihil-qui-rem-culpa-sit-omnis.html",
+        "name": "magni"
     },
     "body_images": [
         {
-            "path": "omnis",
-            "url": "http:\/\/kuhlman.com\/",
-            "name": "rerum"
+            "path": "quia",
+            "url": "https:\/\/larkin.com\/deleniti-iure-ex-qui-et-impedit-sed-eaque-ratione.html",
+            "name": "ipsam"
         }
     ]
 };
@@ -1785,21 +1777,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="slug"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="bqtozwldljqdtnstlzwy"
+               value="otiuqmiqxzsrjlcaehtcerlb"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>bqtozwldljqdtnstlzwy</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>otiuqmiqxzsrjlcaehtcerlb</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>category_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="category_id"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="culpa"
+               value=""
                data-component="body">
     <br>
-<p>Example: <code>culpa</code></p>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
@@ -1807,10 +1799,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="published_at"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="2024-10-08T06:31:00"
+               value="2024-10-11T04:56:11"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-08T06:31:00</code></p>
+<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-11T04:56:11</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tags</code></b>&nbsp;&nbsp;
@@ -1830,7 +1822,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <summary style="padding-bottom: 10px;">
                 <b style="line-height: 2;"><code>th</code></b>&nbsp;&nbsp;
 <small>object</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
 <br>
 
             </summary>
@@ -1840,21 +1832,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="th.title"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="fetgfmxmzcycffanxyawbjcrl"
+               value="qmpqcuuxhcxuj"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>fetgfmxmzcycffanxyawbjcrl</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>qmpqcuuxhcxuj</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.body"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="puxghmvafkyebctzf"
+               value="xtfytuowf"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>puxghmvafkyebctzf</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>xtfytuowf</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -1862,10 +1854,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.meta_title"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="iqevjznyjsojmvwvf"
+               value="cgxchockya"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>iqevjznyjsojmvwvf</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>cgxchockya</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -1873,10 +1865,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.meta_description"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="dwzs"
+               value="sulrr"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>dwzs</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>sulrr</code></p>
                     </div>
                                     </details>
         </div>
@@ -1895,10 +1887,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.title"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="fpaltcrqzfwafs"
+               value="imtzamystsm"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>fpaltcrqzfwafs</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>imtzamystsm</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
@@ -1906,10 +1898,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.body"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="yazyybxyr"
+               value="nlyvdmdauvzmf"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>yazyybxyr</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>nlyvdmdauvzmf</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -1917,10 +1909,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.meta_title"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="twbjvdmgkmmc"
+               value="keivpyotgkhzployortkogj"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>twbjvdmgkmmc</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>keivpyotgkhzployortkogj</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -1928,10 +1920,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.meta_description"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="cpxodezh"
+               value="thabyzbwsynidrnvvrjo"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>cpxodezh</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>thabyzbwsynidrnvvrjo</code></p>
                     </div>
                                     </details>
         </div>
@@ -1961,10 +1953,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="cover.path"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="unde"
+               value="perferendis"
                data-component="body">
     <br>
-<p>This field is required when <code>cover.id</code> is <code>null</code>. Example: <code>unde</code></p>
+<p>This field is required when <code>cover.id</code> is <code>null</code>. Example: <code>perferendis</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
@@ -1972,10 +1964,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="cover.url"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="http://www.schulist.com/quasi-eum-eligendi-excepturi-optio-quos-iste"
+               value="https://jerde.com/omnis-porro-quis-et-dolores-quia.html"
                data-component="body">
     <br>
-<p>Example: <code>http://www.schulist.com/quasi-eum-eligendi-excepturi-optio-quos-iste</code></p>
+<p>Example: <code>https://jerde.com/omnis-porro-quis-et-dolores-quia.html</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -1983,10 +1975,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="cover.name"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="illo"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>illo</code></p>
+<p>Example: <code>aut</code></p>
                     </div>
                                     </details>
         </div>
@@ -2016,10 +2008,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="thumbnail.path"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="autem"
+               value="debitis"
                data-component="body">
     <br>
-<p>This field is required when <code>thumbnail.id</code> is <code>null</code>. Example: <code>autem</code></p>
+<p>This field is required when <code>thumbnail.id</code> is <code>null</code>. Example: <code>debitis</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
@@ -2027,10 +2019,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="thumbnail.url"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="https://adams.biz/voluptatem-voluptatum-voluptas-aut-illum-harum.html"
+               value="https://terry.com/iusto-nihil-qui-rem-culpa-sit-omnis.html"
                data-component="body">
     <br>
-<p>Example: <code>https://adams.biz/voluptatem-voluptatum-voluptas-aut-illum-harum.html</code></p>
+<p>Example: <code>https://terry.com/iusto-nihil-qui-rem-culpa-sit-omnis.html</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -2038,10 +2030,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="thumbnail.name"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="recusandae"
+               value="magni"
                data-component="body">
     <br>
-<p>Example: <code>recusandae</code></p>
+<p>Example: <code>magni</code></p>
                     </div>
                                     </details>
         </div>
@@ -2071,10 +2063,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.path"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="omnis"
+               value="quia"
                data-component="body">
     <br>
-<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>omnis</code></p>
+<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>quia</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
@@ -2082,10 +2074,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.url"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="http://kuhlman.com/"
+               value="https://larkin.com/deleniti-iure-ex-qui-et-impedit-sed-eaque-ratione.html"
                data-component="body">
     <br>
-<p>Example: <code>http://kuhlman.com/</code></p>
+<p>Example: <code>https://larkin.com/deleniti-iure-ex-qui-et-impedit-sed-eaque-ratione.html</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -2093,10 +2085,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.name"                data-endpoint="PUTapi-v1-blogs--id-"
-               value="rerum"
+               value="ipsam"
                data-component="body">
     <br>
-<p>Example: <code>rerum</code></p>
+<p>Example: <code>ipsam</code></p>
                     </div>
                                     </details>
         </div>
@@ -2116,7 +2108,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://api.starter.test/api/v1/blogs/1" \
+    "https://api.tcrss.test/api/v1/blogs/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2124,7 +2116,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/blogs/1"
+    "https://api.tcrss.test/api/v1/blogs/1"
 );
 
 const headers = {
@@ -2240,7 +2232,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="careers-GETapi-v1-careers">Get all job posts</h2>
+                                <h2 id="careers-GETapi-v1-careers">Get all career.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2254,7 +2246,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/careers" \
+    --get "https://api.tcrss.test/api/v1/careers" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2262,7 +2254,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/careers"
+    "https://api.tcrss.test/api/v1/careers"
 );
 
 const headers = {
@@ -2280,7 +2272,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-careers">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -2292,7 +2284,310 @@ vary: Origin
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;career_046XZB4DDLNRQ5&quot;,
+            &quot;location&quot;: {
+                &quot;id&quot;: &quot;category_51L8XP69P7WR30&quot;,
+                &quot;name&quot;: &quot;กรุงเทพฯ&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;type&quot;: {
+                &quot;id&quot;: &quot;category_Z8GQ6D2LPY1NKR&quot;,
+                &quot;name&quot;: &quot;งานเต็มเวลา&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;department&quot;: {
+                &quot;id&quot;: &quot;category_325KBP4LPLXQN1&quot;,
+                &quot;name&quot;: &quot;ฝ่ายบุคคล&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;title&quot;: &quot;(th) Et debitis sed et vitae est.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Et debitis sed et vitae est.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Non sed illo amet voluptatibus provident dolorem. Similique quae molestiae voluptatem voluptas sapiente et quidem corporis. Aut expedita laudantium et dolorem sunt. Est rerum fugiat quam fuga.\n\nError architecto pariatur recusandae aut voluptates accu&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;career_6DNRVL6D8BXK97&quot;,
+            &quot;location&quot;: {
+                &quot;id&quot;: &quot;category_G9J86PJ1MWQY2E&quot;,
+                &quot;name&quot;: &quot;เชียงใหม่&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;type&quot;: {
+                &quot;id&quot;: &quot;category_Z8GQ6D2LPY1NKR&quot;,
+                &quot;name&quot;: &quot;งานเต็มเวลา&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;department&quot;: {
+                &quot;id&quot;: &quot;category_325KBP4LPLXQN1&quot;,
+                &quot;name&quot;: &quot;ฝ่ายบุคคล&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;title&quot;: &quot;(th) Voluptatum ut dolorem nulla ut numquam est minus.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Voluptatum ut dolorem nulla ut numquam est minus.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Qui eos beatae et ut consequatur veniam. Voluptatem et sed expedita. In voluptatem repellat quidem ducimus occaecati nesciunt. Sint odio dolorem magni molestiae fuga.\n\nExpedita velit voluptate quibusdam libero aut. Quaerat et voluptates velit enim di&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;career_45GM1L1DE3R9DK&quot;,
+            &quot;location&quot;: {
+                &quot;id&quot;: &quot;category_G9J86PJ1MWQY2E&quot;,
+                &quot;name&quot;: &quot;เชียงใหม่&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;type&quot;: {
+                &quot;id&quot;: &quot;category_Z8GQ6D2LPY1NKR&quot;,
+                &quot;name&quot;: &quot;งานเต็มเวลา&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;department&quot;: {
+                &quot;id&quot;: &quot;category_0821RDE5P753VQ&quot;,
+                &quot;name&quot;: &quot;ฝ่าย IT&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;title&quot;: &quot;(th) Quam porro similique quas tempore explicabo libero blanditiis.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Quam porro similique quas tempore explicabo libero blanditiis.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Est saepe qui est ex cumque. Aperiam qui ipsa et quae. Aliquid enim veniam recusandae enim eum cupiditate et.\n\nQuibusdam atque voluptate quia magni qui ea sapiente. Ut quos unde dolorem deserunt. Sequi eos nostrum ipsa ut tempore est sit doloribus. E&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;career_K8GQNB7JLDWR74&quot;,
+            &quot;location&quot;: {
+                &quot;id&quot;: &quot;category_51L8XP69P7WR30&quot;,
+                &quot;name&quot;: &quot;กรุงเทพฯ&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;type&quot;: {
+                &quot;id&quot;: &quot;category_BY4ERMG6PQL7JK&quot;,
+                &quot;name&quot;: &quot;งานพาร์ทไทม์&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;department&quot;: {
+                &quot;id&quot;: &quot;category_0821RDE5P753VQ&quot;,
+                &quot;name&quot;: &quot;ฝ่าย IT&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;title&quot;: &quot;(th) Necessitatibus est a atque aliquid.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Necessitatibus est a atque aliquid.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Earum sed repudiandae non. Officiis repellat officia repellat aut qui excepturi hic. Qui illum sit doloremque magni sequi.\n\nQuo nobis quibusdam molestiae nihil eum qui sit. Fugit excepturi iure incidunt quo et. Est qui necessitatibus tempore deserunt&quot;,
+            &quot;status&quot;: &quot;published&quot;,
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: &quot;2024-09-19T14:50:02.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;career_WR72PBVPB8XGNY&quot;,
+            &quot;location&quot;: {
+                &quot;id&quot;: &quot;category_G9J86PJ1MWQY2E&quot;,
+                &quot;name&quot;: &quot;เชียงใหม่&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;type&quot;: {
+                &quot;id&quot;: &quot;category_Z8GQ6D2LPY1NKR&quot;,
+                &quot;name&quot;: &quot;งานเต็มเวลา&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;department&quot;: {
+                &quot;id&quot;: &quot;category_325KBP4LPLXQN1&quot;,
+                &quot;name&quot;: &quot;ฝ่ายบุคคล&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;title&quot;: &quot;(th) Quam nihil placeat deleniti itaque quod.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Quam nihil placeat deleniti itaque quod.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Eius occaecati sed a possimus aut minima consequatur explicabo. Excepturi cum laudantium magni repudiandae qui. Cumque laborum ad autem doloribus accusamus nobis occaecati.\n\nAspernatur nihil ut repudiandae ea est perferendis hic. Et exercitationem ea&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;career_JQ03NEJ2E1VW2G&quot;,
+            &quot;location&quot;: {
+                &quot;id&quot;: &quot;category_G9J86PJ1MWQY2E&quot;,
+                &quot;name&quot;: &quot;เชียงใหม่&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;type&quot;: {
+                &quot;id&quot;: &quot;category_Z8GQ6D2LPY1NKR&quot;,
+                &quot;name&quot;: &quot;งานเต็มเวลา&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;department&quot;: {
+                &quot;id&quot;: &quot;category_325KBP4LPLXQN1&quot;,
+                &quot;name&quot;: &quot;ฝ่ายบุคคล&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;title&quot;: &quot;(th) Blanditiis vel quos doloribus impedit voluptates in sunt facilis.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Blanditiis vel quos doloribus impedit voluptates in sunt facilis.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Molestiae quia neque debitis. Et architecto non odio quas ex. Ut fuga possimus omnis officiis. Atque omnis architecto qui mollitia.\n\nQuis voluptatibus id doloremque voluptate occaecati eius provident. Rerum harum laudantium aut asperiores eveniet eum&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;career_48VDXE03E52NG3&quot;,
+            &quot;location&quot;: {
+                &quot;id&quot;: &quot;category_51L8XP69P7WR30&quot;,
+                &quot;name&quot;: &quot;กรุงเทพฯ&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;type&quot;: {
+                &quot;id&quot;: &quot;category_Z8GQ6D2LPY1NKR&quot;,
+                &quot;name&quot;: &quot;งานเต็มเวลา&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;department&quot;: {
+                &quot;id&quot;: &quot;category_325KBP4LPLXQN1&quot;,
+                &quot;name&quot;: &quot;ฝ่ายบุคคล&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;title&quot;: &quot;(th) Repudiandae blanditiis dolore iure.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Repudiandae blanditiis dolore iure.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Doloribus voluptatem omnis tempora autem quo maiores quis. Voluptatem placeat non quis praesentium sit vel. Doloribus consequatur numquam nostrum amet omnis deserunt. Quasi dicta repellendus soluta perspiciatis inventore.\n\nItaque quia natus rerum deb&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;career_302R9BY2BPYNV6&quot;,
+            &quot;location&quot;: {
+                &quot;id&quot;: &quot;category_51L8XP69P7WR30&quot;,
+                &quot;name&quot;: &quot;กรุงเทพฯ&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;type&quot;: {
+                &quot;id&quot;: &quot;category_Z8GQ6D2LPY1NKR&quot;,
+                &quot;name&quot;: &quot;งานเต็มเวลา&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;department&quot;: {
+                &quot;id&quot;: &quot;category_0821RDE5P753VQ&quot;,
+                &quot;name&quot;: &quot;ฝ่าย IT&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;title&quot;: &quot;(th) Ut dolores non soluta aut non fugiat quam.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Ut dolores non soluta aut non fugiat quam.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Ipsam ut alias est atque incidunt temporibus. Voluptas deleniti suscipit inventore provident cumque dolorum sed alias.\n\nVoluptatem autem omnis porro doloribus aut tenetur. Earum ut ratione incidunt omnis sed. Magnam ratione aut hic dolor aut.\n\nIpsum&quot;,
+            &quot;status&quot;: &quot;published&quot;,
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: &quot;2023-10-15T06:00:41.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;career_Y281GBW8EJX047&quot;,
+            &quot;location&quot;: {
+                &quot;id&quot;: &quot;category_51L8XP69P7WR30&quot;,
+                &quot;name&quot;: &quot;กรุงเทพฯ&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;type&quot;: {
+                &quot;id&quot;: &quot;category_BY4ERMG6PQL7JK&quot;,
+                &quot;name&quot;: &quot;งานพาร์ทไทม์&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;department&quot;: {
+                &quot;id&quot;: &quot;category_0821RDE5P753VQ&quot;,
+                &quot;name&quot;: &quot;ฝ่าย IT&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;title&quot;: &quot;(th) Repellendus placeat natus sit dolorum.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Repellendus placeat natus sit dolorum.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Et sed sit molestiae nihil qui itaque. Totam vel qui vitae nihil. Rerum sed consequatur molestiae voluptatem quia consequatur. Exercitationem sed quam quia consectetur. Voluptatem eius molestias quasi distinctio aut suscipit.\n\nDolorum sed sed vero ad&quot;,
+            &quot;status&quot;: &quot;published&quot;,
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: &quot;2024-09-09T02:49:33.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;career_P0QJKBXYLG321R&quot;,
+            &quot;location&quot;: {
+                &quot;id&quot;: &quot;category_51L8XP69P7WR30&quot;,
+                &quot;name&quot;: &quot;กรุงเทพฯ&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;type&quot;: {
+                &quot;id&quot;: &quot;category_BY4ERMG6PQL7JK&quot;,
+                &quot;name&quot;: &quot;งานพาร์ทไทม์&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;department&quot;: {
+                &quot;id&quot;: &quot;category_0821RDE5P753VQ&quot;,
+                &quot;name&quot;: &quot;ฝ่าย IT&quot;,
+                &quot;slug&quot;: null
+            },
+            &quot;title&quot;: &quot;(th) Non sed rerum nisi quod est.&quot;,
+            &quot;meta_title&quot;: &quot;(th) Non sed rerum nisi quod est.&quot;,
+            &quot;meta_description&quot;: &quot;(th) Nobis aliquid vitae qui suscipit. Nulla adipisci delectus qui quia iure quibusdam itaque. Nemo repudiandae nulla ex ipsa ut aspernatur.\n\nSapiente totam dicta deserunt nulla velit nobis. Velit dignissimos sit voluptatum officia ut voluptas minus. Et u&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;updated_by&quot;: null,
+            &quot;published_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;https://api.tcrss.test/api/v1/careers?page=1&quot;,
+        &quot;last&quot;: &quot;https://api.tcrss.test/api/v1/careers?page=3&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: &quot;https://api.tcrss.test/api/v1/careers?page=2&quot;
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 3,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; ก่อนหน้า&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;https://api.tcrss.test/api/v1/careers?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: &quot;https://api.tcrss.test/api/v1/careers?page=2&quot;,
+                &quot;label&quot;: &quot;2&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;https://api.tcrss.test/api/v1/careers?page=3&quot;,
+                &quot;label&quot;: &quot;3&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;https://api.tcrss.test/api/v1/careers?page=2&quot;,
+                &quot;label&quot;: &quot;ถัดไป &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;https://api.tcrss.test/api/v1/careers&quot;,
+        &quot;per_page&quot;: 10,
+        &quot;to&quot;: 10,
+        &quot;total&quot;: 25
+    }
 }</code>
  </pre>
     </span>
@@ -2378,7 +2673,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="careers-POSTapi-v1-careers">Create a job post.</h2>
+                    <h2 id="careers-POSTapi-v1-careers">Create a career.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2392,32 +2687,29 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api.starter.test/api/v1/careers" \
+    "https://api.tcrss.test/api/v1/careers" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"type\": \"jnzfeaskms\",
-    \"location_id\": \"dolorem\",
-    \"department_id\": \"cumque\",
-    \"published_at\": \"2024-10-08T06:31:00\",
+    \"published_at\": \"2024-10-11T04:56:11\",
     \"th\": {
-        \"title\": \"ehdkju\",
-        \"body\": \"guglssuoojkbg\",
-        \"meta_title\": \"fpzpc\",
-        \"meta_description\": \"revawldqoirsphldbfsqno\"
+        \"title\": \"bnbmxsudmervziadc\",
+        \"body\": \"twbjnkcxgwdt\",
+        \"meta_title\": \"basfsljkbetltywycnzyisd\",
+        \"meta_description\": \"epaboybiztfilbeuvidg\"
     },
     \"en\": {
-        \"title\": \"cipri\",
-        \"body\": \"powtrzgoowvxajk\",
-        \"meta_title\": \"dbjxytvoizhmkwcceh\",
-        \"meta_description\": \"a\"
+        \"title\": \"shswhk\",
+        \"body\": \"joht\",
+        \"meta_title\": \"dbmsq\",
+        \"meta_description\": \"buypmdsjxszbgmkygneuou\"
     },
     \"body_images\": [
         {
-            \"path\": \"repudiandae\",
-            \"url\": \"http:\\/\\/hirthe.com\\/aspernatur-laudantium-minima-fugiat-non-veniam\",
-            \"name\": \"aut\"
+            \"path\": \"et\",
+            \"url\": \"http:\\/\\/www.murray.org\\/cum-quisquam-expedita-ipsa-quia-delectus\",
+            \"name\": \"sint\"
         }
     ]
 }"
@@ -2426,7 +2718,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/careers"
+    "https://api.tcrss.test/api/v1/careers"
 );
 
 const headers = {
@@ -2436,27 +2728,24 @@ const headers = {
 };
 
 let body = {
-    "type": "jnzfeaskms",
-    "location_id": "dolorem",
-    "department_id": "cumque",
-    "published_at": "2024-10-08T06:31:00",
+    "published_at": "2024-10-11T04:56:11",
     "th": {
-        "title": "ehdkju",
-        "body": "guglssuoojkbg",
-        "meta_title": "fpzpc",
-        "meta_description": "revawldqoirsphldbfsqno"
+        "title": "bnbmxsudmervziadc",
+        "body": "twbjnkcxgwdt",
+        "meta_title": "basfsljkbetltywycnzyisd",
+        "meta_description": "epaboybiztfilbeuvidg"
     },
     "en": {
-        "title": "cipri",
-        "body": "powtrzgoowvxajk",
-        "meta_title": "dbjxytvoizhmkwcceh",
-        "meta_description": "a"
+        "title": "shswhk",
+        "body": "joht",
+        "meta_title": "dbmsq",
+        "meta_description": "buypmdsjxszbgmkygneuou"
     },
     "body_images": [
         {
-            "path": "repudiandae",
-            "url": "http:\/\/hirthe.com\/aspernatur-laudantium-minima-fugiat-non-veniam",
-            "name": "aut"
+            "path": "et",
+            "url": "http:\/\/www.murray.org\/cum-quisquam-expedita-ipsa-quia-delectus",
+            "name": "sint"
         }
     ]
 };
@@ -2553,37 +2842,37 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>type_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="type"                data-endpoint="POSTapi-v1-careers"
-               value="jnzfeaskms"
+                              name="type_id"                data-endpoint="POSTapi-v1-careers"
+               value=""
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>jnzfeaskms</code></p>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>location_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location_id"                data-endpoint="POSTapi-v1-careers"
-               value="dolorem"
+               value=""
                data-component="body">
     <br>
-<p>Example: <code>dolorem</code></p>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>department_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="department_id"                data-endpoint="POSTapi-v1-careers"
-               value="cumque"
+               value=""
                data-component="body">
     <br>
-<p>Example: <code>cumque</code></p>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
@@ -2591,17 +2880,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="published_at"                data-endpoint="POSTapi-v1-careers"
-               value="2024-10-08T06:31:00"
+               value="2024-10-11T04:56:11"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-08T06:31:00</code></p>
+<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-11T04:56:11</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
             <summary style="padding-bottom: 10px;">
                 <b style="line-height: 2;"><code>th</code></b>&nbsp;&nbsp;
 <small>object</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
 <br>
 
             </summary>
@@ -2611,21 +2900,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="th.title"                data-endpoint="POSTapi-v1-careers"
-               value="ehdkju"
+               value="bnbmxsudmervziadc"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>ehdkju</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>bnbmxsudmervziadc</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.body"                data-endpoint="POSTapi-v1-careers"
-               value="guglssuoojkbg"
+               value="twbjnkcxgwdt"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>guglssuoojkbg</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>twbjnkcxgwdt</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -2633,10 +2922,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.meta_title"                data-endpoint="POSTapi-v1-careers"
-               value="fpzpc"
+               value="basfsljkbetltywycnzyisd"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>fpzpc</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>basfsljkbetltywycnzyisd</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -2644,10 +2933,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.meta_description"                data-endpoint="POSTapi-v1-careers"
-               value="revawldqoirsphldbfsqno"
+               value="epaboybiztfilbeuvidg"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>revawldqoirsphldbfsqno</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>epaboybiztfilbeuvidg</code></p>
                     </div>
                                     </details>
         </div>
@@ -2666,10 +2955,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.title"                data-endpoint="POSTapi-v1-careers"
-               value="cipri"
+               value="shswhk"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>cipri</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>shswhk</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
@@ -2677,10 +2966,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.body"                data-endpoint="POSTapi-v1-careers"
-               value="powtrzgoowvxajk"
+               value="joht"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>powtrzgoowvxajk</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>joht</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -2688,10 +2977,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.meta_title"                data-endpoint="POSTapi-v1-careers"
-               value="dbjxytvoizhmkwcceh"
+               value="dbmsq"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>dbjxytvoizhmkwcceh</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>dbmsq</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -2699,10 +2988,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.meta_description"                data-endpoint="POSTapi-v1-careers"
-               value="a"
+               value="buypmdsjxszbgmkygneuou"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>a</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>buypmdsjxszbgmkygneuou</code></p>
                     </div>
                                     </details>
         </div>
@@ -2732,10 +3021,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.path"                data-endpoint="POSTapi-v1-careers"
-               value="repudiandae"
+               value="et"
                data-component="body">
     <br>
-<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>repudiandae</code></p>
+<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>et</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
@@ -2743,10 +3032,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.url"                data-endpoint="POSTapi-v1-careers"
-               value="http://hirthe.com/aspernatur-laudantium-minima-fugiat-non-veniam"
+               value="http://www.murray.org/cum-quisquam-expedita-ipsa-quia-delectus"
                data-component="body">
     <br>
-<p>Example: <code>http://hirthe.com/aspernatur-laudantium-minima-fugiat-non-veniam</code></p>
+<p>Example: <code>http://www.murray.org/cum-quisquam-expedita-ipsa-quia-delectus</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -2754,16 +3043,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.name"                data-endpoint="POSTapi-v1-careers"
-               value="aut"
+               value="sint"
                data-component="body">
     <br>
-<p>Example: <code>aut</code></p>
+<p>Example: <code>sint</code></p>
                     </div>
                                     </details>
         </div>
         </form>
 
-                    <h2 id="careers-GETapi-v1-careers--id-">Get a job post by id.</h2>
+                    <h2 id="careers-GETapi-v1-careers--id-">Get a career by id.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2777,7 +3066,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/careers/16" \
+    --get "https://api.tcrss.test/api/v1/careers/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2785,7 +3074,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/careers/16"
+    "https://api.tcrss.test/api/v1/careers/1"
 );
 
 const headers = {
@@ -2803,7 +3092,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-careers--id-">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -2815,7 +3104,7 @@ vary: Origin
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Career] -1&quot;
 }</code>
  </pre>
     </span>
@@ -2906,14 +3195,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-v1-careers--id-"
-               value="16"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the career. Example: <code>16</code></p>
+<p>The ID of the career. Example: <code>1</code></p>
             </div>
                     </form>
 
-                    <h2 id="careers-PUTapi-v1-careers--id-">Update a job post.</h2>
+                    <h2 id="careers-PUTapi-v1-careers--id-">Update a career.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2927,32 +3216,29 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://api.starter.test/api/v1/careers/9" \
+    "https://api.tcrss.test/api/v1/careers/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"type\": \"iqazgpjbkzgizrtuhjmvai\",
-    \"location_id\": \"corporis\",
-    \"department_id\": \"praesentium\",
-    \"published_at\": \"2024-10-08T06:31:00\",
+    \"published_at\": \"2024-10-11T04:56:11\",
     \"th\": {
-        \"title\": \"eapxte\",
-        \"body\": \"gonmpzfndvwud\",
-        \"meta_title\": \"eo\",
-        \"meta_description\": \"afjbjwynwutrqkyocauaudl\"
+        \"title\": \"qqg\",
+        \"body\": \"zdravwdruucra\",
+        \"meta_title\": \"qktqsy\",
+        \"meta_description\": \"zswjzislrnhhjzusoworeghwv\"
     },
     \"en\": {
-        \"title\": \"smmwrzxeb\",
-        \"body\": \"x\",
-        \"meta_title\": \"vtklnlw\",
-        \"meta_description\": \"pbntoafrtajkfpcaqvmlmomg\"
+        \"title\": \"cgnicrnvkdyoyruwolcoeox\",
+        \"body\": \"ewqhdslirp\",
+        \"meta_title\": \"zddxdmefeqro\",
+        \"meta_description\": \"oavmhiebhszlbiudcxkge\"
     },
     \"body_images\": [
         {
-            \"path\": \"modi\",
-            \"url\": \"http:\\/\\/schuster.com\\/\",
-            \"name\": \"maiores\"
+            \"path\": \"asperiores\",
+            \"url\": \"http:\\/\\/bednar.com\\/voluptatibus-dolorum-cupiditate-facilis-aut.html\",
+            \"name\": \"dicta\"
         }
     ]
 }"
@@ -2961,7 +3247,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/careers/9"
+    "https://api.tcrss.test/api/v1/careers/1"
 );
 
 const headers = {
@@ -2971,27 +3257,24 @@ const headers = {
 };
 
 let body = {
-    "type": "iqazgpjbkzgizrtuhjmvai",
-    "location_id": "corporis",
-    "department_id": "praesentium",
-    "published_at": "2024-10-08T06:31:00",
+    "published_at": "2024-10-11T04:56:11",
     "th": {
-        "title": "eapxte",
-        "body": "gonmpzfndvwud",
-        "meta_title": "eo",
-        "meta_description": "afjbjwynwutrqkyocauaudl"
+        "title": "qqg",
+        "body": "zdravwdruucra",
+        "meta_title": "qktqsy",
+        "meta_description": "zswjzislrnhhjzusoworeghwv"
     },
     "en": {
-        "title": "smmwrzxeb",
-        "body": "x",
-        "meta_title": "vtklnlw",
-        "meta_description": "pbntoafrtajkfpcaqvmlmomg"
+        "title": "cgnicrnvkdyoyruwolcoeox",
+        "body": "ewqhdslirp",
+        "meta_title": "zddxdmefeqro",
+        "meta_description": "oavmhiebhszlbiudcxkge"
     },
     "body_images": [
         {
-            "path": "modi",
-            "url": "http:\/\/schuster.com\/",
-            "name": "maiores"
+            "path": "asperiores",
+            "url": "http:\/\/bednar.com\/voluptatibus-dolorum-cupiditate-facilis-aut.html",
+            "name": "dicta"
         }
     ]
 };
@@ -3097,44 +3380,44 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-v1-careers--id-"
-               value="9"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the career. Example: <code>9</code></p>
+<p>The ID of the career. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>type_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="type"                data-endpoint="PUTapi-v1-careers--id-"
-               value="iqazgpjbkzgizrtuhjmvai"
+                              name="type_id"                data-endpoint="PUTapi-v1-careers--id-"
+               value=""
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>iqazgpjbkzgizrtuhjmvai</code></p>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>location_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location_id"                data-endpoint="PUTapi-v1-careers--id-"
-               value="corporis"
+               value=""
                data-component="body">
     <br>
-<p>Example: <code>corporis</code></p>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>department_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="department_id"                data-endpoint="PUTapi-v1-careers--id-"
-               value="praesentium"
+               value=""
                data-component="body">
     <br>
-<p>Example: <code>praesentium</code></p>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
@@ -3142,17 +3425,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="published_at"                data-endpoint="PUTapi-v1-careers--id-"
-               value="2024-10-08T06:31:00"
+               value="2024-10-11T04:56:11"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-08T06:31:00</code></p>
+<p>ข้อมูล value ต้องเป็นวันที่. Example: <code>2024-10-11T04:56:11</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
             <summary style="padding-bottom: 10px;">
                 <b style="line-height: 2;"><code>th</code></b>&nbsp;&nbsp;
 <small>object</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
 <br>
 
             </summary>
@@ -3162,21 +3445,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="th.title"                data-endpoint="PUTapi-v1-careers--id-"
-               value="eapxte"
+               value="qqg"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>eapxte</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>qqg</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.body"                data-endpoint="PUTapi-v1-careers--id-"
-               value="gonmpzfndvwud"
+               value="zdravwdruucra"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>gonmpzfndvwud</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>zdravwdruucra</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -3184,10 +3467,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.meta_title"                data-endpoint="PUTapi-v1-careers--id-"
-               value="eo"
+               value="qktqsy"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>eo</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>qktqsy</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -3195,10 +3478,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="th.meta_description"                data-endpoint="PUTapi-v1-careers--id-"
-               value="afjbjwynwutrqkyocauaudl"
+               value="zswjzislrnhhjzusoworeghwv"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>afjbjwynwutrqkyocauaudl</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>zswjzislrnhhjzusoworeghwv</code></p>
                     </div>
                                     </details>
         </div>
@@ -3217,10 +3500,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.title"                data-endpoint="PUTapi-v1-careers--id-"
-               value="smmwrzxeb"
+               value="cgnicrnvkdyoyruwolcoeox"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>smmwrzxeb</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>cgnicrnvkdyoyruwolcoeox</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
@@ -3228,10 +3511,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.body"                data-endpoint="PUTapi-v1-careers--id-"
-               value="x"
+               value="ewqhdslirp"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>x</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร. Example: <code>ewqhdslirp</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -3239,10 +3522,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.meta_title"                data-endpoint="PUTapi-v1-careers--id-"
-               value="vtklnlw"
+               value="zddxdmefeqro"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>vtklnlw</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร. Example: <code>zddxdmefeqro</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -3250,10 +3533,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="en.meta_description"                data-endpoint="PUTapi-v1-careers--id-"
-               value="pbntoafrtajkfpcaqvmlmomg"
+               value="oavmhiebhszlbiudcxkge"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>pbntoafrtajkfpcaqvmlmomg</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร. Example: <code>oavmhiebhszlbiudcxkge</code></p>
                     </div>
                                     </details>
         </div>
@@ -3283,10 +3566,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.path"                data-endpoint="PUTapi-v1-careers--id-"
-               value="modi"
+               value="asperiores"
                data-component="body">
     <br>
-<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>modi</code></p>
+<p>This field is required when <code>id</code> is <code>null</code>. Example: <code>asperiores</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
@@ -3294,10 +3577,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.url"                data-endpoint="PUTapi-v1-careers--id-"
-               value="http://schuster.com/"
+               value="http://bednar.com/voluptatibus-dolorum-cupiditate-facilis-aut.html"
                data-component="body">
     <br>
-<p>Example: <code>http://schuster.com/</code></p>
+<p>Example: <code>http://bednar.com/voluptatibus-dolorum-cupiditate-facilis-aut.html</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -3305,16 +3588,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="body_images.0.name"                data-endpoint="PUTapi-v1-careers--id-"
-               value="maiores"
+               value="dicta"
                data-component="body">
     <br>
-<p>Example: <code>maiores</code></p>
+<p>Example: <code>dicta</code></p>
                     </div>
                                     </details>
         </div>
         </form>
 
-                    <h2 id="careers-DELETEapi-v1-careers--id-">Delete a job post.</h2>
+                    <h2 id="careers-DELETEapi-v1-careers--id-">Delete a career.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -3328,7 +3611,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://api.starter.test/api/v1/careers/3" \
+    "https://api.tcrss.test/api/v1/careers/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3336,7 +3619,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/careers/3"
+    "https://api.tcrss.test/api/v1/careers/1"
 );
 
 const headers = {
@@ -3441,10 +3724,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-v1-careers--id-"
-               value="3"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the career. Example: <code>3</code></p>
+<p>The ID of the career. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -3466,7 +3749,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/categories/blog" \
+    --get "https://api.tcrss.test/api/v1/categories/blog" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3474,7 +3757,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/categories/blog"
+    "https://api.tcrss.test/api/v1/categories/blog"
 );
 
 const headers = {
@@ -3511,8 +3794,8 @@ vary: Origin
             &quot;description&quot;: null,
             &quot;slug&quot;: &quot;articles&quot;,
             &quot;sort&quot;: null,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         },
         {
             &quot;id&quot;: &quot;category_BGN90M7EDVZRQ1&quot;,
@@ -3520,13 +3803,13 @@ vary: Origin
             &quot;description&quot;: null,
             &quot;slug&quot;: &quot;promotions&quot;,
             &quot;sort&quot;: null,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         }
     ],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;https://api.starter.test/api/v1/categories/blog?page=1&quot;,
-        &quot;last&quot;: &quot;https://api.starter.test/api/v1/categories/blog?page=1&quot;,
+        &quot;first&quot;: &quot;https://api.tcrss.test/api/v1/categories/blog?page=1&quot;,
+        &quot;last&quot;: &quot;https://api.tcrss.test/api/v1/categories/blog?page=1&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: null
     },
@@ -3541,7 +3824,7 @@ vary: Origin
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;https://api.starter.test/api/v1/categories/blog?page=1&quot;,
+                &quot;url&quot;: &quot;https://api.tcrss.test/api/v1/categories/blog?page=1&quot;,
                 &quot;label&quot;: &quot;1&quot;,
                 &quot;active&quot;: true
             },
@@ -3551,7 +3834,7 @@ vary: Origin
                 &quot;active&quot;: false
             }
         ],
-        &quot;path&quot;: &quot;https://api.starter.test/api/v1/categories/blog&quot;,
+        &quot;path&quot;: &quot;https://api.tcrss.test/api/v1/categories/blog&quot;,
         &quot;per_page&quot;: 15,
         &quot;to&quot;: 2,
         &quot;total&quot;: 2
@@ -3667,7 +3950,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api.starter.test/api/v1/categories/blog" \
+    "https://api.tcrss.test/api/v1/categories/blog" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3675,7 +3958,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/categories/blog"
+    "https://api.tcrss.test/api/v1/categories/blog"
 );
 
 const headers = {
@@ -3801,7 +4084,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/categories/blog/1" \
+    --get "https://api.tcrss.test/api/v1/categories/blog/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3809,7 +4092,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/categories/blog/1"
+    "https://api.tcrss.test/api/v1/categories/blog/1"
 );
 
 const headers = {
@@ -3962,7 +4245,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://api.starter.test/api/v1/categories/blog/1" \
+    "https://api.tcrss.test/api/v1/categories/blog/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3970,7 +4253,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/categories/blog/1"
+    "https://api.tcrss.test/api/v1/categories/blog/1"
 );
 
 const headers = {
@@ -4107,7 +4390,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "https://api.starter.test/api/v1/categories/blog/1" \
+    "https://api.tcrss.test/api/v1/categories/blog/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4115,7 +4398,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/categories/blog/1"
+    "https://api.tcrss.test/api/v1/categories/blog/1"
 );
 
 const headers = {
@@ -4252,7 +4535,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://api.starter.test/api/v1/categories/blog/1" \
+    "https://api.tcrss.test/api/v1/categories/blog/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4260,7 +4543,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/categories/blog/1"
+    "https://api.tcrss.test/api/v1/categories/blog/1"
 );
 
 const headers = {
@@ -4397,7 +4680,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/tags/ad" \
+    --get "https://api.tcrss.test/api/v1/tags/vitae" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4405,7 +4688,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/tags/ad"
+    "https://api.tcrss.test/api/v1/tags/vitae"
 );
 
 const headers = {
@@ -4526,10 +4809,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi-v1-tags--type-"
-               value="ad"
+               value="vitae"
                data-component="url">
     <br>
-<p>Example: <code>ad</code></p>
+<p>Example: <code>vitae</code></p>
             </div>
                     </form>
 
@@ -4551,22 +4834,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api.starter.test/api/v1/register" \
+    "https://api.tcrss.test/api/v1/register" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"first_name\": \"wtexdxeazwiy\",
-    \"last_name\": \"sjd\",
-    \"email\": \"reichel.chasity@example.org\",
-    \"password\": \"architecto\"
+    \"first_name\": \"xrnqmdntevkzlwuhhdbrj\",
+    \"last_name\": \"igzagefajcruedwsv\",
+    \"email\": \"adrain04@example.org\",
+    \"password\": \"qui\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/register"
+    "https://api.tcrss.test/api/v1/register"
 );
 
 const headers = {
@@ -4576,10 +4859,10 @@ const headers = {
 };
 
 let body = {
-    "first_name": "wtexdxeazwiy",
-    "last_name": "sjd",
-    "email": "reichel.chasity@example.org",
-    "password": "architecto"
+    "first_name": "xrnqmdntevkzlwuhhdbrj",
+    "last_name": "igzagefajcruedwsv",
+    "email": "adrain04@example.org",
+    "password": "qui"
 };
 
 fetch(url, {
@@ -4690,10 +4973,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="POSTapi-v1-register"
-               value="wtexdxeazwiy"
+               value="xrnqmdntevkzlwuhhdbrj"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>wtexdxeazwiy</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>xrnqmdntevkzlwuhhdbrj</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -4701,10 +4984,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="POSTapi-v1-register"
-               value="sjd"
+               value="igzagefajcruedwsv"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>sjd</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>igzagefajcruedwsv</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -4712,10 +4995,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-register"
-               value="reichel.chasity@example.org"
+               value="adrain04@example.org"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>reichel.chasity@example.org</code></p>
+<p>ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>adrain04@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -4723,10 +5006,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-register"
-               value="architecto"
+               value="qui"
                data-component="body">
     <br>
-<p>Example: <code>architecto</code></p>
+<p>Example: <code>qui</code></p>
         </div>
         </form>
 
@@ -4744,19 +5027,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api.starter.test/api/v1/forgot-password" \
+    "https://api.tcrss.test/api/v1/forgot-password" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"josefina66@example.net\"
+    \"email\": \"kristy.pollich@example.com\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/forgot-password"
+    "https://api.tcrss.test/api/v1/forgot-password"
 );
 
 const headers = {
@@ -4766,7 +5049,7 @@ const headers = {
 };
 
 let body = {
-    "email": "josefina66@example.net"
+    "email": "kristy.pollich@example.com"
 };
 
 fetch(url, {
@@ -4866,10 +5149,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-forgot-password"
-               value="josefina66@example.net"
+               value="kristy.pollich@example.com"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นอีเมล. Example: <code>josefina66@example.net</code></p>
+<p>ข้อมูล value ต้องเป็นอีเมล. Example: <code>kristy.pollich@example.com</code></p>
         </div>
         </form>
 
@@ -4887,21 +5170,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api.starter.test/api/v1/reset-password" \
+    "https://api.tcrss.test/api/v1/reset-password" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"token\": \"fugiat\",
-    \"email\": \"dylan87@example.net\",
-    \"password\": \"ad\"
+    \"token\": \"non\",
+    \"email\": \"jolie50@example.org\",
+    \"password\": \"quos\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/reset-password"
+    "https://api.tcrss.test/api/v1/reset-password"
 );
 
 const headers = {
@@ -4911,9 +5194,9 @@ const headers = {
 };
 
 let body = {
-    "token": "fugiat",
-    "email": "dylan87@example.net",
-    "password": "ad"
+    "token": "non",
+    "email": "jolie50@example.org",
+    "password": "quos"
 };
 
 fetch(url, {
@@ -5013,10 +5296,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="token"                data-endpoint="POSTapi-v1-reset-password"
-               value="fugiat"
+               value="non"
                data-component="body">
     <br>
-<p>Example: <code>fugiat</code></p>
+<p>Example: <code>non</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -5024,10 +5307,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-reset-password"
-               value="dylan87@example.net"
+               value="jolie50@example.org"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นอีเมล. Example: <code>dylan87@example.net</code></p>
+<p>ข้อมูล value ต้องเป็นอีเมล. Example: <code>jolie50@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -5035,10 +5318,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-reset-password"
-               value="ad"
+               value="quos"
                data-component="body">
     <br>
-<p>Example: <code>ad</code></p>
+<p>Example: <code>quos</code></p>
         </div>
         </form>
 
@@ -5056,7 +5339,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/verify-email/qui/cupiditate" \
+    --get "https://api.tcrss.test/api/v1/verify-email/quia/porro" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5064,7 +5347,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/verify-email/qui/cupiditate"
+    "https://api.tcrss.test/api/v1/verify-email/quia/porro"
 );
 
 const headers = {
@@ -5093,7 +5376,7 @@ content-type: application/json
 x-ratelimit-limit: 6
 x-ratelimit-remaining: 5
 vary: Origin
-set-cookie: XSRF-TOKEN=eyJpdiI6IlRQdzEzbTdhRFZWUVE2cjFDK3BTWWc9PSIsInZhbHVlIjoiUDdOR0dVa2Y0TkxicmV1alQ3aXRpYnA0QXNYWCs0YVFSbDI0ZW5UQUlZR3NKOHlIR3ZndUxpMU9aMUFkS1Q5U3lObU5TclhGY1phNENoV2c0VHgvelFRc0EyVUMzRndwcVVnc1FYS3d4VFNYcHFVODZSNXdWMXdjRnJmYjgvUWQiLCJtYWMiOiI2NjAzM2YxODgwMWU2YTk1M2NkN2M0MzEzZWIyMWQ4YjM1NDFmMWExNmE1NzljZDQyZTIxNzUxZWE2YjVkZjdlIiwidGFnIjoiIn0%3D; expires=Tue, 08 Oct 2024 08:31:00 GMT; Max-Age=7200; path=/; domain=.starter.test; secure; samesite=lax; laravel_session=eyJpdiI6IllOM2RZVXViNzlQamZuMmJWdCtCc0E9PSIsInZhbHVlIjoieUlYTjJ6dVd6emtUNmNUN0s0ckNWeUZRc21HbWhLM0U4dGljS1Vxbjc1VUc2aWo2Ujh4QXVjOVhpYThHVUgxaDUybm9Pa2Y0MzUweWlXQlhpNHRtNEVwQUxHQlp1amFHRTRoNVRtRGoxdnV0bGlxQ3hwNHlzV0VONkVSc1Zxb1IiLCJtYWMiOiJlNWU1YmE5MzY4MjJmNWRjY2NhZjQ2YzA0ZjlhMTdlZDgwZWEwNDdkZDdkMjY2MTgyZDk2MjcxM2QzM2ZmZTMxIiwidGFnIjoiIn0%3D; expires=Tue, 08 Oct 2024 08:31:00 GMT; Max-Age=7200; path=/; domain=.starter.test; secure; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IjdwbXNZcjhpWlJjV0RKdmNkcC85bWc9PSIsInZhbHVlIjoiazFiY1RPZHNNc0hyY3NhYU1KTVdDc1hlYTVCR2kyVjFBU1lSZnB3TDljV0E4U3pDelJaSVMxTnM5N3hmZEFyWStmQ0VFSGFmZnNjTU52QThzaE5xbGJ0VTZiVFpoTG0yN1FRV25tRVRCT1k1OVVMYUcvaGdvbmpySWxWcXBOVUMiLCJtYWMiOiJiYjdlMTkxNTBjMTg1ZGM1ZGY1YzFiOTg3NWM3MDQwMzgxZjA0ZTg3YmM1OWJmZWE3NTJhYTY4NjA1MTA2MDFhIiwidGFnIjoiIn0%3D; expires=Fri, 11 Oct 2024 06:56:10 GMT; Max-Age=7200; path=/; domain=.tcrss.test; secure; samesite=lax; laravel_session=eyJpdiI6IndycmgvTTErOWN3VjJBbW13WTB4RXc9PSIsInZhbHVlIjoiMUJnVmRVMXpKcmFYZENyTHRTTWxrcGNTV0kyOWdhdHZIdjlLeDR0dmZUYVFiTkRGVXFtV2hvNTZHZzRpN0dGUmV5WnFaa1JOTi9ZMk02RXNsWm83ZDJ6b2VTaDVBelRiSkJIc0lLNi84SVlsYnpqbEwwcXZQSldSQWt3SDFNSDEiLCJtYWMiOiIyNmUwNzgwOTZlNDk2MDJlZjQ3MTE1MGViYmRmNjI4MDIzODYzYWJlNTM2MTA5MzBkZGNjNzA4M2QwZTU3MDhlIiwidGFnIjoiIn0%3D; expires=Fri, 11 Oct 2024 06:56:10 GMT; Max-Age=7200; path=/; domain=.tcrss.test; secure; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5188,10 +5471,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-verify-email--id---hash-"
-               value="qui"
+               value="quia"
                data-component="url">
     <br>
-<p>The ID of the verify email. Example: <code>qui</code></p>
+<p>The ID of the verify email. Example: <code>quia</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>hash</code></b>&nbsp;&nbsp;
@@ -5199,10 +5482,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="hash"                data-endpoint="GETapi-v1-verify-email--id---hash-"
-               value="cupiditate"
+               value="porro"
                data-component="url">
     <br>
-<p>Example: <code>cupiditate</code></p>
+<p>Example: <code>porro</code></p>
             </div>
                     </form>
 
@@ -5220,7 +5503,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api.starter.test/api/v1/email/verification-notification" \
+    "https://api.tcrss.test/api/v1/email/verification-notification" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5228,7 +5511,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/email/verification-notification"
+    "https://api.tcrss.test/api/v1/email/verification-notification"
 );
 
 const headers = {
@@ -5342,7 +5625,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/csrf-cookie" \
+    --get "https://api.tcrss.test/api/v1/csrf-cookie" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5350,7 +5633,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/csrf-cookie"
+    "https://api.tcrss.test/api/v1/csrf-cookie"
 );
 
 const headers = {
@@ -5476,7 +5759,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/roles" \
+    --get "https://api.tcrss.test/api/v1/roles" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5484,7 +5767,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/roles"
+    "https://api.tcrss.test/api/v1/roles"
 );
 
 const headers = {
@@ -5518,19 +5801,19 @@ vary: Origin
         {
             &quot;id&quot;: &quot;role_2VDBZXRV4W8PGL&quot;,
             &quot;name&quot;: &quot;Super Admin&quot;,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         },
         {
             &quot;id&quot;: &quot;role_E8PLJ15WXK9M2Z&quot;,
             &quot;name&quot;: &quot;Admin&quot;,
-            &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
         }
     ],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;https://api.starter.test/api/v1/roles?page=1&quot;,
-        &quot;last&quot;: &quot;https://api.starter.test/api/v1/roles?page=1&quot;,
+        &quot;first&quot;: &quot;https://api.tcrss.test/api/v1/roles?page=1&quot;,
+        &quot;last&quot;: &quot;https://api.tcrss.test/api/v1/roles?page=1&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: null
     },
@@ -5545,7 +5828,7 @@ vary: Origin
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;https://api.starter.test/api/v1/roles?page=1&quot;,
+                &quot;url&quot;: &quot;https://api.tcrss.test/api/v1/roles?page=1&quot;,
                 &quot;label&quot;: &quot;1&quot;,
                 &quot;active&quot;: true
             },
@@ -5555,7 +5838,7 @@ vary: Origin
                 &quot;active&quot;: false
             }
         ],
-        &quot;path&quot;: &quot;https://api.starter.test/api/v1/roles&quot;,
+        &quot;path&quot;: &quot;https://api.tcrss.test/api/v1/roles&quot;,
         &quot;per_page&quot;: 10,
         &quot;to&quot;: 2,
         &quot;total&quot;: 2
@@ -5659,7 +5942,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api.starter.test/api/v1/roles" \
+    "https://api.tcrss.test/api/v1/roles" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5667,7 +5950,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/roles"
+    "https://api.tcrss.test/api/v1/roles"
 );
 
 const headers = {
@@ -5781,7 +6064,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/roles/1" \
+    --get "https://api.tcrss.test/api/v1/roles/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5789,7 +6072,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/roles/1"
+    "https://api.tcrss.test/api/v1/roles/1"
 );
 
 const headers = {
@@ -5931,7 +6214,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://api.starter.test/api/v1/roles/1" \
+    "https://api.tcrss.test/api/v1/roles/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5939,7 +6222,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/roles/1"
+    "https://api.tcrss.test/api/v1/roles/1"
 );
 
 const headers = {
@@ -6069,7 +6352,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://api.starter.test/api/v1/roles/1" \
+    "https://api.tcrss.test/api/v1/roles/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6077,7 +6360,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/roles/1"
+    "https://api.tcrss.test/api/v1/roles/1"
 );
 
 const headers = {
@@ -6203,16 +6486,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api.starter.test/api/v1/temporary-media" \
+    "https://api.tcrss.test/api/v1/temporary-media" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "media=@/private/var/folders/t4/h773wx1s4y7gvt_9646qym0m0000gn/T/phpqwnIW7" </code></pre></div>
+    --form "media=@/private/var/folders/t4/h773wx1s4y7gvt_9646qym0m0000gn/T/phpFMHbMB" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/temporary-media"
+    "https://api.tcrss.test/api/v1/temporary-media"
 );
 
 const headers = {
@@ -6324,7 +6607,297 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. ข้อมูล value ต้องมีขนาดไม่เกิน 102400 กิโลไบต์. Example: <code>/private/var/folders/t4/h773wx1s4y7gvt_9646qym0m0000gn/T/phpqwnIW7</code></p>
+<p>Must be a file. ข้อมูล value ต้องมีขนาดไม่เกิน 102400 กิโลไบต์. Example: <code>/private/var/folders/t4/h773wx1s4y7gvt_9646qym0m0000gn/T/phpFMHbMB</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-POSTapi-v1-invite-resend--user_id-">POST api/v1/invite/resend/{user_id}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-invite-resend--user_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://api.tcrss.test/api/v1/invite/resend/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api.tcrss.test/api/v1/invite/resend/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-invite-resend--user_id-">
+</span>
+<span id="execution-results-POSTapi-v1-invite-resend--user_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-invite-resend--user_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-invite-resend--user_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-invite-resend--user_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-invite-resend--user_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-invite-resend--user_id-" data-method="POST"
+      data-path="api/v1/invite/resend/{user_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-invite-resend--user_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-invite-resend--user_id-"
+                    onclick="tryItOut('POSTapi-v1-invite-resend--user_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-invite-resend--user_id-"
+                    onclick="cancelTryOut('POSTapi-v1-invite-resend--user_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-invite-resend--user_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/invite/resend/{user_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-invite-resend--user_id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-invite-resend--user_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-invite-resend--user_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="user_id"                data-endpoint="POSTapi-v1-invite-resend--user_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-v1-accept-user-invitation">PUT api/v1/accept-user-invitation</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-v1-accept-user-invitation">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "https://api.tcrss.test/api/v1/accept-user-invitation" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"password\": \"cum\",
+    \"password_confirmation\": \"fugit\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api.tcrss.test/api/v1/accept-user-invitation"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "password": "cum",
+    "password_confirmation": "fugit"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-accept-user-invitation">
+</span>
+<span id="execution-results-PUTapi-v1-accept-user-invitation" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-accept-user-invitation"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-accept-user-invitation"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-accept-user-invitation" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-accept-user-invitation">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-accept-user-invitation" data-method="PUT"
+      data-path="api/v1/accept-user-invitation"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-accept-user-invitation', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-accept-user-invitation"
+                    onclick="tryItOut('PUTapi-v1-accept-user-invitation');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-accept-user-invitation"
+                    onclick="cancelTryOut('PUTapi-v1-accept-user-invitation');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-accept-user-invitation"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/accept-user-invitation</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-accept-user-invitation"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-accept-user-invitation"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-accept-user-invitation"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="PUTapi-v1-accept-user-invitation"
+               value="cum"
+               data-component="body">
+    <br>
+<p>Example: <code>cum</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password_confirmation"                data-endpoint="PUTapi-v1-accept-user-invitation"
+               value="fugit"
+               data-component="body">
+    <br>
+<p>Example: <code>fugit</code></p>
         </div>
         </form>
 
@@ -6342,7 +6915,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/dev-api" \
+    --get "https://api.tcrss.test/api/v1/dev-api" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6350,7 +6923,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/dev-api"
+    "https://api.tcrss.test/api/v1/dev-api"
 );
 
 const headers = {
@@ -6484,7 +7057,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/user" \
+    --get "https://api.tcrss.test/api/v1/user" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6492,7 +7065,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/user"
+    "https://api.tcrss.test/api/v1/user"
 );
 
 const headers = {
@@ -6524,7 +7097,7 @@ vary: Origin
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
         &quot;id&quot;: &quot;user_ZMBQEKPDK3X079&quot;,
-        &quot;title&quot;: &quot;Ms.&quot;,
+        &quot;title&quot;: &quot;Mrs.&quot;,
         &quot;first_name&quot;: &quot;Super&quot;,
         &quot;last_name&quot;: &quot;Admin&quot;,
         &quot;email&quot;: &quot;superadmin@wawa-x.com&quot;,
@@ -6540,10 +7113,14 @@ vary: Origin
             &quot;BLOGS:DELETE&quot;,
             &quot;BLOG_CATEGORIES:CREATE&quot;,
             &quot;BLOG_CATEGORIES:UPDATE&quot;,
-            &quot;BLOG_CATEGORIES:DELETE&quot;
+            &quot;BLOG_CATEGORIES:DELETE&quot;,
+            &quot;CAREERS:VIEW&quot;,
+            &quot;CAREERS:CREATE&quot;,
+            &quot;CAREERS:UPDATE&quot;,
+            &quot;CAREERS:DELETE&quot;
         ],
-        &quot;created_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-02T06:39:45.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-11T04:56:01.000000Z&quot;
     }
 }</code>
  </pre>
@@ -6644,22 +7221,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://api.starter.test/api/v1/user" \
+    "https://api.tcrss.test/api/v1/user" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"Ms.\",
-    \"first_name\": \"pwnnm\",
-    \"last_name\": \"dhccfvupqbah\",
-    \"phone\": \"pcddllcyrpek\"
+    \"title\": \"Mrs.\",
+    \"first_name\": \"acmegoogbirdpcvbhegcvkkxj\",
+    \"last_name\": \"wtacaavwo\",
+    \"phone\": \"spsvbtmkw\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/user"
+    "https://api.tcrss.test/api/v1/user"
 );
 
 const headers = {
@@ -6669,10 +7246,10 @@ const headers = {
 };
 
 let body = {
-    "title": "Ms.",
-    "first_name": "pwnnm",
-    "last_name": "dhccfvupqbah",
-    "phone": "pcddllcyrpek"
+    "title": "Mrs.",
+    "first_name": "acmegoogbirdpcvbhegcvkkxj",
+    "last_name": "wtacaavwo",
+    "phone": "spsvbtmkw"
 };
 
 fetch(url, {
@@ -6772,10 +7349,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="PUTapi-v1-user"
-               value="Ms."
+               value="Mrs."
                data-component="body">
     <br>
-<p>Example: <code>Ms.</code></p>
+<p>Example: <code>Mrs.</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>Mr.</code></li> <li><code>Mrs.</code></li> <li><code>Ms.</code></li></ul>
         </div>
@@ -6785,10 +7362,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="PUTapi-v1-user"
-               value="pwnnm"
+               value="acmegoogbirdpcvbhegcvkkxj"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>pwnnm</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>acmegoogbirdpcvbhegcvkkxj</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -6796,10 +7373,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="PUTapi-v1-user"
-               value="dhccfvupqbah"
+               value="wtacaavwo"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>dhccfvupqbah</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>wtacaavwo</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -6807,10 +7384,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="PUTapi-v1-user"
-               value="pcddllcyrpek"
+               value="spsvbtmkw"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร. Example: <code>pcddllcyrpek</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร. Example: <code>spsvbtmkw</code></p>
         </div>
         </form>
 
@@ -6828,20 +7405,20 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://api.starter.test/api/v1/user/password" \
+    "https://api.tcrss.test/api/v1/user/password" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"current_password\": \"dolor\",
-    \"password\": \"culpa\"
+    \"current_password\": \"esse\",
+    \"password\": \"dolores\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/user/password"
+    "https://api.tcrss.test/api/v1/user/password"
 );
 
 const headers = {
@@ -6851,8 +7428,8 @@ const headers = {
 };
 
 let body = {
-    "current_password": "dolor",
-    "password": "culpa"
+    "current_password": "esse",
+    "password": "dolores"
 };
 
 fetch(url, {
@@ -6952,10 +7529,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="current_password"                data-endpoint="PUTapi-v1-user-password"
-               value="dolor"
+               value="esse"
                data-component="body">
     <br>
-<p>Example: <code>dolor</code></p>
+<p>Example: <code>esse</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -6963,10 +7540,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="PUTapi-v1-user-password"
-               value="culpa"
+               value="dolores"
                data-component="body">
     <br>
-<p>Example: <code>culpa</code></p>
+<p>Example: <code>dolores</code></p>
         </div>
         </form>
 
@@ -6984,7 +7561,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/users?sort=first_name%2C-createdAt&amp;filter%5Bid%5D=ea&amp;filter%5Bemail%5D=dolorem&amp;search=dolores" \
+    --get "https://api.tcrss.test/api/v1/users?sort=first_name%2C-createdAt&amp;filter%5Bid%5D=qui&amp;filter%5Bemail%5D=omnis&amp;search=rerum" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6992,14 +7569,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/users"
+    "https://api.tcrss.test/api/v1/users"
 );
 
 const params = {
     "sort": "first_name,-createdAt",
-    "filter[id]": "ea",
-    "filter[email]": "dolorem",
-    "search": "dolores",
+    "filter[id]": "qui",
+    "filter[email]": "omnis",
+    "search": "rerum",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -7033,8 +7610,8 @@ vary: Origin
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;https://api.starter.test/api/v1/users?page=1&quot;,
-        &quot;last&quot;: &quot;https://api.starter.test/api/v1/users?page=1&quot;,
+        &quot;first&quot;: &quot;https://api.tcrss.test/api/v1/users?page=1&quot;,
+        &quot;last&quot;: &quot;https://api.tcrss.test/api/v1/users?page=1&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: null
     },
@@ -7049,7 +7626,7 @@ vary: Origin
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;https://api.starter.test/api/v1/users?page=1&quot;,
+                &quot;url&quot;: &quot;https://api.tcrss.test/api/v1/users?page=1&quot;,
                 &quot;label&quot;: &quot;1&quot;,
                 &quot;active&quot;: true
             },
@@ -7059,7 +7636,7 @@ vary: Origin
                 &quot;active&quot;: false
             }
         ],
-        &quot;path&quot;: &quot;https://api.starter.test/api/v1/users&quot;,
+        &quot;path&quot;: &quot;https://api.tcrss.test/api/v1/users&quot;,
         &quot;per_page&quot;: 10,
         &quot;to&quot;: null,
         &quot;total&quot;: 0
@@ -7165,10 +7742,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="filter[id]"                data-endpoint="GETapi-v1-users"
-               value="ea"
+               value="qui"
                data-component="query">
     <br>
-<p>Filter user by id. Example: <code>ea</code></p>
+<p>Filter user by id. Example: <code>qui</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter[email]</code></b>&nbsp;&nbsp;
@@ -7176,10 +7753,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="filter[email]"                data-endpoint="GETapi-v1-users"
-               value="dolorem"
+               value="omnis"
                data-component="query">
     <br>
-<p>Filter user by email. Example: <code>dolorem</code></p>
+<p>Filter user by email. Example: <code>omnis</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
@@ -7187,10 +7764,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="search"                data-endpoint="GETapi-v1-users"
-               value="dolores"
+               value="rerum"
                data-component="query">
     <br>
-<p>Search user by name, email, phone. Example: <code>dolores</code></p>
+<p>Search user by name, email, phone. Example: <code>rerum</code></p>
             </div>
                 </form>
 
@@ -7208,23 +7785,23 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api.starter.test/api/v1/users" \
+    "https://api.tcrss.test/api/v1/users" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"Ms.\",
-    \"first_name\": \"pizdpdonxinnpcepd\",
-    \"last_name\": \"snwpykcfhi\",
-    \"email\": \"mhartmann@example.net\",
-    \"phone\": \"cvnmxuwfomhztgt\"
+    \"title\": \"Mrs.\",
+    \"first_name\": \"ohs\",
+    \"last_name\": \"tflctjknh\",
+    \"email\": \"gerry.mcclure@example.net\",
+    \"phone\": \"xq\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/users"
+    "https://api.tcrss.test/api/v1/users"
 );
 
 const headers = {
@@ -7234,11 +7811,11 @@ const headers = {
 };
 
 let body = {
-    "title": "Ms.",
-    "first_name": "pizdpdonxinnpcepd",
-    "last_name": "snwpykcfhi",
-    "email": "mhartmann@example.net",
-    "phone": "cvnmxuwfomhztgt"
+    "title": "Mrs.",
+    "first_name": "ohs",
+    "last_name": "tflctjknh",
+    "email": "gerry.mcclure@example.net",
+    "phone": "xq"
 };
 
 fetch(url, {
@@ -7338,10 +7915,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-v1-users"
-               value="Ms."
+               value="Mrs."
                data-component="body">
     <br>
-<p>Example: <code>Ms.</code></p>
+<p>Example: <code>Mrs.</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>Mr.</code></li> <li><code>Mrs.</code></li> <li><code>Ms.</code></li></ul>
         </div>
@@ -7351,10 +7928,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="POSTapi-v1-users"
-               value="pizdpdonxinnpcepd"
+               value="ohs"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>pizdpdonxinnpcepd</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>ohs</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -7362,10 +7939,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="POSTapi-v1-users"
-               value="snwpykcfhi"
+               value="tflctjknh"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>snwpykcfhi</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>tflctjknh</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -7373,10 +7950,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-users"
-               value="mhartmann@example.net"
+               value="gerry.mcclure@example.net"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>mhartmann@example.net</code></p>
+<p>ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>gerry.mcclure@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -7384,10 +7961,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v1-users"
-               value="cvnmxuwfomhztgt"
+               value="xq"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร. Example: <code>cvnmxuwfomhztgt</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร. Example: <code>xq</code></p>
         </div>
         </form>
 
@@ -7405,7 +7982,7 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/users/1" \
+    --get "https://api.tcrss.test/api/v1/users/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -7413,7 +7990,7 @@ Must be one of:
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/users/1"
+    "https://api.tcrss.test/api/v1/users/1"
 );
 
 const headers = {
@@ -7555,22 +8132,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://api.starter.test/api/v1/users/1" \
+    "https://api.tcrss.test/api/v1/users/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"title\": \"Mrs.\",
-    \"first_name\": \"rudnmybj\",
-    \"last_name\": \"sqi\",
-    \"phone\": \"gnmicd\"
+    \"first_name\": \"rglm\",
+    \"last_name\": \"qrbm\",
+    \"phone\": \"cqmmom\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/users/1"
+    "https://api.tcrss.test/api/v1/users/1"
 );
 
 const headers = {
@@ -7581,9 +8158,9 @@ const headers = {
 
 let body = {
     "title": "Mrs.",
-    "first_name": "rudnmybj",
-    "last_name": "sqi",
-    "phone": "gnmicd"
+    "first_name": "rglm",
+    "last_name": "qrbm",
+    "phone": "cqmmom"
 };
 
 fetch(url, {
@@ -7712,10 +8289,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="PUTapi-v1-users--id-"
-               value="rudnmybj"
+               value="rglm"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>rudnmybj</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>rglm</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -7723,10 +8300,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="PUTapi-v1-users--id-"
-               value="sqi"
+               value="qrbm"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>sqi</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร. Example: <code>qrbm</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -7734,10 +8311,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="PUTapi-v1-users--id-"
-               value="gnmicd"
+               value="cqmmom"
                data-component="body">
     <br>
-<p>ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร. Example: <code>gnmicd</code></p>
+<p>ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร. Example: <code>cqmmom</code></p>
         </div>
         </form>
 
@@ -7755,7 +8332,7 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://api.starter.test/api/v1/users/1" \
+    "https://api.tcrss.test/api/v1/users/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -7763,7 +8340,7 @@ Must be one of:
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/users/1"
+    "https://api.tcrss.test/api/v1/users/1"
 );
 
 const headers = {
@@ -7888,14 +8465,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.starter.test/api/v1/titles" \
+    --get "https://api.tcrss.test/api/v1/titles" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.starter.test/api/v1/titles"
+    "https://api.tcrss.test/api/v1/titles"
 );
 
 const headers = {
