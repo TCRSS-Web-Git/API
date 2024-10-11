@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "api.starter",
+  "name": "api.tcrss",
   "type": "collection",
   "ignore": [
     "node_modules",

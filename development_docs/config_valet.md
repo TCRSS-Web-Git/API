@@ -5,7 +5,7 @@
 
 ### Installation
 
-1. Cd into project `cd api.starter`.
-2. Run `valet link api.starter` to create valet site.
-3. Run `valet secure api.starter` to enable https.
-4. Try to access https://api.starter.test/ to make sure it works.
+1. Cd into project `cd tcrss-api`.
+2. Run `valet link api.tcrss` to create valet site.
+3. Run `valet secure api.tcrss` to enable https.
+4. Try to access https://api.tcrss.test/ to make sure it works.

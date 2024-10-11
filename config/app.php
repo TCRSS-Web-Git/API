@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Starter'),
+    'name' => env('APP_NAME', 'TCRSS'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,11 +52,11 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://api.starter.com'),
+    'url' => env('APP_URL', 'https://api.tcrss.com'),
 
-    'frontend_url' => env('FRONTEND_URL', 'https://starter.com'),
+    'frontend_url' => env('FRONTEND_URL', 'https://tcrss.com'),
 
-    'admin_url' => env('ADMIN_URL', 'https://admin-ui.starter.com'),
+    'admin_url' => env('ADMIN_URL', 'https://admin.tcrss.com'),
 
     /*
     |--------------------------------------------------------------------------
