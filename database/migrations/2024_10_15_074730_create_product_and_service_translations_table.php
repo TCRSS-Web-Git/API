@@ -24,11 +24,12 @@ return new class extends Migration
 
             $table->unique(['item_id', 'locale']);
 
-            if (config('database.default') === 'mysql') {
-                DB::statement('ALTER TABLE product_and_service_translations ADD FULLTEXT product_and_service_translations_fulltext (title) WITH PARSER ngram');
-            }
             $table->timestamps();
         });
+
+        if (config('database.default') === 'mysql') {
+            DB::statement('ALTER TABLE product_and_service_translations ADD FULLTEXT product_and_service_translations_fulltext (title) WITH PARSER ngram');
+        }
     }
 
     /**
