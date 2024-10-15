@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductAndServiceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TemporaryMediaController;
@@ -36,6 +37,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('blogs', BlogController::class);
     Route::apiResource('careers', CareerController::class);
+    Route::apiResource('product_and_services', ProductAndServiceController::class);
 
     Route::post('/invite/resend/{user}', [InviteController::class, 'resend'])->name('invite.resend');
 });
