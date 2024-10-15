@@ -11,9 +11,9 @@ class ProductAndServiceTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_get_all_product_and_services()
+    public function test_the_admin_can_get_all_product_and_services()
     {
-        $this->signInSuperAdmin();
+        $this->signInAdmin();
 
         [$product1, $product2, $product3, $product4] = ProductAndService::factory()->count(4)->create();
 
@@ -28,9 +28,9 @@ class ProductAndServiceTest extends TestCase
         $response->assertSee($product4->hashid);
     }
 
-    public function test_get_all_product_and_services_with_filter_status()
+    public function test_the_admin_can_get_all_product_and_services_with_filter_status()
     {
-        $this->signInSuperAdmin();
+        $this->signInAdmin();
 
         [$publishedProduct1, $publishedProduct2] = ProductAndService::factory()->published()->count(2)->create();
         [$draftProduct1, $draftProduct2] = ProductAndService::factory()->draft()->count(2)->create();
@@ -54,5 +54,39 @@ class ProductAndServiceTest extends TestCase
         $response->assertSee($draftProduct2->hashid);
         $response->assertDontSee($publishedProduct1->hashid);
         $response->assertDontSee($publishedProduct2->hashid);
+    }
+
+    public function test_the_admin_can_get_a_product_and_service_by_id(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $productAndService = ProductAndService::factory()->create();
+
+        // act
+        $response = $this->getJson(route('product_and_services.show', $productAndService));
+
+        // assert
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $productAndService->hashid]);
+        $response->assertJsonFragment(['title' => $productAndService->title]);
+    }
+
+    public function test_the_admin_can_get_a_product_and_service_by_id_with_all_translations(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $productAndService = ProductAndService::factory()->create();
+
+        // act
+        $response = $this->getJson(route('product_and_services.show', ['product_and_service' => $productAndService, 'include' => 'translations']));
+
+        // assert
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $productAndService->hashid]);
+        $response->assertJsonFragment(['title' => $productAndService->title]);
+        $response->assertJsonFragment(['title' => $productAndService->getTranslation('title', 'th')]);
+        $response->assertJsonFragment(['title' => $productAndService->getTranslation('title', 'en')]);
+        $response->assertJsonStructure(['data' => ['translations' => ['th' => ['title']]]]);
+        $response->assertJsonStructure(['data' => ['translations' => ['en' => ['title']]]]);
     }
 }
