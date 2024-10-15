@@ -62,6 +62,46 @@ class UserTest extends TestCase
         $response->assertJsonFragment(['id' => $userE->hashid]);
     }
 
+    public function test_admin_can_get_user_with_filter_role_id(): void
+    {
+        $this->signInAdmin();
+
+        $adminRole = Role::where('name', Role::ROLE_ADMIN)->firstOrCreate();
+        $superAdminRole = Role::where('name', Role::ROLE_SUPER_ADMIN)->firstOrCreate();
+
+        $userA = User::factory()->admin()->create(['first_name' => 'Test First Name']);
+        $userB = User::factory()->admin()->create(['first_name' => 'John']);
+        $userC = User::factory()->admin()->create(['last_name' => 'Test Last Name']);
+        $userD = User::factory()->superAdmin()->create(['email' => 'Test@email.com']);
+        $userE = User::factory()->superAdmin()->create(['email' => 'John@email.com']);
+        $userF = User::factory()->superAdmin()->create(['phone' => '0912345675']);
+
+        // act
+        $response = $this->getJson(route('users.index', ['role_id' => $adminRole->hashid]));
+
+        // assert
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $userA->hashid]);
+        $response->assertJsonFragment(['id' => $userB->hashid]);
+        $response->assertJsonFragment(['id' => $userC->hashid]);
+
+        $response->assertJsonMissing(['id' => $userD->hashid]);
+        $response->assertJsonMissing(['id' => $userE->hashid]);
+        $response->assertJsonMissing(['id' => $userF->hashid]);
+
+        // act
+        $response = $this->getJson(route('users.index', ['role_id' => $superAdminRole->hashid]));
+        // assert
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $userD->hashid]);
+        $response->assertJsonFragment(['id' => $userE->hashid]);
+        $response->assertJsonFragment(['id' => $userF->hashid]);
+
+        $response->assertJsonMissing(['id' => $userA->hashid]);
+        $response->assertJsonMissing(['id' => $userB->hashid]);
+        $response->assertJsonMissing(['id' => $userC->hashid]);
+    }
+
     public function test_admin_get_user(): void
     {
         $this->signInAdmin();
