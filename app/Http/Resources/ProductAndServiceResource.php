@@ -39,6 +39,7 @@ class ProductAndServiceResource extends JsonResource
             'published_at' => $this->published_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'order' => $this->order,
         ];
     }
 }
