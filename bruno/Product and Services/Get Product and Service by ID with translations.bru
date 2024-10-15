@@ -1,0 +1,15 @@
+meta {
+  name: Get Product and Service by ID with translations
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{backend_url}}/api/v1/product_and_services/product_and_service_72NBJP9EPKLW98?include=translations
+  body: none
+  auth: none
+}
+
+query {
+  include: translations
+}
