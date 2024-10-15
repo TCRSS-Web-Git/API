@@ -28,7 +28,7 @@ class ProductAndService extends Model implements Auditable, HasMedia
     use LatestAudit;
     use \OwenIt\Auditing\Auditable;
 
-    public const HASHID_PREFIX = 'product_and_serivce_';
+    public const HASHID_PREFIX = 'product_and_service_';
 
     public const string MEDIA_COLLECTION_COVER = 'cover';
 
