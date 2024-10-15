@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\ProductAndService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,18 @@ class ProductAndServiceFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'published_at' => $this->faker->randomElement([null, $this->faker->dateTimeBetween('-1 year', 'now')]),
         ];
+    }
+
+    public function configure()
+    {
+        return $this->afterCreating(function (ProductAndService $blog) {
+            $title = $this->faker->sentence();
+
+            $blog->setTranslation('title', $title, 'en');
+            $blog->setTranslation('title', '(th) '.$title, 'th');
+            $blog->save();
+        });
     }
 }
