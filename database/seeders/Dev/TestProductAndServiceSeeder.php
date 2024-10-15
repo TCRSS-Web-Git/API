@@ -3,6 +3,7 @@
 namespace Database\Seeders\Dev;
 
 use App\Models\ProductAndService;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class TestProductAndServiceSeeder extends Seeder
@@ -12,6 +13,6 @@ class TestProductAndServiceSeeder extends Seeder
      */
     public function run(): void
     {
-        ProductAndService::factory(20)->create();
+        ProductAndService::factory(20)->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])->create();
     }
 }

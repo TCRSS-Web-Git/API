@@ -19,6 +19,7 @@ class ProductAndServiceFactory extends Factory
     {
         return [
             'published_at' => $this->faker->randomElement([null, $this->faker->dateTimeBetween('-1 year', 'now')]),
+            'order' => 1,
         ];
     }
 

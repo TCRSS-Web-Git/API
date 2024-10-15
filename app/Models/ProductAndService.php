@@ -36,6 +36,7 @@ class ProductAndService extends Model implements Auditable, HasMedia
 
     protected $fillable = [
         'published_at',
+        'order',
     ];
 
     protected $casts = [
