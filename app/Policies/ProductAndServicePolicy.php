@@ -4,7 +4,6 @@ namespace App\Policies;
 
 use App\Models\ProductAndService;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class ProductAndServicePolicy
 {
@@ -13,7 +12,7 @@ class ProductAndServicePolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +20,7 @@ class ProductAndServicePolicy
      */
     public function view(User $user, ProductAndService $productAndService): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +28,7 @@ class ProductAndServicePolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +36,7 @@ class ProductAndServicePolicy
      */
     public function update(User $user, ProductAndService $productAndService): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -45,7 +44,7 @@ class ProductAndServicePolicy
      */
     public function delete(User $user, ProductAndService $productAndService): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +52,7 @@ class ProductAndServicePolicy
      */
     public function restore(User $user, ProductAndService $productAndService): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -61,6 +60,6 @@ class ProductAndServicePolicy
      */
     public function forceDelete(User $user, ProductAndService $productAndService): bool
     {
-        //
+        return true;
     }
 }

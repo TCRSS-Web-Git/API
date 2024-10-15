@@ -5,6 +5,7 @@ use App\Models\Career;
 use App\Models\Category;
 use App\Models\Media;
 use App\Models\Permission;
+use App\Models\ProductAndService;
 use App\Models\Role;
 use App\Models\User;
 
@@ -75,6 +76,12 @@ return [
 
         Permission::class => [
             'salt' => env('HASHIDS_PERMISSION', 'hQvnpYx9FRgXQJqjb7Vd'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
+
+        ProductAndService::class => [
+            'salt' => env('HASHIDS_PRODUCT_AND_SERVICE', '8YuZxjeTRL1VXPiticpv'),
             'length' => 14,
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
         ],

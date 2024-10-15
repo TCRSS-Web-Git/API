@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('product_and_services', function (Blueprint $table) {
             $table->id();
+            $table->dateTime('published_at')->nullable();
             $table->timestamps();
         });
     }
