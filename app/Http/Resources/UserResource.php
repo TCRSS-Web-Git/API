@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -23,6 +24,9 @@ class UserResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        /** @var Role $role */
+        $role = $this->roles()->first();
+
         return [
             'id' => $this->hashid,
             'title' => $this->title,
@@ -33,6 +37,7 @@ class UserResource extends JsonResource
             'permissions' => $this->when($request->routeIs('user.me'), function () {
                 return $this->getAllPermissions()->pluck('name');
             }),
+            'role' => new RoleResource($role),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
