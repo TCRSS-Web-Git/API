@@ -37,6 +37,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('blogs', BlogController::class);
     Route::apiResource('careers', CareerController::class);
+
+    Route::patch('products-and-services/reorder', [ProductAndServiceController::class, 'reorder'])->name('products-and-services.reorder');
     Route::apiResource('products-and-services', ProductAndServiceController::class);
 
     Route::post('/invite/resend/{user}', [InviteController::class, 'resend'])->name('invite.resend');

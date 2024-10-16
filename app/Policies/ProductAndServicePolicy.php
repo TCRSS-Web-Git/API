@@ -62,4 +62,9 @@ class ProductAndServicePolicy
     {
         return true;
     }
+
+    public function reorder(User $user): bool
+    {
+        return true;
+    }
 }

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\ReorderProductAndService;
 use App\Actions\SaveProductAndService;
 use App\Filters\ProductAndServiceFilter;
 use App\Http\Requests\CreateOrUpdateProductAndServiceRequest;
+use App\Http\Requests\ReorderProductAndServiceRequest;
 use App\Http\Resources\ProductAndServiceResource;
 use App\Models\ProductAndService;
 use Illuminate\Support\Facades\Gate;
@@ -24,15 +26,9 @@ class ProductAndServiceController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
+     *
+     * @group Product and services
      */
     public function store(CreateOrUpdateProductAndServiceRequest $request, SaveProductAndService $saveProductAndService)
     {
@@ -45,6 +41,8 @@ class ProductAndServiceController extends Controller
 
     /**
      * Display the specified resource.
+     *
+     * @group Product and services
      */
     public function show(ProductAndService $productsAndService)
     {
@@ -53,6 +51,8 @@ class ProductAndServiceController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @group Product and services
      */
     public function update(CreateOrUpdateProductAndServiceRequest $request, ProductAndService $productsAndService, SaveProductAndService $saveProductAndService)
     {
@@ -65,6 +65,8 @@ class ProductAndServiceController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @group Product and services
      */
     public function destroy(ProductAndService $productsAndService)
     {
@@ -73,5 +75,19 @@ class ProductAndServiceController extends Controller
         $productsAndService->delete();
 
         return response()->noContent();
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @group Product and services
+     */
+    public function reorder(ReorderProductAndServiceRequest $request, ReorderProductAndService $reorderProductAndService)
+    {
+        Gate::authorize('reorder', ProductAndService::class);
+
+        $reorderProductAndService->execute($request->validated());
+
+        return response()->json();
     }
 }

@@ -275,4 +275,36 @@ class ProductAndServiceTest extends TestCase
         $response->assertNoContent();
         $this->assertDatabaseMissing('product_and_services', ['id' => $productAndService->id]);
     }
+
+    public function test_the_admin_can_reorder_product_and_service(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $productAndServiceA = ProductAndService::factory()->create(['order' => 0]);
+        $productAndServiceB = ProductAndService::factory()->create(['order' => 1]);
+        $productAndServiceC = ProductAndService::factory()->create(['order' => 2]);
+        $productAndServiceD = ProductAndService::factory()->create(['order' => 3]);
+
+        // act
+        $orderIds = [$productAndServiceC->hashid, $productAndServiceB->hashid, $productAndServiceD->hashid, $productAndServiceA->hashid];
+        $response = $this->patchJson(route('products-and-services.reorder'), ['ids' => $orderIds]);
+
+        // assert
+        $response->assertOk();
+        $this->assertDatabaseHas('product_and_services', ['id' => $productAndServiceC->id, 'order' => 0]);
+        $this->assertDatabaseHas('product_and_services', ['id' => $productAndServiceB->id, 'order' => 1]);
+        $this->assertDatabaseHas('product_and_services', ['id' => $productAndServiceD->id, 'order' => 2]);
+        $this->assertDatabaseHas('product_and_services', ['id' => $productAndServiceA->id, 'order' => 3]);
+
+        // act
+        $orderIds = [$productAndServiceD->hashid, $productAndServiceC->hashid, $productAndServiceB->hashid, $productAndServiceA->hashid];
+        $response = $this->patchJson(route('products-and-services.reorder'), ['ids' => $orderIds]);
+
+        // assert
+        $response->assertOk();
+        $this->assertDatabaseHas('product_and_services', ['id' => $productAndServiceD->id, 'order' => 0]);
+        $this->assertDatabaseHas('product_and_services', ['id' => $productAndServiceC->id, 'order' => 1]);
+        $this->assertDatabaseHas('product_and_services', ['id' => $productAndServiceB->id, 'order' => 2]);
+        $this->assertDatabaseHas('product_and_services', ['id' => $productAndServiceA->id, 'order' => 3]);
+    }
 }
