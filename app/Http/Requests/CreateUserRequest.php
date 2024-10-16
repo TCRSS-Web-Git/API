@@ -29,7 +29,7 @@ class CreateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //            'role_id' => ['required', 'exists:roles,id'],
+            'role_id' => ['required', 'exists:roles,id'],
             'title' => ['nullable', new Enum(UserTitle::class)],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
@@ -41,6 +41,7 @@ class CreateUserRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $data = $this->validateAndTransformPhone($this->all(), 'phone');
+        $data['role_id'] = $this->input('role_id') ? Role::decodeHash($this->input('role_id')) : null;
         $this->merge($data);
     }
 
@@ -48,6 +49,7 @@ class CreateUserRequest extends FormRequest
     {
         return [
             'title' => __('validation.attributes.user_title'),
+            'role_id' => __('validation.attributes.role'),
         ];
     }
 }

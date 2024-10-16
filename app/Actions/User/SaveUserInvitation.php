@@ -26,7 +26,7 @@ class SaveUserInvitation
         try {
             $user = User::create($data);
 
-            // TODO assign role // $user->assignRole(Role::find($data['role_id']));
+            $user->assignRole(Role::find($data['role_id']));
 
             $invite = Invite::create([
                 'email' => $data['email'],

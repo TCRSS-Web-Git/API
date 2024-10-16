@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Http\Middleware\ValidateSignature;
 use App\Mail\UserInvitation;
 use App\Models\Invite;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
@@ -18,7 +19,7 @@ class UserTest extends TestCase
     {
         $this->signInAdmin();
 
-        [$userA, $userB] = User::factory()->count(2)->create();
+        [$userA, $userB] = User::factory()->count(2)->admin()->create();
 
         // act
         $response = $this->getJson(route('users.index'));
@@ -35,12 +36,12 @@ class UserTest extends TestCase
     {
         $this->signInAdmin();
 
-        $userA = User::factory()->create(['first_name' => 'Test First Name']);
-        $userB = User::factory()->create(['first_name' => 'John']);
-        $userC = User::factory()->create(['last_name' => 'Test Last Name']);
-        $userD = User::factory()->create(['email' => 'Test@email.com']);
-        $userE = User::factory()->create(['email' => 'John@email.com']);
-        $userF = User::factory()->create(['phone' => '0912345675']);
+        $userA = User::factory()->admin()->create(['first_name' => 'Test First Name']);
+        $userB = User::factory()->admin()->create(['first_name' => 'John']);
+        $userC = User::factory()->admin()->create(['last_name' => 'Test Last Name']);
+        $userD = User::factory()->admin()->create(['email' => 'Test@email.com']);
+        $userE = User::factory()->admin()->create(['email' => 'John@email.com']);
+        $userF = User::factory()->admin()->create(['phone' => '0912345675']);
 
         // act
         $response = $this->getJson(route('users.index', ['search' => 'Test']));
@@ -61,11 +62,51 @@ class UserTest extends TestCase
         $response->assertJsonFragment(['id' => $userE->hashid]);
     }
 
+    public function test_admin_can_get_user_with_filter_role_id(): void
+    {
+        $this->signInAdmin();
+
+        $adminRole = Role::where('name', Role::ROLE_ADMIN)->firstOrCreate();
+        $superAdminRole = Role::where('name', Role::ROLE_SUPER_ADMIN)->firstOrCreate();
+
+        $userA = User::factory()->admin()->create(['first_name' => 'Test First Name']);
+        $userB = User::factory()->admin()->create(['first_name' => 'John']);
+        $userC = User::factory()->admin()->create(['last_name' => 'Test Last Name']);
+        $userD = User::factory()->superAdmin()->create(['email' => 'Test@email.com']);
+        $userE = User::factory()->superAdmin()->create(['email' => 'John@email.com']);
+        $userF = User::factory()->superAdmin()->create(['phone' => '0912345675']);
+
+        // act
+        $response = $this->getJson(route('users.index', ['role_id' => $adminRole->hashid]));
+
+        // assert
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $userA->hashid]);
+        $response->assertJsonFragment(['id' => $userB->hashid]);
+        $response->assertJsonFragment(['id' => $userC->hashid]);
+
+        $response->assertJsonMissing(['id' => $userD->hashid]);
+        $response->assertJsonMissing(['id' => $userE->hashid]);
+        $response->assertJsonMissing(['id' => $userF->hashid]);
+
+        // act
+        $response = $this->getJson(route('users.index', ['role_id' => $superAdminRole->hashid]));
+        // assert
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $userD->hashid]);
+        $response->assertJsonFragment(['id' => $userE->hashid]);
+        $response->assertJsonFragment(['id' => $userF->hashid]);
+
+        $response->assertJsonMissing(['id' => $userA->hashid]);
+        $response->assertJsonMissing(['id' => $userB->hashid]);
+        $response->assertJsonMissing(['id' => $userC->hashid]);
+    }
+
     public function test_admin_get_user(): void
     {
         $this->signInAdmin();
 
-        $userA = User::factory()->create(['first_name' => 'Test First Name']);
+        $userA = User::factory()->admin()->create(['first_name' => 'Test First Name']);
 
         $response = $this->getJson(route('users.show', $userA));
 
@@ -90,7 +131,9 @@ class UserTest extends TestCase
 
         Mail::fake();
 
+        $role = Role::where('name', Role::ROLE_ADMIN)->first();
         $response = $this->postJson(route('users.store', [
+            'role_id' => $role->hashid,
             'title' => 'Mr.',
             'first_name' => $mockUser->first_name,
             'last_name' => $mockUser->last_name,
@@ -107,6 +150,11 @@ class UserTest extends TestCase
             'email' => $mockUser->email,
             'phone' => $mockUser->phone,
         ]);
+        $this->assertDatabaseHas('model_has_roles', [
+            'role_id' => $role->id,
+            'model_type' => User::class,
+            'model_id' => User::decodeHash($response->json('data.id')),
+        ]);
 
         $this->assertDatabaseHas('invites', [
             'email' => $mockUser->email,
@@ -122,7 +170,9 @@ class UserTest extends TestCase
         $this->signInAdmin();
         $mockUser = User::factory()->make();
 
+        $role = Role::where('name', Role::ROLE_ADMIN)->first();
         $response = $this->postJson(route('users.store', [
+            'role_id' => $role->hashid,
             'title' => 'Mr.',
             'first_name' => $mockUser->first_name,
             'last_name' => $mockUser->last_name,
@@ -169,15 +219,17 @@ class UserTest extends TestCase
     {
         $this->signInSuperAdmin();
 
-        $user = User::factory()->create();
+        $user = User::factory()->admin()->create();
         $mockUser = User::factory()->make();
+        $adminRole = Role::where('name', Role::ROLE_ADMIN)->first();
+        $superAdminRole = Role::where('name', Role::ROLE_SUPER_ADMIN)->first();
 
         $response = $this->putJson(route('users.update', $user), [
+            'role_id' => $superAdminRole->hashid,
             'title' => 'Mr.',
             'first_name' => $mockUser->first_name,
             'last_name' => $mockUser->last_name,
             'phone' => $mockUser->phone,
-
         ]);
 
         $response->assertOk();
@@ -188,6 +240,17 @@ class UserTest extends TestCase
             'last_name' => $mockUser->last_name,
             'phone' => $mockUser->phone,
         ]);
+
+        $this->assertDatabaseHas('model_has_roles', [
+            'role_id' => $superAdminRole->id,
+            'model_type' => User::class,
+            'model_id' => $user->id,
+        ]);
+        $this->assertDatabaseMissing('model_has_roles', [
+            'role_id' => $adminRole->id,
+            'model_type' => User::class,
+            'model_id' => $user->id,
+        ]);
     }
 
     public function test_admin_can_not_update_user(): void
@@ -196,8 +259,10 @@ class UserTest extends TestCase
 
         $user = User::factory()->create();
         $mockUser = User::factory()->make();
+        $role = Role::where('name', Role::ROLE_ADMIN)->first();
 
         $response = $this->putJson(route('users.update', $user), [
+            'role_id' => $role->hashid,
             'title' => 'Mr.',
             'first_name' => $mockUser->first_name,
             'last_name' => $mockUser->last_name,
