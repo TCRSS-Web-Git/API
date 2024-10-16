@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\ProductAndServiceFilter;
 use App\Http\Requests\StoreProductAndServiceRequest;
 use App\Http\Requests\UpdateProductAndServiceRequest;
+use App\Http\Resources\ProductAndServiceResource;
 use App\Models\ProductAndService;
 
 class ProductAndServiceController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get all product and services
+     *
+     * @group Product and services
      */
-    public function index()
+    public function index(ProductAndServiceFilter $filter)
     {
-        //
+        $count = ProductAndService::count();
+
+        return ProductAndServiceResource::collection(ProductAndService::with(['latestAudit.user'])->filter($filter)->paginate($this->getPerPage($count, $count)));
     }
 
     /**
@@ -37,7 +43,7 @@ class ProductAndServiceController extends Controller
      */
     public function show(ProductAndService $productsAndService)
     {
-        //
+        return new ProductAndServiceResource($productsAndService);
     }
 
     /**
