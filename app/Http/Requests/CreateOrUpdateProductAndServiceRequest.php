@@ -50,8 +50,11 @@ class CreateOrUpdateProductAndServiceRequest extends FormRequest
         return [
             'th' => __('validation.attributes.th'),
             'en' => __('validation.attributes.en'),
+
             'th.title' => __('validation.attributes.title'),
             'en.title' => __('validation.attributes.title'),
+
+            'file' => __('validation.attributes.file'),
         ];
     }
 }

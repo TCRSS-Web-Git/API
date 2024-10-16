@@ -190,6 +190,7 @@ return [
         'email' => 'email',
         'en' => 'english',
         'excerpt' => 'excerpt',
+        'file' => 'file',
         'filter' => 'filter',
         'finished_at' => 'finished at',
         'first_name' => 'first name',
