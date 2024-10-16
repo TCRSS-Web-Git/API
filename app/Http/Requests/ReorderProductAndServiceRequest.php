@@ -2,16 +2,17 @@
 
 namespace App\Http\Requests;
 
+use App\Models\ProductAndService;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductAndServiceRequest extends FormRequest
+class ReorderProductAndServiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,16 @@ class StoreProductAndServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'ids' => ['required', 'array'],
+            'ids.*' => ['required', 'exists:product_and_services,id'],
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $ids = collect($this->ids)->map(fn ($id) => ProductAndService::decodeHash($id))->toArray();
+        $this->merge([
+            'ids' => $ids,
+        ]);
     }
 }

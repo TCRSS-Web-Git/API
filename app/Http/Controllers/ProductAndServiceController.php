@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\ReorderProductAndService;
+use App\Actions\SaveProductAndService;
 use App\Filters\ProductAndServiceFilter;
-use App\Http\Requests\StoreProductAndServiceRequest;
-use App\Http\Requests\UpdateProductAndServiceRequest;
+use App\Http\Requests\CreateOrUpdateProductAndServiceRequest;
+use App\Http\Requests\ReorderProductAndServiceRequest;
 use App\Http\Resources\ProductAndServiceResource;
 use App\Models\ProductAndService;
+use Illuminate\Support\Facades\Gate;
 
 class ProductAndServiceController extends Controller
 {
@@ -23,23 +26,23 @@ class ProductAndServiceController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
+     *
+     * @group Product and services
      */
-    public function store(StoreProductAndServiceRequest $request)
+    public function store(CreateOrUpdateProductAndServiceRequest $request, SaveProductAndService $saveProductAndService)
     {
-        //
+        Gate::authorize('create', ProductAndService::class);
+
+        $productAndService = $saveProductAndService->execute(new ProductAndService, $request->validated());
+
+        return new ProductAndServiceResource($productAndService);
     }
 
     /**
      * Display the specified resource.
+     *
+     * @group Product and services
      */
     public function show(ProductAndService $productsAndService)
     {
@@ -47,26 +50,44 @@ class ProductAndServiceController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ProductAndService $productsAndService)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
+     *
+     * @group Product and services
      */
-    public function update(UpdateProductAndServiceRequest $request, ProductAndService $productsAndService)
+    public function update(CreateOrUpdateProductAndServiceRequest $request, ProductAndService $productsAndService, SaveProductAndService $saveProductAndService)
     {
-        //
+        Gate::authorize('update', $productsAndService);
+
+        $productsAndService = $saveProductAndService->execute($productsAndService, $request->validated());
+
+        return new ProductAndServiceResource($productsAndService);
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @group Product and services
      */
     public function destroy(ProductAndService $productsAndService)
     {
-        //
+        Gate::authorize('delete', $productsAndService);
+
+        $productsAndService->delete();
+
+        return response()->noContent();
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @group Product and services
+     */
+    public function reorder(ReorderProductAndServiceRequest $request, ReorderProductAndService $reorderProductAndService)
+    {
+        Gate::authorize('reorder', ProductAndService::class);
+
+        $reorderProductAndService->execute($request->validated());
+
+        return response()->json();
     }
 }
