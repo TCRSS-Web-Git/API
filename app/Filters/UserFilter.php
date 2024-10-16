@@ -2,6 +2,7 @@
 
 namespace App\Filters;
 
+use App\Models\Role;
 use App\Models\User;
 
 class UserFilter extends QueryFilter
@@ -65,6 +66,25 @@ class UserFilter extends QueryFilter
         }
 
         return $this->builder->where('phone', 'LIKE', '%'.$searchPhone.'%');
+    }
+
+    public function role_id($value)
+    {
+        $roleIds = explode(',', $value);
+        $roleIds = array_map(static function ($id) {
+            return Role::decodeHash(trim($id));
+        }, $roleIds);
+        $roleIds = array_filter($roleIds, static function ($id) {
+            return $id > 0;
+        });
+
+        if (empty($roleIds)) {
+            return $this->builder;
+        }
+
+        return $this->builder->whereHas('roles', function ($query) use ($roleIds) {
+            $query->whereIn('id', $roleIds);
+        });
     }
 
     public function search($value)

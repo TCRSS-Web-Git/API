@@ -11,6 +11,11 @@ use Illuminate\Http\Resources\Json\JsonResource;
  */
 class RoleResource extends JsonResource
 {
+    public function __construct(Role $resource)
+    {
+        parent::__construct($resource);
+    }
+
     /**
      * Transform the resource into an array.
      *
