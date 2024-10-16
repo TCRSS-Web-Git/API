@@ -35,7 +35,7 @@ class ProductAndServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProductAndService $productAndService)
+    public function show(ProductAndService $productsAndService)
     {
         //
     }
@@ -43,7 +43,7 @@ class ProductAndServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ProductAndService $productAndService)
+    public function edit(ProductAndService $productsAndService)
     {
         //
     }
@@ -51,7 +51,7 @@ class ProductAndServiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductAndServiceRequest $request, ProductAndService $productAndService)
+    public function update(UpdateProductAndServiceRequest $request, ProductAndService $productsAndService)
     {
         //
     }
@@ -59,7 +59,7 @@ class ProductAndServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProductAndService $productAndService)
+    public function destroy(ProductAndService $productsAndService)
     {
         //
     }

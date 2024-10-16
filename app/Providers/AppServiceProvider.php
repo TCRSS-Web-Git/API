@@ -70,7 +70,7 @@ class AppServiceProvider extends ServiceProvider
             return Career::findByHashOrFail($value);
         });
 
-        Route::bind('product_and_service', function ($value) {
+        Route::bind('products_and_service', function ($value) {
             return ProductAndService::findByHashOrFail($value);
         });
 
