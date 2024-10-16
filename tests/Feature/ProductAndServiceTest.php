@@ -262,6 +262,68 @@ class ProductAndServiceTest extends TestCase
         ]);
     }
 
+    public function test_the_admin_can_update_a_product_and_service_with_old_title(): void
+    {
+        // set up
+        $this->signInAdmin();
+        ProductAndService::factory()->count(2)->create(); // for test order
+        /** @var ProductAndService $productAndService */
+        $productAndService = ProductAndService::factory()->create(['order' => 0]);
+
+        [$cover, $file] = $this->setupImages();
+
+        $existedMediaA = Media::factory()->for(
+            $productAndService,
+            'model'
+        )->create([
+            'file_name' => 'existed_cover_file.png',
+            'collection_name' => ProductAndService::MEDIA_COLLECTION_COVER,
+        ]);
+
+        // act
+        $response = $this->putJson(route('products-and-services.update', $productAndService), [
+            'published_at' => now()->addMonth(),
+            'th' => [
+                'title' => $productAndService->getTranslation('title', 'th'),
+            ],
+            'en' => [
+                'title' => $productAndService->getTranslation('title', 'en'),
+            ],
+            'cover' => [
+                'id' => $existedMediaA->hashid,
+            ],
+            'file' => [
+                'id' => null,
+                'path' => $file['path'],
+            ],
+        ]);
+
+        // assert
+        $this->assertDatabaseHas('product_and_service_translations', ['item_id' => $productAndService->id, 'locale' => 'th', 'title' => $productAndService->getTranslation('title', 'th')]);
+        $this->assertDatabaseHas('product_and_service_translations', ['item_id' => $productAndService->id, 'locale' => 'en', 'title' => $productAndService->getTranslation('title', 'en')]);
+        $response->assertJsonFragment(['status' => ProductAndServiceStatus::DRAFT]);
+
+        $this->assertDatabaseCount('product_and_services', 3); // existed 2 + created 1
+        $this->assertDatabaseHas('product_and_services', [
+            'id' => $productAndService->id,
+            'order' => 0,
+        ]);
+        $this->assertDatabaseCount('media', 2);
+        $this->assertDatabaseHas('media', [
+            'id' => $existedMediaA->id,
+            'model_id' => $productAndService->id,
+            'model_type' => ProductAndService::class,
+            'collection_name' => ProductAndService::MEDIA_COLLECTION_COVER,
+            'file_name' => 'existed_cover_file.png',
+        ]);
+        $this->assertDatabaseHas('media', [
+            'model_id' => $productAndService->id,
+            'model_type' => ProductAndService::class,
+            'collection_name' => ProductAndService::MEDIA_COLLECTION_FILE,
+            'file_name' => $file['name'],
+        ]);
+    }
+
     public function test_the_admin_can_delete_a_product_and_service(): void
     {
         // set up
