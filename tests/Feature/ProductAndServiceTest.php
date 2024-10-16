@@ -149,6 +149,30 @@ class ProductAndServiceTest extends TestCase
         ]);
     }
 
+    public function test_the_admin_cannot_create_a_duplicate_title_product_and_service(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $existProductAndService = ProductAndService::factory()->create();
+        $existProductAndService->setTranslation('title', 'ชื่อผลิตภัณห์', 'en');
+        $existProductAndService->setTranslation('title', 'Product And Services name', 'th');
+        $existProductAndService->save();
+
+        // act
+        $response = $this->postJson(route('products-and-services.store'), [
+            'published_at' => null,
+            'th' => [
+                'title' => 'ชื่อผลิตภัณห์',
+            ],
+            'en' => [
+                'title' => 'Product And Services name',
+            ],
+        ]);
+
+        // assert
+        $response->assertUnprocessable();
+    }
+
     private function setupImages()
     {
         $fileCover = UploadedFile::fake()->image('image_cover.jpg');
@@ -177,7 +201,7 @@ class ProductAndServiceTest extends TestCase
         $this->assertDatabaseCount('product_and_services', 0);
     }
 
-    public function test_the_admin_can_update_a_Product_and_service_with_images(): void
+    public function test_the_admin_can_update_a_product_and_service_with_images(): void
     {
         // set up
         $this->signInAdmin();
@@ -238,7 +262,7 @@ class ProductAndServiceTest extends TestCase
         ]);
     }
 
-    public function test_the_admin_can_delete_a_Product_and_service(): void
+    public function test_the_admin_can_delete_a_product_and_service(): void
     {
         // set up
         $this->signInAdmin();
