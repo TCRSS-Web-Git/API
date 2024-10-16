@@ -44,4 +44,14 @@ class CreateOrUpdateProductAndServiceRequest extends FormRequest
             'file.name' => ['nullable', 'string'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'th' => __('validation.attributes.th'),
+            'en' => __('validation.attributes.en'),
+            'th.title' => __('validation.attributes.title'),
+            'en.title' => __('validation.attributes.title'),
+        ];
+    }
 }
