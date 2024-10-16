@@ -31,7 +31,7 @@ class ProductAndServiceResource extends JsonResource
         return [
             'id' => $this->hashid,
             'cover' => $imageCover ? new MediaResource($imageCover, ProductAndService::MEDIA_COLLECTION_COVER.'_optimized') : null,
-            'file' => $images ? new MediaResourceCollection($images, ProductAndService::MEDIA_COLLECTION_FILE.'_optimized') : null,
+            'file' => $images ? new MediaResource($images, ProductAndService::MEDIA_COLLECTION_FILE.'_optimized') : null,
             'title' => $this->getTranslation('title'),
             'translations' => $this->when($includeTranslations, $this->getAllTranslations()),
             'status' => $this->published_at && $this->published_at <= now() ? ProductAndServiceStatus::PUBLISHED : ProductAndServiceStatus::DRAFT,

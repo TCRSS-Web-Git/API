@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProductAndServiceRequest;
-use App\Http\Requests\UpdateProductAndServiceRequest;
+use App\Actions\SaveProductAndService;
+use App\Http\Requests\CreateOrUpdateProductAndServiceRequest;
+use App\Http\Resources\ProductAndServiceResource;
 use App\Models\ProductAndService;
+use Illuminate\Support\Facades\Gate;
 
 class ProductAndServiceController extends Controller
 {
@@ -27,9 +29,13 @@ class ProductAndServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductAndServiceRequest $request)
+    public function store(CreateOrUpdateProductAndServiceRequest $request, SaveProductAndService $saveProductAndService)
     {
-        //
+        Gate::authorize('create', ProductAndService::class);
+
+        $productAndService = $saveProductAndService->execute(new ProductAndService, $request->validated());
+
+        return new ProductAndServiceResource($productAndService);
     }
 
     /**
@@ -41,19 +47,15 @@ class ProductAndServiceController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ProductAndService $productAndService)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductAndServiceRequest $request, ProductAndService $productAndService)
+    public function update(CreateOrUpdateProductAndServiceRequest $request, ProductAndService $productAndService, SaveProductAndService $saveProductAndService)
     {
-        //
+        Gate::authorize('update', $productAndService);
+
+        $productAndService = $saveProductAndService->execute($productAndService, $request->validated());
+
+        return new ProductAndServiceResource($productAndService);
     }
 
     /**
@@ -61,6 +63,10 @@ class ProductAndServiceController extends Controller
      */
     public function destroy(ProductAndService $productAndService)
     {
-        //
+        Gate::authorize('delete', $productAndService);
+
+        $productAndService->delete();
+
+        return response()->noContent();
     }
 }
