@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Enums\UserTitle;
+use App\Models\Role;
 use App\Traits\ValidatePhone;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
@@ -32,7 +33,7 @@ class UpdateUserRequest extends FormRequest
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'phone' => ['nullable', (new Phone)->international()->country('TH'), 'max:20'],
-            //            'role_id' => ['required', 'exists:roles,id'],
+            'role_id' => ['required', 'exists:roles,id'],
             //            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }
@@ -40,6 +41,7 @@ class UpdateUserRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $data = $this->validateAndTransformPhone($this->all(), 'phone');
+        $data['role_id'] = $this->input('role_id') ? Role::decodeHash($this->input('role_id')) : null;
         $this->merge($data);
     }
 
@@ -47,6 +49,7 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'title' => __('validation.attributes.user_title'),
+            'role_id' => __('validation.attributes.role'),
         ];
     }
 }

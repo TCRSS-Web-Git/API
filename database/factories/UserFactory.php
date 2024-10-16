@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Enums\UserTitle;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -55,5 +57,21 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    public function superAdmin(): Factory
+    {
+        return $this->afterCreating(function (User $user) {
+            $role = Role::where('name', Role::ROLE_SUPER_ADMIN)->firstOrCreate();
+            $user->assignRole($role);
+        });
+    }
+
+    public function admin(): Factory
+    {
+        return $this->afterCreating(function (User $user) {
+            $role = Role::where('name', Role::ROLE_ADMIN)->firstOrCreate();
+            $user->assignRole($role);
+        });
     }
 }

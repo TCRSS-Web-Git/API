@@ -8,8 +8,9 @@ trait PaginateTrait
 
     const DEFAULT_PER_PAGE = 10;
 
-    public function getPerPage(?int $perPage = null): int
+    public function getPerPage(?int $perPage = null, ?int $maxPerPage = null): int
     {
+        $maxPerPage = $maxPerPage ?? self::MAX_PER_PAGE;
         if (! $perPage) {
             $perPage = (int) request()->get('per_page');
         }
@@ -18,6 +19,6 @@ trait PaginateTrait
             return self::DEFAULT_PER_PAGE;
         }
 
-        return ($perPage > self::MAX_PER_PAGE) ? self::MAX_PER_PAGE : ($perPage < 1 ? self::DEFAULT_PER_PAGE : $perPage);
+        return ($perPage > $maxPerPage) ? $maxPerPage : ($perPage < 1 ? self::DEFAULT_PER_PAGE : $perPage);
     }
 }
