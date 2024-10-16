@@ -43,7 +43,7 @@ class ProductAndServiceController extends Controller
      */
     public function show(ProductAndService $productsAndService)
     {
-        return new ProductAndServiceResource($productAndService);
+        return new ProductAndServiceResource($productsAndService);
     }
 
     /**

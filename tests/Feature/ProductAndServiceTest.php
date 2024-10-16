@@ -19,7 +19,7 @@ class ProductAndServiceTest extends TestCase
         [$product1, $product2, $product3, $product4] = ProductAndService::factory()->count(4)->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])->create();
 
         // act
-        $response = $this->getJson(route('product_and_services.index'));
+        $response = $this->getJson(route('products-and-services.index'));
 
         // assert
         $response->assertStatus(200);
@@ -41,7 +41,7 @@ class ProductAndServiceTest extends TestCase
         [$draftProduct1, $draftProduct2] = ProductAndService::factory()->draft()->count(2)->create();
 
         // act
-        $response = $this->getJson(route('product_and_services.index', ['status' => ProductAndServiceStatus::PUBLISHED->value]));
+        $response = $this->getJson(route('products-and-services.index', ['status' => ProductAndServiceStatus::PUBLISHED->value]));
 
         // assert
         $response->assertStatus(200);
@@ -51,7 +51,7 @@ class ProductAndServiceTest extends TestCase
         $response->assertDontSee($draftProduct2->hashid);
 
         // act
-        $response = $this->getJson(route('product_and_services.index', ['status' => ProductAndServiceStatus::DRAFT->value]));
+        $response = $this->getJson(route('products-and-services.index', ['status' => ProductAndServiceStatus::DRAFT->value]));
 
         // assert
         $response->assertStatus(200);
@@ -68,7 +68,7 @@ class ProductAndServiceTest extends TestCase
         $productAndService = ProductAndService::factory()->create();
 
         // act
-        $response = $this->getJson(route('product_and_services.show', $productAndService));
+        $response = $this->getJson(route('products-and-services.show', $productAndService));
 
         // assert
         $response->assertOk();
@@ -83,7 +83,7 @@ class ProductAndServiceTest extends TestCase
         $productAndService = ProductAndService::factory()->create();
 
         // act
-        $response = $this->getJson(route('product_and_services.show', ['product_and_service' => $productAndService, 'include' => 'translations']));
+        $response = $this->getJson(route('products-and-services.show', ['products_and_service' => $productAndService, 'include' => 'translations']));
 
         // assert
         $response->assertOk();
