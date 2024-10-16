@@ -1,0 +1,23 @@
+meta {
+  name: Update Product And Service
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{backend_url}}/api/v1/product_and_services/product_and_service_YD4103Y4XZ5QNG
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "published_at": null,
+    "th": {
+      "title": "สินค้าและบริการทดสอบ 2"
+    },
+    "en": {
+      "title": "Test edit product and service"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Create Product And Service
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{backend_url}}/api/v1/product_and_services
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "published_at": null,
+    "th": {
+      "title": "สินค้าและบริการทดสอบ 2"
+    },
+    "en": {
+      "title": "Test edit product and service"
+    }
+  }
+}
