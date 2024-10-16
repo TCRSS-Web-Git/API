@@ -18,7 +18,7 @@ class ProductAndServiceTest extends TestCase
     {
         $this->signInAdmin();
 
-        [$product1, $product2, $product3, $product4] = ProductAndService::factory()->count(4)->sequence(fn(Sequence $sequence) => ['order' => $sequence->index])->create();
+        [$product1, $product2, $product3, $product4] = ProductAndService::factory()->count(4)->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])->create();
 
         // act
         $response = $this->getJson(route('products-and-services.index'));
