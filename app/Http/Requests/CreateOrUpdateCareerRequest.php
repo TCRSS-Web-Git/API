@@ -35,8 +35,8 @@ class CreateOrUpdateCareerRequest extends FormRequest
             // Translations
             'th' => ['array', 'nullable', $requiredIfPublished],
             'en' => ['array', $requiredIfPublished],
-            'th.title' => ['required', 'string', 'max:255'],
-            'en.title' => ['nullable', $requiredIfPublished, 'string', 'max:255'],
+            'th.title' => ['required', 'string', 'max:100'],
+            'en.title' => ['nullable', $requiredIfPublished, 'string', 'max:100'],
             'th.body' => ['nullable', $requiredIfPublished, 'string', 'max:16777215'], // max medium text
             'en.body' => ['nullable', $requiredIfPublished, 'string', 'max:16777215'],
             'th.meta_title' => ['nullable', $requiredIfPublished, 'string', 'max:100'],
