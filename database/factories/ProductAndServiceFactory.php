@@ -47,10 +47,15 @@ class ProductAndServiceFactory extends Factory
         });
     }
 
-    public function withFile(string $name): static
+    public function withFile(): static
     {
-        // TODO
-        return $this;
+        return $this->afterCreating(function (ProductAndService $productAndService) {
+            $fileName = $this->faker->randomElement(['Product Specification.pdf', 'Applications.pdf', 'By Product.pdf']);
+            $productAndService->addMedia(storage_path('data/product_and_service_files/'.$fileName))
+                ->usingFileName($fileName)
+                ->preservingOriginal()
+                ->toMediaCollection(ProductAndService::MEDIA_COLLECTION_FILE);
+        });
     }
 
     public function configure()

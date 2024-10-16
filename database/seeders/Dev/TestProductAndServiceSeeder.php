@@ -15,6 +15,7 @@ class TestProductAndServiceSeeder extends Seeder
     {
         ProductAndService::factory(20)
             ->withCover()
+            ->withFile()
             ->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])
             ->create();
     }
