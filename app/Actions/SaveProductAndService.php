@@ -36,7 +36,7 @@ class SaveProductAndService
     {
         $this->productAndService->published_at = $data['published_at'] ?? null;
         if (! $this->productAndService->id) {
-            $this->productAndService->order = $data['order'] ?? ProductAndService::count();
+            $this->productAndService->order = ProductAndService::count();
         }
     }
 
