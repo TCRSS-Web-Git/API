@@ -9,9 +9,12 @@ class ProductAndServiceFilter extends QueryFilter
     protected $sortable = [
         'id',
         'title',
+        'order',
         'created_at',
         'updated_at',
     ];
+
+    protected $defaultSort = ['column' => 'order', 'direction' => 'desc']; // Edit default sorting here
 
     protected $translatedFields = ['title']; // Add translated fields here, used for sorting
 

@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Enums\ProductAndServiceStatus;
 use App\Models\ProductAndService;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -15,7 +16,7 @@ class ProductAndServiceTest extends TestCase
     {
         $this->signInAdmin();
 
-        [$product1, $product2, $product3, $product4] = ProductAndService::factory()->count(4)->create();
+        [$product1, $product2, $product3, $product4] = ProductAndService::factory()->count(4)->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])->create();
 
         // act
         $response = $this->getJson(route('product_and_services.index'));
@@ -26,6 +27,10 @@ class ProductAndServiceTest extends TestCase
         $response->assertSee($product2->hashid);
         $response->assertSee($product3->hashid);
         $response->assertSee($product4->hashid);
+        $this->assertEquals($product4->hashid, $response->json('data.0.id'));
+        $this->assertEquals($product3->hashid, $response->json('data.1.id'));
+        $this->assertEquals($product2->hashid, $response->json('data.2.id'));
+        $this->assertEquals($product1->hashid, $response->json('data.3.id'));
     }
 
     public function test_the_admin_can_get_all_product_and_services_with_filter_status()

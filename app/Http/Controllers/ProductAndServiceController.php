@@ -19,7 +19,7 @@ class ProductAndServiceController extends Controller
     {
         $count = ProductAndService::count();
 
-        return ProductAndServiceResource::collection(ProductAndService::with(['latestAudit.user'])->filter($filter)->paginate($this->getPerPage($count)));
+        return ProductAndServiceResource::collection(ProductAndService::with(['latestAudit.user'])->filter($filter)->paginate($this->getPerPage($count, $count)));
     }
 
     /**
