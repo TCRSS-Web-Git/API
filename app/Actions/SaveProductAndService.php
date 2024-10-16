@@ -35,6 +35,9 @@ class SaveProductAndService
     protected function setBasicAttributes(array $data): void
     {
         $this->productAndService->published_at = $data['published_at'] ?? null;
+        if (! $this->productAndService->id) {
+            $this->productAndService->order = $data['order'] ?? ProductAndService::count();
+        }
     }
 
     protected function setTranslations(array $data): void

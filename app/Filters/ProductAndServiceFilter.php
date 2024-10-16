@@ -14,7 +14,7 @@ class ProductAndServiceFilter extends QueryFilter
         'updated_at',
     ];
 
-    protected $defaultSort = ['column' => 'order', 'direction' => 'desc']; // Edit default sorting here
+    protected $defaultSort = ['column' => 'order', 'direction' => 'asc']; // Edit default sorting here
 
     protected $translatedFields = ['title']; // Add translated fields here, used for sorting
 

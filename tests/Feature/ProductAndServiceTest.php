@@ -29,10 +29,10 @@ class ProductAndServiceTest extends TestCase
         $response->assertSee($product2->hashid);
         $response->assertSee($product3->hashid);
         $response->assertSee($product4->hashid);
-        $this->assertEquals($product4->hashid, $response->json('data.0.id'));
-        $this->assertEquals($product3->hashid, $response->json('data.1.id'));
-        $this->assertEquals($product2->hashid, $response->json('data.2.id'));
-        $this->assertEquals($product1->hashid, $response->json('data.3.id'));
+        $this->assertEquals($product1->hashid, $response->json('data.0.id'));
+        $this->assertEquals($product2->hashid, $response->json('data.1.id'));
+        $this->assertEquals($product3->hashid, $response->json('data.2.id'));
+        $this->assertEquals($product4->hashid, $response->json('data.3.id'));
     }
 
     public function test_the_admin_can_get_all_product_and_services_with_filter_status()
@@ -99,6 +99,7 @@ class ProductAndServiceTest extends TestCase
     {
         // set up
         $this->signInAdmin();
+        ProductAndService::factory()->count(2)->create(); // for test `order`
 
         [$cover, $file] = $this->setupImages();
 
@@ -127,7 +128,11 @@ class ProductAndServiceTest extends TestCase
         $this->assertDatabaseHas('product_and_service_translations', ['locale' => 'en', 'title' => 'Product And Services name']);
         $response->assertJsonFragment(['status' => ProductAndServiceStatus::PUBLISHED]);
 
-        $this->assertDatabaseCount('product_and_services', 1);
+        $this->assertDatabaseCount('product_and_services', 3); // existed 2 + created 1
+        $this->assertDatabaseHas('product_and_services', [
+            'id' => ProductAndService::decodeHash($response->json('data.id')),
+            'order' => 2,
+        ]);
         $this->assertDatabaseCount('media', 2);
         $productAndServiceId = ProductAndService::decodeHash($response->json('data.id'));
         $this->assertDatabaseHas('media', [
@@ -176,7 +181,8 @@ class ProductAndServiceTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $productAndService = ProductAndService::factory()->create();
+        ProductAndService::factory()->count(2)->create(); // for test order
+        $productAndService = ProductAndService::factory()->create(['order' => 0]);
 
         [$cover, $file] = $this->setupImages();
 
@@ -207,12 +213,15 @@ class ProductAndServiceTest extends TestCase
         ]);
 
         // assert
-        $response->dump();
         $this->assertDatabaseHas('product_and_service_translations', ['item_id' => $productAndService->id, 'locale' => 'th', 'title' => 'ชื่อผลิตภัณห์']);
         $this->assertDatabaseHas('product_and_service_translations', ['item_id' => $productAndService->id, 'locale' => 'en', 'title' => 'Product And Services name']);
         $response->assertJsonFragment(['status' => ProductAndServiceStatus::DRAFT]);
 
-        $this->assertDatabaseCount('product_and_services', 1);
+        $this->assertDatabaseCount('product_and_services', 3); // existed 2 + created 1
+        $this->assertDatabaseHas('product_and_services', [
+            'id' => $productAndService->id,
+            'order' => 0,
+        ]);
         $this->assertDatabaseCount('media', 2);
         $this->assertDatabaseHas('media', [
             'id' => $existedMediaA->id,
