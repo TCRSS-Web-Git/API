@@ -25,12 +25,12 @@ class ProductAndServiceFactory extends Factory
 
     public function configure()
     {
-        return $this->afterCreating(function (ProductAndService $blog) {
+        return $this->afterCreating(function (ProductAndService $service) {
             $title = $this->faker->sentence();
 
-            $blog->setTranslation('title', $title, 'en');
-            $blog->setTranslation('title', '(th) '.$title, 'th');
-            $blog->save();
+            $service->setTranslation('title', $title, 'en');
+            $service->setTranslation('title', '(th) '.$title, 'th');
+            $service->save();
         });
     }
 }
