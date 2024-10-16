@@ -219,13 +219,13 @@ class UserTest extends TestCase
     {
         $this->signInSuperAdmin();
 
-        $user = User::factory()->create();
+        $user = User::factory()->admin()->create();
         $mockUser = User::factory()->make();
-        $role = Role::where('name', Role::ROLE_ADMIN)->first();
-        $user->assignRole($role);
+        $adminRole = Role::where('name', Role::ROLE_ADMIN)->first();
+        $superAdminRole = Role::where('name', Role::ROLE_SUPER_ADMIN)->first();
 
         $response = $this->putJson(route('users.update', $user), [
-            'role_id' => $role->hashid,
+            'role_id' => $superAdminRole->hashid,
             'title' => 'Mr.',
             'first_name' => $mockUser->first_name,
             'last_name' => $mockUser->last_name,
@@ -240,8 +240,14 @@ class UserTest extends TestCase
             'last_name' => $mockUser->last_name,
             'phone' => $mockUser->phone,
         ]);
+
         $this->assertDatabaseHas('model_has_roles', [
-            'role_id' => $role->id,
+            'role_id' => $superAdminRole->id,
+            'model_type' => User::class,
+            'model_id' => $user->id,
+        ]);
+        $this->assertDatabaseMissing('model_has_roles', [
+            'role_id' => $adminRole->id,
             'model_type' => User::class,
             'model_id' => $user->id,
         ]);
