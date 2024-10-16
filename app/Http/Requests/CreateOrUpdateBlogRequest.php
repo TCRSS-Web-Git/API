@@ -36,8 +36,8 @@ class CreateOrUpdateBlogRequest extends FormRequest
             // Translations
             'th' => ['array', 'nullable', $requiredIfPublished],
             'en' => ['array', $requiredIfPublished],
-            'th.title' => ['required', 'string', 'max:255'],
-            'en.title' => ['nullable', 'string', 'max:255', $requiredIfPublished],
+            'th.title' => ['required', 'string', 'max:100'],
+            'en.title' => ['nullable', 'string', 'max:100', $requiredIfPublished],
             'th.body' => ['nullable', 'string', 'max:16777215', $requiredIfPublished], // max medium text
             'en.body' => ['nullable', 'string', 'max:16777215', $requiredIfPublished],
             'th.meta_title' => ['nullable', 'string', 'max:100', $requiredIfPublished],
