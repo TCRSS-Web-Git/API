@@ -41,31 +41,32 @@ class ProductAndServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProductAndService $productAndService)
+    public function show(ProductAndService $productsAndService)
     {
         //
     }
 
     /**
+<<<<<<< HEAD
      * Update the specified resource in storage.
      */
-    public function update(CreateOrUpdateProductAndServiceRequest $request, ProductAndService $productAndService, SaveProductAndService $saveProductAndService)
+    public function update(CreateOrUpdateProductAndServiceRequest $request, ProductAndService $productsAndService, SaveProductAndService $saveProductAndService)
     {
-        Gate::authorize('update', $productAndService);
+        Gate::authorize('update', $productsAndService);
 
-        $productAndService = $saveProductAndService->execute($productAndService, $request->validated());
+        $productsAndService = $saveProductAndService->execute($productsAndService, $request->validated());
 
-        return new ProductAndServiceResource($productAndService);
+        return new ProductAndServiceResource($productsAndService);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProductAndService $productAndService)
+    public function destroy(ProductAndService $productsAndService)
     {
-        Gate::authorize('delete', $productAndService);
+        Gate::authorize('delete', $productsAndService);
 
-        $productAndService->delete();
+        $productsAndService->delete();
 
         return response()->noContent();
     }

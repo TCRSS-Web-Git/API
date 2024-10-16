@@ -37,7 +37,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('blogs', BlogController::class);
     Route::apiResource('careers', CareerController::class);
-    Route::apiResource('product_and_services', ProductAndServiceController::class);
+    Route::apiResource('products-and-services', ProductAndServiceController::class);
 
     Route::post('/invite/resend/{user}', [InviteController::class, 'resend'])->name('invite.resend');
 });

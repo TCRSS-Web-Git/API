@@ -21,7 +21,7 @@ class ProductAndServiceTest extends TestCase
         [$cover, $file] = $this->setupImages();
 
         // act
-        $response = $this->postJson(route('product_and_services.store'), [
+        $response = $this->postJson(route('products-and-services.store'), [
             'published_at' => now()->subDay(),
             'th' => [
                 'title' => 'ชื่อผลิตภัณห์',
@@ -81,7 +81,7 @@ class ProductAndServiceTest extends TestCase
         $this->signInAdmin();
 
         // act
-        $response = $this->postJson(route('product_and_services.store'), [
+        $response = $this->postJson(route('products-and-services.store'), [
             'published_at' => now()->subDay(),
         ]);
 
@@ -107,7 +107,7 @@ class ProductAndServiceTest extends TestCase
         ]);
 
         // act
-        $response = $this->putJson(route('product_and_services.update', $productAndService), [
+        $response = $this->putJson(route('products-and-services.update', $productAndService), [
             'published_at' => now()->addMonth(),
             'th' => [
                 'title' => 'ชื่อผลิตภัณห์',
@@ -154,7 +154,7 @@ class ProductAndServiceTest extends TestCase
         $productAndService = ProductAndService::factory()->create();
 
         // act
-        $response = $this->deleteJson(route('product_and_services.destroy', $productAndService));
+        $response = $this->deleteJson(route('products-and-services.destroy', $productAndService));
 
         // assert
         $response->assertNoContent();
