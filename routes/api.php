@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnnualReportController;
+use App\Http\Controllers\AwardImageController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CategoryController;
@@ -38,6 +39,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('blogs', BlogController::class);
     Route::apiResource('careers', CareerController::class);
+
+    Route::patch('award-images/reorder', [AwardImageController::class, 'reorder'])->name('award-images.reorder');
+    Route::apiResource('award-images', AwardImageController::class);
 
     Route::patch('products-and-services/reorder', [ProductAndServiceController::class, 'reorder'])->name('products-and-services.reorder');
     Route::apiResource('products-and-services', ProductAndServiceController::class);

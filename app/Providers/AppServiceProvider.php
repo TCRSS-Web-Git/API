@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\AnnualReport;
+use App\Models\AwardImage;
 use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Category;
@@ -61,6 +62,10 @@ class AppServiceProvider extends ServiceProvider
         // Please keep it in alphabetical order.
         Route::bind('annual_report', function ($value) {
             return AnnualReport::findByHashOrFail($value);
+        });
+
+        Route::bind('award_image', function ($value) {
+            return AwardImage::findByHashOrFail($value);
         });
 
         Route::bind('blog', function ($value) {
