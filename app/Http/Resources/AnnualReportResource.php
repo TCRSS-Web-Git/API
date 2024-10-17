@@ -4,7 +4,6 @@ namespace App\Http\Resources;
 
 use App\Enums\AnnualReportStatus;
 use App\Models\AnnualReport;
-use App\Models\AnnualReport;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
