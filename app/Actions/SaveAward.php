@@ -38,8 +38,8 @@ class SaveAward
     {
         $this->award->published_at = $data['published_at'] ?? null;
         if (! $this->award->id) {
-            $lastOrder = Award::orderBy('order', 'desc')->first();
-            $this->award->order = ($lastOrder->order ?? -1) + 1;
+            $lastOrder = Award::orderBy('order', 'desc')->first()->order ?? 0;
+            $this->award->order = $lastOrder == 0 ? 0 : $lastOrder + 1;
         }
     }
 
