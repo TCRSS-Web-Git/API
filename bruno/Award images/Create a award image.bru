@@ -1,0 +1,15 @@
+meta {
+  name: Create a award image
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{backend_url}}/api/v1/award-images
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  image: @file(/Users/notebook/Downloads/440x320.png)
+}
