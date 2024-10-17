@@ -15,5 +15,6 @@ class DevSeeder extends Seeder
         $this->call(TestBlogSeeder::class);
         $this->call(TestCareerSeeder::class);
         $this->call(TestProductAndServiceSeeder::class);
+        $this->call(TestAwardSeeder::class);
     }
 }
