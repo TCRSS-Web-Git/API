@@ -126,11 +126,64 @@ class ProductAndServiceTest extends TestCase
         $this->assertDatabaseCount('media', 0);
     }
 
+    public function test_the_admin_can_create_first_published_product_and_service(): void
+    {
+        // set up
+        $this->signInAdmin();
+        [$cover, $file] = $this->setupImages();
+
+        // act
+        $response = $this->postJson(route('products-and-services.store'), [
+            'published_at' => null,
+            'th' => [
+                'title' => 'ชื่อผลิตภัณห์',
+            ],
+            'en' => [
+                'title' => 'Product And Services name',
+            ],
+            'cover' => [
+                'id' => null,
+                'path' => $cover['path'],
+            ],
+            'file' => [
+                'id' => null,
+                'path' => $file['path'],
+            ],
+        ]);
+
+        // assert
+        $response->assertCreated();
+        $this->assertDatabaseHas('product_and_service_translations', ['locale' => 'th', 'title' => 'ชื่อผลิตภัณห์']);
+        $this->assertDatabaseHas('product_and_service_translations', ['locale' => 'en', 'title' => 'Product And Services name']);
+        $response->assertJsonFragment(['status' => ProductAndServiceStatus::DRAFT]);
+
+        $productAndServiceId = ProductAndService::decodeHash($response->json('data.id'));
+        $this->assertDatabaseCount('product_and_services', 1); // created 1
+        $this->assertDatabaseHas('product_and_services', [
+            'id' => $productAndServiceId,
+            'order' => 0,
+        ]);
+        $this->assertDatabaseCount('media', 2);
+        $this->assertDatabaseHas('media', [
+            'model_type' => ProductAndService::class,
+            'model_id' => $productAndServiceId,
+            'collection_name' => ProductAndService::MEDIA_COLLECTION_COVER,
+            'file_name' => $cover['name'],
+        ]);
+        $this->assertDatabaseHas('media', [
+            'model_type' => ProductAndService::class,
+            'model_id' => $productAndServiceId,
+            'collection_name' => ProductAndService::MEDIA_COLLECTION_FILE,
+            'file_name' => $file['name'],
+        ]);
+    }
+
     public function test_the_admin_can_create_a_published_product_and_service(): void
     {
         // set up
         $this->signInAdmin();
-        ProductAndService::factory()->count(2)->create(); // for test `order`
+        ProductAndService::factory()->create(['order' => 0]); // for test `order`
+        ProductAndService::factory()->create(['order' => 1]); // for test `order`
 
         [$cover, $file] = $this->setupImages();
 
@@ -159,13 +212,13 @@ class ProductAndServiceTest extends TestCase
         $this->assertDatabaseHas('product_and_service_translations', ['locale' => 'en', 'title' => 'Product And Services name']);
         $response->assertJsonFragment(['status' => ProductAndServiceStatus::PUBLISHED]);
 
+        $productAndServiceId = ProductAndService::decodeHash($response->json('data.id'));
         $this->assertDatabaseCount('product_and_services', 3); // existed 2 + created 1
         $this->assertDatabaseHas('product_and_services', [
-            'id' => ProductAndService::decodeHash($response->json('data.id')),
+            'id' => $productAndServiceId,
             'order' => 2,
         ]);
         $this->assertDatabaseCount('media', 2);
-        $productAndServiceId = ProductAndService::decodeHash($response->json('data.id'));
         $this->assertDatabaseHas('media', [
             'model_type' => ProductAndService::class,
             'model_id' => $productAndServiceId,
