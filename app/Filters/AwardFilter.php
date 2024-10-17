@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Filters;
+
+use App\Enums\AwardStatus;
+use App\Models\Award;
+
+class AwardFilter extends QueryFilter
+{
+    protected $sortable = [
+        'id',
+        'title',
+        'order',
+        'created_at',
+        'updated_at',
+    ];
+
+    protected $defaultSort = ['column' => 'order', 'direction' => 'asc']; // Edit default sorting here
+
+    protected $translatedFields = ['title', 'description']; // Add translated fields here, used for sorting
+
+    public function status($value)
+    {
+        if (strtolower($value) === AwardStatus::PUBLISHED->value) {
+            return $this->builder->where('published_at', '<=', now());
+        }
+
+        if (strtolower($value) === AwardStatus::DRAFT->value) {
+            return $this->builder->where(function () {
+                $this->builder->where('published_at', '>', now())
+                    ->orWhere('published_at', null);
+            });
+        }
+
+        return $this->builder;
+    }
+
+    public function search($value)
+    {
+        // Search by hashID (support multiple hashID, comma separated)
+        $ids = Award::decodeMultipleHashString($value);
+
+        return $this->builder->where(function ($query) use ($value, $ids) {
+            $query->whereHas('translations', function ($query) use ($value) {
+                $query->whereRaw('MATCH(title) AGAINST(? IN BOOLEAN MODE)', [$value]);
+            })
+                ->when($ids, function ($query) use ($ids) {
+                    $query->orWhereIn('id', $ids);
+                });
+        });
+    }
+}

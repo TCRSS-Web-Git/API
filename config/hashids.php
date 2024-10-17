@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Award;
 use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Category;
@@ -49,6 +50,12 @@ return [
         ],
 
         // Please keep it in alphabetical order.
+
+        Award::class => [
+            'salt' => env('HASHIDS_AWARD', 'PF8pczSGd46fBCFNnnmL'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
 
         Blog::class => [
             'salt' => env('HASHIDS_BLOG', 'FR4PmB7XHx4VXBrC8hHh'),

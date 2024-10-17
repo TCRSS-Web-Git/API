@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Award;
 use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Category;
@@ -58,6 +59,10 @@ class AppServiceProvider extends ServiceProvider
         }
 
         // Please keep it in alphabetical order.
+        Route::bind('award', function ($value) {
+            return Award::findByHashOrFail($value);
+        });
+
         Route::bind('blog', function ($value) {
             return Blog::findByHashOrFail($value);
         });
