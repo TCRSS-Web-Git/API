@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Award;
+use App\Models\AwardImage;
 use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Category;
@@ -53,6 +54,12 @@ return [
 
         Award::class => [
             'salt' => env('HASHIDS_AWARD', 'PF8pczSGd46fBCFNnnmL'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
+
+        AwardImage::class => [
+            'salt' => env('HASHIDS_AWARD_IMAGE', 'tOyURZnjgTA52FQvwRP8'),
             'length' => 14,
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
         ],

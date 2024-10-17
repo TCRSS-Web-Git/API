@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Award;
+use App\Models\AwardImage;
 use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Category;
@@ -44,10 +45,10 @@ class AppServiceProvider extends ServiceProvider
             $referrer = request()->headers->get('referer');
             // if referrer url is ADMIN_URL use admin url instead of frontend
             if (str_contains($referrer, config('app.admin_url'))) {
-                return config('app.admin_url')."/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
+                return config('app.admin_url') . "/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
             }
 
-            return config('app.frontend_url')."/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
+            return config('app.frontend_url') . "/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
         });
 
         // Allow Scribe to generate docs with authenticated user
@@ -61,6 +62,10 @@ class AppServiceProvider extends ServiceProvider
         // Please keep it in alphabetical order.
         Route::bind('award', function ($value) {
             return Award::findByHashOrFail($value);
+        });
+
+        Route::bind('award_image', function ($value) {
+            return AwardImage::findByHashOrFail($value);
         });
 
         Route::bind('blog', function ($value) {
