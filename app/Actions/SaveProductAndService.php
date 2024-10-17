@@ -36,8 +36,8 @@ class SaveProductAndService
     {
         $this->productAndService->published_at = $data['published_at'] ?? null;
         if (! $this->productAndService->id) {
-            $lastOrder = ProductAndService::orderBy('order', 'desc')->first();
-            $this->productAndService->order = ($lastOrder->order ?? -1) + 1;
+            $lastOrder = ProductAndService::orderBy('order', 'desc')->first()->order ?? 0;
+            $this->productAndService->order = $lastOrder == 0 ? 0 : $lastOrder + 1;
         }
     }
 
