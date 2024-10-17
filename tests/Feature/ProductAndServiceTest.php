@@ -95,6 +95,37 @@ class ProductAndServiceTest extends TestCase
         $response->assertJsonStructure(['data' => ['translations' => ['en' => ['title']]]]);
     }
 
+    public function test_the_admin_can_create_a_draft_product_and_service(): void
+    {
+        // set up
+        $this->signInAdmin();
+        ProductAndService::factory()->count(2)->create(); // for test `order`
+
+        // act
+        $response = $this->postJson(route('products-and-services.store'), [
+            'published_at' => null,
+            'th' => [
+                'title' => 'ชื่อผลิตภัณห์',
+            ],
+            'en' => [
+                'title' => 'Product And Services name',
+            ],
+        ]);
+
+        // assert
+        $response->assertCreated();
+        $this->assertDatabaseHas('product_and_service_translations', ['locale' => 'th', 'title' => 'ชื่อผลิตภัณห์']);
+        $this->assertDatabaseHas('product_and_service_translations', ['locale' => 'en', 'title' => 'Product And Services name']);
+        $response->assertJsonFragment(['status' => ProductAndServiceStatus::DRAFT]);
+
+        $this->assertDatabaseCount('product_and_services', 3); // existed 2 + created 1
+        $this->assertDatabaseHas('product_and_services', [
+            'id' => ProductAndService::decodeHash($response->json('data.id')),
+            'order' => 2,
+        ]);
+        $this->assertDatabaseCount('media', 0);
+    }
+
     public function test_the_admin_can_create_a_published_product_and_service(): void
     {
         // set up

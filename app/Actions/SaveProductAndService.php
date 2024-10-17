@@ -54,7 +54,6 @@ class SaveProductAndService
 
     protected function saveMedia(array $data): void
     {
-
         if (! empty($data['file']) && empty($data['file']['id'])) {
             $this->saveImageFromTempToMedia($data['file'], ProductAndService::MEDIA_COLLECTION_FILE);
         }
@@ -82,7 +81,9 @@ class SaveProductAndService
     {
         try {
             $image = $this->productAndService->getFirstMedia($collectionName);
-            $this->productAndService->deleteMedia($image->id);
+            if ($image) {
+                $this->productAndService->deleteMedia($image->id);
+            }
         } catch (Exception $exception) {
             throw $exception;
         }
