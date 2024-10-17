@@ -99,7 +99,8 @@ class AnnualReportTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        AnnualReport::factory()->count(2)->create(); // for test `order`
+        AnnualReport::factory()->create(['order' => 0]); // for test `order`
+        AnnualReport::factory()->create(['order' => 1]); // for test `order`
 
         [$cover, $file] = $this->setupImages();
 
@@ -129,12 +130,13 @@ class AnnualReportTest extends TestCase
         $response->assertJsonFragment(['status' => AnnualReportStatus::PUBLISHED]);
 
         $this->assertDatabaseCount('annual_reports', 3); // existed 2 + created 1
+        $annualReportId = AnnualReport::decodeHash($response->json('data.id'));
         $this->assertDatabaseHas('annual_reports', [
-            'id' => AnnualReport::decodeHash($response->json('data.id')),
+            'id' => $annualReportId,
             'order' => 2,
         ]);
         $this->assertDatabaseCount('media', 2);
-        $annualReportId = AnnualReport::decodeHash($response->json('data.id'));
+
         $this->assertDatabaseHas('media', [
             'model_type' => AnnualReport::class,
             'model_id' => $annualReportId,
@@ -164,8 +166,8 @@ class AnnualReportTest extends TestCase
         // set up
         $this->signInAdmin();
         $existAnnualReport = AnnualReport::factory()->create();
-        $existAnnualReport->setTranslation('title', 'ชื่อรายงานประจำปี', 'en');
-        $existAnnualReport->setTranslation('title', 'Annual Report name', 'th');
+        $existAnnualReport->setTranslation('title', 'ชื่อรายงานประจำปี', 'th');
+        $existAnnualReport->setTranslation('title', 'Annual Report name', 'en');
         $existAnnualReport->save();
 
         // act
