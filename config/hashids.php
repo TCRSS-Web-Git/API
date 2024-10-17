@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\AwardImage;
 use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Category;
@@ -49,6 +50,12 @@ return [
         ],
 
         // Please keep it in alphabetical order.
+
+        AwardImage::class => [
+            'salt' => env('HASHIDS_AWARD_IMAGE', 'tOyURZnjgTA52FQvwRP8'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
 
         Blog::class => [
             'salt' => env('HASHIDS_BLOG', 'FR4PmB7XHx4VXBrC8hHh'),
