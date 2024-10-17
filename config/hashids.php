@@ -52,7 +52,7 @@ return [
         // Please keep it in alphabetical order.
 
         AnnualReport::class => [
-            'salt' => env('HASHIDS_BLOG', '7bf649eac3ffac7bbada'),
+            'salt' => env('HASHIDS_ANNUAL_REPORT', '7bf649eac3ffac7bbada'),
             'length' => 14,
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
         ],

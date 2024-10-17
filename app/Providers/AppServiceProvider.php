@@ -59,7 +59,7 @@ class AppServiceProvider extends ServiceProvider
         }
 
         // Please keep it in alphabetical order.
-        Route::bind('blog', function ($value) {
+        Route::bind('annual_report', function ($value) {
             return AnnualReport::findByHashOrFail($value);
         });
 
