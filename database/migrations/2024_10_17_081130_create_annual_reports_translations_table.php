@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('annual_reports_translations', function (Blueprint $table) {
+        Schema::create('annual_report_translations', function (Blueprint $table) {
             $table->id();
 
             $table->foreignIdFor(AnnualReport::class, 'item_id')
@@ -28,7 +28,7 @@ return new class extends Migration
         });
 
         if (config('database.default') === 'mysql') {
-            DB::statement('ALTER TABLE annual_reports_translations ADD FULLTEXT annual_reports_translations_fulltext (title) WITH PARSER ngram');
+            DB::statement('ALTER TABLE annual_report_translations ADD FULLTEXT annual_report_translations_fulltext (title) WITH PARSER ngram');
         }
     }
 
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('annual_reports_translations');
+        Schema::dropIfExists('annual_report_translations');
     }
 };

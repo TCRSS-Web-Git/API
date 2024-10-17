@@ -4,7 +4,6 @@ namespace App\Actions;
 
 use App\Models\AnnualReport;
 use App\Models\Media;
-use App\Models\ProductAndService;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
@@ -37,7 +36,7 @@ class SaveAnnualReport
     {
         $this->annualReport->published_at = $data['published_at'] ?? null;
         if (! $this->annualReport->id) {
-            $this->annualReport->order = ProductAndService::count();
+            $this->annualReport->order = AnnualReport::count();
         }
     }
 

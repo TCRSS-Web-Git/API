@@ -25,7 +25,7 @@ class CreateOrUpdateAnnualReportRequest extends FormRequest
     public function rules(): array
     {
         $requiredIfPublished = Rule::requiredIf($this->input('published_at') && Carbon::parse($this->input('published_at'))->timezone('UTC') <= now());
-        $titleUnique = $this->routeIs('annual-reports.store') ? Rule::unique('annual_reports_translations', 'title') : null;
+        $titleUnique = $this->routeIs('annual-reports.store') ? Rule::unique('annual_report_translations', 'title') : null;
 
         return [
             'published_at' => ['nullable', 'date', $requiredIfPublished],
