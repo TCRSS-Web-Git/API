@@ -45,10 +45,10 @@ class AppServiceProvider extends ServiceProvider
             $referrer = request()->headers->get('referer');
             // if referrer url is ADMIN_URL use admin url instead of frontend
             if (str_contains($referrer, config('app.admin_url'))) {
-                return config('app.admin_url') . "/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
+                return config('app.admin_url')."/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
             }
 
-            return config('app.frontend_url') . "/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
+            return config('app.frontend_url')."/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
         });
 
         // Allow Scribe to generate docs with authenticated user
