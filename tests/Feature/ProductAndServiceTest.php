@@ -95,6 +95,37 @@ class ProductAndServiceTest extends TestCase
         $response->assertJsonStructure(['data' => ['translations' => ['en' => ['title']]]]);
     }
 
+    public function test_the_admin_can_create_a_draft_product_and_service(): void
+    {
+        // set up
+        $this->signInAdmin();
+        ProductAndService::factory()->count(2)->create(); // for test `order`
+
+        // act
+        $response = $this->postJson(route('products-and-services.store'), [
+            'published_at' => null,
+            'th' => [
+                'title' => 'ชื่อผลิตภัณห์',
+            ],
+            'en' => [
+                'title' => 'Product And Services name',
+            ],
+        ]);
+
+        // assert
+        $response->assertCreated();
+        $this->assertDatabaseHas('product_and_service_translations', ['locale' => 'th', 'title' => 'ชื่อผลิตภัณห์']);
+        $this->assertDatabaseHas('product_and_service_translations', ['locale' => 'en', 'title' => 'Product And Services name']);
+        $response->assertJsonFragment(['status' => ProductAndServiceStatus::DRAFT]);
+
+        $this->assertDatabaseCount('product_and_services', 3); // existed 2 + created 1
+        $this->assertDatabaseHas('product_and_services', [
+            'id' => ProductAndService::decodeHash($response->json('data.id')),
+            'order' => 2,
+        ]);
+        $this->assertDatabaseCount('media', 0);
+    }
+
     public function test_the_admin_can_create_first_published_product_and_service(): void
     {
         // set up
@@ -202,6 +233,16 @@ class ProductAndServiceTest extends TestCase
         ]);
     }
 
+    private function setupImages()
+    {
+        $fileCover = UploadedFile::fake()->image('image_cover.jpg');
+        $file = UploadedFile::fake()->image('image_file.jpg');
+        $mediaImageCover = $this->postJson(route('temporary_media.store'), ['media' => $fileCover]);
+        $mediaImageThumbnail = $this->postJson(route('temporary_media.store'), ['media' => $file]);
+
+        return [$mediaImageCover->json('data'), $mediaImageThumbnail->json('data')];
+    }
+
     public function test_the_admin_cannot_create_a_duplicate_title_product_and_service(): void
     {
         // set up
@@ -224,16 +265,6 @@ class ProductAndServiceTest extends TestCase
 
         // assert
         $response->assertUnprocessable();
-    }
-
-    private function setupImages()
-    {
-        $fileCover = UploadedFile::fake()->image('image_cover.jpg');
-        $file = UploadedFile::fake()->image('image_file.jpg');
-        $mediaImageCover = $this->postJson(route('temporary_media.store'), ['media' => $fileCover]);
-        $mediaImageThumbnail = $this->postJson(route('temporary_media.store'), ['media' => $file]);
-
-        return [$mediaImageCover->json('data'), $mediaImageThumbnail->json('data')];
     }
 
     /**
@@ -312,6 +343,60 @@ class ProductAndServiceTest extends TestCase
             'model_type' => ProductAndService::class,
             'collection_name' => ProductAndService::MEDIA_COLLECTION_FILE,
             'file_name' => $file['name'],
+        ]);
+    }
+
+    public function test_the_admin_can_update_a_product_and_service_with_images_and_delete(): void
+    {
+        // set up
+        $this->signInAdmin();
+        ProductAndService::factory()->count(2)->create(); // for test order
+        $productAndService = ProductAndService::factory()->create(['order' => 0]);
+
+        [$file, $cover] = $this->setupImages();
+
+        $existedMediaA = Media::factory()->for(
+            $productAndService,
+            'model'
+        )->create([
+            'file_name' => 'existed_cover_file.png',
+            'collection_name' => ProductAndService::MEDIA_COLLECTION_FILE,
+        ]);
+
+        // act
+        $response = $this->putJson(route('products-and-services.update', $productAndService), [
+            'published_at' => now()->addMonth(),
+            'th' => [
+                'title' => 'ชื่อผลิตภัณห์',
+            ],
+            'en' => [
+                'title' => 'Product And Services name',
+            ],
+            'file' => [],
+            'cover' => [
+                'id' => null,
+                'path' => $cover['path'],
+            ],
+        ]);
+        // assert
+        $this->assertDatabaseHas('product_and_service_translations', ['item_id' => $productAndService->id, 'locale' => 'th', 'title' => 'ชื่อผลิตภัณห์']);
+        $this->assertDatabaseHas('product_and_service_translations', ['item_id' => $productAndService->id, 'locale' => 'en', 'title' => 'Product And Services name']);
+        $response->assertJsonFragment(['status' => ProductAndServiceStatus::DRAFT]);
+
+        $this->assertDatabaseCount('product_and_services', 3); // existed 2 + created 1
+        $this->assertDatabaseHas('product_and_services', [
+            'id' => $productAndService->id,
+            'order' => 0,
+        ]);
+        $this->assertDatabaseCount('media', 1);
+        $this->assertDatabaseMissing('media', [
+            'id' => $existedMediaA->id,
+        ]);
+        $this->assertDatabaseHas('media', [
+            'model_id' => $productAndService->id,
+            'model_type' => ProductAndService::class,
+            'collection_name' => ProductAndService::MEDIA_COLLECTION_COVER,
+            'file_name' => $cover['name'],
         ]);
     }
 

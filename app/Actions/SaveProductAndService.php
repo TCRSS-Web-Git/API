@@ -61,6 +61,12 @@ class SaveProductAndService
         if (! empty($data['cover']) && empty($data['cover']['id'])) {
             $this->saveImageFromTempToMedia($data['cover'], ProductAndService::MEDIA_COLLECTION_COVER);
         }
+        if (empty($data['cover'])) {
+            $this->deleteMedia(ProductAndService::MEDIA_COLLECTION_COVER);
+        }
+        if (empty($data['file'])) {
+            $this->deleteMedia(ProductAndService::MEDIA_COLLECTION_FILE);
+        }
     }
 
     protected function saveImageFromTempToMedia(array $file, string $collection): ?Media
@@ -70,5 +76,17 @@ class SaveProductAndService
         }
 
         return null;
+    }
+
+    protected function deleteMedia(string $collectionName)
+    {
+        try {
+            $image = $this->productAndService->getFirstMedia($collectionName);
+            if ($image) {
+                $this->productAndService->deleteMedia($image->id);
+            }
+        } catch (Exception $exception) {
+            throw $exception;
+        }
     }
 }
