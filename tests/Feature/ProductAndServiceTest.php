@@ -154,8 +154,8 @@ class ProductAndServiceTest extends TestCase
         // set up
         $this->signInAdmin();
         $existProductAndService = ProductAndService::factory()->create();
-        $existProductAndService->setTranslation('title', 'ชื่อผลิตภัณห์', 'en');
-        $existProductAndService->setTranslation('title', 'Product And Services name', 'th');
+        $existProductAndService->setTranslation('title', 'ชื่อผลิตภัณห์', 'th');
+        $existProductAndService->setTranslation('title', 'Product And Services name', 'en');
         $existProductAndService->save();
 
         // act
@@ -299,6 +299,7 @@ class ProductAndServiceTest extends TestCase
         ]);
 
         // assert
+        $response->assertOk();
         $this->assertDatabaseHas('product_and_service_translations', ['item_id' => $productAndService->id, 'locale' => 'th', 'title' => $productAndService->getTranslation('title', 'th')]);
         $this->assertDatabaseHas('product_and_service_translations', ['item_id' => $productAndService->id, 'locale' => 'en', 'title' => $productAndService->getTranslation('title', 'en')]);
         $response->assertJsonFragment(['status' => ProductAndServiceStatus::DRAFT]);

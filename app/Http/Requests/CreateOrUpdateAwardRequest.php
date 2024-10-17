@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Award;
+use App\Rules\UniqueTranslation;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -24,14 +26,16 @@ class CreateOrUpdateAwardRequest extends FormRequest
     public function rules(): array
     {
         $requiredIfPublished = Rule::requiredIf($this->input('published_at') && Carbon::parse($this->input('published_at'))->timezone('UTC') <= now());
+        $isCreate = $this->routeIs('awards.store');
+        $award = $this->route()->parameter('award') ?? new Award;
 
         return [
             'published_at' => ['nullable', 'date', $requiredIfPublished],
             // Translations
             'th' => ['array', 'nullable', $requiredIfPublished],
             'en' => ['array', $requiredIfPublished],
-            'th.title' => ['required', 'string', 'max:100'],
-            'en.title' => ['nullable', 'string', 'max:100', $requiredIfPublished],
+            'th.title' => ['required', 'string', 'max:100', new UniqueTranslation($isCreate, $award, 'th', 'title')],
+            'en.title' => ['nullable', 'string', 'max:100', $requiredIfPublished, new UniqueTranslation($isCreate, $award, 'en', 'title')],
             'th.description' => ['nullable', 'string', 'max:16777215', $requiredIfPublished], // max medium text
             'en.description' => ['nullable', 'string', 'max:16777215', $requiredIfPublished],
             // Media (temporary media)

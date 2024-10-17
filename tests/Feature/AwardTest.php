@@ -245,6 +245,30 @@ class AwardTest extends TestCase
         $response->assertUnprocessable();
     }
 
+    public function test_the_admin_cannot_create_a_duplicate_title_award(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $existAward = Award::factory()->create();
+        $existAward->setTranslation('title', 'ชื่อรางวัล', 'th');
+        $existAward->setTranslation('title', 'Award name', 'en');
+        $existAward->save();
+
+        // act
+        $response = $this->postJson(route('awards.store'), [
+            'published_at' => null,
+            'th' => [
+                'title' => 'ชื่อรางวัล',
+            ],
+            'en' => [
+                'title' => 'Award name',
+            ],
+        ]);
+
+        // assert
+        $response->assertUnprocessable();
+    }
+
     public function test_the_admin_can_update_a_award(): void
     {
         // set up
@@ -278,5 +302,37 @@ class AwardTest extends TestCase
         ]);
         $this->assertDatabaseHas('award_translations', ['locale' => 'th', 'title' => 'ชื่อบทความ 2', 'description' => 'เนื้อหาบทความ 2']);
         $this->assertDatabaseHas('award_translations', ['locale' => 'en', 'title' => 'Blog name 2', 'description' => 'Blog content 2']);
+    }
+
+    public function test_the_admin_can_update_a_award_with_old_title(): void
+    {
+        // set up
+        $this->signInAdmin();
+        Award::factory()->count(2)->create(); // for test order
+        /** @var Award $award */
+        $award = Award::factory()->create(['order' => 0]);
+
+        // act
+        $response = $this->putJson(route('awards.update', $award), [
+            'published_at' => now()->addMonth(),
+            'th' => [
+                'title' => $award->getTranslation('title', 'th'),
+            ],
+            'en' => [
+                'title' => $award->getTranslation('title', 'en'),
+            ],
+        ]);
+
+        // assert
+        $response->assertOk();
+        $this->assertDatabaseHas('award_translations', ['item_id' => $award->id, 'locale' => 'th', 'title' => $award->getTranslation('title', 'th')]);
+        $this->assertDatabaseHas('award_translations', ['item_id' => $award->id, 'locale' => 'en', 'title' => $award->getTranslation('title', 'en')]);
+        $response->assertJsonFragment(['status' => AwardStatus::DRAFT]);
+
+        $this->assertDatabaseCount('awards', 3); // existed 2 + created 1
+        $this->assertDatabaseHas('awards', [
+            'id' => $award->id,
+            'order' => 0,
+        ]);
     }
 }
