@@ -40,18 +40,18 @@ class AnnualReportFactory extends Factory
 
     public function withCover(): static
     {
-        return $this->afterCreating(function (AnnualReport $productAndService) {
-            $coverUrl = Helper::getPlaceholderImageUrl($productAndService->getTranslation('title', 'en'), 978, 1224);
-            $productAndService->addMediaFromUrl($coverUrl)
+        return $this->afterCreating(function (AnnualReport $annualReport) {
+            $coverUrl = Helper::getPlaceholderImageUrl($annualReport->getTranslation('title', 'en'), 978, 1224);
+            $annualReport->addMediaFromUrl($coverUrl)
                 ->toMediaCollection(AnnualReport::MEDIA_COLLECTION_COVER);
         });
     }
 
     public function withFile(): static
     {
-        return $this->afterCreating(function (AnnualReport $productAndService) {
+        return $this->afterCreating(function (AnnualReport $annualReport) {
             $fileName = $this->faker->randomElement(['Product Specification.pdf', 'Applications.pdf', 'By Product.pdf']);
-            $productAndService->addMedia(storage_path('data/product_and_service_files/'.$fileName))
+            $annualReport->addMedia(storage_path('data/product_and_service_files/'.$fileName))
                 ->usingFileName($fileName)
                 ->preservingOriginal()
                 ->toMediaCollection(AnnualReport::MEDIA_COLLECTION_FILE);
@@ -60,12 +60,12 @@ class AnnualReportFactory extends Factory
 
     public function configure()
     {
-        return $this->afterCreating(function (AnnualReport $service) {
+        return $this->afterCreating(function (AnnualReport $annualReport) {
             $title = $this->faker->sentence();
 
-            $service->setTranslation('title', $title, 'en');
-            $service->setTranslation('title', '(th) '.$title, 'th');
-            $service->save();
+            $annualReport->setTranslation('title', $title, 'en');
+            $annualReport->setTranslation('title', '(th) '.$title, 'th');
+            $annualReport->save();
         });
     }
 }

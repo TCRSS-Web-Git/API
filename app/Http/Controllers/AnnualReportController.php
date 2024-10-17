@@ -16,7 +16,7 @@ class AnnualReportController extends Controller
     /**
      * Get all product and services
      *
-     * @group Product and services
+     * @group Annual Reports
      */
     public function index(AnnualReportFilter $filter)
     {
@@ -28,21 +28,21 @@ class AnnualReportController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @group Product and services
+     * @group Annual Reports
      */
     public function store(CreateOrUpdateAnnualReportRequest $request, SaveAnnualReport $saveAnnualReport)
     {
         Gate::authorize('create', AnnualReport::class);
 
-        $productAndService = $saveAnnualReport->execute(new AnnualReport, $request->validated());
+        $annualReport = $saveAnnualReport->execute(new AnnualReport, $request->validated());
 
-        return new AnnualReportResource($productAndService);
+        return new AnnualReportResource($annualReport);
     }
 
     /**
      * Display the specified resource.
      *
-     * @group Product and services
+     * @group Annual Reports
      */
     public function show(AnnualReport $annualReport)
     {
@@ -52,7 +52,7 @@ class AnnualReportController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @group Product and services
+     * @group Annual Reports
      */
     public function update(CreateOrUpdateAnnualReportRequest $request, AnnualReport $annualReport, SaveAnnualReport $saveAnnualReport)
     {
@@ -66,7 +66,7 @@ class AnnualReportController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @group Product and services
+     * @group Annual Reports
      */
     public function destroy(AnnualReport $annualReport)
     {
@@ -80,7 +80,7 @@ class AnnualReportController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @group Product and services
+     * @group Annual Reports
      */
     public function reorder(ReorderAnnualReportRequest $request, ReorderAnnualReport $reorderAnnualReport)
     {
