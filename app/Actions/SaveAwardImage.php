@@ -18,8 +18,8 @@ class SaveAwardImage
         DB::beginTransaction();
         try {
             $this->awardImage = new AwardImage;
-            $lastOrder = AwardImage::orderBy('order', 'desc')->first();
-            $this->awardImage->order = ($lastOrder->order ?? -1) + 1;
+            $lastOrder = AwardImage::orderBy('order', 'desc')->first()->order ?? 0;
+            $this->awardImage->order = $lastOrder == 0 ? 0 : $lastOrder + 1;
             $this->awardImage->save();
             $this->saveMedia($data);
             DB::commit();
