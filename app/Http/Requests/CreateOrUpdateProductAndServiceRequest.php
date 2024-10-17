@@ -25,13 +25,14 @@ class CreateOrUpdateProductAndServiceRequest extends FormRequest
     public function rules(): array
     {
         $requiredIfPublished = Rule::requiredIf($this->input('published_at') && Carbon::parse($this->input('published_at'))->timezone('UTC') <= now());
+        $titleUnique = $this->routeIs('products-and-services.store') ? Rule::unique('product_and_service_translations', 'title') : null;
 
         return [
             'published_at' => ['nullable', 'date', $requiredIfPublished],
             'th' => ['array', 'nullable', $requiredIfPublished],
             'en' => ['array', $requiredIfPublished],
-            'th.title' => ['required', 'string', 'max:100', Rule::unique('product_and_service_translations', 'title')],
-            'en.title' => ['nullable', $requiredIfPublished, 'string', 'max:100', Rule::unique('product_and_service_translations', 'title')],
+            'th.title' => ['required', 'string', 'max:100', $titleUnique],
+            'en.title' => ['nullable', $requiredIfPublished, 'string', 'max:100', $titleUnique],
             'cover' => ['nullable', 'array', $requiredIfPublished],
             'cover.id' => ['nullable'],
             'cover.path' => ['required_if:cover.id,null', 'string'],
