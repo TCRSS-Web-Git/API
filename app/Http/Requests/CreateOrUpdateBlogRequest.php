@@ -79,15 +79,15 @@ class CreateOrUpdateBlogRequest extends FormRequest
             'th' => __('validation.attributes.th'),
             'en' => __('validation.attributes.en'),
 
-            'th.title' => __('validation.attributes.title'),
-            'th.body' => __('validation.attributes.body'),
-            'th.meta_title' => __('validation.attributes.meta_title'),
-            'th.meta_description' => __('validation.attributes.meta_description'),
+            'th.title' => __('validation.attributes.title_with_locale', ['locale' => 'TH']),
+            'th.body' => __('validation.attributes.body_with_locale', ['locale' => 'TH']),
+            'th.meta_title' => __('validation.attributes.meta_title_with_locale', ['locale' => 'TH']),
+            'th.meta_description' => __('validation.attributes.meta_description_with_locale', ['locale' => 'TH']),
 
-            'en.title' => __('validation.attributes.title'),
-            'en.body' => __('validation.attributes.body'),
-            'en.meta_title' => __('validation.attributes.meta_title'),
-            'en.meta_description' => __('validation.attributes.meta_description'),
+            'en.title' => __('validation.attributes.title_with_locale', ['locale' => 'EN']),
+            'en.body' => __('validation.attributes.body_with_locale', ['locale' => 'EN']),
+            'en.meta_title' => __('validation.attributes.meta_title_with_locale', ['locale' => 'EN']),
+            'en.meta_description' => __('validation.attributes.meta_description_with_locale', ['locale' => 'EN']),
         ];
     }
 }

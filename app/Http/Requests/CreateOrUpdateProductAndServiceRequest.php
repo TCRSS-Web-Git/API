@@ -55,8 +55,8 @@ class CreateOrUpdateProductAndServiceRequest extends FormRequest
             'th' => __('validation.attributes.th'),
             'en' => __('validation.attributes.en'),
 
-            'th.title' => __('validation.attributes.title'),
-            'en.title' => __('validation.attributes.title'),
+            'th.title' => __('validation.attributes.title_with_locale', ['locale' => 'TH']),
+            'en.title' => __('validation.attributes.title_with_locale', ['locale' => 'EN']),
 
             'file' => __('validation.attributes.file'),
         ];

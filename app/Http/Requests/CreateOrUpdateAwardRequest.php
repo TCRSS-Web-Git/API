@@ -53,11 +53,11 @@ class CreateOrUpdateAwardRequest extends FormRequest
             'th' => __('validation.attributes.th'),
             'en' => __('validation.attributes.en'),
 
-            'th.title' => __('validation.attributes.title'),
-            'th.description' => __('validation.attributes.description'),
+            'th.title' => __('validation.attributes.title_with_locale', ['locale' => 'TH']),
+            'th.description' => __('validation.attributes.description_with_locale', ['locale' => 'TH']),
 
-            'en.title' => __('validation.attributes.title'),
-            'en.description' => __('validation.attributes.description'),
+            'en.title' => __('validation.attributes.title_with_locale', ['locale' => 'EN']),
+            'en.description' => __('validation.attributes.description_with_locale', ['locale' => 'EN']),
         ];
     }
 }
