@@ -4,12 +4,13 @@ meta {
   seq: 3
 }
 
-put {
-  url: {{backend_url}}/api/v1/award-images/award_image_0NG583NGZDBXK9
+post {
+  url: {{backend_url}}/api/v1/award-images/award_image_NBY4EZ1M3VLPQ2
   body: multipartForm
   auth: none
 }
 
 body:multipart-form {
-  image: @file(/Users/notebook/Downloads/440x320.png)
+  image: @file(/Users/notebook/Downloads/1220x1220.png)
+  _method: PUT
 }

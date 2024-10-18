@@ -42,6 +42,11 @@ class AwardImageController extends Controller
         return new AwardImageResource($awardImage);
     }
 
+    /**
+     * Update a resource in storage.
+     *
+     * @group Award images
+     */
     public function update(CreateAwardImageRequest $request, SaveAwardImage $saveAwardImage, AwardImage $awardImage)
     {
         Gate::authorize('update', $awardImage);
