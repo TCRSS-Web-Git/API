@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index(CategoryType $type)
     {
-        return CategoryResource::collection(Category::where('type', $type)->paginate());
+        return CategoryResource::collection(Category::where('type', $type)->get());
     }
 
     /**

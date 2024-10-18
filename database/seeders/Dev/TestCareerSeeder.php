@@ -15,39 +15,99 @@ class TestCareerSeeder extends Seeder
      */
     public function run(): void
     {
-        $type1 = Category::create(['type' => CategoryType::CAREER_TYPE]);
-        $type1->setTranslation('name', 'งานเต็มเวลา', 'th');
-        $type1->setTranslation('name', 'Full-Time', 'en');
-        $type1->save();
-        $type2 = Category::create(['type' => CategoryType::CAREER_TYPE]);
-        $type2->setTranslation('name', 'งานพาร์ทไทม์', 'th');
-        $type2->setTranslation('name', 'Part-Time', 'en');
-        $type2->save();
+        $careerTypes = [
+            'Day time',
+            'พนักงานประจำสำนักงาน',
+            'Shift Work',
+            'พนักงานกะ',
+            'Temporary',
+            'พนักงานชั่วคราว',
+            'Trainee',
+            'นักศึกษาฝึกงาน',
+        ];
+        for ($i = 0; $i < count($careerTypes); $i = $i + 2) {
+            $careerType = Category::create(['type' => CategoryType::CAREER_TYPE]);
+            $careerType->setTranslation('name', $careerTypes[$i], 'en');
+            $careerType->setTranslation('name', $careerTypes[$i + 1], 'th');
+            $careerType->save();
+        }
 
-        $department1 = Category::create(['type' => CategoryType::DEPARTMENT]);
-        $department1->setTranslation('name', 'ฝ่าย IT', 'th');
-        $department1->setTranslation('name', 'IT', 'en');
-        $department1->save();
-        $department2 = Category::create(['type' => CategoryType::DEPARTMENT]);
-        $department2->setTranslation('name', 'ฝ่ายบุคคล', 'th');
-        $department2->setTranslation('name', 'HR', 'en');
-        $department2->save();
+        $departments = [
+            'Sales - Japanese Companies Department',
+            'ฝ่ายขาย - บริษัทญี่ปุ่น',
+            'Sales - Thai Companies Department',
+            'ฝ่ายขาย - บริษัทไทย',
+            'Sales Coordination Department',
+            'ฝ่ายประสานงานการขาย',
+            'Technical Service Department',
+            'ฝ่ายบริการเทคนิค',
+            'Finance Department',
+            'ฝ่ายการเงิน',
+            'Managerial Accounting Department',
+            'ฝ่ายบัญชีบริหาร',
+            'General Accounting Department',
+            'ฝ่ายบัญชีทั่วไป',
+            'Budgeting & Cost Accounting Department',
+            'ฝ่ายงบประมาณและบัญชีต้นทุน',
+            'Procurement Department',
+            'ฝ่ายจัดหา',
+            'Information Technology Department',
+            'ฝ่ายเทคโนโลยีสารสนเทศ',
+            'HR & Administration Department',
+            'ฝ่ายทรัพยากรบุคคลและธุรการ',
+            'Government Relation & Legal Department',
+            'ฝ่ายรัฐกิจสัมพันธ์และกฎหมาย',
+            'HRC Procurement Department',
+            'ฝ่ายจัดหาวัตถุดิบ',
+            'Internal Audit Office Department',
+            'ฝ่ายสำนักตรวจสอบภายใน',
+            'Operation Department',
+            'ฝ่ายปฏิบัติการผลิต',
+            'Planning and Logistics Department',
+            'ฝ่ายวางแผนการผลิตและการจัดการขนส่ง',
+            'Quality Assurance Department',
+            'ฝ่ายประกันคุณภาพ',
+            'Technical Quality Control Department',
+            'ฝ่ายควบคุมเทคนิคคุณภาพ',
+            'Mechanical Maintenance Department',
+            'ฝ่ายซ่อมบำรุงเครื่องกล',
+            'Electrical Maintenance Department',
+            'ฝ่ายซ่อมบำรุงไฟฟ้า',
+            'FSED Department',
+            'ฝ่ายบริหารความปลอดภัยและสิ่งแวดล้อมโรงงาน',
+            'Other',
+            'อื่นๆ',
+        ];
+        for ($i = 0; $i < count($departments); $i = $i + 2) {
+            $department = Category::create(['type' => CategoryType::DEPARTMENT]);
+            $department->setTranslation('name', $departments[$i], 'en');
+            $department->setTranslation('name', $departments[$i + 1], 'th');
+            $department->save();
+        }
 
-        $location1 = Category::create(['type' => CategoryType::LOCATION]);
-        $location1->setTranslation('name', 'กรุงเทพฯ', 'th');
-        $location1->setTranslation('name', 'Bangkok', 'en');
-        $location1->save();
-        $location2 = Category::create(['type' => CategoryType::LOCATION]);
-        $location2->setTranslation('name', 'เชียงใหม่', 'th');
-        $location2->setTranslation('name', 'Chiangmai', 'en');
-        $location2->save();
+        $locations = [
+            'Head office (Bangkok)',
+            'สำนักงานใหญ่ (กทม.)',
+            'Plant office (Prachuap Khiri Khan)',
+            'โรงงานบางสะพาน (อ.บางสะพาน จ.ประจวบคีรีขันธ์)',
+        ];
+        for ($i = 0; $i < count($locations); $i = $i + 2) {
+            $location = Category::create(['type' => CategoryType::LOCATION]);
+            $location->setTranslation('name', $locations[$i], 'en');
+            $location->setTranslation('name', $locations[$i + 1], 'th');
+            $location->save();
+        }
+
+        $careerTypeIds = Category::where('type', CategoryType::CAREER_TYPE)->pluck('id');
+        $departmentIds = Category::where('type', CategoryType::DEPARTMENT)->pluck('id');
+        $locationIds = Category::where('type', CategoryType::LOCATION)->pluck('id');
 
         Career::factory(25)
             ->state(new Sequence(
                 fn (Sequence $sequence) => [
-                    'type_id' => fake()->randomElement([$type1->id, $type2->id]),
-                    'department_id' => fake()->randomElement([$department1->id, $department2->id]),
-                    'location_id' => fake()->randomElement([$location1->id, $location2->id]),
+                    'type_id' => fake()->randomElement($careerTypeIds),
+                    'department_id' => fake()->randomElement($departmentIds),
+                    'location_id' => fake()->randomElement($locationIds),
                 ],
             ))
             ->create();
