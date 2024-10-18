@@ -36,7 +36,8 @@ class SaveAnnualReport
     {
         $this->annualReport->published_at = $data['published_at'] ?? null;
         if (! $this->annualReport->id) {
-            $this->annualReport->order = AnnualReport::count();
+            $lastOrder = AnnualReport::orderBy('order', 'desc')->first()->order ?? 0;
+            $this->annualReport->order = $lastOrder == 0 ? 0 : $lastOrder + 1;
         }
     }
 
@@ -60,6 +61,12 @@ class SaveAnnualReport
         if (! empty($data['cover']) && empty($data['cover']['id'])) {
             $this->saveImageFromTempToMedia($data['cover'], AnnualReport::MEDIA_COLLECTION_COVER);
         }
+        if (empty($data['cover'])) {
+            $this->deleteMedia(AnnualReport::MEDIA_COLLECTION_COVER);
+        }
+        if (empty($data['file'])) {
+            $this->deleteMedia(AnnualReport::MEDIA_COLLECTION_FILE);
+        }
     }
 
     protected function saveImageFromTempToMedia(array $file, string $collection): ?Media
@@ -69,5 +76,17 @@ class SaveAnnualReport
         }
 
         return null;
+    }
+
+    protected function deleteMedia(string $collectionName)
+    {
+        try {
+            $image = $this->annualReport->getFirstMedia($collectionName);
+            if ($image) {
+                $this->annualReport->deleteMedia($image->id);
+            }
+        } catch (Exception $exception) {
+            throw $exception;
+        }
     }
 }

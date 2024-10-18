@@ -64,7 +64,7 @@ class AnnualReport extends Model implements Auditable, HasMedia
 
     public function getTranslationTable()
     {
-        return 'annul_report_translations';
+        return 'annual_report_translations';
     }
 
     public function getAllTranslations(): array
