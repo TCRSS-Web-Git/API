@@ -1,0 +1,21 @@
+meta {
+  name: Reorder Annual Reports
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{backend_url}}/api/v1/annual-reports/reorder
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "ids": [
+      "annual_report_24BXDP5NMWQ375",
+      "annual_report_NXJD3MYLPE0VY8",
+      "annual_report_DJ2VQMXGKENX84"
+    ]
+  }
+}

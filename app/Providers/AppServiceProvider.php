@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\AnnualReport;
 use App\Models\AwardImage;
 use App\Models\Blog;
 use App\Models\Career;
@@ -51,7 +52,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // Allow Scribe to generate docs with authenticated user
-        if (class_exists(\Knuckles\Scribe\Scribe::class)) {
+        if (class_exists(Scribe::class)) {
             Scribe::beforeResponseCall(function (Request $request, ExtractedEndpointData $endpointData) {
                 $user = User::first();
                 Sanctum::actingAs($user, ['*']);
@@ -59,6 +60,10 @@ class AppServiceProvider extends ServiceProvider
         }
 
         // Please keep it in alphabetical order.
+        Route::bind('annual_report', function ($value) {
+            return AnnualReport::findByHashOrFail($value);
+        });
+
         Route::bind('award_image', function ($value) {
             return AwardImage::findByHashOrFail($value);
         });

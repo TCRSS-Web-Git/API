@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnualReportController;
 use App\Http\Controllers\AwardImageController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CareerController;
@@ -44,6 +45,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::patch('products-and-services/reorder', [ProductAndServiceController::class, 'reorder'])->name('products-and-services.reorder');
     Route::apiResource('products-and-services', ProductAndServiceController::class);
+
+    Route::patch('annual-reports/reorder', [AnnualReportController::class, 'reorder'])->name('annual-reports.reorder');
+    Route::apiResource('annual-reports', AnnualReportController::class);
 
     Route::post('/invite/resend/{user}', [InviteController::class, 'resend'])->name('invite.resend');
 });
