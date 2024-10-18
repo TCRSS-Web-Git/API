@@ -13,12 +13,12 @@ class SaveAwardImage
     /**
      * @throws Exception
      */
-    public function execute(?AwardImage $awardImage, array $data): AwardImage
+    public function execute(AwardImage $awardImage, array $data): AwardImage
     {
         DB::beginTransaction();
         try {
             $this->awardImage = $awardImage;
-            if (! $awardImage->id) {
+            if (! $this->awardImage->id) {
                 $lastOrder = AwardImage::orderBy('order', 'desc')->first()->order ?? 0;
                 $this->awardImage->order = $lastOrder == 0 ? 0 : $lastOrder + 1;
             }
