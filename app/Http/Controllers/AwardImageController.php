@@ -37,7 +37,21 @@ class AwardImageController extends Controller
     {
         Gate::authorize('create', AwardImage::class);
 
-        $awardImage = $saveAwardImage->execute($request->validated());
+        $awardImage = $saveAwardImage->execute(new AwardImage, $request->validated());
+
+        return new AwardImageResource($awardImage);
+    }
+
+    /**
+     * Update a resource in storage.
+     *
+     * @group Award images
+     */
+    public function update(CreateAwardImageRequest $request, SaveAwardImage $saveAwardImage, AwardImage $awardImage)
+    {
+        Gate::authorize('update', $awardImage);
+
+        $awardImage = $saveAwardImage->execute($awardImage, $request->validated());
 
         return new AwardImageResource($awardImage);
     }
