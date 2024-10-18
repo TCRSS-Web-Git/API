@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\AwardImage;
+use App\Models\Media;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
@@ -87,6 +88,49 @@ class AwardImageTest extends TestCase
             'model_type' => AwardImage::class,
             'collection_name' => AwardImage::MEDIA_COLLECTION_IMAGE,
             'file_name' => 'image.jpg',
+        ]);
+    }
+
+    public function test_the_admin_can_update_a_award_image(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $awardImage = AwardImage::factory()->create(['order' => 0]);
+        AwardImage::factory()->create(['order' => 1]);
+        $imageFile = UploadedFile::fake()->image('image.jpg');
+
+        $existedImage = Media::factory()->for(
+            $awardImage,
+            'model'
+        )->create([
+            'file_name' => 'existed_image_file.png',
+            'collection_name' => AwardImage::MEDIA_COLLECTION_IMAGE,
+        ]);
+
+        // act
+        $response = $this->patchJson(route('award-images.update', $awardImage), [
+            'image' => $imageFile,
+        ]);
+
+        // assert
+        $this->assertDatabaseCount('award_images', 2); // existed 2
+        $awardImageId = AwardImage::decodeHash($response->json('data.id'));
+        $this->assertDatabaseHas('award_images', [
+            'id' => $awardImageId,
+            'order' => 0,
+        ]);
+        $this->assertDatabaseCount('media', 1);
+        $this->assertDatabaseHas('media', [
+            'model_id' => $awardImageId,
+            'model_type' => AwardImage::class,
+            'collection_name' => AwardImage::MEDIA_COLLECTION_IMAGE,
+            'file_name' => 'image.jpg',
+        ]);
+        $this->assertDatabaseMissing('media', [
+            'id' => $existedImage->id,
+            'model_type' => AwardImage::class,
+            'collection_name' => AwardImage::MEDIA_COLLECTION_IMAGE,
+            'file_name' => 'existed_image_file.png',
         ]);
     }
 

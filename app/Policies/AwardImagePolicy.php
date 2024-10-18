@@ -17,6 +17,11 @@ class AwardImagePolicy
         return true;
     }
 
+    public function update(User $user): bool
+    {
+        return true;
+    }
+
     public function delete(User $user, AwardImage $awardImage): bool
     {
         return true;
