@@ -1,0 +1,22 @@
+meta {
+  name: Reorder Awards
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{backend_url}}/api/v1/awards/reorder
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "ids": [
+      "award_5GJYW1ZE1D49Q2",
+      "award_32E9ZMV8MDKX4Y",
+      "award_V806R15D1X2Y35",
+      "award_D0384MWLPGNQ75"
+    ]
+  }
+}

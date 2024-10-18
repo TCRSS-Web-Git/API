@@ -1,0 +1,30 @@
+meta {
+  name: Create Award
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{backend_url}}/api/v1/awards
+  body: json
+  auth: none
+}
+
+headers {
+  Accept-Language: en-US,en;q=0.9
+}
+
+body:json {
+  {
+    "published_at": null,
+    "th": {
+        "title": "หัวข้อรางวัล 3",
+    "description": "รายละเอียดรางวัล"
+    },
+      "en": {
+        "title": "award title 3",
+    "description": "award description"
+    },
+    "description_images": []
+  }
+}

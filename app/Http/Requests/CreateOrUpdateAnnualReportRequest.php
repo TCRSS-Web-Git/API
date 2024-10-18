@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Models\AnnualReport;
+use App\Rules\UniqueTranslation;
 use Carbon\Carbon;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -25,14 +27,15 @@ class CreateOrUpdateAnnualReportRequest extends FormRequest
     public function rules(): array
     {
         $requiredIfPublished = Rule::requiredIf($this->input('published_at') && Carbon::parse($this->input('published_at'))->timezone('UTC') <= now());
-        $titleUnique = $this->routeIs('annual-reports.store') ? Rule::unique('annual_report_translations', 'title') : null;
+        $isCreate = $this->routeIs('annual-reports.store');
+        $annualReport = $this->route()->parameter('annual_report') ?? new AnnualReport;
 
         return [
             'published_at' => ['nullable', 'date', $requiredIfPublished],
             'th' => ['array', 'nullable', $requiredIfPublished],
             'en' => ['array', $requiredIfPublished],
-            'th.title' => ['required', 'string', 'max:100', $titleUnique],
-            'en.title' => ['nullable', $requiredIfPublished, 'string', 'max:100', $titleUnique],
+            'th.title' => ['required', 'string', 'max:100', new UniqueTranslation($isCreate, $annualReport, 'th', 'title')],
+            'en.title' => ['nullable', $requiredIfPublished, 'string', 'max:100', new UniqueTranslation($isCreate, $annualReport, 'th', 'title')],
             'cover' => ['nullable', 'array', $requiredIfPublished],
             'cover.id' => ['nullable'],
             'cover.path' => ['required_if:cover.id,null', 'string'],
@@ -52,8 +55,8 @@ class CreateOrUpdateAnnualReportRequest extends FormRequest
             'th' => __('validation.attributes.th'),
             'en' => __('validation.attributes.en'),
 
-            'th.title' => __('validation.attributes.title'),
-            'en.title' => __('validation.attributes.title'),
+            'th.title' => __('validation.attributes.title_with_locale', ['locale' => 'TH']),
+            'en.title' => __('validation.attributes.title_with_locale', ['locale' => 'EN']),
 
             'file' => __('validation.attributes.file'),
         ];

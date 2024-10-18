@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnnualReportController;
+use App\Http\Controllers\AwardController;
 use App\Http\Controllers\AwardImageController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CareerController;
@@ -36,6 +37,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('categories/{type}/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
     Route::get('tags/{type}', [TagController::class, 'index'])->name('tags.index');
+
+    Route::patch('awards/reorder', [AwardController::class, 'reorder'])->name('awards.reorder');
+    Route::apiResource('awards', AwardController::class);
 
     Route::apiResource('blogs', BlogController::class);
     Route::apiResource('careers', CareerController::class);
