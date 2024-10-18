@@ -28,7 +28,7 @@ class AwardResource extends JsonResource
             'id' => $this->hashid,
             'title' => $this->getTranslation('title'),
             'description' => $this->getTranslation('description'),
-            'description_images' => $this->when(! $request->routeIs(['blogs.index']), function () {
+            'description_images' => $this->when(! $request->routeIs(['awards.index']), function () {
                 $images = $this->getMedia(Award::MEDIA_COLLECTION_DESCRIPTION_PHOTO);
 
                 return $images->count() ? new MediaResourceCollection($images, Award::MEDIA_COLLECTION_DESCRIPTION_PHOTO.'_optimized') : [];
