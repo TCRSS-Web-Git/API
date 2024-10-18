@@ -42,7 +42,7 @@ class AwardFilter extends QueryFilter
 
         return $this->builder->where(function ($query) use ($value, $ids) {
             $query->whereHas('translations', function ($query) use ($value) {
-                $query->whereRaw('MATCH(title) AGAINST(? IN BOOLEAN MODE)', [$value]);
+                $query->whereRaw('MATCH(title, description) AGAINST(? IN BOOLEAN MODE)', [$value]);
             })
                 ->when($ids, function ($query) use ($ids) {
                     $query->orWhereIn('id', $ids);

@@ -60,7 +60,7 @@ class AwardTest extends TestCase
         $response->assertJsonFragment(['id' => $awardC->hashid]);
     }
 
-    public function test_the_admin_can_get_a_award_by_id(): void
+    public function test_the_admin_can_get_an_award_by_id(): void
     {
         // set up
         $this->signInAdmin();
@@ -74,7 +74,7 @@ class AwardTest extends TestCase
         $response->assertJsonFragment(['id' => $award->hashid, 'title' => $award->getTranslation('title'), 'description' => $award->getTranslation('description')]);
     }
 
-    public function test_the_admin_can_get_a_award_by_id_with_translations(): void
+    public function test_the_admin_can_get_an_award_by_id_with_translations(): void
     {
         // set up
         $this->signInAdmin();
@@ -92,7 +92,7 @@ class AwardTest extends TestCase
         $response->assertJsonStructure(['data' => ['translations' => ['en' => ['title']]]]);
     }
 
-    public function test_the_admin_can_get_a_award_by_id_localized(): void
+    public function test_the_admin_can_get_an_award_by_id_localized(): void
     {
         // set up
         $this->signInAdmin();
@@ -115,7 +115,7 @@ class AwardTest extends TestCase
         $response->assertJsonFragment(['title' => $award->getTranslation('title', 'en')]);
     }
 
-    public function test_the_admin_can_delete_a_award_by_id(): void
+    public function test_the_admin_can_delete_an_award_by_id(): void
     {
         // set up
         $this->signInAdmin();
@@ -130,7 +130,7 @@ class AwardTest extends TestCase
         $this->assertDatabaseMissing('awards', ['id' => $award->id]);
     }
 
-    public function test_the_admin_can_reorder_product_and_service(): void
+    public function test_the_admin_can_reorder_awards(): void
     {
         // set up
         $this->signInAdmin();
@@ -269,7 +269,7 @@ class AwardTest extends TestCase
         $response->assertUnprocessable();
     }
 
-    public function test_the_admin_can_update_a_award(): void
+    public function test_the_admin_can_update_an_award(): void
     {
         // set up
         $this->signInAdmin();
@@ -304,7 +304,7 @@ class AwardTest extends TestCase
         $this->assertDatabaseHas('award_translations', ['locale' => 'en', 'title' => 'Blog name 2', 'description' => 'Blog content 2']);
     }
 
-    public function test_the_admin_can_update_a_award_with_old_title(): void
+    public function test_the_admin_can_update_an_award_with_old_title(): void
     {
         // set up
         $this->signInAdmin();
