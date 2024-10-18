@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\AnnualReport;
 use App\Models\Award;
 use App\Models\AwardImage;
 use App\Models\Blog;
@@ -51,6 +52,12 @@ return [
         ],
 
         // Please keep it in alphabetical order.
+
+        AnnualReport::class => [
+            'salt' => env('HASHIDS_ANNUAL_REPORT', '7bf649eac3ffac7bbada'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
 
         Award::class => [
             'salt' => env('HASHIDS_AWARD', 'PF8pczSGd46fBCFNnnmL'),
