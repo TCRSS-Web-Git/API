@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
@@ -15,6 +14,7 @@ class TestAttach extends Mailable
     use Queueable, SerializesModels;
 
     protected $resume;
+
     protected $certs;
 
     /**
@@ -64,6 +64,7 @@ class TestAttach extends Mailable
         array_push($attachments, Attachment::fromStorageDisk(config('filesystems.temporary_disk'), $this->certs[1])
             ->as('cert2.pdf')
             ->withMime('application/pdf'));
+
         return $attachments;
     }
 }
