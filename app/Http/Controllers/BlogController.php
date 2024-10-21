@@ -42,7 +42,8 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        return new BlogResource($blog);
+        return (new BlogResource($blog))
+            ->additional(['other_blogs' => Blog::whereTag($blog->tags())->limit(3)]);
     }
 
     /**
