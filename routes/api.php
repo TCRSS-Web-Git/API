@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductAndServiceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TemporaryMediaController;
+use App\Http\Controllers\ThailandGeographyController;
 use App\Http\Controllers\User\InviteController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserProfileController;
@@ -55,6 +56,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/invite/resend/{user}', [InviteController::class, 'resend'])->name('invite.resend');
 });
+Route::get('geography/provinces', [ThailandGeographyController::class, 'provinces'])->name('geography.provinces');
+Route::get('geography/provinces/{province}/districts', [ThailandGeographyController::class, 'districts'])->name('geography.districts');
+Route::get('geography/districts/{district}/subdistricts', [ThailandGeographyController::class, 'subdistricts'])->name('geography.subdistricts');
 
 Route::get('titles', [UserTitleController::class, 'index'])->name('users.titles.index');
 Route::put('/accept-user-invitation', [InviteController::class, 'accept'])->middleware('signed.invite:relative')->name('accept.users.invitation');

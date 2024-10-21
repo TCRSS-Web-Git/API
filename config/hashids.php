@@ -6,10 +6,13 @@ use App\Models\AwardImage;
 use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Category;
+use App\Models\District;
 use App\Models\Media;
 use App\Models\Permission;
 use App\Models\ProductAndService;
+use App\Models\Province;
 use App\Models\Role;
+use App\Models\Subdistrict;
 use App\Models\User;
 
 return [
@@ -89,6 +92,12 @@ return [
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
         ],
 
+        District::class => [
+            'salt' => env('HASHIDS_DISTRICT', 'j575Z3iFvncT8lqS7aMf'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
+
         Media::class => [
             'salt' => env('HASHIDS_MEDIA', 'uwyS5b76zmHr2cJDbwmn'),
             'length' => 14,
@@ -107,8 +116,20 @@ return [
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
         ],
 
+        Province::class => [
+            'salt' => env('HASHIDS_PROVINCE', 'w4R9CXiL04rv0xaw3S0k'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
+
         Role::class => [
             'salt' => env('HASHIDS_ROLE', 'MEb4EWRN6KAL7QfAQMJw'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
+
+        Subdistrict::class => [
+            'salt' => env('HASHIDS_SUBDISTRICT', 'VG0XPt1zCPhOG7k0mC6W'),
             'length' => 14,
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
         ],
