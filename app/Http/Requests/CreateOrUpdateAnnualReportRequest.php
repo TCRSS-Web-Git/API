@@ -35,7 +35,7 @@ class CreateOrUpdateAnnualReportRequest extends FormRequest
             'th' => ['array', 'nullable', $requiredIfPublished],
             'en' => ['array', $requiredIfPublished],
             'th.title' => ['required', 'string', 'max:100', new UniqueTranslation($isCreate, $annualReport, 'th', 'title')],
-            'en.title' => ['nullable', $requiredIfPublished, 'string', 'max:100', new UniqueTranslation($isCreate, $annualReport, 'th', 'title')],
+            'en.title' => ['nullable', $requiredIfPublished, 'string', 'max:100', new UniqueTranslation($isCreate, $annualReport, 'en', 'title')],
             'cover' => ['nullable', 'array', $requiredIfPublished],
             'cover.id' => ['nullable'],
             'cover.path' => ['required_if:cover.id,null', 'string'],
