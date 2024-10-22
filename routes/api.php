@@ -73,4 +73,6 @@ Route::name('public.')->prefix('public')->group(function () {
         Route::get('/', [AnnualReportController::class, 'index'])->name('index');
         Route::get('/{annual_report}', [AnnualReportController::class, 'show'])->name('show');
     });
+
+    Route::get('award-images', [AwardImageController::class, 'index'])->name('award-images.index');
 });
