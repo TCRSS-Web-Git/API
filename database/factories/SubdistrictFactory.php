@@ -3,8 +3,12 @@
 namespace Database\Factories;
 
 use App\Models\District;
+use App\Models\Subdistrict;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<Subdistrict>
+ */
 class SubdistrictFactory extends Factory
 {
     /**
