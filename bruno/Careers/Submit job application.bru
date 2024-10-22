@@ -1,0 +1,73 @@
+meta {
+  name: Submit job application
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{backend_url}}/api/v1/job-applications
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "career_id": "career_046XZB4DDLNRQ5",
+    "salary": 123456789.34,
+    "title": "Mr.",
+    "first_name_th": "เทย์เลอร์",
+    "last_name_th": "รวดเร็ว",
+    "first_name_en": "Taylor",
+    "last_name_en": "Swift",
+    "nick_name": "TayTay",
+    "date_of_birth": "1989-12-13",
+    "address": "ที่อยู่ อยู่บ้าน",
+    "province_id": "province_02VXYPMW89E71B",
+    "district_id": "district_KLY28QYND39JRG",
+    "sub_district_id": "subdistrict_352KM0K9WMRZ6L",
+    "postal_code": "77120",
+    "registered_province_id": "province_2X6K7P2E9LNE41",
+    "phone": "0942343434",
+    "email": "test@email.com",
+    "family_status": "Single",
+    "military_service": "Conscripted",
+    "education": "Bachelor degree",
+    "major": "Engineer",
+    "institution": "KMITL",
+    "gpa": "3.59",
+    "resume_file": {
+      "path": "QPutiiFtLGJrLgme/qrcode_github.com.png",
+      "name": "qrcode_github.com.png",
+      "extension": "png",
+      "mime": "image/png"
+    },
+    "transcript_file": {
+      "path": "qdLIDIQuZlln9U5K/3-2-2 Applications.pdf",
+      "name": "3-2-2 Applications.pdf",
+      "extension": "pdf",
+      "mime": "application/pdf"
+    },
+    "certificate_files": [
+      {
+        "path": "2UrtmaZmcO9QygCT/3-1 Manufacturing Process Rev.02 24-9-24 1.ppsx",
+        "extension": "ppsx",
+        "mime": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+      },
+      {
+        "path": "dNs7yv7y8cpZvJ3i/Minutes of Meeting 13_ThaiKK_ERP Confirmation_Demo homepage,checkout.docx",
+        "extension": "docx",
+        "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      },
+      {
+        "path": "2ToWZsrbRngKT3w6/และสติกเกอร์ให้เหมาะกับการใช้งาน01.png",
+        "extension": "png",
+        "mime": "image/png"
+      }
+    ],
+    "photo": {
+      "path": "thratuavpUawxuv5/1042-1288x577.jpg",
+      "extension": "jpg",
+      "mime": "image/jpeg"
+    }
+  }
+}

@@ -13,6 +13,7 @@ use App\Models\Subdistrict;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -68,6 +69,14 @@ class JobApplication extends Mailable
 
     protected string $gpa;
 
+    protected array $resume;
+
+    protected array $transcript;
+
+    protected array $certificates;
+
+    protected array $photo;
+
     /**
      * Create a new message instance.
      */
@@ -75,12 +84,12 @@ class JobApplication extends Mailable
     {
         $this->career = $career;
         $this->salary = $data['salary'];
-        $this->title = $data['title'];
+        $this->title = UserTitle::from($data['title']);
         $this->firstNameTH = $data['first_name_th'];
         $this->lastNameTH = $data['last_name_th'];
         $this->firstNameEN = $data['first_name_en'];
         $this->lastNameEN = $data['last_name_en'];
-        $this->nickname = $data['nickname'];
+        $this->nickname = $data['nick_name'];
         $this->dateOrBirth = Carbon::parse($data['date_of_birth']);
         $this->address = $data['address'];
         $this->province = Province::find($data['province_id']);
@@ -90,12 +99,16 @@ class JobApplication extends Mailable
         $this->registeredProvince = Province::find($data['registered_province_id']);
         $this->phone = $data['phone'];
         $this->email = $data['email'];
-        $this->familyStatus = $data['family_status'];
-        $this->militaryService = $data['military_service'];
-        $this->education = $data['education'];
+        $this->familyStatus = FamilyStatus::from($data['family_status']);
+        $this->militaryService = MilitaryStatus::from($data['military_service']);
+        $this->education = EducationStatus::from($data['education']);
         $this->major = $data['major'];
         $this->institution = $data['institution'];
         $this->gpa = $data['gpa'];
+        $this->resume = $data['resume_file'];
+        $this->transcript = $data['transcript_file'];
+        $this->certificates = $data['certificate_files'];
+        $this->photo = $data['photo'];
     }
 
     /**
@@ -104,7 +117,7 @@ class JobApplication extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Job Application from xxx yyy', //TODO หัว email
+            subject: "Job Application from $this->firstNameTH $this->lastNameTH",
         );
     }
 
@@ -137,7 +150,6 @@ class JobApplication extends Mailable
                 'postalCode' => $this->postalCode,
                 'registeredProvinceTH' => $this->registeredProvince->name_th,
                 'registeredProvinceEN' => $this->registeredProvince->name_en,
-                // TODO province, district, subdistrict, zipcode
                 'phone' => $this->phone,
                 'email' => $this->email,
                 'familyStatusTH' => $this->familyStatus->labelTh(),
@@ -160,7 +172,34 @@ class JobApplication extends Mailable
      */
     public function attachments(): array
     {
-        // TODO แนบไฟล์
-        return [];
+        $fullName = "$this->firstNameTH $this->lastNameTH";
+
+        $attachments = [];
+
+        $attachments[] = Attachment::fromStorageDisk(config('filesystems.temporary_disk'), $this->resume['path'])
+            ->as($this->buildFileNameWithExtension("ประวัติส่วนตัว (Resume) ของ $fullName", $this->resume['extension']))
+            ->withMime($this->resume['mime']);
+
+        $attachments[] = Attachment::fromStorageDisk(config('filesystems.temporary_disk'), $this->transcript['path'])
+            ->as($this->buildFileNameWithExtension("สำเนาวุฒิการศึกษา (Transcript) ของ $fullName", $this->transcript['extension']))
+            ->withMime($this->transcript['mime']);
+
+        $attachments[] = Attachment::fromStorageDisk(config('filesystems.temporary_disk'), $this->photo['path'])
+            ->as($this->buildFileNameWithExtension("ภาพถ่าย (Photo) ของ $fullName", $this->photo['extension']))
+            ->withMime($this->photo['mime']);
+
+        foreach ($this->certificates as $index => $certificate) {
+            $itemIndex = $index + 1;
+            $attachments[] = Attachment::fromStorageDisk(config('filesystems.temporary_disk'), $certificate['path'])
+                ->as($this->buildFileNameWithExtension("ใบประกาศต่างๆ หรือผลสอบต่างๆ ที่เกี่ยวข้อง (Certificate) ของ $fullName ($itemIndex)", $certificate['extension']))
+                ->withMime($certificate['mime']);
+        }
+
+        return $attachments;
+    }
+
+    protected function buildFileNameWithExtension(string $name, string $extension): string
+    {
+        return $name.".{$extension}";
     }
 }

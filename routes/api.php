@@ -6,6 +6,7 @@ use App\Http\Controllers\AwardImageController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\ProductAndServiceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TagController;
@@ -62,3 +63,5 @@ Route::get('geography/districts/{district}/subdistricts', [ThailandGeographyCont
 
 Route::get('titles', [UserTitleController::class, 'index'])->name('users.titles.index');
 Route::put('/accept-user-invitation', [InviteController::class, 'accept'])->middleware('signed.invite:relative')->name('accept.users.invitation');
+
+Route::post('job-applications', [JobApplicationController::class, 'create'])->name('job_applications.create');

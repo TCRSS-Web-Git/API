@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateJobApplicationRequest;
 use App\Mail\JobApplication;
 use App\Models\Career;
+use App\Models\Role;
+use App\Models\User;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Mail;
 
 class JobApplicationController extends Controller
@@ -14,7 +17,14 @@ class JobApplicationController extends Controller
         $data = $request->validated();
         $career = Career::find($data['career_id']);
 
-        // TODO: get user for sent mail: ส่งให้ admin และ superadmin
-        Mail::to('TODO')->send(new JobApplication($career, $data));
+        $users = User::whereHas('roles', function ($query) {
+            $query->whereIn('name', [Role::ROLE_SUPER_ADMIN, Role::ROLE_ADMIN]);
+        })
+            ->get();
+
+        // TODO: queue mail
+        Mail::to($users)->send(new JobApplication($career, $data));
+
+        return response(null, Response::HTTP_CREATED);
     }
 }

@@ -46,7 +46,7 @@ class CreateJobApplicationRequest extends FormRequest
             'province_id' => ['required', 'exists:provinces,id'],
             'district_id' => ['required', 'exists:districts,id'],
             'sub_district_id' => ['required', 'exists:subdistricts,id'],
-            'postal_code' => ['required', 'string', 'max:5'],
+            'postal_code' => ['required', 'string', 'max:5', 'exists:subdistricts,zip'],
             'registered_province_id' => ['required', 'exists:provinces,id'],
             'phone' => ['required', (new Phone)->international()->country('TH'), 'max:20'],
             'email' => ['required', 'string', 'max:255', 'email'],
@@ -55,27 +55,27 @@ class CreateJobApplicationRequest extends FormRequest
             'education' => ['required', new Enum(EducationStatus::class)],
             'major' => ['required', 'string', 'max:255'],
             'institution' => ['required', 'string', 'max:255'],
-            'gpa' => ['required', 'decimal:2', 'min:0'],
+            'gpa' => ['required', 'decimal:2', 'min:0', 'max:4'],
 
-            'resume_file' => ['required', 'array'],
+            'resume_file' => ['required'],
             'resume_file.path' => ['required', 'string'],
-            'resume_file.url' => ['nullable', 'string'],
-            'resume_file.name' => ['nullable', 'string'],
+            'resume_file.extension' => ['required', 'string'],
+            'resume_file.mime' => ['required', 'string'],
 
             'transcript_file' => ['required'],
             'transcript_file.path' => ['required', 'string'],
-            'transcript_file.url' => ['nullable', 'string'],
-            'transcript_file.name' => ['nullable', 'string'],
+            'transcript_file.extension' => ['required', 'string'],
+            'transcript_file.mime' => ['required', 'string'],
 
-            'certificate_files' => ['nullable'],
+            'certificate_files' => ['nullable', 'array', 'max:5'],
             'certificate_files.*.path' => ['nullable', 'string'],
-            'certificate_files.*.url' => ['nullable', 'string'],
-            'certificate_files.*.name' => ['nullable', 'string'],
+            'certificate_files.*.extension' => ['required', 'string'],
+            'certificate_files.*.mime' => ['required', 'string'],
 
             'photo' => ['required'],
             'photo.path' => ['required', 'string'],
-            'photo.url' => ['nullable', 'string'],
-            'photo.name' => ['nullable', 'string'],
+            'photo.extension' => ['required', 'string'],
+            'photo.mime' => ['required', 'string'],
         ];
     }
 

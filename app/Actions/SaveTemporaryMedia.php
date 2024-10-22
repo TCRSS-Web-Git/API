@@ -39,6 +39,8 @@ class SaveTemporaryMedia
             'path' => $path,
             'name' => $fileCleanUp,
             'url' => $this->generateUrl($path),
+            'extension' => $file->getClientOriginalExtension(),
+            'mime' => $file->getMimeType(),
         ];
     }
 
