@@ -71,18 +71,20 @@ Route::name('public.')->prefix('public')->group(function () {
 
     Route::name('annual-reports.')->prefix('annual-reports')->group(function () {
         Route::get('/', [AnnualReportController::class, 'index'])->name('index');
-        Route::get('/{annual_report}', [AnnualReportController::class, 'show'])->name('show');
     });
 
     Route::get('award-images', [AwardImageController::class, 'index'])->name('award-images.index');
 
     Route::name('awards.')->prefix('awards')->group(function () {
         Route::get('/', [AwardController::class, 'index'])->name('index');
-        Route::get('/{award}', [AwardController::class, 'show'])->name('show');
     });
 
     Route::name('careers.')->prefix('careers')->group(function () {
         Route::get('/', [CareerController::class, 'index'])->name('index');
         Route::get('/{career}', [CareerController::class, 'show'])->name('show');
+    });
+
+    Route::name('products-and-services.')->prefix('products-and-services')->group(function () {
+        Route::get('/', [ProductAndServiceController::class, 'index'])->name('index');
     });
 });
