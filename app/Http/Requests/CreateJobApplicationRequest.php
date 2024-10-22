@@ -6,6 +6,7 @@ use App\Enums\EducationStatus;
 use App\Enums\FamilyStatus;
 use App\Enums\MilitaryStatus;
 use App\Enums\UserTitle;
+use App\Models\Career;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
@@ -29,46 +30,55 @@ class CreateJobApplicationRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'career_id' => ['required', 'exists:careers,id'],
+            'salary' => ['required', 'numeric', 'min:1'],
             'title' => ['required', new Enum(UserTitle::class)],
-            'salary' => ['required', 'min:1'],
+            'first_name_th' => ['required', 'string', 'max:255'],
+            'last_name_th' => ['required', 'string', 'max:255'],
             'nick_name' => ['required', 'string', 'max:255'],
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', (new Phone)->international()->country('TH'), 'max:20'],
+            'first_name_en' => ['required', 'string', 'max:255'],
+            'last_name_en' => ['required', 'string', 'max:255'],
             'date_of_birth' => ['required', 'date'],
             'address' => ['required', 'string', 'max:255'],
-            'province' => '',
-            'district' => '',
-            'sub_district' => '',
+            'province' => '', // TODO
+            'district' => '', // TODO
+            'sub_district' => '', // TODO
             'postal_code' => ['required', 'string', 'max:5'],
-            'registered_province' => ['required', 'string', 'max:255'],
+            'registered_province' => ['required', 'string', 'max:255'], // TODO dropdown เหมือนจังหวัด
+            'phone' => ['required', (new Phone)->international()->country('TH'), 'max:20'],
             'email' => ['required', 'string', 'max:255', 'email'],
+            'family_status' => ['required', new Enum(FamilyStatus::class)],
+            'military_service' => ['required', new Enum(MilitaryStatus::class)],
+            'education' => ['required', new Enum(EducationStatus::class)],
             'major' => ['required', 'string', 'max:255'],
             'institution' => ['required', 'string', 'max:255'],
-            'gpa' => ['required', 'float', 'min:0'],
+            'gpa' => ['required', 'decimal:2', 'min:0'],
             'resume_file' => ['nullable', 'array'],
-            'resume_file.id' => ['nullable'],
             'resume_file.path' => ['required_if:resume_file.id,null', 'string'],
             'resume_file.url' => ['nullable', 'string'],
             'resume_file.name' => ['nullable', 'string'],
             'transcript_file' => ['nullable'],
-            'transcript_file.id' => ['nullable'],
             'transcript_file.path' => ['required_if:transcript_file.id,null', 'string'],
             'transcript_file.url' => ['nullable', 'string'],
             'transcript_file.name' => ['nullable', 'string'],
+            // TODO certificate_files มีได้สูงสุด 5 ไฟล์
             'certificate_files' => ['nullable'],
-            'certificate_files.id' => ['nullable'],
             'certificate_files.path' => ['required_if:certificate_files.id,null', 'string'],
             'certificate_files.url' => ['nullable', 'string'],
             'certificate_files.name' => ['nullable', 'string'],
             'photo' => ['nullable'],
-            'photo.id' => ['nullable'],
             'photo.path' => ['required_if:photo.id,null', 'string'],
             'photo.url' => ['nullable', 'string'],
             'photo.name' => ['nullable', 'string'],
-            'family_status' => ['required', new Enum(FamilyStatus::class)],
-            'military_service' => ['required', new Enum(MilitaryStatus::class)],
-            'education' => ['required', new Enum(EducationStatus::class)],
         ];
     }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'career_id' => Career::decodeHash($this->career_id),
+        ]);
+    }
+
+    // TODO: แปลภาษา attributes
 }
