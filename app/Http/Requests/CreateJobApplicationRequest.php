@@ -90,5 +90,36 @@ class CreateJobApplicationRequest extends FormRequest
         ]);
     }
 
-    // TODO: แปลภาษา attributes
+    public function attributes(): array
+    {
+        return [
+            'career_id' => __('validation.attributes.career_position'),
+            'salary' => __('validation.attributes.salary'),
+            'title' => __('validation.attributes.user_title'),
+            'first_name_th' => __('validation.attributes.first_name_th'),
+            'last_name_th' => __('validation.attributes.last_name_th'),
+            'nick_name' => __('validation.attributes.nick_name'),
+            'first_name_en' => __('validation.attributes.first_name_en'),
+            'last_name_en' => __('validation.attributes.last_name_en'),
+            'date_of_birth' => __('validation.attributes.date_of_birth'),
+            'address' => __('validation.attributes.address'),
+            'province_id' => __('validation.attributes.province'),
+            'district_id' => __('validation.attributes.district'),
+            'sub_district_id' => __('validation.attributes.sub_district'),
+            'postal_code' => __('validation.attributes.postal_code'),
+            'registered_province_id' => __('validation.attributes.registered_province'),
+            'phone' => __('validation.attributes.phone'),
+            'email' => __('validation.attributes.email'),
+            'family_status' => __('validation.attributes.family_status'),
+            'military_service' => __('validation.attributes.military_service'),
+            'education' => __('validation.attributes.education'),
+            'major' => __('validation.attributes.major'),
+            'institution' => __('validation.attributes.institution'),
+            'gpa' => __('validation.attributes.gpa'),
+            'resume_file' => __('validation.attributes.resume'),
+            'transcript_file' => __('validation.attributes.transcript'),
+            'certificate_files' => __('validation.attributes.certificate'),
+            'photo' => __('validation.attributes.photo'),
+        ];
+    }
 }
