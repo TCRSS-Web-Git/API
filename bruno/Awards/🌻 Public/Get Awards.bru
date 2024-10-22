@@ -1,0 +1,15 @@
+meta {
+  name: Get Awards
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{backend_url}}/api/v1/public/awards
+  body: none
+  auth: none
+}
+
+headers {
+  Accept-Language: en-US,en;q=0.9
+}

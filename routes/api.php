@@ -75,4 +75,9 @@ Route::name('public.')->prefix('public')->group(function () {
     });
 
     Route::get('award-images', [AwardImageController::class, 'index'])->name('award-images.index');
+
+    Route::name('awards.')->prefix('awards')->group(function () {
+        Route::get('/', [AwardController::class, 'index'])->name('index');
+        Route::get('/{award}', [AwardController::class, 'show'])->name('show');
+    });
 });
