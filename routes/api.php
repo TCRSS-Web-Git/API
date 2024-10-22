@@ -29,8 +29,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('users', UserController::class);
     Route::apiResource('roles', RoleController::class);
 
-    Route::post('temporary-media', [TemporaryMediaController::class, 'store'])->name('temporary_media.store');
-
     Route::get('categories/{type}', [CategoryController::class, 'index'])->name('categories.index');
     Route::post('categories/{type}', [CategoryController::class, 'store'])->name('categories.store');
     Route::get('categories/{type}/{category}', [CategoryController::class, 'show'])->name('categories.show');
@@ -57,6 +55,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/invite/resend/{user}', [InviteController::class, 'resend'])->name('invite.resend');
 });
+
+Route::post('temporary-media', [TemporaryMediaController::class, 'store'])->name('temporary_media.store');
+
 Route::get('geography/provinces', [ThailandGeographyController::class, 'provinces'])->name('geography.provinces');
 Route::get('geography/provinces/{province}/districts', [ThailandGeographyController::class, 'districts'])->name('geography.districts');
 Route::get('geography/districts/{district}/subdistricts', [ThailandGeographyController::class, 'subdistricts'])->name('geography.subdistricts');
