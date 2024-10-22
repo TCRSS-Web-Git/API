@@ -18,10 +18,7 @@ class DevSeeder extends Seeder
         $this->call(TestAwardSeeder::class);
         $this->call(TestAwardImageSeeder::class);
         $this->call(TestAnnualReportSeeder::class);
-        $this->call(RegionSeeder::class);
-        $this->call(ProvinceSeeder::class);
-        $this->call(DistrictSeeder::class);
-        $this->call(SubdistrictSeeder::class);
+        $this->call(ThailandGeographySeeder::class);
 
     }
 }
