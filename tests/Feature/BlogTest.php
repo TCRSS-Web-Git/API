@@ -14,16 +14,6 @@ class BlogTest extends TestCase
 {
     use refreshDatabase;
 
-    private function setupImages()
-    {
-        $fileCover = UploadedFile::fake()->image('image_cover.jpg');
-        $fileThumbnail = UploadedFile::fake()->image('image_thumbnail.jpg');
-        $mediaImageCover = $this->postJson(route('temporary_media.store'), ['media' => $fileCover]);
-        $mediaImageThumbnail = $this->postJson(route('temporary_media.store'), ['media' => $fileThumbnail]);
-
-        return [$mediaImageCover->json('data'), $mediaImageThumbnail->json('data')];
-    }
-
     public function test_the_admin_can_get_all_blogs(): void
     {
         // set up
@@ -100,6 +90,16 @@ class BlogTest extends TestCase
             'collection_name' => Blog::MEDIA_COLLECTION_THUMBNAIL,
             'file_name' => $thumbnail['name'],
         ]);
+    }
+
+    private function setupImages()
+    {
+        $fileCover = UploadedFile::fake()->image('image_cover.jpg');
+        $fileThumbnail = UploadedFile::fake()->image('image_thumbnail.jpg');
+        $mediaImageCover = $this->postJson(route('temporary_media.store'), ['media' => $fileCover]);
+        $mediaImageThumbnail = $this->postJson(route('temporary_media.store'), ['media' => $fileThumbnail]);
+
+        return [$mediaImageCover->json('data'), $mediaImageThumbnail->json('data')];
     }
 
     /**
@@ -254,6 +254,63 @@ class BlogTest extends TestCase
         $response->assertOk();
         $response->assertJsonFragment(['id' => $blog->hashid]);
         $response->assertJsonFragment(['title' => $blog->title]);
+    }
+
+    public function test_the_admin_can_get_a_blog_by_id_with_other_blogs(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $category = Category::factory()->blog()->create();
+        Blog::factory()->create();
+        $blogData = Blog::factory()->for($category)->make()->toArray();
+
+        // act
+        $this->postJson(route('blogs.store'), [
+            'category_id' => $category->hashid,
+            'slug' => $blogData['slug'],
+            'published_at' => now()->addMonth(),
+            'tags' => ['test'],
+            'th' => [
+                'title' => 'ชื่อบทความ',
+                'body' => 'เนื้อหาบทความ',
+                'meta_title' => 'ชื่อบทความ',
+                'meta_description' => 'เนื้อหาบทความ',
+            ],
+            'en' => [
+                'title' => 'Blog name',
+                'body' => 'Blog content',
+                'meta_title' => 'Blog name',
+                'meta_description' => 'Blog content',
+            ],
+        ])->assertCreated();
+        $this->postJson(route('blogs.store'), [
+            'category_id' => $category->hashid,
+            'slug' => $blogData['slug'],
+            'published_at' => now()->addMonth(),
+            'tags' => ['test'],
+            'th' => [
+                'title' => 'ชื่อบทความ',
+                'body' => 'เนื้อหาบทความ',
+                'meta_title' => 'ชื่อบทความ',
+                'meta_description' => 'เนื้อหาบทความ',
+            ],
+            'en' => [
+                'title' => 'Blog name',
+                'body' => 'Blog content',
+                'meta_title' => 'Blog name',
+                'meta_description' => 'Blog content',
+            ],
+        ])->assertCreated();
+
+        // act
+        $blog = Blog::all()->first();
+        $response = $this->getJson(route('blogs.show', $blog));
+
+        // assert
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $blog->hashid]);
+        $response->assertJsonFragment(['title' => $blog->title]);
+        $this->assertEquals(3, count($response->json('other_blogs')));
     }
 
     /**
