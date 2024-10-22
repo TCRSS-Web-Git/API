@@ -68,4 +68,9 @@ Route::name('public.')->prefix('public')->group(function () {
         Route::get('/', [BlogController::class, 'index'])->name('index');
         Route::get('/{blog}', [BlogController::class, 'show'])->name('show');
     });
+
+    Route::name('annual-reports.')->prefix('annual-reports')->group(function () {
+        Route::get('/', [AnnualReportController::class, 'index'])->name('index');
+        Route::get('/{annual_report}', [AnnualReportController::class, 'show'])->name('show');
+    });
 });

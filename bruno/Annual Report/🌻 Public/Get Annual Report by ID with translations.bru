@@ -1,0 +1,15 @@
+meta {
+  name: Get Annual Report by ID with translations
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{backend_url}}/api/v1/public/annual-reports/annual_report_24BXDP5NMWQ375/?include=translations
+  body: none
+  auth: none
+}
+
+query {
+  include: translations
+}
