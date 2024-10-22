@@ -8,7 +8,9 @@ use App\Models\AwardImage;
 use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Category;
+use App\Models\District;
 use App\Models\ProductAndService;
+use App\Models\Province;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
@@ -85,8 +87,16 @@ class AppServiceProvider extends ServiceProvider
             return Career::findByHashOrFail($value);
         });
 
+        Route::bind('district', function ($value) {
+            return District::where('id', District::decodeHash($value))->firstOrFail();
+        });
+
         Route::bind('products_and_service', function ($value) {
             return ProductAndService::findByHashOrFail($value);
+        });
+
+        Route::bind('province', function ($value) {
+            return Province::where('id', Province::decodeHash($value))->firstOrFail();
         });
 
         Route::bind('user', function ($value) {
