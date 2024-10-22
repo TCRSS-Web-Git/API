@@ -62,3 +62,10 @@ Route::get('geography/districts/{district}/subdistricts', [ThailandGeographyCont
 
 Route::get('titles', [UserTitleController::class, 'index'])->name('users.titles.index');
 Route::put('/accept-user-invitation', [InviteController::class, 'accept'])->middleware('signed.invite:relative')->name('accept.users.invitation');
+
+Route::name('public.')->prefix('public')->group(function () {
+    Route::name('blogs.')->prefix('blogs')->group(function () {
+        Route::get('/', [BlogController::class, 'index'])->name('index');
+        Route::get('/{blog}', [BlogController::class, 'show'])->name('show');
+    });
+});
