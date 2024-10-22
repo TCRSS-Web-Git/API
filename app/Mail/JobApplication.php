@@ -7,12 +7,16 @@ use App\Enums\FamilyStatus;
 use App\Enums\MilitaryStatus;
 use App\Enums\UserTitle;
 use App\Models\Career;
+use App\Models\District;
+use App\Models\Province;
+use App\Models\Subdistrict;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Str;
 
 class JobApplication extends Mailable
 {
@@ -38,7 +42,15 @@ class JobApplication extends Mailable
 
     protected string $address;
 
-    // TODO province, district, subdistrict, zipcode
+    protected Province $province;
+
+    protected District $district;
+
+    protected Subdistrict $subdistrict;
+
+    protected string $postalCode;
+
+    protected Province $registeredProvince;
 
     protected string $phone;
 
@@ -71,7 +83,11 @@ class JobApplication extends Mailable
         $this->nickname = $data['nickname'];
         $this->dateOrBirth = Carbon::parse($data['date_of_birth']);
         $this->address = $data['address'];
-        // TODO province, district, subdistrict, zipcode
+        $this->province = Province::find($data['province_id']);
+        $this->district = District::find($data['district_id']);
+        $this->subdistrict = Subdistrict::find($data['sub_district_id']);
+        $this->postalCode = $data['postal_code'];
+        $this->registeredProvince = Province::find($data['registered_province_id']);
         $this->phone = $data['phone'];
         $this->email = $data['email'];
         $this->familyStatus = $data['family_status'];
@@ -107,11 +123,20 @@ class JobApplication extends Mailable
                 'titleEN' => $this->title->labelEn(),
                 'firstNameTH' => $this->firstNameTH,
                 'lastNameTH' => $this->lastNameTH,
-                'firstNameEN' => $this->firstNameEN,
-                'lastNameEN' => $this->lastNameEN,
+                'firstNameEN' => Str::upper($this->firstNameEN),
+                'lastNameEN' => Str::upper($this->lastNameEN),
                 'nickname' => $this->nickname,
                 'dateOrBirth' => $this->dateOrBirth->format('d/m/Y'),
                 'address' => $this->address,
+                'provinceTH' => $this->province->name_th,
+                'provinceEN' => $this->province->name_en,
+                'districtTH' => $this->district->name_th,
+                'districtEN' => $this->district->name_en,
+                'subdistrictTH' => $this->subdistrict->name_th,
+                'subdistrictEN' => $this->subdistrict->name_en,
+                'postalCode' => $this->postalCode,
+                'registeredProvinceTH' => $this->registeredProvince->name_th,
+                'registeredProvinceEN' => $this->registeredProvince->name_en,
                 // TODO province, district, subdistrict, zipcode
                 'phone' => $this->phone,
                 'email' => $this->email,

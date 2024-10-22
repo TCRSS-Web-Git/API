@@ -48,23 +48,23 @@
         </div>
         <div class="field">
             <div class="field-label">จังหวัด (Province)</div>
-            <div class="field-value">-- TODO ex: Bangkok --</div>
+            <div class="field-value">{{ $provinceTH }} ({{ $provinceEN }})</div>
         </div>
         <div class="field">
             <div class="field-label">อำเภอ/เขต (District)</div>
-            <div class="field-value">-- TODO ex: สวนหลวง --</div>
+            <div class="field-value">{{ $districtTH }} ({{ $districtEN }})</div>
         </div>
         <div class="field">
             <div class="field-label">ตำบล/แขวง (Sub-district)</div>
-            <div class="field-value">-- TODO ex: สวนหลวง --</div>
+            <div class="field-value">{{ $subdistrictTH }} ({{ $subdistrictEN }})</div>
         </div>
         <div class="field">
             <div class="field-label">รหัสไปรษณีย์ (Postal Code)</div>
-            <div class="field-value">-- TODO ex: 10250 --</div>
+            <div class="field-value">{{ $postalCode }}</div>
         </div>
         <div class="field">
             <div class="field-label">จังหวัดตามทะเบียนบ้าน (Registered Province)</div>
-            <div class="field-value">-- TODO --</div>
+            <div class="field-value">{{ $registeredProvinceTH }} ({{ $registeredProvinceEN }})</div>
         </div>
         <div class="field">
             <div class="field-label">เบอร์โทรศัพท์ (Phone)</div>
@@ -76,11 +76,11 @@
         </div>
         <div class="field">
             <div class="field-label">สถานภาพทางครอบครัว (Family Status)</div>
-            <div class="field-value">{{ $familyStatusTH }} ({{$familyStatusEN}})</div>
+            <div class="field-value">{{ $familyStatusTH }} ({{ $familyStatusEN }})</div>
         </div>
         <div class="field">
             <div class="field-label">สถานภาพทางทหาร (Military Service)</div>
-            <div class="field-value">{{ $militaryServiceTH }} ({{$militaryServiceEN}})</div>
+            <div class="field-value">{{ $militaryServiceTH }} ({{ $militaryServiceEN }})</div>
         </div>
     </div>
 
