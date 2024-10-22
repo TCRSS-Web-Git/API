@@ -22,8 +22,7 @@ class JobApplicationController extends Controller
         })
             ->get();
 
-        // TODO: queue mail
-        Mail::to($users)->send(new JobApplication($career, $data));
+        Mail::to($users)->queue(new JobApplication($career, $data));
 
         return response(null, Response::HTTP_CREATED);
     }
