@@ -52,7 +52,7 @@ class BlogController extends Controller
             $blogCount = 3 - $otherBlogs->count();
             $missingBlog = Blog::with(['category', 'latestAudit.user', 'tags'])->orderByDesc('created_at')->limit($blogCount)->get();
         }
-        
+
         return (new BlogResource($blog))
             ->additional(['other_blogs' => BlogResource::collection($otherBlogs->merge($missingBlog))]);
     }
