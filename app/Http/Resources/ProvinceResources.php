@@ -23,8 +23,13 @@ class ProvinceResources extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        if (app()->getLocale() === 'th') {
+            $orderBy = 'name_th';
+        }
+
         return [
             'id' => $this->hashid,
+            'name' => app()->getLocale() === 'th' ? $this->name_th : $this->name_en,
             'name_th' => $this->name_th,
             'name_en' => $this->name_en,
             'iso_code' => $this->iso3166_2,
