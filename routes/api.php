@@ -80,4 +80,9 @@ Route::name('public.')->prefix('public')->group(function () {
         Route::get('/', [AwardController::class, 'index'])->name('index');
         Route::get('/{award}', [AwardController::class, 'show'])->name('show');
     });
+
+    Route::name('careers.')->prefix('careers')->group(function () {
+        Route::get('/', [CareerController::class, 'index'])->name('index');
+        Route::get('/{career}', [CareerController::class, 'show'])->name('show');
+    });
 });
