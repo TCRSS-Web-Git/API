@@ -62,7 +62,7 @@ class UserFactory extends Factory
     public function superAdmin(): Factory
     {
         return $this->afterCreating(function (User $user) {
-            $role = Role::where('name', Role::ROLE_SUPER_ADMIN)->firstOrCreate();
+            $role = Role::findOrCreate(Role::ROLE_SUPER_ADMIN, 'web');
             $user->assignRole($role);
         });
     }
@@ -70,7 +70,7 @@ class UserFactory extends Factory
     public function admin(): Factory
     {
         return $this->afterCreating(function (User $user) {
-            $role = Role::where('name', Role::ROLE_ADMIN)->firstOrCreate();
+            $role = Role::findOrCreate(Role::ROLE_ADMIN, 'web');
             $user->assignRole($role);
         });
     }
