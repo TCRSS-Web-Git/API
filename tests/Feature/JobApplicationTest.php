@@ -39,7 +39,7 @@ class JobApplicationTest extends TestCase
 
         Mail::fake();
 
-        $response = $this->postJson(route('job_applications.create'), [
+        $response = $this->postJson(route('public.job_applications.create'), [
             'career_id' => $career->hashid,
             'salary' => 123_456,
             'title' => UserTitle::MR->value,

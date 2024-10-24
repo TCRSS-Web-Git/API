@@ -67,4 +67,4 @@ Route::get('geography/districts/{district}/subdistricts', [ThailandGeographyCont
 Route::get('titles', [UserTitleController::class, 'index'])->name('users.titles.index');
 Route::put('/accept-user-invitation', [InviteController::class, 'accept'])->middleware('signed.invite:relative')->name('accept.users.invitation');
 
-Route::post('job-applications', [JobApplicationController::class, 'create'])->name('job_applications.create');
+Route::post('public/job-applications', [JobApplicationController::class, 'create'])->name('public.job_applications.create');
