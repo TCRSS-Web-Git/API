@@ -6,6 +6,7 @@ use App\Enums\BlogStatus;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Media;
+use App\Models\Tag;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
@@ -304,13 +305,40 @@ class BlogTest extends TestCase
 
         // act
         $blog = Blog::all()->first();
-        $response = $this->getJson(route('blogs.show', $blog));
+        $response = $this->getJson(route('public.blogs.show', $blog));
 
         // assert
         $response->assertOk();
         $response->assertJsonFragment(['id' => $blog->hashid]);
         $response->assertJsonFragment(['title' => $blog->title]);
         $this->assertEquals(3, count($response->json('other_blogs')));
+    }
+
+    public function test_user_can_get_a_blog_by_id_with_other_blogs(): void
+    {
+        // set up
+        $category = Category::factory()->blog()->create();
+        $tagA = Tag::factory()->create();
+        $tagB = Tag::factory()->create();
+        $blogA = Blog::factory()->for($category)->create(['created_at' => '2024-03-01']);
+        $blogB = Blog::factory()->for($category)->create(['created_at' => '2024-03-02']);
+        $blogC = Blog::factory()->for($category)->create(['created_at' => '2024-03-03']);
+        $blogA->syncTags([$tagA->name]);
+        $blogB->syncTags([$tagA->name]);
+        $blogC->syncTags([$tagA->name]);
+        $blogD = Blog::factory()->for($category)->create(['created_at' => '2024-03-04']);
+        $blogD->syncTags([$tagB->name]);
+
+        // act
+        $response = $this->getJson(route('public.blogs.show', $blogA));
+
+        // assert
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $blogA->hashid, 'title' => $blogA->title]);
+        $this->assertEquals(3, count($response->json('other_blogs')));
+        $this->assertEquals($blogC->hashid, $response->json('other_blogs.0.id'));
+        $this->assertEquals($blogB->hashid, $response->json('other_blogs.1.id'));
+        $this->assertEquals($blogD->hashid, $response->json('other_blogs.2.id'));
     }
 
     /**

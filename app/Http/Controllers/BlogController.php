@@ -47,14 +47,14 @@ class BlogController extends Controller
         $otherBlogs = Blog::whereHas('tags', function (Builder $query) use ($blog) {
             $tagIds = collect($blog->tags)->pluck('id');
             $query->whereIn('tags.id', $tagIds);
-        })->with(['category', 'latestAudit.user', 'tags'])->orderByDesc('created_at')->limit(3)->get();
+        })->with(['category', 'latestAudit.user', 'tags'])->whereNot('id', $blog->id)->orderByDesc('created_at')->limit(3)->get();
         if ($otherBlogs->count() < 3) {
             $blogCount = 3 - $otherBlogs->count();
-            $missingBlog = Blog::with(['category', 'latestAudit.user', 'tags'])->orderByDesc('created_at')->whereNot('id', $blog->id)->limit($blogCount)->get();
+            $missingBlog = Blog::with(['category', 'latestAudit.user', 'tags'])->whereNot('id', $blog->id)->orderByDesc('created_at')->limit($blogCount)->get();
         }
 
         return (new BlogResource($blog))
-            ->additional(['other_blogs' => BlogResource::collection($otherBlogs->merge($missingBlog))]);
+            ->additional(request()->routeIs('public.blogs.show') ? ['other_blogs' => BlogResource::collection($otherBlogs->merge($missingBlog ?? []))] : []);
     }
 
     /**
