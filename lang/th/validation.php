@@ -188,6 +188,7 @@ return [
         'department' => 'แผนก',
         'description' => 'คำอธิบาย',
         'description_with_locale' => 'คำอธิบาย (:locale)',
+        'detail' => 'รายละเอียด',
         'display_type' => 'ประเภทการแสดงผล',
         'district' => 'อำเภอ/เขต',
         'duration' => 'ระยะเวลา',
