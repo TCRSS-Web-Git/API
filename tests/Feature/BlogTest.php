@@ -6,6 +6,7 @@ use App\Enums\BlogStatus;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Media;
+use App\Models\Tag;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
@@ -13,16 +14,6 @@ use Tests\TestCase;
 class BlogTest extends TestCase
 {
     use refreshDatabase;
-
-    private function setupImages()
-    {
-        $fileCover = UploadedFile::fake()->image('image_cover.jpg');
-        $fileThumbnail = UploadedFile::fake()->image('image_thumbnail.jpg');
-        $mediaImageCover = $this->postJson(route('temporary_media.store'), ['media' => $fileCover]);
-        $mediaImageThumbnail = $this->postJson(route('temporary_media.store'), ['media' => $fileThumbnail]);
-
-        return [$mediaImageCover->json('data'), $mediaImageThumbnail->json('data')];
-    }
 
     public function test_the_admin_can_get_all_blogs(): void
     {
@@ -100,6 +91,16 @@ class BlogTest extends TestCase
             'collection_name' => Blog::MEDIA_COLLECTION_THUMBNAIL,
             'file_name' => $thumbnail['name'],
         ]);
+    }
+
+    private function setupImages()
+    {
+        $fileCover = UploadedFile::fake()->image('image_cover.jpg');
+        $fileThumbnail = UploadedFile::fake()->image('image_thumbnail.jpg');
+        $mediaImageCover = $this->postJson(route('temporary_media.store'), ['media' => $fileCover]);
+        $mediaImageThumbnail = $this->postJson(route('temporary_media.store'), ['media' => $fileThumbnail]);
+
+        return [$mediaImageCover->json('data'), $mediaImageThumbnail->json('data')];
     }
 
     /**
@@ -254,6 +255,90 @@ class BlogTest extends TestCase
         $response->assertOk();
         $response->assertJsonFragment(['id' => $blog->hashid]);
         $response->assertJsonFragment(['title' => $blog->title]);
+    }
+
+    public function test_the_admin_can_get_a_blog_by_id_with_other_blogs(): void
+    {
+        // set up
+        $this->signInAdmin();
+        $category = Category::factory()->blog()->create();
+        Blog::factory()->count(2)->create();
+        $blogData = Blog::factory()->for($category)->make()->toArray();
+
+        // act
+        $this->postJson(route('blogs.store'), [
+            'category_id' => $category->hashid,
+            'slug' => $blogData['slug'],
+            'published_at' => now()->addMonth(),
+            'tags' => ['test'],
+            'th' => [
+                'title' => 'ชื่อบทความ',
+                'body' => 'เนื้อหาบทความ',
+                'meta_title' => 'ชื่อบทความ',
+                'meta_description' => 'เนื้อหาบทความ',
+            ],
+            'en' => [
+                'title' => 'Blog name',
+                'body' => 'Blog content',
+                'meta_title' => 'Blog name',
+                'meta_description' => 'Blog content',
+            ],
+        ])->assertCreated();
+        $this->postJson(route('blogs.store'), [
+            'category_id' => $category->hashid,
+            'slug' => $blogData['slug'],
+            'published_at' => now()->addMonth(),
+            'tags' => ['test'],
+            'th' => [
+                'title' => 'ชื่อบทความ',
+                'body' => 'เนื้อหาบทความ',
+                'meta_title' => 'ชื่อบทความ',
+                'meta_description' => 'เนื้อหาบทความ',
+            ],
+            'en' => [
+                'title' => 'Blog name',
+                'body' => 'Blog content',
+                'meta_title' => 'Blog name',
+                'meta_description' => 'Blog content',
+            ],
+        ])->assertCreated();
+
+        // act
+        $blog = Blog::all()->first();
+        $response = $this->getJson(route('public.blogs.show', $blog));
+
+        // assert
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $blog->hashid]);
+        $response->assertJsonFragment(['title' => $blog->title]);
+        $this->assertEquals(3, count($response->json('other_blogs')));
+    }
+
+    public function test_user_can_get_a_blog_by_id_with_other_blogs(): void
+    {
+        // set up
+        $category = Category::factory()->blog()->create();
+        $tagA = Tag::factory()->create();
+        $tagB = Tag::factory()->create();
+        $blogA = Blog::factory()->for($category)->create(['created_at' => '2024-03-01']);
+        $blogB = Blog::factory()->for($category)->create(['created_at' => '2024-03-02']);
+        $blogC = Blog::factory()->for($category)->create(['created_at' => '2024-03-03']);
+        $blogA->syncTags([$tagA->name]);
+        $blogB->syncTags([$tagA->name]);
+        $blogC->syncTags([$tagA->name]);
+        $blogD = Blog::factory()->for($category)->create(['created_at' => '2024-03-04']);
+        $blogD->syncTags([$tagB->name]);
+
+        // act
+        $response = $this->getJson(route('public.blogs.show', $blogA));
+
+        // assert
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $blogA->hashid, 'title' => $blogA->title]);
+        $this->assertEquals(3, count($response->json('other_blogs')));
+        $this->assertEquals($blogC->hashid, $response->json('other_blogs.0.id'));
+        $this->assertEquals($blogB->hashid, $response->json('other_blogs.1.id'));
+        $this->assertEquals($blogD->hashid, $response->json('other_blogs.2.id'));
     }
 
     /**

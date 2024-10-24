@@ -58,8 +58,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/invite/resend/{user}', [InviteController::class, 'resend'])->name('invite.resend');
 });
 
-Route::post('public/temporary-media', [TemporaryMediaController::class, 'store'])->name('public.temporary_media.store');
-
 Route::get('geography/provinces', [ThailandGeographyController::class, 'provinces'])->name('geography.provinces');
 Route::get('geography/provinces/{province}/districts', [ThailandGeographyController::class, 'districts'])->name('geography.districts');
 Route::get('geography/districts/{district}/subdistricts', [ThailandGeographyController::class, 'subdistricts'])->name('geography.subdistricts');
@@ -67,4 +65,31 @@ Route::get('geography/districts/{district}/subdistricts', [ThailandGeographyCont
 Route::get('titles', [UserTitleController::class, 'index'])->name('users.titles.index');
 Route::put('/accept-user-invitation', [InviteController::class, 'accept'])->middleware('signed.invite:relative')->name('accept.users.invitation');
 
-Route::post('public/job-applications', [JobApplicationController::class, 'create'])->name('public.job_applications.create');
+Route::name('public.')->prefix('public')->group(function () {
+    Route::post('temporary-media', [TemporaryMediaController::class, 'store'])->name('temporary_media.store');
+
+    Route::name('blogs.')->prefix('blogs')->group(function () {
+        Route::get('/', [BlogController::class, 'index'])->name('index');
+        Route::get('/{blog}', [BlogController::class, 'show'])->name('show');
+    });
+
+    Route::name('annual-reports.')->prefix('annual-reports')->group(function () {
+        Route::get('/', [AnnualReportController::class, 'index'])->name('index');
+    });
+
+    Route::get('award-images', [AwardImageController::class, 'index'])->name('award-images.index');
+
+    Route::name('awards.')->prefix('awards')->group(function () {
+        Route::get('/', [AwardController::class, 'index'])->name('index');
+    });
+
+    Route::post('job-applications', [JobApplicationController::class, 'create'])->name('job_applications.create');
+    Route::name('careers.')->prefix('careers')->group(function () {
+        Route::get('/', [CareerController::class, 'index'])->name('index');
+        Route::get('/{career}', [CareerController::class, 'show'])->name('show');
+    });
+
+    Route::name('products-and-services.')->prefix('products-and-services')->group(function () {
+        Route::get('/', [ProductAndServiceController::class, 'index'])->name('index');
+    });
+});
