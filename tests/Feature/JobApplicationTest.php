@@ -31,11 +31,11 @@ class JobApplicationTest extends TestCase
         $district = District::factory()->create();
         $subDistrict = Subdistrict::factory()->create();
 
-        $resume = $this->postJson(route('temporary_media.store'), ['media' => UploadedFile::fake()->image('resume.jpg')]);
-        $transcript = $this->postJson(route('temporary_media.store'), ['media' => UploadedFile::fake()->image('transcript.pdf')]);
-        $photo = $this->postJson(route('temporary_media.store'), ['media' => UploadedFile::fake()->image('photo.png')]);
-        $certificateA = $this->postJson(route('temporary_media.store'), ['media' => UploadedFile::fake()->image('certificateA.pdf')]);
-        $certificateB = $this->postJson(route('temporary_media.store'), ['media' => UploadedFile::fake()->image('certificateA.pdf')]);
+        $resume = $this->postJson(route('public.temporary_media.store'), ['media' => UploadedFile::fake()->image('resume.jpg')]);
+        $transcript = $this->postJson(route('public.temporary_media.store'), ['media' => UploadedFile::fake()->image('transcript.pdf')]);
+        $photo = $this->postJson(route('public.temporary_media.store'), ['media' => UploadedFile::fake()->image('photo.png')]);
+        $certificateA = $this->postJson(route('public.temporary_media.store'), ['media' => UploadedFile::fake()->image('certificateA.pdf')]);
+        $certificateB = $this->postJson(route('public.temporary_media.store'), ['media' => UploadedFile::fake()->image('certificateA.pdf')]);
 
         Mail::fake();
 
