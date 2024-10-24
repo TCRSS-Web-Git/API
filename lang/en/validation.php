@@ -188,6 +188,7 @@ return [
         'department' => 'department',
         'description' => 'description',
         'description_with_locale' => 'description (:locale)',
+        'detail' => 'detail',
         'display_type' => 'display type',
         'district' => 'district',
         'duration' => 'duration',

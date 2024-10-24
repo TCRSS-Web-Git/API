@@ -20,7 +20,7 @@
         </div>
         <div class="field">
             <div class="field-label">แผนก (Department)</div>
-            <div class="field-value">{{ $department }}</div>
+            <div class="field-value">{{ $department_type_th  }} ({{ $department_type_en}})</div>
         </div>
         <div class="field">
             <div class="field-label">รายละเอียด (Detail)</div>

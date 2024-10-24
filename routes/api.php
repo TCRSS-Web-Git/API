@@ -6,6 +6,7 @@ use App\Http\Controllers\AwardImageController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\ProductAndServiceController;
 use App\Http\Controllers\RoleController;
@@ -84,6 +85,8 @@ Route::name('public.')->prefix('public')->group(function () {
     });
 
     Route::post('job-applications', [JobApplicationController::class, 'create'])->name('job_applications.create');
+    Route::post('contact-us', [ContactUsController::class, 'create'])->name('contact_us.create');
+
     Route::name('careers.')->prefix('careers')->group(function () {
         Route::get('/', [CareerController::class, 'index'])->name('index');
         Route::get('/{career}', [CareerController::class, 'show'])->name('show');

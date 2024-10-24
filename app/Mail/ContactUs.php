@@ -2,8 +2,10 @@
 
 namespace App\Mail;
 
+use App\Enums\DepartmentType;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -20,7 +22,7 @@ class ContactUs extends Mailable
 
     protected string $email;
 
-    protected string $department; // TODO: enum
+    protected DepartmentType $departmentType;
 
     protected string $detail;
 
@@ -33,7 +35,7 @@ class ContactUs extends Mailable
         $this->surname = $data['surname'];
         $this->phone = $data['phone'];
         $this->email = $data['email'];
-        $this->department = $data['department'];
+        $this->departmentType = DepartmentType::from($data['department_type']);
         $this->detail = $data['detail'];
     }
 
@@ -43,7 +45,7 @@ class ContactUs extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Contact Us',
+            subject: "Contact Us From $this->name $this->surname",
         );
     }
 
@@ -59,7 +61,8 @@ class ContactUs extends Mailable
                 'surname' => $this->surname,
                 'phone' => $this->phone,
                 'email' => $this->email,
-                'department' => $this->department,
+                'department_type_en' => $this->departmentType->labelEn(),
+                'department_type_th' => $this->departmentType->labelTh(),
                 'detail' => $this->detail,
             ]
         );
@@ -68,7 +71,7 @@ class ContactUs extends Mailable
     /**
      * Get the attachments for the message.
      *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     * @return array<int, Attachment>
      */
     public function attachments(): array
     {
