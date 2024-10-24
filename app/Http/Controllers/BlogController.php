@@ -50,7 +50,7 @@ class BlogController extends Controller
         })->with(['category', 'latestAudit.user', 'tags'])->orderByDesc('created_at')->limit(3)->get();
         if ($otherBlogs->count() < 3) {
             $blogCount = 3 - $otherBlogs->count();
-            $missingBlog = Blog::with(['category', 'latestAudit.user', 'tags'])->orderByDesc('created_at')->limit($blogCount)->get();
+            $missingBlog = Blog::with(['category', 'latestAudit.user', 'tags'])->orderByDesc('created_at')->whereNot('id', $blog->id)->limit($blogCount)->get();
         }
 
         return (new BlogResource($blog))

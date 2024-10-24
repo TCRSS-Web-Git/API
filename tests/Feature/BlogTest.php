@@ -261,7 +261,7 @@ class BlogTest extends TestCase
         // set up
         $this->signInAdmin();
         $category = Category::factory()->blog()->create();
-        Blog::factory()->create();
+        Blog::factory()->count(2)->create();
         $blogData = Blog::factory()->for($category)->make()->toArray();
 
         // act
