@@ -29,7 +29,7 @@ class BlogFactory extends Factory
     public function published(): static
     {
         return $this->state([
-            'published_at' => $this->faker->randomElement([null, $this->faker->dateTimeBetween('-1 year', 'now')]),
+            'published_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ]);
     }
 
