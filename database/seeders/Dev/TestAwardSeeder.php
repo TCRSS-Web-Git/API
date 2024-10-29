@@ -13,8 +13,14 @@ class TestAwardSeeder extends Seeder
      */
     public function run(): void
     {
-        Award::factory(4)
+        Award::factory(2)
             ->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])
+            ->draft()
+            ->create();
+
+        Award::factory(5)
+            ->sequence(fn (Sequence $sequence) => ['order' => $sequence->index + 2])
+            ->published()
             ->create();
     }
 }

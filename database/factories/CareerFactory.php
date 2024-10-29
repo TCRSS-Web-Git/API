@@ -26,6 +26,20 @@ class CareerFactory extends Factory
         ];
     }
 
+    public function published(): static
+    {
+        return $this->state([
+            'published_at' => $this->faker->randomElement([null, $this->faker->dateTimeBetween('-1 year', 'now')]),
+        ]);
+    }
+
+    public function draft(): static
+    {
+        return $this->state([
+            'published_at' => $this->faker->randomElement([null, $this->faker->dateTimeBetween('+1 day', '+1 year')]),
+        ]);
+    }
+
     public function configure()
     {
         return $this->afterCreating(function (Career $career) {

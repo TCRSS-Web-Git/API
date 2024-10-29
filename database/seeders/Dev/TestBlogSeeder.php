@@ -23,9 +23,17 @@ class TestBlogSeeder extends Seeder
         $category2->setTranslation('name', 'Promotions', 'en');
         $category2->save();
 
+        Blog::factory(10)
+            ->withThumbnail()
+            ->withCover()
+            ->draft()
+            ->recycle(Category::blog()->get())
+            ->create();
+
         Blog::factory(20)
             ->withThumbnail()
             ->withCover()
+            ->published()
             ->recycle(Category::blog()->get())
             ->create();
     }

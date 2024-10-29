@@ -13,10 +13,18 @@ class TestAnnualReportSeeder extends Seeder
      */
     public function run(): void
     {
+        AnnualReport::factory(10)
+            ->withCover()
+            ->withFile()
+            ->draft()
+            ->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])
+            ->create();
+
         AnnualReport::factory(20)
             ->withCover()
             ->withFile()
-            ->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])
+            ->published()
+            ->sequence(fn (Sequence $sequence) => ['order' => $sequence->index + 10])
             ->create();
     }
 }
