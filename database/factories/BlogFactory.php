@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Helper\Helper;
+use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -40,6 +42,24 @@ class BlogFactory extends Factory
             $blog->setTranslation('meta_description', $metaDescription, 'en');
             $blog->setTranslation('meta_description', '(th) '.$metaDescription, 'th');
             $blog->save();
+        });
+    }
+
+    public function withCover(): static
+    {
+        return $this->afterCreating(function (Blog $blog) {
+            $coverUrl = Helper::getPlaceholderImageUrl($blog->getTranslation('title', 'en'), 1818, 1212);
+            $blog->addMediaFromUrl($coverUrl)
+                ->toMediaCollection(Blog::MEDIA_COLLECTION_COVER);
+        });
+    }
+
+    public function withThumbnail(): static
+    {
+        return $this->afterCreating(function (Blog $blog) {
+            $coverUrl = Helper::getPlaceholderImageUrl($blog->getTranslation('title', 'en'), 886, 572);
+            $blog->addMediaFromUrl($coverUrl)
+                ->toMediaCollection(Blog::MEDIA_COLLECTION_THUMBNAIL);
         });
     }
 }
