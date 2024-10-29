@@ -58,7 +58,7 @@ class Blog extends Model implements Auditable, HasMedia
                     ->withResponsiveImages()
                     ->format('webp')
                     ->background('FFFFFF')
-                    ->fit(Fit::Crop, 1200, 1200) // 1:1
+                    ->fit(Fit::Crop, 886, 572) // 3:2
                     ->optimize();
             });
 
@@ -70,7 +70,7 @@ class Blog extends Model implements Auditable, HasMedia
                     ->withResponsiveImages()
                     ->format('webp')
                     ->background('FFFFFF')
-                    ->fit(Fit::Crop, 1920, 480) // 4:1
+                    ->fit(Fit::Crop, 1818, 1212) // 3:2
                     ->optimize();
             });
 
