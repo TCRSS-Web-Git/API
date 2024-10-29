@@ -15,8 +15,7 @@ class TestAwardSeeder extends Seeder
     {
         Award::factory(2)
             ->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])
-            ->draft()
-            ->create();
+            ->create(['published_at' => null]);
 
         Award::factory(5)
             ->sequence(fn (Sequence $sequence) => ['order' => $sequence->index + 2])

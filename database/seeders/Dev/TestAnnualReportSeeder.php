@@ -16,9 +16,8 @@ class TestAnnualReportSeeder extends Seeder
         AnnualReport::factory(10)
             ->withCover()
             ->withFile()
-            ->draft()
             ->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])
-            ->create();
+            ->create(['published_at' => null]);
 
         AnnualReport::factory(20)
             ->withCover()

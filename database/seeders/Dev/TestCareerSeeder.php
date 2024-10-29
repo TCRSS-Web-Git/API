@@ -110,8 +110,7 @@ class TestCareerSeeder extends Seeder
                     'location_id' => fake()->randomElement($locationIds),
                 ],
             ))
-            ->draft()
-            ->create();
+            ->create(['published_at' => null]);
 
         Career::factory(20)
             ->state(new Sequence(

@@ -26,9 +26,8 @@ class TestBlogSeeder extends Seeder
         Blog::factory(10)
             ->withThumbnail()
             ->withCover()
-            ->draft()
             ->recycle(Category::blog()->get())
-            ->create();
+            ->create(['published_at' => null]);
 
         Blog::factory(20)
             ->withThumbnail()

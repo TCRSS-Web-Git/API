@@ -16,9 +16,8 @@ class TestProductAndServiceSeeder extends Seeder
         ProductAndService::factory(10)
             ->withCover()
             ->withFile()
-            ->draft()
             ->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])
-            ->create();
+            ->create(['published_at' => null]);
 
         ProductAndService::factory(20)
             ->withCover()
