@@ -7,7 +7,7 @@ use App\Models\User;
 
 class AwardImagePolicy
 {
-    public function viewAny(User $user): bool
+    public function viewAny(?User $user): bool
     {
         return true;
     }
