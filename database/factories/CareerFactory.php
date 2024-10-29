@@ -38,8 +38,7 @@ class CareerFactory extends Factory
             $career->setTranslation('body', '(th) '.$body, 'th');
             $career->setTranslation('meta_title', $title, 'en');
             $career->setTranslation('meta_title', '(th) '.$title, 'th');
-            $metaDescription = mb_substr($body, 0, 250);
-
+            $metaDescription = mb_substr($body, 0, 150);
             $career->setTranslation('meta_description', $metaDescription, 'en');
             $career->setTranslation('meta_description', '(th) '.$metaDescription, 'th');
             $career->save();

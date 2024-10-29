@@ -38,7 +38,7 @@ class BlogFactory extends Factory
             $blog->setTranslation('body', '(th) '.$body, 'th');
             $blog->setTranslation('meta_title', $title, 'en');
             $blog->setTranslation('meta_title', '(th) '.$title, 'th');
-            $metaDescription = mb_substr($body, 0, 250);
+            $metaDescription = mb_substr($body, 0, 150);
             $blog->setTranslation('meta_description', $metaDescription, 'en');
             $blog->setTranslation('meta_description', '(th) '.$metaDescription, 'th');
             $blog->save();
