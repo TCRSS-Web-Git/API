@@ -23,7 +23,7 @@ class AwardController extends Controller
     {
         Gate::authorize('viewAny', Award::class);
 
-        if (request()->routeIs('public.award-images.index')) {
+        if (request()->routeIs('public.awards.index')) {
             request()->query->add(['status' => AwardStatus::PUBLISHED->value]);
         }
 
