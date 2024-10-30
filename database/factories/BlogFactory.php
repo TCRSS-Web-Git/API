@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Helper\Helper;
+use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,6 +26,20 @@ class BlogFactory extends Factory
         ];
     }
 
+    public function published(): static
+    {
+        return $this->state([
+            'published_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
+        ]);
+    }
+
+    public function draft(): static
+    {
+        return $this->state([
+            'published_at' => $this->faker->randomElement([null, $this->faker->dateTimeBetween('+1 day', '+1 year')]),
+        ]);
+    }
+
     public function configure()
     {
         return $this->afterCreating(function (\App\Models\Blog $blog) {
@@ -36,10 +52,28 @@ class BlogFactory extends Factory
             $blog->setTranslation('body', '(th) '.$body, 'th');
             $blog->setTranslation('meta_title', $title, 'en');
             $blog->setTranslation('meta_title', '(th) '.$title, 'th');
-            $metaDescription = mb_substr($body, 0, 250);
+            $metaDescription = mb_substr($body, 0, 150);
             $blog->setTranslation('meta_description', $metaDescription, 'en');
             $blog->setTranslation('meta_description', '(th) '.$metaDescription, 'th');
             $blog->save();
+        });
+    }
+
+    public function withCover(): static
+    {
+        return $this->afterCreating(function (Blog $blog) {
+            $coverUrl = Helper::getPlaceholderImageUrl($blog->getTranslation('title', 'en'), 1818, 1212);
+            $blog->addMediaFromUrl($coverUrl)
+                ->toMediaCollection(Blog::MEDIA_COLLECTION_COVER);
+        });
+    }
+
+    public function withThumbnail(): static
+    {
+        return $this->afterCreating(function (Blog $blog) {
+            $coverUrl = Helper::getPlaceholderImageUrl($blog->getTranslation('title', 'en'), 886, 572);
+            $blog->addMediaFromUrl($coverUrl)
+                ->toMediaCollection(Blog::MEDIA_COLLECTION_THUMBNAIL);
         });
     }
 }

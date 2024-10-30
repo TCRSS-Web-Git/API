@@ -102,7 +102,7 @@ class TestCareerSeeder extends Seeder
         $departmentIds = Category::where('type', CategoryType::DEPARTMENT)->pluck('id');
         $locationIds = Category::where('type', CategoryType::LOCATION)->pluck('id');
 
-        Career::factory(25)
+        Career::factory(10)
             ->state(new Sequence(
                 fn (Sequence $sequence) => [
                     'type_id' => fake()->randomElement($careerTypeIds),
@@ -110,6 +110,17 @@ class TestCareerSeeder extends Seeder
                     'location_id' => fake()->randomElement($locationIds),
                 ],
             ))
+            ->create(['published_at' => null]);
+
+        Career::factory(20)
+            ->state(new Sequence(
+                fn (Sequence $sequence) => [
+                    'type_id' => fake()->randomElement($careerTypeIds),
+                    'department_id' => fake()->randomElement($departmentIds),
+                    'location_id' => fake()->randomElement($locationIds),
+                ],
+            ))
+            ->published()
             ->create();
     }
 }

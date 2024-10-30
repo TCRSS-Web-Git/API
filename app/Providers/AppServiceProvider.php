@@ -76,7 +76,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Route::bind('blog', function ($value) {
-            return Blog::findByHashOrFail($value);
+            return Blog::where('slug', $value)->first() ?? Blog::findByHashOrFail($value);
         });
 
         Route::bind('category', function ($value) {

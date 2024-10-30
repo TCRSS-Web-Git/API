@@ -242,7 +242,7 @@ class BlogTest extends TestCase
     /**
      * Test the admin can get a blog by ID.
      */
-    public function test_the_admin_can_get_a_blog_by_id(): void
+    public function test_the_admin_can_get_a_blog_by_id_and_by_slug(): void
     {
         // set up
         $this->signInAdmin();
@@ -255,6 +255,14 @@ class BlogTest extends TestCase
         $response->assertOk();
         $response->assertJsonFragment(['id' => $blog->hashid]);
         $response->assertJsonFragment(['title' => $blog->title]);
+
+        // act
+        $response = $this->getJson(route('blogs.show', $blog->slug));
+
+        // assert
+        $response->assertOk();
+        $response->assertJsonFragment(['id' => $blog->hashid]);
+        $response->assertJsonFragment(['title' => $blog->title]);
     }
 
     public function test_the_admin_can_get_a_blog_by_id_with_other_blogs(): void
@@ -262,14 +270,15 @@ class BlogTest extends TestCase
         // set up
         $this->signInAdmin();
         $category = Category::factory()->blog()->create();
-        Blog::factory()->count(2)->create();
+        Blog::factory()->count(2)->create(['published_at' => now()->subMonth()]);
         $blogData = Blog::factory()->for($category)->make()->toArray();
+        [$cover, $thumbnail] = $this->setupImages();
 
         // act
         $this->postJson(route('blogs.store'), [
             'category_id' => $category->hashid,
             'slug' => $blogData['slug'],
-            'published_at' => now()->addMonth(),
+            'published_at' => now()->subMonth(),
             'tags' => ['test'],
             'th' => [
                 'title' => 'ชื่อบทความ',
@@ -282,12 +291,18 @@ class BlogTest extends TestCase
                 'body' => 'Blog content',
                 'meta_title' => 'Blog name',
                 'meta_description' => 'Blog content',
+            ],
+            'cover' => [
+                'path' => $cover['path'],
+            ],
+            'thumbnail' => [
+                'path' => $thumbnail['path'],
             ],
         ])->assertCreated();
         $this->postJson(route('blogs.store'), [
             'category_id' => $category->hashid,
             'slug' => $blogData['slug'],
-            'published_at' => now()->addMonth(),
+            'published_at' => now()->subDay(),
             'tags' => ['test'],
             'th' => [
                 'title' => 'ชื่อบทความ',
@@ -300,6 +315,12 @@ class BlogTest extends TestCase
                 'body' => 'Blog content',
                 'meta_title' => 'Blog name',
                 'meta_description' => 'Blog content',
+            ],
+            'cover' => [
+                'path' => $cover['path'],
+            ],
+            'thumbnail' => [
+                'path' => $thumbnail['path'],
             ],
         ])->assertCreated();
 
@@ -320,13 +341,13 @@ class BlogTest extends TestCase
         $category = Category::factory()->blog()->create();
         $tagA = Tag::factory()->create();
         $tagB = Tag::factory()->create();
-        $blogA = Blog::factory()->for($category)->create(['created_at' => '2024-03-01']);
-        $blogB = Blog::factory()->for($category)->create(['created_at' => '2024-03-02']);
-        $blogC = Blog::factory()->for($category)->create(['created_at' => '2024-03-03']);
+        $blogA = Blog::factory()->for($category)->create(['created_at' => '2024-03-01', 'published_at' => now()->subMonth()]);
+        $blogB = Blog::factory()->for($category)->create(['created_at' => '2024-03-02', 'published_at' => now()->subMonth()]);
+        $blogC = Blog::factory()->for($category)->create(['created_at' => '2024-03-03', 'published_at' => now()->subMonth()]);
         $blogA->syncTags([$tagA->name]);
         $blogB->syncTags([$tagA->name]);
         $blogC->syncTags([$tagA->name]);
-        $blogD = Blog::factory()->for($category)->create(['created_at' => '2024-03-04']);
+        $blogD = Blog::factory()->for($category)->create(['created_at' => '2024-03-04', 'published_at' => now()->subMonth()]);
         $blogD->syncTags([$tagB->name]);
 
         // act

@@ -13,9 +13,16 @@ class TestProductAndServiceSeeder extends Seeder
      */
     public function run(): void
     {
+        ProductAndService::factory(10)
+            ->withCover()
+            ->withFile()
+            ->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])
+            ->create(['published_at' => null]);
+
         ProductAndService::factory(20)
             ->withCover()
             ->withFile()
+            ->published()
             ->sequence(fn (Sequence $sequence) => ['order' => $sequence->index])
             ->create();
     }

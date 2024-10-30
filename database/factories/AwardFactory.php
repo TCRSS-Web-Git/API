@@ -26,7 +26,7 @@ class AwardFactory extends Factory
     public function published(): static
     {
         return $this->state([
-            'published_at' => now(),
+            'published_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ]);
     }
 

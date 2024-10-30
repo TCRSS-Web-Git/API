@@ -26,6 +26,20 @@ class CareerFactory extends Factory
         ];
     }
 
+    public function published(): static
+    {
+        return $this->state([
+            'published_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
+        ]);
+    }
+
+    public function draft(): static
+    {
+        return $this->state([
+            'published_at' => $this->faker->randomElement([null, $this->faker->dateTimeBetween('+1 day', '+1 year')]),
+        ]);
+    }
+
     public function configure()
     {
         return $this->afterCreating(function (Career $career) {
@@ -38,8 +52,7 @@ class CareerFactory extends Factory
             $career->setTranslation('body', '(th) '.$body, 'th');
             $career->setTranslation('meta_title', $title, 'en');
             $career->setTranslation('meta_title', '(th) '.$title, 'th');
-            $metaDescription = mb_substr($body, 0, 250);
-
+            $metaDescription = mb_substr($body, 0, 150);
             $career->setTranslation('meta_description', $metaDescription, 'en');
             $career->setTranslation('meta_description', '(th) '.$metaDescription, 'th');
             $career->save();
