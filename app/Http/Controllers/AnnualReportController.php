@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\ReorderAnnualReport;
 use App\Actions\SaveAnnualReport;
+use App\Enums\AnnualReportStatus;
 use App\Filters\AnnualReportFilter;
 use App\Http\Requests\CreateOrUpdateAnnualReportRequest;
 use App\Http\Requests\ReorderAnnualReportRequest;
@@ -20,6 +21,10 @@ class AnnualReportController extends Controller
      */
     public function index(AnnualReportFilter $filter)
     {
+        if (request()->routeIs('public.annual-reports.index')) {
+            request()->query->add(['status' => AnnualReportStatus::PUBLISHED->value]);
+        }
+
         $count = AnnualReport::count();
 
         return AnnualReportResource::collection(AnnualReport::with(['latestAudit.user'])->filter($filter)->paginate($this->getPerPage($count, $count)));
