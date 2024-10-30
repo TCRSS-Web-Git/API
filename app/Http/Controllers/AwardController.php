@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\ReorderAward;
 use App\Actions\SaveAward;
+use App\Enums\AwardStatus;
 use App\Filters\AwardFilter;
 use App\Http\Requests\CreateOrUpdateAwardRequest;
 use App\Http\Requests\ReorderAwardRequest;
@@ -21,6 +22,10 @@ class AwardController extends Controller
     public function index(AwardFilter $filter)
     {
         Gate::authorize('viewAny', Award::class);
+
+        if (request()->routeIs('public.awards.index')) {
+            request()->query->add(['status' => AwardStatus::PUBLISHED->value]);
+        }
 
         $count = Award::count();
 

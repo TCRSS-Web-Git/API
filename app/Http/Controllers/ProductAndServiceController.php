@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\ReorderProductAndService;
 use App\Actions\SaveProductAndService;
+use App\Enums\ProductAndServiceStatus;
 use App\Filters\ProductAndServiceFilter;
 use App\Http\Requests\CreateOrUpdateProductAndServiceRequest;
 use App\Http\Requests\ReorderProductAndServiceRequest;
@@ -20,6 +21,10 @@ class ProductAndServiceController extends Controller
      */
     public function index(ProductAndServiceFilter $filter)
     {
+        if (request()->routeIs('public.products-and-services.index')) {
+            request()->query->add(['status' => ProductAndServiceStatus::PUBLISHED->value]);
+        }
+
         $count = ProductAndService::count();
 
         return ProductAndServiceResource::collection(ProductAndService::with(['latestAudit.user'])->filter($filter)->paginate($this->getPerPage($count, $count)));
