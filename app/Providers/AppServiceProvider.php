@@ -76,7 +76,9 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Route::bind('blog', function ($value) {
-            return Blog::where('slug', $value)->first() ?? Blog::findByHashOrFail($value);
+            $query = Blog::when(request()->routeIs('public.blogs.show'), fn ($q) => $q->where('published_at', '<=', now()));
+
+            return $query->clone()->where('slug', $value)->first() ?? $query->clone()->findOrFail(Blog::decodeHash($value));
         });
 
         Route::bind('category', function ($value) {
@@ -84,7 +86,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Route::bind('career', function ($value) {
-            return Career::findByHashOrFail($value);
+            return Career::when(request()->routeIs('public.careers.show'), fn ($q) => $q->where('published_at', '<=', now()))->findOrFail(Career::decodeHash($value));
         });
 
         Route::bind('district', function ($value) {
