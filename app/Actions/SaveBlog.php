@@ -40,7 +40,6 @@ class SaveBlog
     {
         $this->blog->published_at = $data['published_at'] ?? null;
         $this->blog->slug = $data['slug'] ?? null;
-        $this->blog->category_id = $data['category_id'] ?? null;
     }
 
     protected function processBodyImages(array $data): array
@@ -48,37 +47,6 @@ class SaveBlog
         $imagesBody = $data['body_images'] ?? [];
 
         return $imagesBody ? $this->saveImageDescription($data, $imagesBody) : [];
-    }
-
-    protected function setTranslations(array $data, array $usedImageBody): void
-    {
-        $supportedLanguages = config('app.supported_locales');
-
-        foreach ($supportedLanguages as $lang) {
-            if (! isset($data[$lang])) {
-                continue;
-            }
-
-            $body = $data[$lang]['body'] ?? null;
-            if ($body) {
-                $body = $this->updateDescriptionImageUrl($body, $usedImageBody);
-            }
-
-            $this->blog->setTranslation('title', $data[$lang]['title'] ?? null, $lang);
-            $this->blog->setTranslation('body', $body ? Purifier::clean($body) : null, $lang);
-            $this->blog->setTranslation('meta_title', $data[$lang]['meta_title'] ?? null, $lang);
-            $this->blog->setTranslation('meta_description', $data[$lang]['meta_description'] ?? null, $lang);
-        }
-    }
-
-    protected function saveMedia(array $data): void
-    {
-        if (! empty($data['thumbnail']) && empty($data['thumbnail']['id'])) {
-            $this->saveImageFromTempToMedia($data['thumbnail'], Blog::MEDIA_COLLECTION_THUMBNAIL);
-        }
-        if (! empty($data['cover']) && empty($data['cover']['id'])) {
-            $this->saveImageFromTempToMedia($data['cover'], Blog::MEDIA_COLLECTION_COVER);
-        }
     }
 
     protected function saveImageDescription(array $data, array $bodyImages): array
@@ -141,6 +109,36 @@ class SaveBlog
         return $usedDescriptionImages;
     }
 
+    protected function saveImageFromTempToMedia(array $file, string $collection): ?Media
+    {
+        if (! empty($file) && empty($file['id'])) {
+            return (new SaveTemporaryMedia)->saveFileFromTemp($this->blog, $collection, $file);
+        }
+
+        return null;
+    }
+
+    protected function setTranslations(array $data, array $usedImageBody): void
+    {
+        $supportedLanguages = config('app.supported_locales');
+
+        foreach ($supportedLanguages as $lang) {
+            if (! isset($data[$lang])) {
+                continue;
+            }
+
+            $body = $data[$lang]['body'] ?? null;
+            if ($body) {
+                $body = $this->updateDescriptionImageUrl($body, $usedImageBody);
+            }
+
+            $this->blog->setTranslation('title', $data[$lang]['title'] ?? null, $lang);
+            $this->blog->setTranslation('body', $body ? Purifier::clean($body) : null, $lang);
+            $this->blog->setTranslation('meta_title', $data[$lang]['meta_title'] ?? null, $lang);
+            $this->blog->setTranslation('meta_description', $data[$lang]['meta_description'] ?? null, $lang);
+        }
+    }
+
     protected function updateDescriptionImageUrl(string $description, array $usedDescriptionImages): ?string
     {
         if (! $description) {
@@ -163,12 +161,13 @@ class SaveBlog
         return $description;
     }
 
-    protected function saveImageFromTempToMedia(array $file, string $collection): ?Media
+    protected function saveMedia(array $data): void
     {
-        if (! empty($file) && empty($file['id'])) {
-            return (new SaveTemporaryMedia)->saveFileFromTemp($this->blog, $collection, $file);
+        if (! empty($data['thumbnail']) && empty($data['thumbnail']['id'])) {
+            $this->saveImageFromTempToMedia($data['thumbnail'], Blog::MEDIA_COLLECTION_THUMBNAIL);
         }
-
-        return null;
+        if (! empty($data['cover']) && empty($data['cover']['id'])) {
+            $this->saveImageFromTempToMedia($data['cover'], Blog::MEDIA_COLLECTION_COVER);
+        }
     }
 }

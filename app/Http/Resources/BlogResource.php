@@ -41,7 +41,6 @@ class BlogResource extends JsonResource
 
                 return $images->count() ? new MediaResourceCollection($images, Blog::MEDIA_COLLECTION_BODY_PHOTO.'_optimized') : [];
             }),
-            'category' => $this->category ? new CategoryResource($this->category) : null,
             'slug' => $this->slug,
             'title' => $this->getTranslation('title'),
             'body' => $this->when(! $request->routeIs(['blogs.index']), $this->getTranslation('body')),

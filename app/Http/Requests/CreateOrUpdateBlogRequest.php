@@ -2,9 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\CategoryType;
-use App\Models\Category;
 use Carbon\Carbon;
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -21,7 +20,7 @@ class CreateOrUpdateBlogRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
@@ -29,7 +28,6 @@ class CreateOrUpdateBlogRequest extends FormRequest
 
         return [
             'slug' => ['nullable', 'string', 'max:255', $requiredIfPublished],
-            'category_id' => ['nullable', Rule::exists('categories', 'id')->where('type', CategoryType::BLOG), $requiredIfPublished],
             'published_at' => ['nullable', 'date', $requiredIfPublished],
             'tags' => ['array'],
             'tags.*' => ['string', 'max:255'],
@@ -63,17 +61,9 @@ class CreateOrUpdateBlogRequest extends FormRequest
         ];
     }
 
-    protected function prepareForValidation(): void
-    {
-        $this->merge([
-            'category_id' => Category::decodeHash($this->category_id),
-        ]);
-    }
-
     public function attributes(): array
     {
         return [
-            'category_id' => __('validation.attributes.category'),
             'slug' => __('validation.attributes.url_slug'),
 
             'th' => __('validation.attributes.th'),

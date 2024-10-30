@@ -24,7 +24,7 @@ class BlogController extends Controller
             request()->query->add(['status' => BlogStatus::PUBLISHED->value]);
         }
 
-        return BlogResource::collection(Blog::with(['category', 'latestAudit.user', 'tags'])->filter($filter)->paginate($this->getPerPage()));
+        return BlogResource::collection(Blog::with(['latestAudit.user', 'tags'])->filter($filter)->paginate($this->getPerPage()));
     }
 
     /**
@@ -54,14 +54,14 @@ class BlogController extends Controller
             $otherBlogs = Blog::whereHas('tags', function (Builder $query) use ($blog) {
                 $tagIds = collect($blog->tags)->pluck('id');
                 $query->whereIn('tags.id', $tagIds);
-            })->with(['category', 'latestAudit.user', 'tags'])
+            })->with(['latestAudit.user', 'tags'])
                 ->whereNot('id', $blog->id)
                 ->where('published_at', '<=', now())
                 ->orderByDesc('created_at')
                 ->limit(3)->get();
             if ($otherBlogs->count() < 3) {
                 $blogCount = 3 - $otherBlogs->count();
-                $missingBlog = Blog::with(['category', 'latestAudit.user', 'tags'])
+                $missingBlog = Blog::with(['latestAudit.user', 'tags'])
                     ->whereNot('id', $blog->id)
                     ->where('published_at', '<=', now())
                     ->orderByDesc('created_at')

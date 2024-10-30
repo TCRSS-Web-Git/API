@@ -3,7 +3,6 @@
 namespace App\Filters;
 
 use App\Models\Blog;
-use App\Models\Category;
 
 class BlogFilter extends QueryFilter
 {
@@ -11,7 +10,6 @@ class BlogFilter extends QueryFilter
         'id',
         'title',
         'body',
-        'category_id',
         'meta_title',
         'meta_description',
         'created_at',
@@ -84,23 +82,6 @@ class BlogFilter extends QueryFilter
         }
 
         return $this->builder;
-    }
-
-    public function category_id($value)
-    {
-        $categoryIds = explode(',', $value);
-        $categoryIds = array_map(static function ($id) {
-            return Category::decodeHash(trim($id));
-        }, $categoryIds);
-        $categoryIds = array_filter($categoryIds, static function ($id) {
-            return $id > 0;
-        });
-
-        if (empty($categoryIds)) {
-            return $this->builder;
-        }
-
-        return $this->builder->whereIn('category_id', $categoryIds);
     }
 
     public function search($value)
