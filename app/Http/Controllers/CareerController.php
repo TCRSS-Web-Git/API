@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actions\SaveCareer;
+use App\Enums\CareerStatus;
 use App\Filters\CareerFilter;
 use App\Http\Requests\CreateOrUpdateCareerRequest;
 use App\Http\Resources\CareerResource;
@@ -18,6 +19,10 @@ class CareerController extends Controller
      */
     public function index(CareerFilter $filter)
     {
+        if (request()->routeIs('public.careers.index')) {
+            request()->query->add(['status' => CareerStatus::PUBLISHED->value]);
+        }
+
         return CareerResource::collection(Career::with(['type', 'location', 'department', 'latestAudit.user'])->filter($filter)->paginate($this->getPerPage()));
     }
 
