@@ -11,7 +11,6 @@ use App\Traits\HasTranslations;
 use App\Traits\LatestAudit;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use OwenIt\Auditing\Contracts\Auditable;
 use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
@@ -105,10 +104,5 @@ class Blog extends Model implements Auditable, HasMedia
         }
 
         return $translations;
-    }
-
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class);
     }
 }

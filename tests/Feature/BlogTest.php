@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Enums\BlogStatus;
 use App\Models\Blog;
-use App\Models\Category;
 use App\Models\Media;
 use App\Models\Tag;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -37,14 +36,12 @@ class BlogTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $category = Category::factory()->blog()->create();
-        $blogData = Blog::factory()->for($category)->make()->toArray();
+        $blogData = Blog::factory()->make()->toArray();
 
         [$cover, $thumbnail] = $this->setupImages();
 
         // act
         $response = $this->postJson(route('blogs.store'), [
-            'category_id' => $category->hashid,
             'slug' => $blogData['slug'],
             'published_at' => now()->subDay(),
             'th' => [
@@ -110,7 +107,6 @@ class BlogTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $category = Category::factory()->blog()->create();
 
         // act
         $response = $this->postJson(route('blogs.store'), [
@@ -123,62 +119,16 @@ class BlogTest extends TestCase
     }
 
     /**
-     * Test the admin can sort blogs.
-     */
-    public function test_the_admin_can_sort_blogs(): void
-    {
-        // set up
-        $this->signInAdmin();
-        $categoryA = Category::factory()->blog()->create();
-        $categoryA->setTranslation('name', 'A', 'en');
-        $categoryA->setTranslation('name', 'ก', 'th');
-        $categoryA->save();
-        $categoryB = Category::factory()->blog()->create();
-        $categoryB->setTranslation('name', 'B', 'en');
-        $categoryB->setTranslation('name', 'ข', 'th');
-        $categoryB->save();
-        $categoryC = Category::factory()->blog()->create();
-        $categoryC->setTranslation('name', 'C', 'en');
-        $categoryC->setTranslation('name', 'ค', 'th');
-        $categoryC->save();
-        $blog1 = Blog::factory()->create(['category_id' => $categoryA->id]);
-        $blog2 = Blog::factory()->create(['category_id' => $categoryB->id]);
-        $blog3 = Blog::factory()->create(['category_id' => $categoryC->id]);
-
-        // act
-        $response = $this->getJson(route('blogs.index', ['sort' => '-category_id']));
-
-        // assert
-        $response->assertOk();
-        $result = $response->json('data');
-        $this->assertEquals($blog3->hashid, $result[0]['id']);
-        $this->assertEquals($blog2->hashid, $result[1]['id']);
-        $this->assertEquals($blog1->hashid, $result[2]['id']);
-
-        // act
-        $response = $this->getJson(route('blogs.index', ['sort' => 'category_id']));
-
-        // assert
-        $response->assertOk();
-        $result = $response->json('data');
-        $this->assertEquals($blog1->hashid, $result[0]['id']);
-        $this->assertEquals($blog2->hashid, $result[1]['id']);
-        $this->assertEquals($blog3->hashid, $result[2]['id']);
-    }
-
-    /**
      * Test the admin can create a blog.
      */
     public function test_the_admin_can_create_a_blog_for_future_published(): void
     {
         // set up
         $this->signInAdmin();
-        $category = Category::factory()->blog()->create();
-        $blogData = Blog::factory()->for($category)->make()->toArray();
+        $blogData = Blog::factory()->make()->toArray();
 
         // act
         $response = $this->postJson(route('blogs.store'), [
-            'category_id' => $category->hashid,
             'slug' => $blogData['slug'],
             'published_at' => now()->addMonth(),
             'th' => [
@@ -208,12 +158,10 @@ class BlogTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $category = Category::factory()->blog()->create();
-        $blogData = Blog::factory()->for($category)->make()->toArray();
+        $blogData = Blog::factory()->make()->toArray();
 
         // act
         $response = $this->postJson(route('blogs.store'), [
-            'category_id' => $category->hashid,
             'slug' => $blogData['slug'],
             'published_at' => null,
             'th' => [
@@ -269,14 +217,12 @@ class BlogTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $category = Category::factory()->blog()->create();
         Blog::factory()->count(2)->create(['published_at' => now()->subMonth()]);
-        $blogData = Blog::factory()->for($category)->make()->toArray();
+        $blogData = Blog::factory()->make()->toArray();
         [$cover, $thumbnail] = $this->setupImages();
 
         // act
         $this->postJson(route('blogs.store'), [
-            'category_id' => $category->hashid,
             'slug' => $blogData['slug'],
             'published_at' => now()->subMonth(),
             'tags' => ['test'],
@@ -300,7 +246,6 @@ class BlogTest extends TestCase
             ],
         ])->assertCreated();
         $this->postJson(route('blogs.store'), [
-            'category_id' => $category->hashid,
             'slug' => $blogData['slug'],
             'published_at' => now()->subDay(),
             'tags' => ['test'],
@@ -338,16 +283,16 @@ class BlogTest extends TestCase
     public function test_user_can_get_a_blog_by_id_with_other_blogs(): void
     {
         // set up
-        $category = Category::factory()->blog()->create();
+
         $tagA = Tag::factory()->create();
         $tagB = Tag::factory()->create();
-        $blogA = Blog::factory()->for($category)->create(['created_at' => '2024-03-01', 'published_at' => now()->subMonth()]);
-        $blogB = Blog::factory()->for($category)->create(['created_at' => '2024-03-02', 'published_at' => now()->subMonth()]);
-        $blogC = Blog::factory()->for($category)->create(['created_at' => '2024-03-03', 'published_at' => now()->subMonth()]);
+        $blogA = Blog::factory()->create(['created_at' => '2024-03-01', 'published_at' => now()->subMonth()]);
+        $blogB = Blog::factory()->create(['created_at' => '2024-03-02', 'published_at' => now()->subMonth()]);
+        $blogC = Blog::factory()->create(['created_at' => '2024-03-03', 'published_at' => now()->subMonth()]);
         $blogA->syncTags([$tagA->name]);
         $blogB->syncTags([$tagA->name]);
         $blogC->syncTags([$tagA->name]);
-        $blogD = Blog::factory()->for($category)->create(['created_at' => '2024-03-04', 'published_at' => now()->subMonth()]);
+        $blogD = Blog::factory()->create(['created_at' => '2024-03-04', 'published_at' => now()->subMonth()]);
         $blogD->syncTags([$tagB->name]);
 
         // act
@@ -417,13 +362,11 @@ class BlogTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $category = Category::factory()->blog()->create();
         $blog = Blog::factory()->create();
         $updatedData = Blog::factory()->make()->toArray();
 
         // act
         $response = $this->putJson(route('blogs.update', $blog), [
-            'category_id' => $category->hashid,
             'slug' => $updatedData['slug'],
             'published_at' => now()->addMonth(),
             'th' => [
@@ -452,7 +395,6 @@ class BlogTest extends TestCase
     {
         // set up
         $this->signInAdmin();
-        $category = Category::factory()->blog()->create();
         $blog = Blog::factory()->create();
         $updatedData = Blog::factory()->make()->toArray();
 
@@ -468,7 +410,6 @@ class BlogTest extends TestCase
 
         // act
         $response = $this->putJson(route('blogs.update', $blog), [
-            'category_id' => $category->hashid,
             'slug' => $updatedData['slug'],
             'published_at' => now()->addMonth(),
             'th' => [

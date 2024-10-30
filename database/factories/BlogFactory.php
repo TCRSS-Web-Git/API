@@ -4,11 +4,10 @@ namespace Database\Factories;
 
 use App\Helper\Helper;
 use App\Models\Blog;
-use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Blog>
+ * @extends Factory<Blog>
  */
 class BlogFactory extends Factory
 {
@@ -20,7 +19,6 @@ class BlogFactory extends Factory
     public function definition(): array
     {
         return [
-            'category_id' => Category::factory()->blog(),
             'slug' => $this->faker->slug(),
             'published_at' => $this->faker->randomElement([null, $this->faker->dateTimeBetween('-1 year', 'now')]),
         ];
@@ -42,7 +40,7 @@ class BlogFactory extends Factory
 
     public function configure()
     {
-        return $this->afterCreating(function (\App\Models\Blog $blog) {
+        return $this->afterCreating(function (Blog $blog) {
             $title = $this->faker->sentence();
             $body = $this->faker->paragraphs(3, true);
 
