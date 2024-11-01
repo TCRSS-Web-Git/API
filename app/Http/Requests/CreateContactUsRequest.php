@@ -38,7 +38,7 @@ class CreateContactUsRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'name' => __('validation.attributes.first_name_th'),
+            'name' => __('validation.attributes.first_name'),
             'last_name' => __('validation.attributes.last_name'),
             'phone' => __('validation.attributes.phone'),
             'email' => __('validation.attributes.email'),

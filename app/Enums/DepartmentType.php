@@ -28,4 +28,14 @@ enum DepartmentType: string
             self::PROCUREMENT => 'แผนกการจัดซื้อจัดจ้าง',
         };
     }
+
+    public function email(): string
+    {
+        return match ($this) {
+            self::CUSTOMER_SERVICE => 'customer_service@tcrss.com',
+            self::SALES_AND_MARKETING => 'sales_marketing@tcrss.com',
+            self::HR_AND_RECRUIT => 'hr_recruit@tcrss.com',
+            self::PROCUREMENT => 'procurement_dept@tcrss.com',
+        };
+    }
 }

@@ -22,7 +22,7 @@ class JobApplicationController extends Controller
         })
             ->get();
 
-        Mail::to($users)->queue(new JobApplication($career, $data));
+        Mail::to(config('tcrss.mail_for_job_application'))->queue(new JobApplication($career, $data));
 
         return response(null, Response::HTTP_CREATED);
     }

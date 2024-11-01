@@ -11,7 +11,6 @@ use App\Models\Career;
 use App\Models\District;
 use App\Models\Province;
 use App\Models\Subdistrict;
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Mail;
@@ -23,9 +22,6 @@ class JobApplicationTest extends TestCase
 
     public function test_user_can_submit_job_application_form(): void
     {
-        $superAdmin = User::factory()->superAdmin()->create();
-        $admin = User::factory()->admin()->create();
-
         $career = Career::factory()->create();
         $province = Province::factory()->create();
         $district = District::factory()->create();
@@ -93,9 +89,8 @@ class JobApplicationTest extends TestCase
         ]);
 
         $response->assertStatus(201);
-        Mail::assertQueued(JobApplication::class, function (JobApplication $mail) use ($superAdmin, $admin, $firstNameTH, $lastNameTH) {
-            return $mail->hasTo($superAdmin->email) &&
-                $mail->hasTo($admin->email) &&
+        Mail::assertQueued(JobApplication::class, function (JobApplication $mail) use ($firstNameTH, $lastNameTH) {
+            return $mail->hasTo(config('tcrss.mail_for_job_application')) &&
                 $mail->hasSubject("Job Application from $firstNameTH $lastNameTH");
         });
     }
