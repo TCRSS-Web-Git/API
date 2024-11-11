@@ -1,0 +1,2976 @@
+openapi: 3.0.3
+info:
+  title: 'TCRSS API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'https://api.tcrss.test'
+paths:
+  /api/v1/login:
+    post:
+      summary: 'Login (session)'
+      operationId: loginsession
+      description: 'Authenticates the user'
+      parameters: []
+      responses: {  }
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นอีเมล.'
+                  example: crona.dangelo@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: 'm\VIk387Rw@&1ZOO}'
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/logout:
+    post:
+      summary: 'Logout (session)'
+      operationId: logoutsession
+      description: 'Log the user out of the application'
+      parameters: []
+      responses: {  }
+      tags:
+        - Authentication
+      security: []
+  /api/v1/blogs:
+    get:
+      summary: 'Get all blogs'
+      operationId: getAllBlogs
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: blog_Z4DX835P3VNLBK
+                      thumbnail: null
+                      category:
+                        id: category_V2Y3EMY0P815R9
+                        name: บทความ
+                        slug: articles
+                      slug: eum-repellat-quis-placeat-rerum-non-quis-unde
+                      title: '(th) Rem dolores aspernatur in.'
+                      meta_title: '(th) Rem dolores aspernatur in.'
+                      meta_description: "(th) Sunt aspernatur quibusdam odit ut vero vel cupiditate. Ducimus ex impedit laudantium voluptatum qui dolor placeat. Rerum inventore sit sint expedita repellat qui sed. Veniam architecto aliquam amet consequuntur ea accusamus eveniet.\n\nEius et tenetur"
+                      status: published
+                      tags: []
+                      updated_by: null
+                      published_at: '2023-12-13T05:56:06.000000Z'
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: blog_K6JYM3BW3XBQZ8
+                      thumbnail: null
+                      category:
+                        id: category_V2Y3EMY0P815R9
+                        name: บทความ
+                        slug: articles
+                      slug: officia-non-qui-voluptas
+                      title: '(th) Neque error deleniti aut autem voluptas.'
+                      meta_title: '(th) Neque error deleniti aut autem voluptas.'
+                      meta_description: "(th) Culpa eum dolorem ut aut. Temporibus ipsam corrupti est ipsum animi. Officia quis et voluptas. Voluptatem fugit veniam quos sequi.\n\nEst quo dignissimos magni et est. Est corrupti quod facere eveniet alias enim quam totam. Et soluta reiciendis molesti"
+                      status: published
+                      tags: []
+                      updated_by: null
+                      published_at: '2024-04-11T10:48:32.000000Z'
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: blog_BW8JN7KB7Z94KQ
+                      thumbnail: null
+                      category:
+                        id: category_BGN90M7EDVZRQ1
+                        name: โปรโมชั่น
+                        slug: promotions
+                      slug: qui-ut-ullam-culpa-soluta-illo-accusamus
+                      title: '(th) Blanditiis eaque facere qui quia fuga ea atque.'
+                      meta_title: '(th) Blanditiis eaque facere qui quia fuga ea atque.'
+                      meta_description: "(th) Ad maiores dolorem omnis dignissimos. Quasi in explicabo adipisci soluta. Sequi quibusdam numquam tenetur quo et iste nostrum.\n\nTenetur a eum fugiat. Voluptatem eum distinctio iure doloremque. Ad ut consectetur suscipit neque atque hic velit.\n\nPraese"
+                      status: draft
+                      tags: []
+                      updated_by: null
+                      published_at: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: blog_JVK923Y53YM1P6
+                      thumbnail: null
+                      category:
+                        id: category_BGN90M7EDVZRQ1
+                        name: โปรโมชั่น
+                        slug: promotions
+                      slug: vitae-assumenda-explicabo-aut-sapiente-similique-totam-fugit
+                      title: '(th) Perferendis doloremque nobis aspernatur totam asperiores architecto.'
+                      meta_title: '(th) Perferendis doloremque nobis aspernatur totam asperiores architecto.'
+                      meta_description: "(th) Est qui voluptatem voluptate magni tempora enim. Omnis tempore consectetur eum quidem ut consequuntur. Dolores ea minus qui perspiciatis repellendus quas voluptatem.\n\nQuia dignissimos unde quibusdam earum dolor ab voluptatem deserunt. Officiis exerci"
+                      status: draft
+                      tags: []
+                      updated_by: null
+                      published_at: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: blog_XWPLZ3W03652D8
+                      thumbnail: null
+                      category:
+                        id: category_BGN90M7EDVZRQ1
+                        name: โปรโมชั่น
+                        slug: promotions
+                      slug: est-hic-officiis-facere-explicabo-ut-aut-aut
+                      title: '(th) Accusamus dignissimos reiciendis nemo.'
+                      meta_title: '(th) Accusamus dignissimos reiciendis nemo.'
+                      meta_description: "(th) Ut ducimus eum in quos. Quis qui voluptate sed non tempore voluptas sequi. Cum est et sunt deserunt reiciendis eveniet facere.\n\nEt odit incidunt omnis quas eos. Neque ullam sit ut dolorum ipsa. Quos ipsam ducimus velit velit non nemo perspiciatis. Fa"
+                      status: published
+                      tags: []
+                      updated_by: null
+                      published_at: '2024-09-22T08:58:09.000000Z'
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: blog_1D0VE7ZMRNLBYG
+                      thumbnail: null
+                      category:
+                        id: category_BGN90M7EDVZRQ1
+                        name: โปรโมชั่น
+                        slug: promotions
+                      slug: et-minus-voluptate-deleniti
+                      title: '(th) Voluptatibus et consequatur nam culpa nam sit sequi.'
+                      meta_title: '(th) Voluptatibus et consequatur nam culpa nam sit sequi.'
+                      meta_description: "(th) Perferendis nulla magnam corrupti non. Quae eos totam quam. Ipsum aut sint porro magni. Explicabo laudantium unde id itaque.\n\nNemo reprehenderit consequuntur soluta asperiores consequatur. Nihil non quo laboriosam est eius sequi illo. Et ea unde quis"
+                      status: draft
+                      tags: []
+                      updated_by: null
+                      published_at: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: blog_V1Q9J7423K8XBG
+                      thumbnail: null
+                      category:
+                        id: category_BGN90M7EDVZRQ1
+                        name: โปรโมชั่น
+                        slug: promotions
+                      slug: esse-et-omnis-similique-dolorum-repellat-ut-quia-velit
+                      title: '(th) Quibusdam aut quis dicta eveniet vero.'
+                      meta_title: '(th) Quibusdam aut quis dicta eveniet vero.'
+                      meta_description: "(th) Qui unde suscipit id voluptatem voluptatem. Qui facere aliquid ipsam. Iusto eligendi provident error enim molestias. Nemo omnis rerum error possimus.\n\nEst delectus iure voluptates incidunt. Illum assumenda et totam sed fugit sed voluptatem. Dolore di"
+                      status: published
+                      tags: []
+                      updated_by: null
+                      published_at: '2024-02-05T00:03:19.000000Z'
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: blog_M9D6P7V27BZEX5
+                      thumbnail: null
+                      category:
+                        id: category_V2Y3EMY0P815R9
+                        name: บทความ
+                        slug: articles
+                      slug: sit-soluta-doloribus-assumenda-laudantium
+                      title: '(th) Occaecati rem et voluptatem impedit nam.'
+                      meta_title: '(th) Occaecati rem et voluptatem impedit nam.'
+                      meta_description: "(th) Vitae rem vitae deserunt repudiandae sunt. Delectus accusamus aperiam vero earum.\n\nVeniam provident facere aut dolore nobis rem voluptas quidem. Deleniti totam ut id exercitationem dolorem illo voluptate. Doloremque est eos et.\n\nQuia quam nam ut blan"
+                      status: draft
+                      tags: []
+                      updated_by: null
+                      published_at: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: blog_WV8J6RP8RXE2BM
+                      thumbnail: null
+                      category:
+                        id: category_V2Y3EMY0P815R9
+                        name: บทความ
+                        slug: articles
+                      slug: animi-itaque-ab-voluptatem-voluptates-sequi-beatae-non-nemo
+                      title: '(th) Quam tempore sit enim voluptatum perferendis qui.'
+                      meta_title: '(th) Quam tempore sit enim voluptatum perferendis qui.'
+                      meta_description: "(th) Et voluptas voluptatem eveniet sed architecto repellat. Placeat quae voluptatibus quas vel praesentium. Et beatae expedita quaerat ipsam.\n\nDolores adipisci totam earum tenetur velit ipsam cum. Voluptatem voluptatem ea rerum at architecto. Qui quidem"
+                      status: published
+                      tags: []
+                      updated_by: null
+                      published_at: '2023-12-09T18:10:05.000000Z'
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: blog_ZK6LYR6QR9MP48
+                      thumbnail: null
+                      category:
+                        id: category_BGN90M7EDVZRQ1
+                        name: โปรโมชั่น
+                        slug: promotions
+                      slug: ab-officia-labore-qui-sunt-repellendus-quibusdam-impedit-odit
+                      title: '(th) Placeat ea qui rerum corrupti rem.'
+                      meta_title: '(th) Placeat ea qui rerum corrupti rem.'
+                      meta_description: "(th) Fuga nostrum a voluptatum libero veniam corrupti. Totam et sint similique excepturi fugiat est tempora. Et beatae praesentium enim dolorem.\n\nInventore necessitatibus rerum ratione id et quisquam ut. Rerum fuga labore consequuntur qui ut quas. Dolor n"
+                      status: draft
+                      tags: []
+                      updated_by: null
+                      published_at: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                  links:
+                    first: 'https://api.tcrss.test/api/v1/blogs?page=1'
+                    last: 'https://api.tcrss.test/api/v1/blogs?page=2'
+                    prev: null
+                    next: 'https://api.tcrss.test/api/v1/blogs?page=2'
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 2
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; ก่อนหน้า'
+                        active: false
+                      -
+                        url: 'https://api.tcrss.test/api/v1/blogs?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: 'https://api.tcrss.test/api/v1/blogs?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'https://api.tcrss.test/api/v1/blogs?page=2'
+                        label: 'ถัดไป &raquo;'
+                        active: false
+                    path: 'https://api.tcrss.test/api/v1/blogs'
+                    per_page: 10
+                    to: 10
+                    total: 20
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: blog_Z4DX835P3VNLBK
+                        thumbnail: null
+                        category:
+                          id: category_V2Y3EMY0P815R9
+                          name: บทความ
+                          slug: articles
+                        slug: eum-repellat-quis-placeat-rerum-non-quis-unde
+                        title: '(th) Rem dolores aspernatur in.'
+                        meta_title: '(th) Rem dolores aspernatur in.'
+                        meta_description: "(th) Sunt aspernatur quibusdam odit ut vero vel cupiditate. Ducimus ex impedit laudantium voluptatum qui dolor placeat. Rerum inventore sit sint expedita repellat qui sed. Veniam architecto aliquam amet consequuntur ea accusamus eveniet.\n\nEius et tenetur"
+                        status: published
+                        tags: []
+                        updated_by: null
+                        published_at: '2023-12-13T05:56:06.000000Z'
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: blog_K6JYM3BW3XBQZ8
+                        thumbnail: null
+                        category:
+                          id: category_V2Y3EMY0P815R9
+                          name: บทความ
+                          slug: articles
+                        slug: officia-non-qui-voluptas
+                        title: '(th) Neque error deleniti aut autem voluptas.'
+                        meta_title: '(th) Neque error deleniti aut autem voluptas.'
+                        meta_description: "(th) Culpa eum dolorem ut aut. Temporibus ipsam corrupti est ipsum animi. Officia quis et voluptas. Voluptatem fugit veniam quos sequi.\n\nEst quo dignissimos magni et est. Est corrupti quod facere eveniet alias enim quam totam. Et soluta reiciendis molesti"
+                        status: published
+                        tags: []
+                        updated_by: null
+                        published_at: '2024-04-11T10:48:32.000000Z'
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: blog_BW8JN7KB7Z94KQ
+                        thumbnail: null
+                        category:
+                          id: category_BGN90M7EDVZRQ1
+                          name: โปรโมชั่น
+                          slug: promotions
+                        slug: qui-ut-ullam-culpa-soluta-illo-accusamus
+                        title: '(th) Blanditiis eaque facere qui quia fuga ea atque.'
+                        meta_title: '(th) Blanditiis eaque facere qui quia fuga ea atque.'
+                        meta_description: "(th) Ad maiores dolorem omnis dignissimos. Quasi in explicabo adipisci soluta. Sequi quibusdam numquam tenetur quo et iste nostrum.\n\nTenetur a eum fugiat. Voluptatem eum distinctio iure doloremque. Ad ut consectetur suscipit neque atque hic velit.\n\nPraese"
+                        status: draft
+                        tags: []
+                        updated_by: null
+                        published_at: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: blog_JVK923Y53YM1P6
+                        thumbnail: null
+                        category:
+                          id: category_BGN90M7EDVZRQ1
+                          name: โปรโมชั่น
+                          slug: promotions
+                        slug: vitae-assumenda-explicabo-aut-sapiente-similique-totam-fugit
+                        title: '(th) Perferendis doloremque nobis aspernatur totam asperiores architecto.'
+                        meta_title: '(th) Perferendis doloremque nobis aspernatur totam asperiores architecto.'
+                        meta_description: "(th) Est qui voluptatem voluptate magni tempora enim. Omnis tempore consectetur eum quidem ut consequuntur. Dolores ea minus qui perspiciatis repellendus quas voluptatem.\n\nQuia dignissimos unde quibusdam earum dolor ab voluptatem deserunt. Officiis exerci"
+                        status: draft
+                        tags: []
+                        updated_by: null
+                        published_at: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: blog_XWPLZ3W03652D8
+                        thumbnail: null
+                        category:
+                          id: category_BGN90M7EDVZRQ1
+                          name: โปรโมชั่น
+                          slug: promotions
+                        slug: est-hic-officiis-facere-explicabo-ut-aut-aut
+                        title: '(th) Accusamus dignissimos reiciendis nemo.'
+                        meta_title: '(th) Accusamus dignissimos reiciendis nemo.'
+                        meta_description: "(th) Ut ducimus eum in quos. Quis qui voluptate sed non tempore voluptas sequi. Cum est et sunt deserunt reiciendis eveniet facere.\n\nEt odit incidunt omnis quas eos. Neque ullam sit ut dolorum ipsa. Quos ipsam ducimus velit velit non nemo perspiciatis. Fa"
+                        status: published
+                        tags: []
+                        updated_by: null
+                        published_at: '2024-09-22T08:58:09.000000Z'
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: blog_1D0VE7ZMRNLBYG
+                        thumbnail: null
+                        category:
+                          id: category_BGN90M7EDVZRQ1
+                          name: โปรโมชั่น
+                          slug: promotions
+                        slug: et-minus-voluptate-deleniti
+                        title: '(th) Voluptatibus et consequatur nam culpa nam sit sequi.'
+                        meta_title: '(th) Voluptatibus et consequatur nam culpa nam sit sequi.'
+                        meta_description: "(th) Perferendis nulla magnam corrupti non. Quae eos totam quam. Ipsum aut sint porro magni. Explicabo laudantium unde id itaque.\n\nNemo reprehenderit consequuntur soluta asperiores consequatur. Nihil non quo laboriosam est eius sequi illo. Et ea unde quis"
+                        status: draft
+                        tags: []
+                        updated_by: null
+                        published_at: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: blog_V1Q9J7423K8XBG
+                        thumbnail: null
+                        category:
+                          id: category_BGN90M7EDVZRQ1
+                          name: โปรโมชั่น
+                          slug: promotions
+                        slug: esse-et-omnis-similique-dolorum-repellat-ut-quia-velit
+                        title: '(th) Quibusdam aut quis dicta eveniet vero.'
+                        meta_title: '(th) Quibusdam aut quis dicta eveniet vero.'
+                        meta_description: "(th) Qui unde suscipit id voluptatem voluptatem. Qui facere aliquid ipsam. Iusto eligendi provident error enim molestias. Nemo omnis rerum error possimus.\n\nEst delectus iure voluptates incidunt. Illum assumenda et totam sed fugit sed voluptatem. Dolore di"
+                        status: published
+                        tags: []
+                        updated_by: null
+                        published_at: '2024-02-05T00:03:19.000000Z'
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: blog_M9D6P7V27BZEX5
+                        thumbnail: null
+                        category:
+                          id: category_V2Y3EMY0P815R9
+                          name: บทความ
+                          slug: articles
+                        slug: sit-soluta-doloribus-assumenda-laudantium
+                        title: '(th) Occaecati rem et voluptatem impedit nam.'
+                        meta_title: '(th) Occaecati rem et voluptatem impedit nam.'
+                        meta_description: "(th) Vitae rem vitae deserunt repudiandae sunt. Delectus accusamus aperiam vero earum.\n\nVeniam provident facere aut dolore nobis rem voluptas quidem. Deleniti totam ut id exercitationem dolorem illo voluptate. Doloremque est eos et.\n\nQuia quam nam ut blan"
+                        status: draft
+                        tags: []
+                        updated_by: null
+                        published_at: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: blog_WV8J6RP8RXE2BM
+                        thumbnail: null
+                        category:
+                          id: category_V2Y3EMY0P815R9
+                          name: บทความ
+                          slug: articles
+                        slug: animi-itaque-ab-voluptatem-voluptates-sequi-beatae-non-nemo
+                        title: '(th) Quam tempore sit enim voluptatum perferendis qui.'
+                        meta_title: '(th) Quam tempore sit enim voluptatum perferendis qui.'
+                        meta_description: "(th) Et voluptas voluptatem eveniet sed architecto repellat. Placeat quae voluptatibus quas vel praesentium. Et beatae expedita quaerat ipsam.\n\nDolores adipisci totam earum tenetur velit ipsam cum. Voluptatem voluptatem ea rerum at architecto. Qui quidem"
+                        status: published
+                        tags: []
+                        updated_by: null
+                        published_at: '2023-12-09T18:10:05.000000Z'
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: blog_ZK6LYR6QR9MP48
+                        thumbnail: null
+                        category:
+                          id: category_BGN90M7EDVZRQ1
+                          name: โปรโมชั่น
+                          slug: promotions
+                        slug: ab-officia-labore-qui-sunt-repellendus-quibusdam-impedit-odit
+                        title: '(th) Placeat ea qui rerum corrupti rem.'
+                        meta_title: '(th) Placeat ea qui rerum corrupti rem.'
+                        meta_description: "(th) Fuga nostrum a voluptatum libero veniam corrupti. Totam et sint similique excepturi fugiat est tempora. Et beatae praesentium enim dolorem.\n\nInventore necessitatibus rerum ratione id et quisquam ut. Rerum fuga labore consequuntur qui ut quas. Dolor n"
+                        status: draft
+                        tags: []
+                        updated_by: null
+                        published_at: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: blog_Z4DX835P3VNLBK
+                        thumbnail:
+                          type: string
+                          example: null
+                        category:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: category_V2Y3EMY0P815R9
+                            name:
+                              type: string
+                              example: บทความ
+                            slug:
+                              type: string
+                              example: articles
+                        slug:
+                          type: string
+                          example: eum-repellat-quis-placeat-rerum-non-quis-unde
+                        title:
+                          type: string
+                          example: '(th) Rem dolores aspernatur in.'
+                        meta_title:
+                          type: string
+                          example: '(th) Rem dolores aspernatur in.'
+                        meta_description:
+                          type: string
+                          example: "(th) Sunt aspernatur quibusdam odit ut vero vel cupiditate. Ducimus ex impedit laudantium voluptatum qui dolor placeat. Rerum inventore sit sint expedita repellat qui sed. Veniam architecto aliquam amet consequuntur ea accusamus eveniet.\n\nEius et tenetur"
+                        status:
+                          type: string
+                          example: published
+                        tags:
+                          type: array
+                          example: []
+                        updated_by:
+                          type: string
+                          example: null
+                        published_at:
+                          type: string
+                          example: '2023-12-13T05:56:06.000000Z'
+                        created_at:
+                          type: string
+                          example: '2024-10-11T04:56:01.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-10-11T04:56:01.000000Z'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/blogs?page=1'
+                      last:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/blogs?page=2'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/blogs?page=2'
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 2
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; ก่อนหน้า'
+                            active: false
+                          -
+                            url: 'https://api.tcrss.test/api/v1/blogs?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: 'https://api.tcrss.test/api/v1/blogs?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'https://api.tcrss.test/api/v1/blogs?page=2'
+                            label: 'ถัดไป &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; ก่อนหน้า'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/blogs'
+                      per_page:
+                        type: integer
+                        example: 10
+                      to:
+                        type: integer
+                        example: 10
+                      total:
+                        type: integer
+                        example: 20
+      tags:
+        - Blogs
+    post:
+      summary: 'Create blog'
+      operationId: createBlog
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Blogs
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: klpchjifpkt
+                category_id:
+                  type: string
+                  description: ''
+                  example: null
+                published_at:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นวันที่.'
+                  example: '2024-10-11T04:56:11'
+                tags:
+                  type: array
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example:
+                    - srm
+                  items:
+                    type: string
+                th:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                      example: ibpsdofjxiqceekm
+                    body:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร.'
+                      example: c
+                    meta_title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร.'
+                      example: nfmwflqeqzvjz
+                    meta_description:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร.'
+                      example: qdksjwvotzfkrzrrfvckz
+                en:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                      example: drwccbunesssdcnn
+                    body:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร.'
+                      example: zcwcwzfmetncfnqsn
+                    meta_title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร.'
+                      example: dmctmtjbupcy
+                    meta_description:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร.'
+                      example: mjzwjcgbqvdyuagxcniqot
+                cover:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    id:
+                      type: string
+                      description: ''
+                      example: null
+                    path:
+                      type: string
+                      description: 'This field is required when <code>cover.id</code> is <code>null</code>.'
+                      example: accusantium
+                    url:
+                      type: string
+                      description: ''
+                      example: 'https://www.metz.com/magnam-esse-animi-cupiditate-ex-nihil-eius'
+                    name:
+                      type: string
+                      description: ''
+                      example: quaerat
+                thumbnail:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    id:
+                      type: string
+                      description: ''
+                      example: null
+                    path:
+                      type: string
+                      description: 'This field is required when <code>thumbnail.id</code> is <code>null</code>.'
+                      example: dolores
+                    url:
+                      type: string
+                      description: ''
+                      example: 'http://www.lemke.net/'
+                    name:
+                      type: string
+                      description: ''
+                      example: qui
+                body_images:
+                  type: array
+                  description: ''
+                  example: null
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: ''
+                        example: null
+                      path:
+                        type: string
+                        description: 'This field is required when <code>id</code> is <code>null</code>.'
+                        example: voluptate
+                      url:
+                        type: string
+                        description: ''
+                        example: 'http://www.thompson.com/a-in-quia-a-explicabo-modi-soluta-provident'
+                      name:
+                        type: string
+                        description: ''
+                        example: tenetur
+                    required:
+                      - url
+  '/api/v1/blogs/{id}':
+    get:
+      summary: 'Get blog by ID'
+      operationId: getBlogByID
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Blog] -1'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Blog] -1'
+      tags:
+        - Blogs
+    put:
+      summary: 'Update blog'
+      operationId: updateBlog
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Blogs
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: otiuqmiqxzsrjlcaehtcerlb
+                category_id:
+                  type: string
+                  description: ''
+                  example: null
+                published_at:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นวันที่.'
+                  example: '2024-10-11T04:56:11'
+                tags:
+                  type: array
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example:
+                    - pzgpwe
+                  items:
+                    type: string
+                th:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                      example: qmpqcuuxhcxuj
+                    body:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร.'
+                      example: xtfytuowf
+                    meta_title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร.'
+                      example: cgxchockya
+                    meta_description:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร.'
+                      example: sulrr
+                en:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                      example: imtzamystsm
+                    body:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร.'
+                      example: nlyvdmdauvzmf
+                    meta_title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร.'
+                      example: keivpyotgkhzployortkogj
+                    meta_description:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร.'
+                      example: thabyzbwsynidrnvvrjo
+                cover:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    id:
+                      type: string
+                      description: ''
+                      example: null
+                    path:
+                      type: string
+                      description: 'This field is required when <code>cover.id</code> is <code>null</code>.'
+                      example: perferendis
+                    url:
+                      type: string
+                      description: ''
+                      example: 'https://jerde.com/omnis-porro-quis-et-dolores-quia.html'
+                    name:
+                      type: string
+                      description: ''
+                      example: aut
+                thumbnail:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    id:
+                      type: string
+                      description: ''
+                      example: null
+                    path:
+                      type: string
+                      description: 'This field is required when <code>thumbnail.id</code> is <code>null</code>.'
+                      example: debitis
+                    url:
+                      type: string
+                      description: ''
+                      example: 'https://terry.com/iusto-nihil-qui-rem-culpa-sit-omnis.html'
+                    name:
+                      type: string
+                      description: ''
+                      example: magni
+                body_images:
+                  type: array
+                  description: ''
+                  example: null
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: ''
+                        example: null
+                      path:
+                        type: string
+                        description: 'This field is required when <code>id</code> is <code>null</code>.'
+                        example: quia
+                      url:
+                        type: string
+                        description: ''
+                        example: 'https://larkin.com/deleniti-iure-ex-qui-et-impedit-sed-eaque-ratione.html'
+                      name:
+                        type: string
+                        description: ''
+                        example: ipsam
+                    required:
+                      - url
+    delete:
+      summary: 'Delete blog'
+      operationId: deleteBlog
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Blogs
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the blog.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/careers:
+    get:
+      summary: 'Get all career.'
+      operationId: getAllCareer
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: career_046XZB4DDLNRQ5
+                      location:
+                        id: category_51L8XP69P7WR30
+                        name: กรุงเทพฯ
+                        slug: null
+                      type:
+                        id: category_Z8GQ6D2LPY1NKR
+                        name: งานเต็มเวลา
+                        slug: null
+                      department:
+                        id: category_325KBP4LPLXQN1
+                        name: ฝ่ายบุคคล
+                        slug: null
+                      title: '(th) Et debitis sed et vitae est.'
+                      meta_title: '(th) Et debitis sed et vitae est.'
+                      meta_description: "(th) Non sed illo amet voluptatibus provident dolorem. Similique quae molestiae voluptatem voluptas sapiente et quidem corporis. Aut expedita laudantium et dolorem sunt. Est rerum fugiat quam fuga.\n\nError architecto pariatur recusandae aut voluptates accu"
+                      status: draft
+                      updated_by: null
+                      published_at: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: career_6DNRVL6D8BXK97
+                      location:
+                        id: category_G9J86PJ1MWQY2E
+                        name: เชียงใหม่
+                        slug: null
+                      type:
+                        id: category_Z8GQ6D2LPY1NKR
+                        name: งานเต็มเวลา
+                        slug: null
+                      department:
+                        id: category_325KBP4LPLXQN1
+                        name: ฝ่ายบุคคล
+                        slug: null
+                      title: '(th) Voluptatum ut dolorem nulla ut numquam est minus.'
+                      meta_title: '(th) Voluptatum ut dolorem nulla ut numquam est minus.'
+                      meta_description: "(th) Qui eos beatae et ut consequatur veniam. Voluptatem et sed expedita. In voluptatem repellat quidem ducimus occaecati nesciunt. Sint odio dolorem magni molestiae fuga.\n\nExpedita velit voluptate quibusdam libero aut. Quaerat et voluptates velit enim di"
+                      status: draft
+                      updated_by: null
+                      published_at: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: career_45GM1L1DE3R9DK
+                      location:
+                        id: category_G9J86PJ1MWQY2E
+                        name: เชียงใหม่
+                        slug: null
+                      type:
+                        id: category_Z8GQ6D2LPY1NKR
+                        name: งานเต็มเวลา
+                        slug: null
+                      department:
+                        id: category_0821RDE5P753VQ
+                        name: 'ฝ่าย IT'
+                        slug: null
+                      title: '(th) Quam porro similique quas tempore explicabo libero blanditiis.'
+                      meta_title: '(th) Quam porro similique quas tempore explicabo libero blanditiis.'
+                      meta_description: "(th) Est saepe qui est ex cumque. Aperiam qui ipsa et quae. Aliquid enim veniam recusandae enim eum cupiditate et.\n\nQuibusdam atque voluptate quia magni qui ea sapiente. Ut quos unde dolorem deserunt. Sequi eos nostrum ipsa ut tempore est sit doloribus. E"
+                      status: draft
+                      updated_by: null
+                      published_at: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: career_K8GQNB7JLDWR74
+                      location:
+                        id: category_51L8XP69P7WR30
+                        name: กรุงเทพฯ
+                        slug: null
+                      type:
+                        id: category_BY4ERMG6PQL7JK
+                        name: งานพาร์ทไทม์
+                        slug: null
+                      department:
+                        id: category_0821RDE5P753VQ
+                        name: 'ฝ่าย IT'
+                        slug: null
+                      title: '(th) Necessitatibus est a atque aliquid.'
+                      meta_title: '(th) Necessitatibus est a atque aliquid.'
+                      meta_description: "(th) Earum sed repudiandae non. Officiis repellat officia repellat aut qui excepturi hic. Qui illum sit doloremque magni sequi.\n\nQuo nobis quibusdam molestiae nihil eum qui sit. Fugit excepturi iure incidunt quo et. Est qui necessitatibus tempore deserunt"
+                      status: published
+                      updated_by: null
+                      published_at: '2024-09-19T14:50:02.000000Z'
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: career_WR72PBVPB8XGNY
+                      location:
+                        id: category_G9J86PJ1MWQY2E
+                        name: เชียงใหม่
+                        slug: null
+                      type:
+                        id: category_Z8GQ6D2LPY1NKR
+                        name: งานเต็มเวลา
+                        slug: null
+                      department:
+                        id: category_325KBP4LPLXQN1
+                        name: ฝ่ายบุคคล
+                        slug: null
+                      title: '(th) Quam nihil placeat deleniti itaque quod.'
+                      meta_title: '(th) Quam nihil placeat deleniti itaque quod.'
+                      meta_description: "(th) Eius occaecati sed a possimus aut minima consequatur explicabo. Excepturi cum laudantium magni repudiandae qui. Cumque laborum ad autem doloribus accusamus nobis occaecati.\n\nAspernatur nihil ut repudiandae ea est perferendis hic. Et exercitationem ea"
+                      status: draft
+                      updated_by: null
+                      published_at: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: career_JQ03NEJ2E1VW2G
+                      location:
+                        id: category_G9J86PJ1MWQY2E
+                        name: เชียงใหม่
+                        slug: null
+                      type:
+                        id: category_Z8GQ6D2LPY1NKR
+                        name: งานเต็มเวลา
+                        slug: null
+                      department:
+                        id: category_325KBP4LPLXQN1
+                        name: ฝ่ายบุคคล
+                        slug: null
+                      title: '(th) Blanditiis vel quos doloribus impedit voluptates in sunt facilis.'
+                      meta_title: '(th) Blanditiis vel quos doloribus impedit voluptates in sunt facilis.'
+                      meta_description: "(th) Molestiae quia neque debitis. Et architecto non odio quas ex. Ut fuga possimus omnis officiis. Atque omnis architecto qui mollitia.\n\nQuis voluptatibus id doloremque voluptate occaecati eius provident. Rerum harum laudantium aut asperiores eveniet eum"
+                      status: draft
+                      updated_by: null
+                      published_at: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: career_48VDXE03E52NG3
+                      location:
+                        id: category_51L8XP69P7WR30
+                        name: กรุงเทพฯ
+                        slug: null
+                      type:
+                        id: category_Z8GQ6D2LPY1NKR
+                        name: งานเต็มเวลา
+                        slug: null
+                      department:
+                        id: category_325KBP4LPLXQN1
+                        name: ฝ่ายบุคคล
+                        slug: null
+                      title: '(th) Repudiandae blanditiis dolore iure.'
+                      meta_title: '(th) Repudiandae blanditiis dolore iure.'
+                      meta_description: "(th) Doloribus voluptatem omnis tempora autem quo maiores quis. Voluptatem placeat non quis praesentium sit vel. Doloribus consequatur numquam nostrum amet omnis deserunt. Quasi dicta repellendus soluta perspiciatis inventore.\n\nItaque quia natus rerum deb"
+                      status: draft
+                      updated_by: null
+                      published_at: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: career_302R9BY2BPYNV6
+                      location:
+                        id: category_51L8XP69P7WR30
+                        name: กรุงเทพฯ
+                        slug: null
+                      type:
+                        id: category_Z8GQ6D2LPY1NKR
+                        name: งานเต็มเวลา
+                        slug: null
+                      department:
+                        id: category_0821RDE5P753VQ
+                        name: 'ฝ่าย IT'
+                        slug: null
+                      title: '(th) Ut dolores non soluta aut non fugiat quam.'
+                      meta_title: '(th) Ut dolores non soluta aut non fugiat quam.'
+                      meta_description: "(th) Ipsam ut alias est atque incidunt temporibus. Voluptas deleniti suscipit inventore provident cumque dolorum sed alias.\n\nVoluptatem autem omnis porro doloribus aut tenetur. Earum ut ratione incidunt omnis sed. Magnam ratione aut hic dolor aut.\n\nIpsum"
+                      status: published
+                      updated_by: null
+                      published_at: '2023-10-15T06:00:41.000000Z'
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: career_Y281GBW8EJX047
+                      location:
+                        id: category_51L8XP69P7WR30
+                        name: กรุงเทพฯ
+                        slug: null
+                      type:
+                        id: category_BY4ERMG6PQL7JK
+                        name: งานพาร์ทไทม์
+                        slug: null
+                      department:
+                        id: category_0821RDE5P753VQ
+                        name: 'ฝ่าย IT'
+                        slug: null
+                      title: '(th) Repellendus placeat natus sit dolorum.'
+                      meta_title: '(th) Repellendus placeat natus sit dolorum.'
+                      meta_description: "(th) Et sed sit molestiae nihil qui itaque. Totam vel qui vitae nihil. Rerum sed consequatur molestiae voluptatem quia consequatur. Exercitationem sed quam quia consectetur. Voluptatem eius molestias quasi distinctio aut suscipit.\n\nDolorum sed sed vero ad"
+                      status: published
+                      updated_by: null
+                      published_at: '2024-09-09T02:49:33.000000Z'
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: career_P0QJKBXYLG321R
+                      location:
+                        id: category_51L8XP69P7WR30
+                        name: กรุงเทพฯ
+                        slug: null
+                      type:
+                        id: category_BY4ERMG6PQL7JK
+                        name: งานพาร์ทไทม์
+                        slug: null
+                      department:
+                        id: category_0821RDE5P753VQ
+                        name: 'ฝ่าย IT'
+                        slug: null
+                      title: '(th) Non sed rerum nisi quod est.'
+                      meta_title: '(th) Non sed rerum nisi quod est.'
+                      meta_description: "(th) Nobis aliquid vitae qui suscipit. Nulla adipisci delectus qui quia iure quibusdam itaque. Nemo repudiandae nulla ex ipsa ut aspernatur.\n\nSapiente totam dicta deserunt nulla velit nobis. Velit dignissimos sit voluptatum officia ut voluptas minus. Et u"
+                      status: draft
+                      updated_by: null
+                      published_at: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                  links:
+                    first: 'https://api.tcrss.test/api/v1/careers?page=1'
+                    last: 'https://api.tcrss.test/api/v1/careers?page=3'
+                    prev: null
+                    next: 'https://api.tcrss.test/api/v1/careers?page=2'
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 3
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; ก่อนหน้า'
+                        active: false
+                      -
+                        url: 'https://api.tcrss.test/api/v1/careers?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: 'https://api.tcrss.test/api/v1/careers?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'https://api.tcrss.test/api/v1/careers?page=3'
+                        label: '3'
+                        active: false
+                      -
+                        url: 'https://api.tcrss.test/api/v1/careers?page=2'
+                        label: 'ถัดไป &raquo;'
+                        active: false
+                    path: 'https://api.tcrss.test/api/v1/careers'
+                    per_page: 10
+                    to: 10
+                    total: 25
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: career_046XZB4DDLNRQ5
+                        location:
+                          id: category_51L8XP69P7WR30
+                          name: กรุงเทพฯ
+                          slug: null
+                        type:
+                          id: category_Z8GQ6D2LPY1NKR
+                          name: งานเต็มเวลา
+                          slug: null
+                        department:
+                          id: category_325KBP4LPLXQN1
+                          name: ฝ่ายบุคคล
+                          slug: null
+                        title: '(th) Et debitis sed et vitae est.'
+                        meta_title: '(th) Et debitis sed et vitae est.'
+                        meta_description: "(th) Non sed illo amet voluptatibus provident dolorem. Similique quae molestiae voluptatem voluptas sapiente et quidem corporis. Aut expedita laudantium et dolorem sunt. Est rerum fugiat quam fuga.\n\nError architecto pariatur recusandae aut voluptates accu"
+                        status: draft
+                        updated_by: null
+                        published_at: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: career_6DNRVL6D8BXK97
+                        location:
+                          id: category_G9J86PJ1MWQY2E
+                          name: เชียงใหม่
+                          slug: null
+                        type:
+                          id: category_Z8GQ6D2LPY1NKR
+                          name: งานเต็มเวลา
+                          slug: null
+                        department:
+                          id: category_325KBP4LPLXQN1
+                          name: ฝ่ายบุคคล
+                          slug: null
+                        title: '(th) Voluptatum ut dolorem nulla ut numquam est minus.'
+                        meta_title: '(th) Voluptatum ut dolorem nulla ut numquam est minus.'
+                        meta_description: "(th) Qui eos beatae et ut consequatur veniam. Voluptatem et sed expedita. In voluptatem repellat quidem ducimus occaecati nesciunt. Sint odio dolorem magni molestiae fuga.\n\nExpedita velit voluptate quibusdam libero aut. Quaerat et voluptates velit enim di"
+                        status: draft
+                        updated_by: null
+                        published_at: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: career_45GM1L1DE3R9DK
+                        location:
+                          id: category_G9J86PJ1MWQY2E
+                          name: เชียงใหม่
+                          slug: null
+                        type:
+                          id: category_Z8GQ6D2LPY1NKR
+                          name: งานเต็มเวลา
+                          slug: null
+                        department:
+                          id: category_0821RDE5P753VQ
+                          name: 'ฝ่าย IT'
+                          slug: null
+                        title: '(th) Quam porro similique quas tempore explicabo libero blanditiis.'
+                        meta_title: '(th) Quam porro similique quas tempore explicabo libero blanditiis.'
+                        meta_description: "(th) Est saepe qui est ex cumque. Aperiam qui ipsa et quae. Aliquid enim veniam recusandae enim eum cupiditate et.\n\nQuibusdam atque voluptate quia magni qui ea sapiente. Ut quos unde dolorem deserunt. Sequi eos nostrum ipsa ut tempore est sit doloribus. E"
+                        status: draft
+                        updated_by: null
+                        published_at: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: career_K8GQNB7JLDWR74
+                        location:
+                          id: category_51L8XP69P7WR30
+                          name: กรุงเทพฯ
+                          slug: null
+                        type:
+                          id: category_BY4ERMG6PQL7JK
+                          name: งานพาร์ทไทม์
+                          slug: null
+                        department:
+                          id: category_0821RDE5P753VQ
+                          name: 'ฝ่าย IT'
+                          slug: null
+                        title: '(th) Necessitatibus est a atque aliquid.'
+                        meta_title: '(th) Necessitatibus est a atque aliquid.'
+                        meta_description: "(th) Earum sed repudiandae non. Officiis repellat officia repellat aut qui excepturi hic. Qui illum sit doloremque magni sequi.\n\nQuo nobis quibusdam molestiae nihil eum qui sit. Fugit excepturi iure incidunt quo et. Est qui necessitatibus tempore deserunt"
+                        status: published
+                        updated_by: null
+                        published_at: '2024-09-19T14:50:02.000000Z'
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: career_WR72PBVPB8XGNY
+                        location:
+                          id: category_G9J86PJ1MWQY2E
+                          name: เชียงใหม่
+                          slug: null
+                        type:
+                          id: category_Z8GQ6D2LPY1NKR
+                          name: งานเต็มเวลา
+                          slug: null
+                        department:
+                          id: category_325KBP4LPLXQN1
+                          name: ฝ่ายบุคคล
+                          slug: null
+                        title: '(th) Quam nihil placeat deleniti itaque quod.'
+                        meta_title: '(th) Quam nihil placeat deleniti itaque quod.'
+                        meta_description: "(th) Eius occaecati sed a possimus aut minima consequatur explicabo. Excepturi cum laudantium magni repudiandae qui. Cumque laborum ad autem doloribus accusamus nobis occaecati.\n\nAspernatur nihil ut repudiandae ea est perferendis hic. Et exercitationem ea"
+                        status: draft
+                        updated_by: null
+                        published_at: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: career_JQ03NEJ2E1VW2G
+                        location:
+                          id: category_G9J86PJ1MWQY2E
+                          name: เชียงใหม่
+                          slug: null
+                        type:
+                          id: category_Z8GQ6D2LPY1NKR
+                          name: งานเต็มเวลา
+                          slug: null
+                        department:
+                          id: category_325KBP4LPLXQN1
+                          name: ฝ่ายบุคคล
+                          slug: null
+                        title: '(th) Blanditiis vel quos doloribus impedit voluptates in sunt facilis.'
+                        meta_title: '(th) Blanditiis vel quos doloribus impedit voluptates in sunt facilis.'
+                        meta_description: "(th) Molestiae quia neque debitis. Et architecto non odio quas ex. Ut fuga possimus omnis officiis. Atque omnis architecto qui mollitia.\n\nQuis voluptatibus id doloremque voluptate occaecati eius provident. Rerum harum laudantium aut asperiores eveniet eum"
+                        status: draft
+                        updated_by: null
+                        published_at: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: career_48VDXE03E52NG3
+                        location:
+                          id: category_51L8XP69P7WR30
+                          name: กรุงเทพฯ
+                          slug: null
+                        type:
+                          id: category_Z8GQ6D2LPY1NKR
+                          name: งานเต็มเวลา
+                          slug: null
+                        department:
+                          id: category_325KBP4LPLXQN1
+                          name: ฝ่ายบุคคล
+                          slug: null
+                        title: '(th) Repudiandae blanditiis dolore iure.'
+                        meta_title: '(th) Repudiandae blanditiis dolore iure.'
+                        meta_description: "(th) Doloribus voluptatem omnis tempora autem quo maiores quis. Voluptatem placeat non quis praesentium sit vel. Doloribus consequatur numquam nostrum amet omnis deserunt. Quasi dicta repellendus soluta perspiciatis inventore.\n\nItaque quia natus rerum deb"
+                        status: draft
+                        updated_by: null
+                        published_at: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: career_302R9BY2BPYNV6
+                        location:
+                          id: category_51L8XP69P7WR30
+                          name: กรุงเทพฯ
+                          slug: null
+                        type:
+                          id: category_Z8GQ6D2LPY1NKR
+                          name: งานเต็มเวลา
+                          slug: null
+                        department:
+                          id: category_0821RDE5P753VQ
+                          name: 'ฝ่าย IT'
+                          slug: null
+                        title: '(th) Ut dolores non soluta aut non fugiat quam.'
+                        meta_title: '(th) Ut dolores non soluta aut non fugiat quam.'
+                        meta_description: "(th) Ipsam ut alias est atque incidunt temporibus. Voluptas deleniti suscipit inventore provident cumque dolorum sed alias.\n\nVoluptatem autem omnis porro doloribus aut tenetur. Earum ut ratione incidunt omnis sed. Magnam ratione aut hic dolor aut.\n\nIpsum"
+                        status: published
+                        updated_by: null
+                        published_at: '2023-10-15T06:00:41.000000Z'
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: career_Y281GBW8EJX047
+                        location:
+                          id: category_51L8XP69P7WR30
+                          name: กรุงเทพฯ
+                          slug: null
+                        type:
+                          id: category_BY4ERMG6PQL7JK
+                          name: งานพาร์ทไทม์
+                          slug: null
+                        department:
+                          id: category_0821RDE5P753VQ
+                          name: 'ฝ่าย IT'
+                          slug: null
+                        title: '(th) Repellendus placeat natus sit dolorum.'
+                        meta_title: '(th) Repellendus placeat natus sit dolorum.'
+                        meta_description: "(th) Et sed sit molestiae nihil qui itaque. Totam vel qui vitae nihil. Rerum sed consequatur molestiae voluptatem quia consequatur. Exercitationem sed quam quia consectetur. Voluptatem eius molestias quasi distinctio aut suscipit.\n\nDolorum sed sed vero ad"
+                        status: published
+                        updated_by: null
+                        published_at: '2024-09-09T02:49:33.000000Z'
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: career_P0QJKBXYLG321R
+                        location:
+                          id: category_51L8XP69P7WR30
+                          name: กรุงเทพฯ
+                          slug: null
+                        type:
+                          id: category_BY4ERMG6PQL7JK
+                          name: งานพาร์ทไทม์
+                          slug: null
+                        department:
+                          id: category_0821RDE5P753VQ
+                          name: 'ฝ่าย IT'
+                          slug: null
+                        title: '(th) Non sed rerum nisi quod est.'
+                        meta_title: '(th) Non sed rerum nisi quod est.'
+                        meta_description: "(th) Nobis aliquid vitae qui suscipit. Nulla adipisci delectus qui quia iure quibusdam itaque. Nemo repudiandae nulla ex ipsa ut aspernatur.\n\nSapiente totam dicta deserunt nulla velit nobis. Velit dignissimos sit voluptatum officia ut voluptas minus. Et u"
+                        status: draft
+                        updated_by: null
+                        published_at: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: career_046XZB4DDLNRQ5
+                        location:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: category_51L8XP69P7WR30
+                            name:
+                              type: string
+                              example: กรุงเทพฯ
+                            slug:
+                              type: string
+                              example: null
+                        type:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: category_Z8GQ6D2LPY1NKR
+                            name:
+                              type: string
+                              example: งานเต็มเวลา
+                            slug:
+                              type: string
+                              example: null
+                        department:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: category_325KBP4LPLXQN1
+                            name:
+                              type: string
+                              example: ฝ่ายบุคคล
+                            slug:
+                              type: string
+                              example: null
+                        title:
+                          type: string
+                          example: '(th) Et debitis sed et vitae est.'
+                        meta_title:
+                          type: string
+                          example: '(th) Et debitis sed et vitae est.'
+                        meta_description:
+                          type: string
+                          example: "(th) Non sed illo amet voluptatibus provident dolorem. Similique quae molestiae voluptatem voluptas sapiente et quidem corporis. Aut expedita laudantium et dolorem sunt. Est rerum fugiat quam fuga.\n\nError architecto pariatur recusandae aut voluptates accu"
+                        status:
+                          type: string
+                          example: draft
+                        updated_by:
+                          type: string
+                          example: null
+                        published_at:
+                          type: string
+                          example: null
+                        created_at:
+                          type: string
+                          example: '2024-10-11T04:56:01.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-10-11T04:56:01.000000Z'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/careers?page=1'
+                      last:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/careers?page=3'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/careers?page=2'
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 3
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; ก่อนหน้า'
+                            active: false
+                          -
+                            url: 'https://api.tcrss.test/api/v1/careers?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: 'https://api.tcrss.test/api/v1/careers?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'https://api.tcrss.test/api/v1/careers?page=3'
+                            label: '3'
+                            active: false
+                          -
+                            url: 'https://api.tcrss.test/api/v1/careers?page=2'
+                            label: 'ถัดไป &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; ก่อนหน้า'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/careers'
+                      per_page:
+                        type: integer
+                        example: 10
+                      to:
+                        type: integer
+                        example: 10
+                      total:
+                        type: integer
+                        example: 25
+      tags:
+        - Careers
+    post:
+      summary: 'Create a career.'
+      operationId: createACareer
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Careers
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type_id:
+                  type: string
+                  description: ''
+                  example: null
+                location_id:
+                  type: string
+                  description: ''
+                  example: null
+                department_id:
+                  type: string
+                  description: ''
+                  example: null
+                published_at:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นวันที่.'
+                  example: '2024-10-11T04:56:11'
+                th:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                      example: bnbmxsudmervziadc
+                    body:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร.'
+                      example: twbjnkcxgwdt
+                    meta_title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร.'
+                      example: basfsljkbetltywycnzyisd
+                    meta_description:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร.'
+                      example: epaboybiztfilbeuvidg
+                en:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                      example: shswhk
+                    body:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร.'
+                      example: joht
+                    meta_title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร.'
+                      example: dbmsq
+                    meta_description:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร.'
+                      example: buypmdsjxszbgmkygneuou
+                body_images:
+                  type: array
+                  description: ''
+                  example: null
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: ''
+                        example: null
+                      path:
+                        type: string
+                        description: 'This field is required when <code>id</code> is <code>null</code>.'
+                        example: et
+                      url:
+                        type: string
+                        description: ''
+                        example: 'http://www.murray.org/cum-quisquam-expedita-ipsa-quia-delectus'
+                      name:
+                        type: string
+                        description: ''
+                        example: sint
+                    required:
+                      - url
+  '/api/v1/careers/{id}':
+    get:
+      summary: 'Get a career by id.'
+      operationId: getACareerById
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Career] -1'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Career] -1'
+      tags:
+        - Careers
+    put:
+      summary: 'Update a career.'
+      operationId: updateACareer
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Careers
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type_id:
+                  type: string
+                  description: ''
+                  example: null
+                location_id:
+                  type: string
+                  description: ''
+                  example: null
+                department_id:
+                  type: string
+                  description: ''
+                  example: null
+                published_at:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นวันที่.'
+                  example: '2024-10-11T04:56:11'
+                th:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                      example: qqg
+                    body:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร.'
+                      example: zdravwdruucra
+                    meta_title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร.'
+                      example: qktqsy
+                    meta_description:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร.'
+                      example: zswjzislrnhhjzusoworeghwv
+                en:
+                  type: object
+                  description: ''
+                  example: null
+                  properties:
+                    title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                      example: cgnicrnvkdyoyruwolcoeox
+                    body:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 16777215 ตัวอักษร.'
+                      example: ewqhdslirp
+                    meta_title:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 100 ตัวอักษร.'
+                      example: zddxdmefeqro
+                    meta_description:
+                      type: string
+                      description: 'ข้อมูล value ต้องยาวไม่เกิน 160 ตัวอักษร.'
+                      example: oavmhiebhszlbiudcxkge
+                body_images:
+                  type: array
+                  description: ''
+                  example: null
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: ''
+                        example: null
+                      path:
+                        type: string
+                        description: 'This field is required when <code>id</code> is <code>null</code>.'
+                        example: asperiores
+                      url:
+                        type: string
+                        description: ''
+                        example: 'http://bednar.com/voluptatibus-dolorum-cupiditate-facilis-aut.html'
+                      name:
+                        type: string
+                        description: ''
+                        example: dicta
+                    required:
+                      - url
+    delete:
+      summary: 'Delete a career.'
+      operationId: deleteACareer
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Careers
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the career.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/categories/{type}':
+    get:
+      summary: 'Get all categories of a type.'
+      operationId: getAllCategoriesOfAType
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: category_V2Y3EMY0P815R9
+                      name: บทความ
+                      description: null
+                      slug: articles
+                      sort: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: category_BGN90M7EDVZRQ1
+                      name: โปรโมชั่น
+                      description: null
+                      slug: promotions
+                      sort: null
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                  links:
+                    first: 'https://api.tcrss.test/api/v1/categories/blog?page=1'
+                    last: 'https://api.tcrss.test/api/v1/categories/blog?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; ก่อนหน้า'
+                        active: false
+                      -
+                        url: 'https://api.tcrss.test/api/v1/categories/blog?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'ถัดไป &raquo;'
+                        active: false
+                    path: 'https://api.tcrss.test/api/v1/categories/blog'
+                    per_page: 15
+                    to: 2
+                    total: 2
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: category_V2Y3EMY0P815R9
+                        name: บทความ
+                        description: null
+                        slug: articles
+                        sort: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: category_BGN90M7EDVZRQ1
+                        name: โปรโมชั่น
+                        description: null
+                        slug: promotions
+                        sort: null
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: category_V2Y3EMY0P815R9
+                        name:
+                          type: string
+                          example: บทความ
+                        description:
+                          type: string
+                          example: null
+                        slug:
+                          type: string
+                          example: articles
+                        sort:
+                          type: string
+                          example: null
+                        created_at:
+                          type: string
+                          example: '2024-10-11T04:56:01.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-10-11T04:56:01.000000Z'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/categories/blog?page=1'
+                      last:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/categories/blog?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; ก่อนหน้า'
+                            active: false
+                          -
+                            url: 'https://api.tcrss.test/api/v1/categories/blog?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'ถัดไป &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; ก่อนหน้า'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/categories/blog'
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: integer
+                        example: 2
+                      total:
+                        type: integer
+                        example: 2
+      tags:
+        - Categories
+    post:
+      summary: 'Create category'
+      operationId: createCategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Categories
+    parameters:
+      -
+        in: path
+        name: type
+        description: ''
+        example: blog
+        required: true
+        schema:
+          type: string
+  '/api/v1/categories/{type}/{category_id}':
+    get:
+      summary: 'Get category by ID'
+      operationId: getCategoryByID
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Category] -1'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Category] -1'
+      tags:
+        - Categories
+    put:
+      summary: 'Update category'
+      operationId: updateCategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Categories
+    patch:
+      summary: 'Update category'
+      operationId: updateCategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Categories
+    delete:
+      summary: 'Delete category'
+      operationId: deleteCategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Categories
+    parameters:
+      -
+        in: path
+        name: type
+        description: ''
+        example: blog
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: category_id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/tags/{type}':
+    get:
+      summary: 'Get all categories of a type.'
+      operationId: getAllCategoriesOfAType
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Categories
+    parameters:
+      -
+        in: path
+        name: type
+        description: ''
+        example: vitae
+        required: true
+        schema:
+          type: string
+  /api/v1/register:
+    post:
+      summary: 'Handle an incoming registration request.'
+      operationId: handleAnIncomingRegistrationRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: null
+                first_name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: xrnqmdntevkzlwuhhdbrj
+                last_name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: igzagefajcruedwsv
+                email:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: adrain04@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: qui
+              required:
+                - first_name
+                - last_name
+                - email
+                - password
+  /api/v1/forgot-password:
+    post:
+      summary: 'Handle an incoming password reset link request.'
+      operationId: handleAnIncomingPasswordResetLinkRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นอีเมล.'
+                  example: kristy.pollich@example.com
+              required:
+                - email
+  /api/v1/reset-password:
+    post:
+      summary: 'Handle an incoming new password request.'
+      operationId: handleAnIncomingNewPasswordRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: ''
+                  example: non
+                email:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นอีเมล.'
+                  example: jolie50@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: quos
+              required:
+                - token
+                - email
+                - password
+  '/api/v1/verify-email/{id}/{hash}':
+    get:
+      summary: "Mark the authenticated user's email address as verified."
+      operationId: markTheAuthenticatedUsersEmailAddressAsVerified
+      description: ''
+      parameters: []
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Invalid signature.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Invalid signature.'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the verify email.'
+        example: quia
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: hash
+        description: ''
+        example: porro
+        required: true
+        schema:
+          type: string
+  /api/v1/email/verification-notification:
+    post:
+      summary: 'Send a new email verification notification.'
+      operationId: sendANewEmailVerificationNotification
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+  /api/v1/csrf-cookie:
+    get:
+      summary: 'Return an empty response simply to trigger the storage of the CSRF cookie in the browser.'
+      operationId: returnAnEmptyResponseSimplyToTriggerTheStorageOfTheCSRFCookieInTheBrowser
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - Endpoints
+  /api/v1/roles:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: role_2VDBZXRV4W8PGL
+                      name: 'Super Admin'
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                    -
+                      id: role_E8PLJ15WXK9M2Z
+                      name: Admin
+                      created_at: '2024-10-11T04:56:01.000000Z'
+                      updated_at: '2024-10-11T04:56:01.000000Z'
+                  links:
+                    first: 'https://api.tcrss.test/api/v1/roles?page=1'
+                    last: 'https://api.tcrss.test/api/v1/roles?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; ก่อนหน้า'
+                        active: false
+                      -
+                        url: 'https://api.tcrss.test/api/v1/roles?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'ถัดไป &raquo;'
+                        active: false
+                    path: 'https://api.tcrss.test/api/v1/roles'
+                    per_page: 10
+                    to: 2
+                    total: 2
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: role_2VDBZXRV4W8PGL
+                        name: 'Super Admin'
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                      -
+                        id: role_E8PLJ15WXK9M2Z
+                        name: Admin
+                        created_at: '2024-10-11T04:56:01.000000Z'
+                        updated_at: '2024-10-11T04:56:01.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: role_2VDBZXRV4W8PGL
+                        name:
+                          type: string
+                          example: 'Super Admin'
+                        created_at:
+                          type: string
+                          example: '2024-10-11T04:56:01.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-10-11T04:56:01.000000Z'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/roles?page=1'
+                      last:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/roles?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; ก่อนหน้า'
+                            active: false
+                          -
+                            url: 'https://api.tcrss.test/api/v1/roles?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'ถัดไป &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; ก่อนหน้า'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/roles'
+                      per_page:
+                        type: integer
+                        example: 10
+                      to:
+                        type: integer
+                        example: 2
+                      total:
+                        type: integer
+                        example: 2
+      tags:
+        - Endpoints
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+  '/api/v1/roles/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Role] -1'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Role] -1'
+      tags:
+        - Endpoints
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the role.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/temporary-media:
+    post:
+      summary: ''
+      operationId: postApiV1TemporaryMedia
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                media:
+                  type: string
+                  format: binary
+                  description: 'Must be a file. ข้อมูล value ต้องมีขนาดไม่เกิน 102400 กิโลไบต์.'
+              required:
+                - media
+  '/api/v1/invite/resend/{user_id}':
+    post:
+      summary: ''
+      operationId: postApiV1InviteResendUser_id
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/accept-user-invitation:
+    put:
+      summary: ''
+      operationId: putApiV1AcceptUserInvitation
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  description: ''
+                  example: cum
+                password_confirmation:
+                  type: string
+                  description: ''
+                  example: fugit
+              required:
+                - password
+                - password_confirmation
+  /api/v1/dev-api:
+    get:
+      summary: ''
+      operationId: getApiV1DevApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'this is dev environtment'
+                properties:
+                  message:
+                    type: string
+                    example: 'this is dev environtment'
+      tags:
+        - Endpoints
+  /api/v1/user:
+    get:
+      summary: 'Get authenticated user profile'
+      operationId: getAuthenticatedUserProfile
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: user_ZMBQEKPDK3X079
+                    title: Mrs.
+                    first_name: Super
+                    last_name: Admin
+                    email: superadmin@wawa-x.com
+                    phone: null
+                    permissions:
+                      - 'USERS:VIEW'
+                      - 'USERS:CREATE'
+                      - 'USERS:UPDATE'
+                      - 'USERS:DELETE'
+                      - 'BLOGS:VIEW'
+                      - 'BLOGS:CREATE'
+                      - 'BLOGS:UPDATE'
+                      - 'BLOGS:DELETE'
+                      - 'BLOG_CATEGORIES:CREATE'
+                      - 'BLOG_CATEGORIES:UPDATE'
+                      - 'BLOG_CATEGORIES:DELETE'
+                      - 'CAREERS:VIEW'
+                      - 'CAREERS:CREATE'
+                      - 'CAREERS:UPDATE'
+                      - 'CAREERS:DELETE'
+                    created_at: '2024-10-11T04:56:01.000000Z'
+                    updated_at: '2024-10-11T04:56:01.000000Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: user_ZMBQEKPDK3X079
+                      title:
+                        type: string
+                        example: Mrs.
+                      first_name:
+                        type: string
+                        example: Super
+                      last_name:
+                        type: string
+                        example: Admin
+                      email:
+                        type: string
+                        example: superadmin@wawa-x.com
+                      phone:
+                        type: string
+                        example: null
+                      permissions:
+                        type: array
+                        example:
+                          - 'USERS:VIEW'
+                          - 'USERS:CREATE'
+                          - 'USERS:UPDATE'
+                          - 'USERS:DELETE'
+                          - 'BLOGS:VIEW'
+                          - 'BLOGS:CREATE'
+                          - 'BLOGS:UPDATE'
+                          - 'BLOGS:DELETE'
+                          - 'BLOG_CATEGORIES:CREATE'
+                          - 'BLOG_CATEGORIES:UPDATE'
+                          - 'BLOG_CATEGORIES:DELETE'
+                          - 'CAREERS:VIEW'
+                          - 'CAREERS:CREATE'
+                          - 'CAREERS:UPDATE'
+                          - 'CAREERS:DELETE'
+                        items:
+                          type: string
+                      created_at:
+                        type: string
+                        example: '2024-10-11T04:56:01.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-10-11T04:56:01.000000Z'
+      tags:
+        - Users
+    put:
+      summary: 'Update User Profile'
+      operationId: updateUserProfile
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: Mrs.
+                  enum:
+                    - Mr.
+                    - Mrs.
+                    - Ms.
+                first_name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: acmegoogbirdpcvbhegcvkkxj
+                last_name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: wtacaavwo
+                phone:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร.'
+                  example: spsvbtmkw
+              required:
+                - first_name
+                - last_name
+  /api/v1/user/password:
+    put:
+      summary: 'Update Password'
+      operationId: updatePassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  description: ''
+                  example: esse
+                password:
+                  type: string
+                  description: ''
+                  example: dolores
+              required:
+                - current_password
+                - password
+  /api/v1/users:
+    get:
+      summary: 'Get All Users'
+      operationId: getAllUsers
+      description: ''
+      parameters:
+        -
+          in: query
+          name: sort
+          description: 'Data field(s) to sort by. Separate multiple fields with commas. Denote descending sort with a minus sign.'
+          example: 'first_name,-createdAt'
+          required: false
+          schema:
+            type: string
+            description: 'Data field(s) to sort by. Separate multiple fields with commas. Denote descending sort with a minus sign.'
+            example: 'first_name,-createdAt'
+        -
+          in: query
+          name: 'filter[id]'
+          description: 'Filter user by id.'
+          example: qui
+          required: false
+          schema:
+            type: string
+            description: 'Filter user by id.'
+            example: qui
+        -
+          in: query
+          name: 'filter[email]'
+          description: 'Filter user by email.'
+          example: omnis
+          required: false
+          schema:
+            type: string
+            description: 'Filter user by email.'
+            example: omnis
+        -
+          in: query
+          name: search
+          description: 'Search user by name, email, phone.'
+          example: rerum
+          required: false
+          schema:
+            type: string
+            description: 'Search user by name, email, phone.'
+            example: rerum
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                  links:
+                    first: 'https://api.tcrss.test/api/v1/users?page=1'
+                    last: 'https://api.tcrss.test/api/v1/users?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: null
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; ก่อนหน้า'
+                        active: false
+                      -
+                        url: 'https://api.tcrss.test/api/v1/users?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'ถัดไป &raquo;'
+                        active: false
+                    path: 'https://api.tcrss.test/api/v1/users'
+                    per_page: 10
+                    to: null
+                    total: 0
+                properties:
+                  data:
+                    type: array
+                    example: []
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/users?page=1'
+                      last:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/users?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: string
+                        example: null
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; ก่อนหน้า'
+                            active: false
+                          -
+                            url: 'https://api.tcrss.test/api/v1/users?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'ถัดไป &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; ก่อนหน้า'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'https://api.tcrss.test/api/v1/users'
+                      per_page:
+                        type: integer
+                        example: 10
+                      to:
+                        type: string
+                        example: null
+                      total:
+                        type: integer
+                        example: 0
+      tags:
+        - Users
+    post:
+      summary: 'Create User'
+      operationId: createUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: Mrs.
+                  enum:
+                    - Mr.
+                    - Mrs.
+                    - Ms.
+                first_name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: ohs
+                last_name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: tflctjknh
+                email:
+                  type: string
+                  description: 'ข้อมูล value ต้องเป็นอีเมล ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: gerry.mcclure@example.net
+                phone:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร.'
+                  example: xq
+              required:
+                - first_name
+                - last_name
+                - email
+  '/api/v1/users/{id}':
+    get:
+      summary: 'Get User by ID'
+      operationId: getUserByID
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\User] -1'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\User] -1'
+      tags:
+        - Users
+    put:
+      summary: 'Update User'
+      operationId: updateUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: Mrs.
+                  enum:
+                    - Mr.
+                    - Mrs.
+                    - Ms.
+                first_name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: rglm
+                last_name:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 255 ตัวอักษร.'
+                  example: qrbm
+                phone:
+                  type: string
+                  description: 'ข้อมูล value ต้องยาวไม่เกิน 20 ตัวอักษร.'
+                  example: cqmmom
+              required:
+                - first_name
+                - last_name
+    delete:
+      summary: 'Delete User'
+      operationId: deleteUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Users
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/titles:
+    get:
+      summary: 'Get user title options'
+      operationId: getUserTitleOptions
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      value: Mr.
+                      label: นาย
+                    -
+                      value: Mrs.
+                      label: นาง
+                    -
+                      value: Ms.
+                      label: นางสาว
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        value: Mr.
+                        label: นาย
+                      -
+                        value: Mrs.
+                        label: นาง
+                      -
+                        value: Ms.
+                        label: นางสาว
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: string
+                          example: Mr.
+                        label:
+                          type: string
+                          example: นาย
+      tags:
+        - Users
+      security: []
+tags:
+  -
+    name: Authentication
+    description: ''
+  -
+    name: Blogs
+    description: ''
+  -
+    name: Careers
+    description: ''
+  -
+    name: Categories
+    description: ''
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: Users
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []

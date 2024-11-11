@@ -1,0 +1,15 @@
+meta {
+  name: 🌻 Public Upload Temporary Media
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{backend_url}}/api/v1/public/temporary-media
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  media: @file(/Users/notebook/Downloads/3-2-3 By Product.pdf)
+}

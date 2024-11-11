@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Enums\UserTitle;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -24,12 +27,26 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'title' => fake()->numberBetween(0, 100) > 50 ? fake()->randomElement(UserTitle::cases()) : null, // Mr, Mrs, Ms, etc
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'phone' => $this->generatePhone(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];
+    }
+
+    public function generatePhone()
+    {
+        $number = fake()->numberBetween(0, 100);
+
+        if ($number > 40) {
+            return $number > 90 ? fake()->e164PhoneNumber() : fake()->numerify('+668########');
+        }
+
+        return null;
     }
 
     /**
@@ -40,5 +57,21 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    public function superAdmin(): Factory
+    {
+        return $this->afterCreating(function (User $user) {
+            $role = Role::findOrCreate(Role::ROLE_SUPER_ADMIN, 'web');
+            $user->assignRole($role);
+        });
+    }
+
+    public function admin(): Factory
+    {
+        return $this->afterCreating(function (User $user) {
+            $role = Role::findOrCreate(Role::ROLE_ADMIN, 'web');
+            $user->assignRole($role);
+        });
     }
 }

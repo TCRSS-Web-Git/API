@@ -1,0 +1,15 @@
+meta {
+  name: Get Careers
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{backend_url}}/api/v1/public/careers?per_page=5
+  body: none
+  auth: none
+}
+
+query {
+  per_page: 5
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Get Award by ID with translations
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{backend_url}}/api/v1/awards/award_WX5G41L8MBEN70?include=translations
+  body: none
+  auth: none
+}
+
+query {
+  include: translations
+}
+
+headers {
+  Accept-Language: en-US,en;q=0.9
+}

@@ -13,12 +13,22 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title')->nullable();
+            $table->string('first_name');
+            $table->string('last_name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('phone')->nullable();
+            $table->string('password')->nullable();
             $table->rememberToken();
+            if (config('database.default') === 'mysql') {
+                // add unique index for email to prevent multiple users with the same email
+                $table->string('email_unique')->storedAs("CONCAT(email, '#', IF(deleted_at IS NULL, '-', deleted_at))")->unique();
+            } elseif (config('database.default') === 'sqlite') {
+                $table->string('email_unique')->storedAs("email || '#' || deleted_at")->unique();
+            }
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

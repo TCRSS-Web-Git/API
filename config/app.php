@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Starter'),
+    'name' => env('APP_NAME', 'TCRSS'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,11 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://api.tcrss.com'),
+
+    'frontend_url' => env('FRONTEND_URL', 'https://tcrss.com'),
+
+    'admin_url' => env('ADMIN_URL', 'https://admin.tcrss.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -83,6 +87,8 @@ return [
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
+
+    'supported_locales' => ['th', 'en'],
 
     /*
     |--------------------------------------------------------------------------

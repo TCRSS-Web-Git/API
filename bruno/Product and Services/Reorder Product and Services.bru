@@ -1,0 +1,21 @@
+meta {
+  name: Reorder Product and Services
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{backend_url}}/api/v1/products-and-services/reorder
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "ids": [
+      "product_and_service_6DM1EXMK3L4Y78",
+      "product_and_service_1WL7534732QNYJ",
+      "product_and_service_K25ZDPN0P7Y9EN"
+    ]
+  }
+}

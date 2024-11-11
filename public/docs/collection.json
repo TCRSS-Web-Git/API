@@ -1,0 +1,1747 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "https:\/\/api.tcrss.test"
+        }
+    ],
+    "info": {
+        "name": "TCRSS API Documentation",
+        "_postman_id": "10537a17-faff-4295-af0a-b369cd0915e0",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Authentication",
+            "description": "",
+            "item": [
+                {
+                    "name": "Login (session)",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"crona.dangelo@example.net\",\"password\":\"m\\\\VIk387Rw@&1ZOO}\"}"
+                        },
+                        "description": "Authenticates the user",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Logout (session)",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Log the user out of the application",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Blogs",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get all blogs",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/blogs",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/blogs"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":\"blog_Z4DX835P3VNLBK\",\"thumbnail\":null,\"category\":{\"id\":\"category_V2Y3EMY0P815R9\",\"name\":\"\\u0e1a\\u0e17\\u0e04\\u0e27\\u0e32\\u0e21\",\"slug\":\"articles\"},\"slug\":\"eum-repellat-quis-placeat-rerum-non-quis-unde\",\"title\":\"(th) Rem dolores aspernatur in.\",\"meta_title\":\"(th) Rem dolores aspernatur in.\",\"meta_description\":\"(th) Sunt aspernatur quibusdam odit ut vero vel cupiditate. Ducimus ex impedit laudantium voluptatum qui dolor placeat. Rerum inventore sit sint expedita repellat qui sed. Veniam architecto aliquam amet consequuntur ea accusamus eveniet.\\n\\nEius et tenetur\",\"status\":\"published\",\"tags\":[],\"updated_by\":null,\"published_at\":\"2023-12-13T05:56:06.000000Z\",\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"blog_K6JYM3BW3XBQZ8\",\"thumbnail\":null,\"category\":{\"id\":\"category_V2Y3EMY0P815R9\",\"name\":\"\\u0e1a\\u0e17\\u0e04\\u0e27\\u0e32\\u0e21\",\"slug\":\"articles\"},\"slug\":\"officia-non-qui-voluptas\",\"title\":\"(th) Neque error deleniti aut autem voluptas.\",\"meta_title\":\"(th) Neque error deleniti aut autem voluptas.\",\"meta_description\":\"(th) Culpa eum dolorem ut aut. Temporibus ipsam corrupti est ipsum animi. Officia quis et voluptas. Voluptatem fugit veniam quos sequi.\\n\\nEst quo dignissimos magni et est. Est corrupti quod facere eveniet alias enim quam totam. Et soluta reiciendis molesti\",\"status\":\"published\",\"tags\":[],\"updated_by\":null,\"published_at\":\"2024-04-11T10:48:32.000000Z\",\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"blog_BW8JN7KB7Z94KQ\",\"thumbnail\":null,\"category\":{\"id\":\"category_BGN90M7EDVZRQ1\",\"name\":\"\\u0e42\\u0e1b\\u0e23\\u0e42\\u0e21\\u0e0a\\u0e31\\u0e48\\u0e19\",\"slug\":\"promotions\"},\"slug\":\"qui-ut-ullam-culpa-soluta-illo-accusamus\",\"title\":\"(th) Blanditiis eaque facere qui quia fuga ea atque.\",\"meta_title\":\"(th) Blanditiis eaque facere qui quia fuga ea atque.\",\"meta_description\":\"(th) Ad maiores dolorem omnis dignissimos. Quasi in explicabo adipisci soluta. Sequi quibusdam numquam tenetur quo et iste nostrum.\\n\\nTenetur a eum fugiat. Voluptatem eum distinctio iure doloremque. Ad ut consectetur suscipit neque atque hic velit.\\n\\nPraese\",\"status\":\"draft\",\"tags\":[],\"updated_by\":null,\"published_at\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"blog_JVK923Y53YM1P6\",\"thumbnail\":null,\"category\":{\"id\":\"category_BGN90M7EDVZRQ1\",\"name\":\"\\u0e42\\u0e1b\\u0e23\\u0e42\\u0e21\\u0e0a\\u0e31\\u0e48\\u0e19\",\"slug\":\"promotions\"},\"slug\":\"vitae-assumenda-explicabo-aut-sapiente-similique-totam-fugit\",\"title\":\"(th) Perferendis doloremque nobis aspernatur totam asperiores architecto.\",\"meta_title\":\"(th) Perferendis doloremque nobis aspernatur totam asperiores architecto.\",\"meta_description\":\"(th) Est qui voluptatem voluptate magni tempora enim. Omnis tempore consectetur eum quidem ut consequuntur. Dolores ea minus qui perspiciatis repellendus quas voluptatem.\\n\\nQuia dignissimos unde quibusdam earum dolor ab voluptatem deserunt. Officiis exerci\",\"status\":\"draft\",\"tags\":[],\"updated_by\":null,\"published_at\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"blog_XWPLZ3W03652D8\",\"thumbnail\":null,\"category\":{\"id\":\"category_BGN90M7EDVZRQ1\",\"name\":\"\\u0e42\\u0e1b\\u0e23\\u0e42\\u0e21\\u0e0a\\u0e31\\u0e48\\u0e19\",\"slug\":\"promotions\"},\"slug\":\"est-hic-officiis-facere-explicabo-ut-aut-aut\",\"title\":\"(th) Accusamus dignissimos reiciendis nemo.\",\"meta_title\":\"(th) Accusamus dignissimos reiciendis nemo.\",\"meta_description\":\"(th) Ut ducimus eum in quos. Quis qui voluptate sed non tempore voluptas sequi. Cum est et sunt deserunt reiciendis eveniet facere.\\n\\nEt odit incidunt omnis quas eos. Neque ullam sit ut dolorum ipsa. Quos ipsam ducimus velit velit non nemo perspiciatis. Fa\",\"status\":\"published\",\"tags\":[],\"updated_by\":null,\"published_at\":\"2024-09-22T08:58:09.000000Z\",\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"blog_1D0VE7ZMRNLBYG\",\"thumbnail\":null,\"category\":{\"id\":\"category_BGN90M7EDVZRQ1\",\"name\":\"\\u0e42\\u0e1b\\u0e23\\u0e42\\u0e21\\u0e0a\\u0e31\\u0e48\\u0e19\",\"slug\":\"promotions\"},\"slug\":\"et-minus-voluptate-deleniti\",\"title\":\"(th) Voluptatibus et consequatur nam culpa nam sit sequi.\",\"meta_title\":\"(th) Voluptatibus et consequatur nam culpa nam sit sequi.\",\"meta_description\":\"(th) Perferendis nulla magnam corrupti non. Quae eos totam quam. Ipsum aut sint porro magni. Explicabo laudantium unde id itaque.\\n\\nNemo reprehenderit consequuntur soluta asperiores consequatur. Nihil non quo laboriosam est eius sequi illo. Et ea unde quis\",\"status\":\"draft\",\"tags\":[],\"updated_by\":null,\"published_at\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"blog_V1Q9J7423K8XBG\",\"thumbnail\":null,\"category\":{\"id\":\"category_BGN90M7EDVZRQ1\",\"name\":\"\\u0e42\\u0e1b\\u0e23\\u0e42\\u0e21\\u0e0a\\u0e31\\u0e48\\u0e19\",\"slug\":\"promotions\"},\"slug\":\"esse-et-omnis-similique-dolorum-repellat-ut-quia-velit\",\"title\":\"(th) Quibusdam aut quis dicta eveniet vero.\",\"meta_title\":\"(th) Quibusdam aut quis dicta eveniet vero.\",\"meta_description\":\"(th) Qui unde suscipit id voluptatem voluptatem. Qui facere aliquid ipsam. Iusto eligendi provident error enim molestias. Nemo omnis rerum error possimus.\\n\\nEst delectus iure voluptates incidunt. Illum assumenda et totam sed fugit sed voluptatem. Dolore di\",\"status\":\"published\",\"tags\":[],\"updated_by\":null,\"published_at\":\"2024-02-05T00:03:19.000000Z\",\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"blog_M9D6P7V27BZEX5\",\"thumbnail\":null,\"category\":{\"id\":\"category_V2Y3EMY0P815R9\",\"name\":\"\\u0e1a\\u0e17\\u0e04\\u0e27\\u0e32\\u0e21\",\"slug\":\"articles\"},\"slug\":\"sit-soluta-doloribus-assumenda-laudantium\",\"title\":\"(th) Occaecati rem et voluptatem impedit nam.\",\"meta_title\":\"(th) Occaecati rem et voluptatem impedit nam.\",\"meta_description\":\"(th) Vitae rem vitae deserunt repudiandae sunt. Delectus accusamus aperiam vero earum.\\n\\nVeniam provident facere aut dolore nobis rem voluptas quidem. Deleniti totam ut id exercitationem dolorem illo voluptate. Doloremque est eos et.\\n\\nQuia quam nam ut blan\",\"status\":\"draft\",\"tags\":[],\"updated_by\":null,\"published_at\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"blog_WV8J6RP8RXE2BM\",\"thumbnail\":null,\"category\":{\"id\":\"category_V2Y3EMY0P815R9\",\"name\":\"\\u0e1a\\u0e17\\u0e04\\u0e27\\u0e32\\u0e21\",\"slug\":\"articles\"},\"slug\":\"animi-itaque-ab-voluptatem-voluptates-sequi-beatae-non-nemo\",\"title\":\"(th) Quam tempore sit enim voluptatum perferendis qui.\",\"meta_title\":\"(th) Quam tempore sit enim voluptatum perferendis qui.\",\"meta_description\":\"(th) Et voluptas voluptatem eveniet sed architecto repellat. Placeat quae voluptatibus quas vel praesentium. Et beatae expedita quaerat ipsam.\\n\\nDolores adipisci totam earum tenetur velit ipsam cum. Voluptatem voluptatem ea rerum at architecto. Qui quidem\",\"status\":\"published\",\"tags\":[],\"updated_by\":null,\"published_at\":\"2023-12-09T18:10:05.000000Z\",\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"blog_ZK6LYR6QR9MP48\",\"thumbnail\":null,\"category\":{\"id\":\"category_BGN90M7EDVZRQ1\",\"name\":\"\\u0e42\\u0e1b\\u0e23\\u0e42\\u0e21\\u0e0a\\u0e31\\u0e48\\u0e19\",\"slug\":\"promotions\"},\"slug\":\"ab-officia-labore-qui-sunt-repellendus-quibusdam-impedit-odit\",\"title\":\"(th) Placeat ea qui rerum corrupti rem.\",\"meta_title\":\"(th) Placeat ea qui rerum corrupti rem.\",\"meta_description\":\"(th) Fuga nostrum a voluptatum libero veniam corrupti. Totam et sint similique excepturi fugiat est tempora. Et beatae praesentium enim dolorem.\\n\\nInventore necessitatibus rerum ratione id et quisquam ut. Rerum fuga labore consequuntur qui ut quas. Dolor n\",\"status\":\"draft\",\"tags\":[],\"updated_by\":null,\"published_at\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"}],\"links\":{\"first\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/blogs?page=1\",\"last\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/blogs?page=2\",\"prev\":null,\"next\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/blogs?page=2\"},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":2,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/blogs?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/blogs?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/blogs?page=2\",\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/blogs\",\"per_page\":10,\"to\":10,\"total\":20}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create blog",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/blogs",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/blogs"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"slug\":\"klpchjifpkt\",\"published_at\":\"2024-10-11T04:56:11\",\"tags\":[\"srm\"],\"th\":{\"title\":\"ibpsdofjxiqceekm\",\"body\":\"c\",\"meta_title\":\"nfmwflqeqzvjz\",\"meta_description\":\"qdksjwvotzfkrzrrfvckz\"},\"en\":{\"title\":\"drwccbunesssdcnn\",\"body\":\"zcwcwzfmetncfnqsn\",\"meta_title\":\"dmctmtjbupcy\",\"meta_description\":\"mjzwjcgbqvdyuagxcniqot\"},\"cover\":{\"path\":\"accusantium\",\"url\":\"https:\\\/\\\/www.metz.com\\\/magnam-esse-animi-cupiditate-ex-nihil-eius\",\"name\":\"quaerat\"},\"thumbnail\":{\"path\":\"dolores\",\"url\":\"http:\\\/\\\/www.lemke.net\\\/\",\"name\":\"qui\"},\"body_images\":[{\"path\":\"voluptate\",\"url\":\"http:\\\/\\\/www.thompson.com\\\/a-in-quia-a-explicabo-modi-soluta-provident\",\"name\":\"tenetur\"}]}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get blog by ID",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/blogs\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/blogs\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the blog."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Blog] -1\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update blog",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/blogs\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/blogs\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the blog."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"slug\":\"otiuqmiqxzsrjlcaehtcerlb\",\"published_at\":\"2024-10-11T04:56:11\",\"tags\":[\"pzgpwe\"],\"th\":{\"title\":\"qmpqcuuxhcxuj\",\"body\":\"xtfytuowf\",\"meta_title\":\"cgxchockya\",\"meta_description\":\"sulrr\"},\"en\":{\"title\":\"imtzamystsm\",\"body\":\"nlyvdmdauvzmf\",\"meta_title\":\"keivpyotgkhzployortkogj\",\"meta_description\":\"thabyzbwsynidrnvvrjo\"},\"cover\":{\"path\":\"perferendis\",\"url\":\"https:\\\/\\\/jerde.com\\\/omnis-porro-quis-et-dolores-quia.html\",\"name\":\"aut\"},\"thumbnail\":{\"path\":\"debitis\",\"url\":\"https:\\\/\\\/terry.com\\\/iusto-nihil-qui-rem-culpa-sit-omnis.html\",\"name\":\"magni\"},\"body_images\":[{\"path\":\"quia\",\"url\":\"https:\\\/\\\/larkin.com\\\/deleniti-iure-ex-qui-et-impedit-sed-eaque-ratione.html\",\"name\":\"ipsam\"}]}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete blog",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/blogs\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/blogs\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the blog."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Careers",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get all career.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/careers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/careers"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":\"career_046XZB4DDLNRQ5\",\"location\":{\"id\":\"category_51L8XP69P7WR30\",\"name\":\"\\u0e01\\u0e23\\u0e38\\u0e07\\u0e40\\u0e17\\u0e1e\\u0e2f\",\"slug\":null},\"type\":{\"id\":\"category_Z8GQ6D2LPY1NKR\",\"name\":\"\\u0e07\\u0e32\\u0e19\\u0e40\\u0e15\\u0e47\\u0e21\\u0e40\\u0e27\\u0e25\\u0e32\",\"slug\":null},\"department\":{\"id\":\"category_325KBP4LPLXQN1\",\"name\":\"\\u0e1d\\u0e48\\u0e32\\u0e22\\u0e1a\\u0e38\\u0e04\\u0e04\\u0e25\",\"slug\":null},\"title\":\"(th) Et debitis sed et vitae est.\",\"meta_title\":\"(th) Et debitis sed et vitae est.\",\"meta_description\":\"(th) Non sed illo amet voluptatibus provident dolorem. Similique quae molestiae voluptatem voluptas sapiente et quidem corporis. Aut expedita laudantium et dolorem sunt. Est rerum fugiat quam fuga.\\n\\nError architecto pariatur recusandae aut voluptates accu\",\"status\":\"draft\",\"updated_by\":null,\"published_at\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"career_6DNRVL6D8BXK97\",\"location\":{\"id\":\"category_G9J86PJ1MWQY2E\",\"name\":\"\\u0e40\\u0e0a\\u0e35\\u0e22\\u0e07\\u0e43\\u0e2b\\u0e21\\u0e48\",\"slug\":null},\"type\":{\"id\":\"category_Z8GQ6D2LPY1NKR\",\"name\":\"\\u0e07\\u0e32\\u0e19\\u0e40\\u0e15\\u0e47\\u0e21\\u0e40\\u0e27\\u0e25\\u0e32\",\"slug\":null},\"department\":{\"id\":\"category_325KBP4LPLXQN1\",\"name\":\"\\u0e1d\\u0e48\\u0e32\\u0e22\\u0e1a\\u0e38\\u0e04\\u0e04\\u0e25\",\"slug\":null},\"title\":\"(th) Voluptatum ut dolorem nulla ut numquam est minus.\",\"meta_title\":\"(th) Voluptatum ut dolorem nulla ut numquam est minus.\",\"meta_description\":\"(th) Qui eos beatae et ut consequatur veniam. Voluptatem et sed expedita. In voluptatem repellat quidem ducimus occaecati nesciunt. Sint odio dolorem magni molestiae fuga.\\n\\nExpedita velit voluptate quibusdam libero aut. Quaerat et voluptates velit enim di\",\"status\":\"draft\",\"updated_by\":null,\"published_at\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"career_45GM1L1DE3R9DK\",\"location\":{\"id\":\"category_G9J86PJ1MWQY2E\",\"name\":\"\\u0e40\\u0e0a\\u0e35\\u0e22\\u0e07\\u0e43\\u0e2b\\u0e21\\u0e48\",\"slug\":null},\"type\":{\"id\":\"category_Z8GQ6D2LPY1NKR\",\"name\":\"\\u0e07\\u0e32\\u0e19\\u0e40\\u0e15\\u0e47\\u0e21\\u0e40\\u0e27\\u0e25\\u0e32\",\"slug\":null},\"department\":{\"id\":\"category_0821RDE5P753VQ\",\"name\":\"\\u0e1d\\u0e48\\u0e32\\u0e22 IT\",\"slug\":null},\"title\":\"(th) Quam porro similique quas tempore explicabo libero blanditiis.\",\"meta_title\":\"(th) Quam porro similique quas tempore explicabo libero blanditiis.\",\"meta_description\":\"(th) Est saepe qui est ex cumque. Aperiam qui ipsa et quae. Aliquid enim veniam recusandae enim eum cupiditate et.\\n\\nQuibusdam atque voluptate quia magni qui ea sapiente. Ut quos unde dolorem deserunt. Sequi eos nostrum ipsa ut tempore est sit doloribus. E\",\"status\":\"draft\",\"updated_by\":null,\"published_at\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"career_K8GQNB7JLDWR74\",\"location\":{\"id\":\"category_51L8XP69P7WR30\",\"name\":\"\\u0e01\\u0e23\\u0e38\\u0e07\\u0e40\\u0e17\\u0e1e\\u0e2f\",\"slug\":null},\"type\":{\"id\":\"category_BY4ERMG6PQL7JK\",\"name\":\"\\u0e07\\u0e32\\u0e19\\u0e1e\\u0e32\\u0e23\\u0e4c\\u0e17\\u0e44\\u0e17\\u0e21\\u0e4c\",\"slug\":null},\"department\":{\"id\":\"category_0821RDE5P753VQ\",\"name\":\"\\u0e1d\\u0e48\\u0e32\\u0e22 IT\",\"slug\":null},\"title\":\"(th) Necessitatibus est a atque aliquid.\",\"meta_title\":\"(th) Necessitatibus est a atque aliquid.\",\"meta_description\":\"(th) Earum sed repudiandae non. Officiis repellat officia repellat aut qui excepturi hic. Qui illum sit doloremque magni sequi.\\n\\nQuo nobis quibusdam molestiae nihil eum qui sit. Fugit excepturi iure incidunt quo et. Est qui necessitatibus tempore deserunt\",\"status\":\"published\",\"updated_by\":null,\"published_at\":\"2024-09-19T14:50:02.000000Z\",\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"career_WR72PBVPB8XGNY\",\"location\":{\"id\":\"category_G9J86PJ1MWQY2E\",\"name\":\"\\u0e40\\u0e0a\\u0e35\\u0e22\\u0e07\\u0e43\\u0e2b\\u0e21\\u0e48\",\"slug\":null},\"type\":{\"id\":\"category_Z8GQ6D2LPY1NKR\",\"name\":\"\\u0e07\\u0e32\\u0e19\\u0e40\\u0e15\\u0e47\\u0e21\\u0e40\\u0e27\\u0e25\\u0e32\",\"slug\":null},\"department\":{\"id\":\"category_325KBP4LPLXQN1\",\"name\":\"\\u0e1d\\u0e48\\u0e32\\u0e22\\u0e1a\\u0e38\\u0e04\\u0e04\\u0e25\",\"slug\":null},\"title\":\"(th) Quam nihil placeat deleniti itaque quod.\",\"meta_title\":\"(th) Quam nihil placeat deleniti itaque quod.\",\"meta_description\":\"(th) Eius occaecati sed a possimus aut minima consequatur explicabo. Excepturi cum laudantium magni repudiandae qui. Cumque laborum ad autem doloribus accusamus nobis occaecati.\\n\\nAspernatur nihil ut repudiandae ea est perferendis hic. Et exercitationem ea\",\"status\":\"draft\",\"updated_by\":null,\"published_at\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"career_JQ03NEJ2E1VW2G\",\"location\":{\"id\":\"category_G9J86PJ1MWQY2E\",\"name\":\"\\u0e40\\u0e0a\\u0e35\\u0e22\\u0e07\\u0e43\\u0e2b\\u0e21\\u0e48\",\"slug\":null},\"type\":{\"id\":\"category_Z8GQ6D2LPY1NKR\",\"name\":\"\\u0e07\\u0e32\\u0e19\\u0e40\\u0e15\\u0e47\\u0e21\\u0e40\\u0e27\\u0e25\\u0e32\",\"slug\":null},\"department\":{\"id\":\"category_325KBP4LPLXQN1\",\"name\":\"\\u0e1d\\u0e48\\u0e32\\u0e22\\u0e1a\\u0e38\\u0e04\\u0e04\\u0e25\",\"slug\":null},\"title\":\"(th) Blanditiis vel quos doloribus impedit voluptates in sunt facilis.\",\"meta_title\":\"(th) Blanditiis vel quos doloribus impedit voluptates in sunt facilis.\",\"meta_description\":\"(th) Molestiae quia neque debitis. Et architecto non odio quas ex. Ut fuga possimus omnis officiis. Atque omnis architecto qui mollitia.\\n\\nQuis voluptatibus id doloremque voluptate occaecati eius provident. Rerum harum laudantium aut asperiores eveniet eum\",\"status\":\"draft\",\"updated_by\":null,\"published_at\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"career_48VDXE03E52NG3\",\"location\":{\"id\":\"category_51L8XP69P7WR30\",\"name\":\"\\u0e01\\u0e23\\u0e38\\u0e07\\u0e40\\u0e17\\u0e1e\\u0e2f\",\"slug\":null},\"type\":{\"id\":\"category_Z8GQ6D2LPY1NKR\",\"name\":\"\\u0e07\\u0e32\\u0e19\\u0e40\\u0e15\\u0e47\\u0e21\\u0e40\\u0e27\\u0e25\\u0e32\",\"slug\":null},\"department\":{\"id\":\"category_325KBP4LPLXQN1\",\"name\":\"\\u0e1d\\u0e48\\u0e32\\u0e22\\u0e1a\\u0e38\\u0e04\\u0e04\\u0e25\",\"slug\":null},\"title\":\"(th) Repudiandae blanditiis dolore iure.\",\"meta_title\":\"(th) Repudiandae blanditiis dolore iure.\",\"meta_description\":\"(th) Doloribus voluptatem omnis tempora autem quo maiores quis. Voluptatem placeat non quis praesentium sit vel. Doloribus consequatur numquam nostrum amet omnis deserunt. Quasi dicta repellendus soluta perspiciatis inventore.\\n\\nItaque quia natus rerum deb\",\"status\":\"draft\",\"updated_by\":null,\"published_at\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"career_302R9BY2BPYNV6\",\"location\":{\"id\":\"category_51L8XP69P7WR30\",\"name\":\"\\u0e01\\u0e23\\u0e38\\u0e07\\u0e40\\u0e17\\u0e1e\\u0e2f\",\"slug\":null},\"type\":{\"id\":\"category_Z8GQ6D2LPY1NKR\",\"name\":\"\\u0e07\\u0e32\\u0e19\\u0e40\\u0e15\\u0e47\\u0e21\\u0e40\\u0e27\\u0e25\\u0e32\",\"slug\":null},\"department\":{\"id\":\"category_0821RDE5P753VQ\",\"name\":\"\\u0e1d\\u0e48\\u0e32\\u0e22 IT\",\"slug\":null},\"title\":\"(th) Ut dolores non soluta aut non fugiat quam.\",\"meta_title\":\"(th) Ut dolores non soluta aut non fugiat quam.\",\"meta_description\":\"(th) Ipsam ut alias est atque incidunt temporibus. Voluptas deleniti suscipit inventore provident cumque dolorum sed alias.\\n\\nVoluptatem autem omnis porro doloribus aut tenetur. Earum ut ratione incidunt omnis sed. Magnam ratione aut hic dolor aut.\\n\\nIpsum\",\"status\":\"published\",\"updated_by\":null,\"published_at\":\"2023-10-15T06:00:41.000000Z\",\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"career_Y281GBW8EJX047\",\"location\":{\"id\":\"category_51L8XP69P7WR30\",\"name\":\"\\u0e01\\u0e23\\u0e38\\u0e07\\u0e40\\u0e17\\u0e1e\\u0e2f\",\"slug\":null},\"type\":{\"id\":\"category_BY4ERMG6PQL7JK\",\"name\":\"\\u0e07\\u0e32\\u0e19\\u0e1e\\u0e32\\u0e23\\u0e4c\\u0e17\\u0e44\\u0e17\\u0e21\\u0e4c\",\"slug\":null},\"department\":{\"id\":\"category_0821RDE5P753VQ\",\"name\":\"\\u0e1d\\u0e48\\u0e32\\u0e22 IT\",\"slug\":null},\"title\":\"(th) Repellendus placeat natus sit dolorum.\",\"meta_title\":\"(th) Repellendus placeat natus sit dolorum.\",\"meta_description\":\"(th) Et sed sit molestiae nihil qui itaque. Totam vel qui vitae nihil. Rerum sed consequatur molestiae voluptatem quia consequatur. Exercitationem sed quam quia consectetur. Voluptatem eius molestias quasi distinctio aut suscipit.\\n\\nDolorum sed sed vero ad\",\"status\":\"published\",\"updated_by\":null,\"published_at\":\"2024-09-09T02:49:33.000000Z\",\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"career_P0QJKBXYLG321R\",\"location\":{\"id\":\"category_51L8XP69P7WR30\",\"name\":\"\\u0e01\\u0e23\\u0e38\\u0e07\\u0e40\\u0e17\\u0e1e\\u0e2f\",\"slug\":null},\"type\":{\"id\":\"category_BY4ERMG6PQL7JK\",\"name\":\"\\u0e07\\u0e32\\u0e19\\u0e1e\\u0e32\\u0e23\\u0e4c\\u0e17\\u0e44\\u0e17\\u0e21\\u0e4c\",\"slug\":null},\"department\":{\"id\":\"category_0821RDE5P753VQ\",\"name\":\"\\u0e1d\\u0e48\\u0e32\\u0e22 IT\",\"slug\":null},\"title\":\"(th) Non sed rerum nisi quod est.\",\"meta_title\":\"(th) Non sed rerum nisi quod est.\",\"meta_description\":\"(th) Nobis aliquid vitae qui suscipit. Nulla adipisci delectus qui quia iure quibusdam itaque. Nemo repudiandae nulla ex ipsa ut aspernatur.\\n\\nSapiente totam dicta deserunt nulla velit nobis. Velit dignissimos sit voluptatum officia ut voluptas minus. Et u\",\"status\":\"draft\",\"updated_by\":null,\"published_at\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"}],\"links\":{\"first\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/careers?page=1\",\"last\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/careers?page=3\",\"prev\":null,\"next\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/careers?page=2\"},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":3,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/careers?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/careers?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/careers?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/careers?page=2\",\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/careers\",\"per_page\":10,\"to\":10,\"total\":25}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a career.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/careers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/careers"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"published_at\":\"2024-10-11T04:56:11\",\"th\":{\"title\":\"bnbmxsudmervziadc\",\"body\":\"twbjnkcxgwdt\",\"meta_title\":\"basfsljkbetltywycnzyisd\",\"meta_description\":\"epaboybiztfilbeuvidg\"},\"en\":{\"title\":\"shswhk\",\"body\":\"joht\",\"meta_title\":\"dbmsq\",\"meta_description\":\"buypmdsjxszbgmkygneuou\"},\"body_images\":[{\"path\":\"et\",\"url\":\"http:\\\/\\\/www.murray.org\\\/cum-quisquam-expedita-ipsa-quia-delectus\",\"name\":\"sint\"}]}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get a career by id.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/careers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/careers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the career."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Career] -1\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update a career.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/careers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/careers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the career."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"published_at\":\"2024-10-11T04:56:11\",\"th\":{\"title\":\"qqg\",\"body\":\"zdravwdruucra\",\"meta_title\":\"qktqsy\",\"meta_description\":\"zswjzislrnhhjzusoworeghwv\"},\"en\":{\"title\":\"cgnicrnvkdyoyruwolcoeox\",\"body\":\"ewqhdslirp\",\"meta_title\":\"zddxdmefeqro\",\"meta_description\":\"oavmhiebhszlbiudcxkge\"},\"body_images\":[{\"path\":\"asperiores\",\"url\":\"http:\\\/\\\/bednar.com\\\/voluptatibus-dolorum-cupiditate-facilis-aut.html\",\"name\":\"dicta\"}]}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete a career.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/careers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/careers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the career."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Categories",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get all categories of a type.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:type",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:type",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "blog",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":\"category_V2Y3EMY0P815R9\",\"name\":\"\\u0e1a\\u0e17\\u0e04\\u0e27\\u0e32\\u0e21\",\"description\":null,\"slug\":\"articles\",\"sort\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"category_BGN90M7EDVZRQ1\",\"name\":\"\\u0e42\\u0e1b\\u0e23\\u0e42\\u0e21\\u0e0a\\u0e31\\u0e48\\u0e19\",\"description\":null,\"slug\":\"promotions\",\"sort\":null,\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"}],\"links\":{\"first\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/categories\\\/blog?page=1\",\"last\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/categories\\\/blog?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/categories\\\/blog?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/categories\\\/blog\",\"per_page\":15,\"to\":2,\"total\":2}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:type",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:type",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "blog",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get category by ID",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:type\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:type\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "blog",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Category] -1\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:type\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:type\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "blog",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:type\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:type\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "blog",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:type\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:type\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "blog",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get all categories of a type.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/tags\/:type",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/tags\/:type",
+                            "variable": [
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "vitae",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Handle an incoming registration request.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"xrnqmdntevkzlwuhhdbrj\",\"last_name\":\"igzagefajcruedwsv\",\"email\":\"adrain04@example.org\",\"password\":\"qui\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Handle an incoming password reset link request.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/forgot-password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/forgot-password"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"kristy.pollich@example.com\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Handle an incoming new password request.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/reset-password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/reset-password"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"token\":\"non\",\"email\":\"jolie50@example.org\",\"password\":\"quos\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Mark the authenticated user's email address as verified.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/verify-email\/:id\/:hash",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/verify-email\/:id\/:hash",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "quia",
+                                    "description": "The ID of the verify email."
+                                },
+                                {
+                                    "id": "hash",
+                                    "key": "hash",
+                                    "value": "porro",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "6"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "5"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6IjdwbXNZcjhpWlJjV0RKdmNkcC85bWc9PSIsInZhbHVlIjoiazFiY1RPZHNNc0hyY3NhYU1KTVdDc1hlYTVCR2kyVjFBU1lSZnB3TDljV0E4U3pDelJaSVMxTnM5N3hmZEFyWStmQ0VFSGFmZnNjTU52QThzaE5xbGJ0VTZiVFpoTG0yN1FRV25tRVRCT1k1OVVMYUcvaGdvbmpySWxWcXBOVUMiLCJtYWMiOiJiYjdlMTkxNTBjMTg1ZGM1ZGY1YzFiOTg3NWM3MDQwMzgxZjA0ZTg3YmM1OWJmZWE3NTJhYTY4NjA1MTA2MDFhIiwidGFnIjoiIn0%3D; expires=Fri, 11 Oct 2024 06:56:10 GMT; Max-Age=7200; path=\/; domain=.tcrss.test; secure; samesite=lax; laravel_session=eyJpdiI6IndycmgvTTErOWN3VjJBbW13WTB4RXc9PSIsInZhbHVlIjoiMUJnVmRVMXpKcmFYZENyTHRTTWxrcGNTV0kyOWdhdHZIdjlLeDR0dmZUYVFiTkRGVXFtV2hvNTZHZzRpN0dGUmV5WnFaa1JOTi9ZMk02RXNsWm83ZDJ6b2VTaDVBelRiSkJIc0lLNi84SVlsYnpqbEwwcXZQSldSQWt3SDFNSDEiLCJtYWMiOiIyNmUwNzgwOTZlNDk2MDJlZjQ3MTE1MGViYmRmNjI4MDIzODYzYWJlNTM2MTA5MzBkZGNjNzA4M2QwZTU3MDhlIiwidGFnIjoiIn0%3D; expires=Fri, 11 Oct 2024 06:56:10 GMT; Max-Age=7200; path=\/; domain=.tcrss.test; secure; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 403,
+                            "body": "{\n    \"message\": \"Invalid signature.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Send a new email verification notification.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/email\/verification-notification",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/email\/verification-notification"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Return an empty response simply to trigger the storage of the CSRF cookie in the browser.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/csrf-cookie",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/csrf-cookie"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 204,
+                            "body": "",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":\"role_2VDBZXRV4W8PGL\",\"name\":\"Super Admin\",\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"},{\"id\":\"role_E8PLJ15WXK9M2Z\",\"name\":\"Admin\",\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"}],\"links\":{\"first\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/roles?page=1\",\"last\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/roles?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/roles?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/roles\",\"per_page\":10,\"to\":2,\"total\":2}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the role."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Role] -1\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the role."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the role."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/temporary-media",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/temporary-media",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/temporary-media"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "media",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/invite\/resend\/{user_id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/invite\/resend\/:user_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/invite\/resend\/:user_id",
+                            "variable": [
+                                {
+                                    "id": "user_id",
+                                    "key": "user_id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/v1\/accept-user-invitation",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/accept-user-invitation",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/accept-user-invitation"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"password\":\"cum\",\"password_confirmation\":\"fugit\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/v1\/dev-api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dev-api",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dev-api"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"message\":\"this is dev environtment\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get authenticated user profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"user_ZMBQEKPDK3X079\",\"title\":\"Mrs.\",\"first_name\":\"Super\",\"last_name\":\"Admin\",\"email\":\"superadmin@wawa-x.com\",\"phone\":null,\"permissions\":[\"USERS:VIEW\",\"USERS:CREATE\",\"USERS:UPDATE\",\"USERS:DELETE\",\"BLOGS:VIEW\",\"BLOGS:CREATE\",\"BLOGS:UPDATE\",\"BLOGS:DELETE\",\"BLOG_CATEGORIES:CREATE\",\"BLOG_CATEGORIES:UPDATE\",\"BLOG_CATEGORIES:DELETE\",\"CAREERS:VIEW\",\"CAREERS:CREATE\",\"CAREERS:UPDATE\",\"CAREERS:DELETE\"],\"created_at\":\"2024-10-11T04:56:01.000000Z\",\"updated_at\":\"2024-10-11T04:56:01.000000Z\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update User Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"Mrs.\",\"first_name\":\"acmegoogbirdpcvbhegcvkkxj\",\"last_name\":\"wtacaavwo\",\"phone\":\"spsvbtmkw\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Password",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/password"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"current_password\":\"esse\",\"password\":\"dolores\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [
+                                {
+                                    "key": "sort",
+                                    "value": "first_name%2C-createdAt",
+                                    "description": "Data field(s) to sort by. Separate multiple fields with commas. Denote descending sort with a minus sign.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bid%5D",
+                                    "value": "qui",
+                                    "description": "Filter user by id.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bemail%5D",
+                                    "value": "omnis",
+                                    "description": "Filter user by email.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "rerum",
+                                    "description": "Search user by name, email, phone.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/users?sort=first_name%2C-createdAt&filter%5Bid%5D=qui&filter%5Bemail%5D=omnis&search=rerum"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[],\"links\":{\"first\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/users?page=1\",\"last\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/users?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; \\u0e01\\u0e48\\u0e2d\\u0e19\\u0e2b\\u0e19\\u0e49\\u0e32\",\"active\":false},{\"url\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/users?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"\\u0e16\\u0e31\\u0e14\\u0e44\\u0e1b &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/api.tcrss.test\\\/api\\\/v1\\\/users\",\"per_page\":10,\"to\":null,\"total\":0}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"Mrs.\",\"first_name\":\"ohs\",\"last_name\":\"tflctjknh\",\"email\":\"gerry.mcclure@example.net\",\"phone\":\"xq\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get User by ID",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\User] -1\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"Mrs.\",\"first_name\":\"rglm\",\"last_name\":\"qrbm\",\"phone\":\"cqmmom\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get user title options",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/titles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/titles"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"value\":\"Mr.\",\"label\":\"\\u0e19\\u0e32\\u0e22\"},{\"value\":\"Mrs.\",\"label\":\"\\u0e19\\u0e32\\u0e07\"},{\"value\":\"Ms.\",\"label\":\"\\u0e19\\u0e32\\u0e07\\u0e2a\\u0e32\\u0e27\"}]}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "Authorization",
+                "type": "string"
+            }
+        ]
+    }
+}
