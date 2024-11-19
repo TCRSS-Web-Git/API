@@ -38,6 +38,13 @@ trait HasTranslations
             ->tap(new FilterTranslationsScope); // @phpstan-ignore-line
     }
 
+    public function translationsRaw(): HasMany
+    {
+        return $this->hasMany($this->translationModelName(), 'item_id')
+            ->chaperone('parent') // edited from original \LaravelLang\Models\HasTranslations
+            ->tap(new FilterTranslationsScope); // @phpstan-ignore-line
+    }
+
     public function hasTranslated(string $column, Locale|LocaleData|string|null $locale = null): bool
     {
         return Attribute::of($this, $column, $locale)
