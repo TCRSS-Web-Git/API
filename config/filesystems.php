@@ -128,6 +128,28 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
+
+        'azure_public' => [
+            'driver' => 'azure',
+            'name' => env('AZURE_STORAGE_NAME'),
+            'key' => env('AZURE_STORAGE_KEY'),
+            'container' => env('AZURE_STORAGE_CONTAINER_NAME'),
+            'url' => env('AZURE_STORAGE_URL'),
+            'prefix' => null,
+            'connection_string' => env('AZURE_STORAGE_CONNECTION_STRING'),
+        ],
+
+        // for storing temporary files, files will be deleted after a certain period
+        // use when storing file before model is created, and move to real bucket after model is created
+        'azure_temporary' => [
+            'driver' => 'azure',
+            'name' => env('AZURE_STORAGE_NAME'),
+            'key' => env('AZURE_STORAGE_KEY'),
+            'container' => env('AZURE_STORAGE_TEMPORARY_CONTAINER_NAME'),
+            'url' => env('AZURE_STORAGE_URL'),
+            'prefix' => null,
+            'connection_string' => env('AZURE_STORAGE_CONNECTION_STRING'),
+        ],
     ],
 
     /*

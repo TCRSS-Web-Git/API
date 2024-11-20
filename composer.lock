@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab9da78657839d910b74189e5ca06cb6",
+    "content-hash": "d3cdab27038bebb0ed262d3b5801d1c5",
     "packages": [
         {
             "name": "archtechx/enums",
@@ -108,16 +108,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.328.1",
+            "version": "3.328.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "52d8219935146c3261181de2da4d36bf04c76298"
+                "reference": "63a6366a8011dffec3d1ef838c97ca6b6ddb17a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/52d8219935146c3261181de2da4d36bf04c76298",
-                "reference": "52d8219935146c3261181de2da4d36bf04c76298",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/63a6366a8011dffec3d1ef838c97ca6b6ddb17a2",
+                "reference": "63a6366a8011dffec3d1ef838c97ca6b6ddb17a2",
                 "shasum": ""
             },
             "require": {
@@ -200,9 +200,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.328.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.328.2"
             },
-            "time": "2024-11-18T19:13:28+00:00"
+            "time": "2024-11-19T20:28:51+00:00"
         },
         {
             "name": "brick/math",
@@ -3394,16 +3394,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.32.0",
+            "version": "v11.33.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "bc2aad63f83ee5089be7b21cf29d645ccf31e927"
+                "reference": "6b9832751cf8eed18b3c73df5071f78f0682aa5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/bc2aad63f83ee5089be7b21cf29d645ccf31e927",
-                "reference": "bc2aad63f83ee5089be7b21cf29d645ccf31e927",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/6b9832751cf8eed18b3c73df5071f78f0682aa5d",
+                "reference": "6b9832751cf8eed18b3c73df5071f78f0682aa5d",
                 "shasum": ""
             },
             "require": {
@@ -3423,7 +3423,7 @@
                 "guzzlehttp/guzzle": "^7.8",
                 "guzzlehttp/uri-template": "^1.0",
                 "laravel/prompts": "^0.1.18|^0.2.0|^0.3.0",
-                "laravel/serializable-closure": "^1.3",
+                "laravel/serializable-closure": "^1.3|^2.0",
                 "league/commonmark": "^2.2.1",
                 "league/flysystem": "^3.8.0",
                 "monolog/monolog": "^3.0",
@@ -3506,9 +3506,9 @@
                 "league/flysystem-path-prefixing": "^3.3",
                 "league/flysystem-read-only": "^3.3",
                 "league/flysystem-sftp-v3": "^3.0",
-                "mockery/mockery": "^1.6",
+                "mockery/mockery": "^1.6.10",
                 "nyholm/psr7": "^1.2",
-                "orchestra/testbench-core": "^9.5",
+                "orchestra/testbench-core": "^9.6",
                 "pda/pheanstalk": "^5.0",
                 "phpstan/phpstan": "^1.11.5",
                 "phpunit/phpunit": "^10.5|^11.0",
@@ -3599,7 +3599,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-11-15T17:04:33+00:00"
+            "time": "2024-11-19T22:47:13+00:00"
         },
         {
             "name": "laravel/horizon",
@@ -3742,16 +3742,16 @@
         },
         {
             "name": "laravel/sanctum",
-            "version": "v4.0.3",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sanctum.git",
-                "reference": "54aea9d13743ae8a6cdd3c28dbef128a17adecab"
+                "reference": "819782c75aaf2b08da1765503893bd2b8023d3b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sanctum/zipball/54aea9d13743ae8a6cdd3c28dbef128a17adecab",
-                "reference": "54aea9d13743ae8a6cdd3c28dbef128a17adecab",
+                "url": "https://api.github.com/repos/laravel/sanctum/zipball/819782c75aaf2b08da1765503893bd2b8023d3b3",
+                "reference": "819782c75aaf2b08da1765503893bd2b8023d3b3",
                 "shasum": ""
             },
             "require": {
@@ -3802,36 +3802,36 @@
                 "issues": "https://github.com/laravel/sanctum/issues",
                 "source": "https://github.com/laravel/sanctum"
             },
-            "time": "2024-09-27T14:55:41+00:00"
+            "time": "2024-11-15T14:47:23+00:00"
         },
         {
             "name": "laravel/serializable-closure",
-            "version": "v1.3.6",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/serializable-closure.git",
-                "reference": "f865a58ea3a0107c336b7045104c75243fa59d96"
+                "reference": "0d8d3d8086984996df86596a86dea60398093a81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/f865a58ea3a0107c336b7045104c75243fa59d96",
-                "reference": "f865a58ea3a0107c336b7045104c75243fa59d96",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/0d8d3d8086984996df86596a86dea60398093a81",
+                "reference": "0d8d3d8086984996df86596a86dea60398093a81",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3|^8.0"
+                "php": "^8.1"
             },
             "require-dev": {
-                "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
-                "nesbot/carbon": "^2.61|^3.0",
-                "pestphp/pest": "^1.21.3",
-                "phpstan/phpstan": "^1.8.2",
-                "symfony/var-dumper": "^5.4.11|^6.2.0|^7.0.0"
+                "illuminate/support": "^10.0|^11.0",
+                "nesbot/carbon": "^2.67|^3.0",
+                "pestphp/pest": "^2.36",
+                "phpstan/phpstan": "^2.0",
+                "symfony/var-dumper": "^6.2.0|^7.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -3863,7 +3863,7 @@
                 "issues": "https://github.com/laravel/serializable-closure/issues",
                 "source": "https://github.com/laravel/serializable-closure"
             },
-            "time": "2024-11-11T17:06:04+00:00"
+            "time": "2024-11-19T01:38:44+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4258,6 +4258,46 @@
             "time": "2024-08-17T13:10:48+00:00"
         },
         {
+            "name": "league/flysystem-azure-blob-storage",
+            "version": "3.28.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem-azure-blob-storage.git",
+                "reference": "7856cc57ae74b0cf673b924e05c236c4f5dbdcb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-azure-blob-storage/zipball/7856cc57ae74b0cf673b924e05c236c4f5dbdcb0",
+                "reference": "7856cc57ae74b0cf673b924e05c236c4f5dbdcb0",
+                "shasum": ""
+            },
+            "require": {
+                "league/flysystem": "^3.10.0",
+                "microsoft/azure-storage-blob": "^1.1",
+                "php": "^8.0.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\AzureBlobStorage\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frankdejonge.nl"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/thephpleague/flysystem-azure-blob-storage/tree/3.28.0"
+            },
+            "time": "2024-05-06T20:05:52+00:00"
+        },
+        {
             "name": "league/flysystem-local",
             "version": "3.29.0",
             "source": {
@@ -4440,6 +4480,74 @@
             "time": "2024-10-10T12:33:01+00:00"
         },
         {
+            "name": "matthewbdaly/laravel-azure-storage",
+            "version": "2.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matthewbdaly/laravel-azure-storage.git",
+                "reference": "db8ee5b2390ab7628477320db65c8da93f4602d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matthewbdaly/laravel-azure-storage/zipball/db8ee5b2390ab7628477320db65c8da93f4602d6",
+                "reference": "db8ee5b2390ab7628477320db65c8da93f4602d6",
+                "shasum": ""
+            },
+            "require": {
+                "league/flysystem-azure-blob-storage": "^3.0"
+            },
+            "require-dev": {
+                "infection/infection": "^0.26.15",
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.22",
+                "pestphp/pest-plugin-laravel": "^1.3",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.3",
+                "phpunit/phpunit": "^9.3",
+                "psy/psysh": "^0.11",
+                "slevomat/coding-standard": "^7.2",
+                "squizlabs/php_codesniffer": "^3.6",
+                "vimeo/psalm": "^4.19"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Matthewbdaly\\LaravelAzureStorage\\AzureStorageServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Matthewbdaly\\LaravelAzureStorage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew Daly",
+                    "email": "matthewbdaly@gmail.com"
+                }
+            ],
+            "description": "Microsoft Azure Blob Storage integration for Laravel's Storage API",
+            "keywords": [
+                "azure",
+                "blob",
+                "laravel",
+                "storage"
+            ],
+            "support": {
+                "issues": "https://github.com/matthewbdaly/laravel-azure-storage/issues",
+                "source": "https://github.com/matthewbdaly/laravel-azure-storage/tree/2.0.8"
+            },
+            "abandoned": "azure-oss/storage-blob-laravel",
+            "time": "2022-10-17T13:38:14+00:00"
+        },
+        {
             "name": "mews/purifier",
             "version": "3.4.2",
             "source": {
@@ -4516,6 +4624,102 @@
                 "source": "https://github.com/mewebstudio/Purifier/tree/3.4.2"
             },
             "time": "2024-03-20T16:18:22+00:00"
+        },
+        {
+            "name": "microsoft/azure-storage-blob",
+            "version": "1.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Azure/azure-storage-blob-php.git",
+                "reference": "1023ce1dbf062351a32ca5ec72ad1fd4a504f1bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Azure/azure-storage-blob-php/zipball/1023ce1dbf062351a32ca5ec72ad1fd4a504f1bf",
+                "reference": "1023ce1dbf062351a32ca5ec72ad1fd4a504f1bf",
+                "shasum": ""
+            },
+            "require": {
+                "microsoft/azure-storage-common": "~1.5",
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MicrosoftAzure\\Storage\\Blob\\": "src/Blob"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Azure Storage PHP Client Library",
+                    "email": "dmsh@microsoft.com"
+                }
+            ],
+            "description": "This project provides a set of PHP client libraries that make it easy to access Microsoft Azure Storage Blob APIs.",
+            "keywords": [
+                "azure",
+                "blob",
+                "php",
+                "sdk",
+                "storage"
+            ],
+            "support": {
+                "issues": "https://github.com/Azure/azure-storage-blob-php/issues",
+                "source": "https://github.com/Azure/azure-storage-blob-php/tree/v1.5.4"
+            },
+            "time": "2022-09-02T02:13:06+00:00"
+        },
+        {
+            "name": "microsoft/azure-storage-common",
+            "version": "1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Azure/azure-storage-common-php.git",
+                "reference": "8ca7b1bf4c9ca7c663e75a02a0035b05b37196a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Azure/azure-storage-common-php/zipball/8ca7b1bf4c9ca7c663e75a02a0035b05b37196a0",
+                "reference": "8ca7b1bf4c9ca7c663e75a02a0035b05b37196a0",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0|^7.0",
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MicrosoftAzure\\Storage\\Common\\": "src/Common"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Azure Storage PHP Client Library",
+                    "email": "dmsh@microsoft.com"
+                }
+            ],
+            "description": "This project provides a set of common code shared by Azure Storage Blob, Table, Queue and File PHP client libraries.",
+            "keywords": [
+                "azure",
+                "common",
+                "php",
+                "sdk",
+                "storage"
+            ],
+            "support": {
+                "issues": "https://github.com/Azure/azure-storage-common-php/issues",
+                "source": "https://github.com/Azure/azure-storage-common-php/tree/v1.5.2"
+            },
+            "time": "2021-10-09T03:03:47+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -11307,12 +11511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "d521fa951b3fc37146a2fe9aef1b06c0af78fd3f"
+                "reference": "b33a18b5d222c63472a4b41f6fa3e15e591c9595"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/d521fa951b3fc37146a2fe9aef1b06c0af78fd3f",
-                "reference": "d521fa951b3fc37146a2fe9aef1b06c0af78fd3f",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/b33a18b5d222c63472a4b41f6fa3e15e591c9595",
+                "reference": "b33a18b5d222c63472a4b41f6fa3e15e591c9595",
                 "shasum": ""
             },
             "conflict": {
@@ -11832,7 +12036,7 @@
                 "rap2hpoutre/laravel-log-viewer": "<0.13",
                 "react/http": ">=0.7,<1.9",
                 "really-simple-plugins/complianz-gdpr": "<6.4.2",
-                "redaxo/source": "<=5.17.1",
+                "redaxo/source": "<5.18",
                 "remdex/livehelperchat": "<4.29",
                 "reportico-web/reportico": "<=8.1",
                 "rhukster/dom-sanitizer": "<1.0.7",
@@ -11899,7 +12103,7 @@
                 "squizlabs/php_codesniffer": ">=1,<2.8.1|>=3,<3.0.1",
                 "ssddanbrown/bookstack": "<24.05.1",
                 "starcitizentools/citizen-skin": ">=2.6.3,<2.31",
-                "statamic/cms": "<4.46|>=5.3,<5.6.2",
+                "statamic/cms": "<=5.16",
                 "stormpath/sdk": "<9.9.99",
                 "studio-42/elfinder": "<=2.1.64",
                 "studiomitte/friendlycaptcha": "<0.1.4",
@@ -12141,7 +12345,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-19T00:20:23+00:00"
+            "time": "2024-11-19T21:04:39+00:00"
         },
         {
             "name": "sebastian/cli-parser",
