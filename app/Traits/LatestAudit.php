@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use App\Models\Audit;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 trait LatestAudit
@@ -10,7 +11,7 @@ trait LatestAudit
     /**
      * Auditable Model audits.
      *
-     * @return MorphOne<Audit>
+     * @return MorphOne<Audit, covariant Model>
      */
     public function latestAudit(): MorphOne
     {
