@@ -13,6 +13,7 @@ use App\Models\Province;
 use App\Models\Subdistrict;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
@@ -22,6 +23,10 @@ class JobApplicationTest extends TestCase
 
     public function test_user_can_submit_job_application_form(): void
     {
+        $mail1 = 'test1@gmail.com';
+        $mail2 = 'test2@hotmail.com';
+        Config::set('tcrss.mails_for_job_application', [$mail1, $mail2]);
+
         $career = Career::factory()->create();
         $province = Province::factory()->create();
         $district = District::factory()->create();
@@ -89,8 +94,13 @@ class JobApplicationTest extends TestCase
         ]);
 
         $response->assertStatus(201);
-        Mail::assertQueued(JobApplication::class, function (JobApplication $mail) use ($firstNameTH, $lastNameTH) {
-            return $mail->hasTo(config('tcrss.mail_for_job_application')) &&
+        Mail::assertQueued(JobApplication::class, function (JobApplication $mail) use ($firstNameTH, $lastNameTH, $mail1) {
+            return $mail->hasTo($mail1) &&
+                $mail->hasSubject("Job Application from $firstNameTH $lastNameTH");
+        });
+
+        Mail::assertQueued(JobApplication::class, function (JobApplication $mail) use ($firstNameTH, $lastNameTH, $mail2) {
+            return $mail->hasTo($mail2) &&
                 $mail->hasSubject("Job Application from $firstNameTH $lastNameTH");
         });
     }
