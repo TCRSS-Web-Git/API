@@ -14,7 +14,8 @@ class ContactUsController extends Controller
     {
         $data = $request->validated();
 
-        foreach (DepartmentType::from($data['department_type'])->email() as $email) {
+        $mails = DepartmentType::from($data['department_type'])->email();
+        foreach ($mails as $email) {
             Mail::to($email)->queue(new ContactUs($data));
         }
 
