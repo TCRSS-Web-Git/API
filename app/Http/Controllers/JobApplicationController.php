@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateJobApplicationRequest;
 use App\Mail\JobApplication;
 use App\Models\Career;
-use App\Models\Role;
-use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Mail;
 

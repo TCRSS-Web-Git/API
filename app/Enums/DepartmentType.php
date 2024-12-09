@@ -29,13 +29,13 @@ enum DepartmentType: string
         };
     }
 
-    public function email(): string
+    public function email(): array
     {
         return match ($this) {
-            self::CUSTOMER_SERVICE => 'customer_service@tcrss.com',
-            self::SALES_AND_MARKETING => 'sales_marketing@tcrss.com',
-            self::HR_AND_RECRUIT => 'hr_recruit@tcrss.com',
-            self::PROCUREMENT => 'procurement_dept@tcrss.com',
+            self::CUSTOMER_SERVICE => config('tcrss.mails_for_contact_us_to_customer_service'),
+            self::SALES_AND_MARKETING => config('tcrss.mails_for_contact_us_to_sales_and_marketing'),
+            self::HR_AND_RECRUIT => config('tcrss.mails_for_contact_us_to_hr_and_recruit'),
+            self::PROCUREMENT => config('tcrss.mails_for_contact_us_to_procurement'),
         };
     }
 }
