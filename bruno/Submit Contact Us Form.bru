@@ -1,0 +1,22 @@
+meta {
+  name: Submit Contact Us Form
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{backend_url}}/api/v1/public/contact-us
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+          "name" : "Taylor",
+          "surname" : "Swift",
+          "phone" : "(+66) 081 111 1111",
+          "email" : "aaa@gmail.com",
+          "department_type" : "HR and Recruit",
+          "detail" : "I want to ask about this application job"
+  }
+}

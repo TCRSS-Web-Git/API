@@ -1,0 +1,16 @@
+meta {
+  name: Update a award image
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{backend_url}}/api/v1/award-images/award_image_NBY4EZ1M3VLPQ2
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  image: @file(/Users/notebook/Downloads/1220x1220.png)
+  _method: PUT
+}

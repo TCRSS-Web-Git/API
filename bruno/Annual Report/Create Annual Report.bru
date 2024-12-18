@@ -1,0 +1,23 @@
+meta {
+  name: Create Annual Report
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{backend_url}}/api/v1/annual-reports
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "published_at": null,
+    "th": {
+      "title": "รายงานประจำปี"
+    },
+    "en": {
+      "title": "Test create anuual report"
+    }
+  }
+}

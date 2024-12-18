@@ -1,0 +1,30 @@
+meta {
+  name: Update Award
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{backend_url}}/api/v1/awards/award_WX5G41L8MBEN70
+  body: json
+  auth: none
+}
+
+headers {
+  Accept-Language: en-US,en;q=0.9
+}
+
+body:json {
+  {
+    "published_at": null,
+    "th": {
+        "title": "หัวข้อรางวัล",
+    "description": "รายละเอียดรางวัล"
+    },
+      "en": {
+        "title": "award title",
+    "description": "award description"
+    },
+    "description_images": []
+  }
+}

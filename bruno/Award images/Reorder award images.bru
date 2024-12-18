@@ -1,0 +1,25 @@
+meta {
+  name: Reorder award images
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{backend_url}}/api/v1/award-images/reorder
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "ids": [
+      "award_image_0NG583NGZDBXK9",
+      "award_image_P2NBDZKBZ6X8QV",
+      "award_image_21KNBZX53G8JX9"
+    ]
+  }
+}
+
+docs {
+  ต้องใส่ id ให้ครบทุก award image
+}
