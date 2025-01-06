@@ -22,7 +22,7 @@ class UploadTemporaryMediaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'media' => ['required', 'file', 'max:102400'], // 10 MB
+            'media' => ['required', 'file', 'max:512000'], // 50 MB
         ];
     }
 }
