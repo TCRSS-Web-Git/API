@@ -9,6 +9,7 @@ use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Category;
 use App\Models\District;
+use App\Models\Popup;
 use App\Models\ProductAndService;
 use App\Models\Province;
 use App\Models\Role;
@@ -51,10 +52,10 @@ class AppServiceProvider extends ServiceProvider
             $referrer = request()->headers->get('referer');
             // if referrer url is ADMIN_URL use admin url instead of frontend
             if (str_contains($referrer, config('app.admin_url'))) {
-                return config('app.admin_url')."/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
+                return config('app.admin_url') . "/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
             }
 
-            return config('app.frontend_url')."/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
+            return config('app.frontend_url') . "/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
         });
 
         // Allow Scribe to generate docs with authenticated user
@@ -79,7 +80,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Route::bind('blog', function ($value) {
-            $query = Blog::when(request()->routeIs('public.blogs.show'), fn ($q) => $q->where('published_at', '<=', now()));
+            $query = Blog::when(request()->routeIs('public.blogs.show'), fn($q) => $q->where('published_at', '<=', now()));
 
             return $query->clone()->where('slug', $value)->first() ?? $query->clone()->findOrFail(Blog::decodeHash($value));
         });
@@ -89,7 +90,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Route::bind('career', function ($value) {
-            return Career::when(request()->routeIs('public.careers.show'), fn ($q) => $q->where('published_at', '<=', now()))->findOrFail(Career::decodeHash($value));
+            return Career::when(request()->routeIs('public.careers.show'), fn($q) => $q->where('published_at', '<=', now()))->findOrFail(Career::decodeHash($value));
         });
 
         Route::bind('district', function ($value) {
@@ -110,6 +111,10 @@ class AppServiceProvider extends ServiceProvider
 
         Route::bind('role', function ($value) {
             return Role::findByHashOrFail($value);
+        });
+
+        Route::bind('popup', function ($value) {
+            return Popup::findByHashOrFail($value);
         });
     }
 }
