@@ -8,6 +8,7 @@ use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\JobApplicationController;
+use App\Http\Controllers\PopupController;
 use App\Http\Controllers\ProductAndServiceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TagController;
@@ -50,6 +51,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::patch('award-images/reorder', [AwardImageController::class, 'reorder'])->name('award-images.reorder');
     Route::apiResource('award-images', AwardImageController::class);
 
+    Route::apiResource('popups', PopupController::class);
+
     Route::patch('products-and-services/reorder', [ProductAndServiceController::class, 'reorder'])->name('products-and-services.reorder');
     Route::apiResource('products-and-services', ProductAndServiceController::class);
 
@@ -79,6 +82,7 @@ Route::name('public.')->prefix('public')->group(function () {
     });
 
     Route::get('award-images', [AwardImageController::class, 'index'])->name('award-images.index');
+    Route::get('popups', [PopupController::class, 'display'])->name('popup-images.display');
 
     Route::name('awards.')->prefix('awards')->group(function () {
         Route::get('/', [AwardController::class, 'index'])->name('index');
