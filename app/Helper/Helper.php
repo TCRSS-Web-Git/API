@@ -18,7 +18,7 @@ class Helper
         $textHexColor = ltrim($textHexColor, '#');
         $text = urlencode($text);
 
-        return "https://fakeimg.pl/{$width}x{$height}/{$bgHexColor}/{$textHexColor}?text={$text}";
+        return "https://placehold.co/{$width}x{$height}/{$bgHexColor}/{$textHexColor}?text={$text}";
     }
 
     public static function generateRandomColor(): string
