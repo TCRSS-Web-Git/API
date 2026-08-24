@@ -24,6 +24,10 @@ enum Permission: string
     case CAREERS_UPDATE = 'CAREERS:UPDATE';
     case CAREERS_DELETE = 'CAREERS:DELETE';
 
+    case BOARDDIRECTOR_PUBLISH = 'BOARDDIRECTOR:PUBLISH';
+
+    case EXECUTIVE_PUBLISH = 'EXECUTIVE:PUBLISH';
+
     public static function defaultSuperAdminPermissions(): array
     {
         $allPermissions = collect(Permission::cases())->pluck('value')->toArray();
@@ -40,6 +44,8 @@ enum Permission: string
             Permission::USERS_CREATE->value,
             Permission::USERS_UPDATE->value,
             Permission::USERS_DELETE->value,
+            Permission::EXECUTIVE_PUBLISH->value,
+            Permission::BOARDDIRECTOR_PUBLISH->value,
         ];
 
         return array_diff($allPermissions, $except);

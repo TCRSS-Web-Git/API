@@ -4,9 +4,11 @@ use App\Http\Controllers\AnnualReportController;
 use App\Http\Controllers\AwardController;
 use App\Http\Controllers\AwardImageController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BoardDirectorController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\ExecutiveController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\PopupController;
 use App\Http\Controllers\ProductAndServiceController;
@@ -59,6 +61,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::patch('annual-reports/reorder', [AnnualReportController::class, 'reorder'])->name('annual-reports.reorder');
     Route::apiResource('annual-reports', AnnualReportController::class);
 
+    Route::patch('executives/reorder', [ExecutiveController::class, 'reorder'])->name('executives.reorder');
+    Route::apiResource('executives', ExecutiveController::class);
+
+    Route::patch('board-directors/reorder', [BoardDirectorController::class, 'reorder'])->name('board-directors.reorder');
+    Route::apiResource('board-directors', BoardDirectorController::class);
+
     Route::post('/invite/resend/{user}', [InviteController::class, 'resend'])->name('invite.resend');
 });
 
@@ -99,4 +107,7 @@ Route::name('public.')->prefix('public')->group(function () {
     Route::name('products-and-services.')->prefix('products-and-services')->group(function () {
         Route::get('/', [ProductAndServiceController::class, 'index'])->name('index');
     });
+
+    Route::get('executives', [ExecutiveController::class, 'index'])->name('executives.index');
+    Route::get('board-directors', [BoardDirectorController::class, 'index'])->name('board-directors.index');
 });

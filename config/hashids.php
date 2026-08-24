@@ -4,9 +4,13 @@ use App\Models\AnnualReport;
 use App\Models\Award;
 use App\Models\AwardImage;
 use App\Models\Blog;
+use App\Models\BoardDirector;
+use App\Models\BoardDirectorTranslation;
 use App\Models\Career;
 use App\Models\Category;
 use App\Models\District;
+use App\Models\Executive;
+use App\Models\ExecutiveTranslation;
 use App\Models\Media;
 use App\Models\Permission;
 use App\Models\Popup;
@@ -81,6 +85,18 @@ return [
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
         ],
 
+        BoardDirector::class => [
+            'salt' => env('HASHIDS_BOARD_DIRECTOR', 'AytqSqj8BZVL4UkhsNDe'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',    
+        ],
+
+        BoardDirectorTranslation::class => [
+            'salt' => env('HASHIDS_BOARD_DIRECTOR_TRANSLATION', 'T5FoeB8gwaJobn4MfEeN'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',    
+        ],
+
         Category::class => [
             'salt' => env('HASHIDS_CATEGORY', '7eDm9NeRRUAruPmEFnPd'),
             'length' => 14,
@@ -97,6 +113,18 @@ return [
             'salt' => env('HASHIDS_DISTRICT', 'j575Z3iFvncT8lqS7aMf'),
             'length' => 14,
             'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',
+        ],
+
+        Executive::class => [
+            'salt' => env('HASHIDS_EXECUTIVE', '1C5ii5Ffb25dBaAstmC8'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',    
+        ],
+
+        ExecutiveTranslation::class => [
+            'salt' => env('HASHIDS_EXECUTIVE_TRANSLATION', 'uCYCgVyqlqsQnchhBtT7'),
+            'length' => 14,
+            'alphabet' => 'ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789',    
         ],
 
         Media::class => [
