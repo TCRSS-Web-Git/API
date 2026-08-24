@@ -17,4 +17,9 @@ trait LatestAudit
     {
         return $this->morphOne(Audit::class, 'auditable')->latest()->limit(1);
     }
+
+    public function firstAudit(): MorphOne
+    {
+        return $this->morphOne(Audit::class, 'auditable')->oldest()->limit(1);
+    }
 }
