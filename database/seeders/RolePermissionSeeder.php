@@ -44,6 +44,12 @@ class RolePermissionSeeder extends Seeder
         Permission::firstOrCreate(['name' => PermissionEnum::CAREERS_UPDATE, 'guard_name' => 'web']);
         Permission::firstOrCreate(['name' => PermissionEnum::CAREERS_DELETE, 'guard_name' => 'web']);
 
+        // Board Director Management
+        Permission::firstOrCreate(['name' => PermissionEnum::BOARDDIRECTOR_PUBLISH, 'guard_name' => 'web']);
+
+        // Executive Management
+        Permission::firstOrCreate(['name' => PermissionEnum::EXECUTIVE_PUBLISH, 'guard_name' => 'web']);
+        
         $superAdminRole->syncPermissions(PermissionEnum::defaultSuperAdminPermissions());
         $adminRole->syncPermissions(PermissionEnum::defaultAdminPermissions());
     }
