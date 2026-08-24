@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RolePermissionSeeder::class);
         $this->call(ThailandGeographySeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(ExecutiveSeeder::class);
+        $this->call(BoardDirectorSeeder::class);
 
         $user = User::factory()->create([
             'first_name' => 'Super',

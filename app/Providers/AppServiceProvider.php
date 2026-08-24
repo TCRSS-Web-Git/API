@@ -6,9 +6,11 @@ use App\Models\AnnualReport;
 use App\Models\Award;
 use App\Models\AwardImage;
 use App\Models\Blog;
+use App\Models\BoardDirector;
 use App\Models\Career;
 use App\Models\Category;
 use App\Models\District;
+use App\Models\Executive;
 use App\Models\Popup;
 use App\Models\ProductAndService;
 use App\Models\Province;
@@ -85,6 +87,10 @@ class AppServiceProvider extends ServiceProvider
             return $query->clone()->where('slug', $value)->first() ?? $query->clone()->findOrFail(Blog::decodeHash($value));
         });
 
+        Route::bind('board_director', function ($value) {
+            return BoardDirector::findByHashOrFail($value);
+        });
+
         Route::bind('category', function ($value) {
             return Category::findByHashOrFail($value);
         });
@@ -95,6 +101,10 @@ class AppServiceProvider extends ServiceProvider
 
         Route::bind('district', function ($value) {
             return District::where('id', District::decodeHash($value))->firstOrFail();
+        });
+
+        Route::bind('executive', function ($value) {
+            return Executive::findByHashOrFail($value);
         });
 
         Route::bind('products_and_service', function ($value) {
